@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: https://react4j.github.io/sitemap.xml
+Disallow: /search/

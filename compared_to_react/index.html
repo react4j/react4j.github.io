@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="generator" content="Jekyll v3.3.0">
+
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+		<link rel="stylesheet" href="/css/main.css">
+
+		<title>Compared to React</title>
+
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<img src="/images/logo.svg" alt="React4j" width="45">
+				React4J User Manual
+				<button type="button" class="open-nav" id="open-nav"></button>
+			</h1>
+
+			<form action="/search/" method="get">
+				<input type="text" name="q" id="search-input" placeholder="Search" autofocus>
+				<input type="submit" value="Search" style="display: none;">
+			</form>
+
+			<nav >
+				<ul>
+					<li class="nav-item top-level ">
+						
+						<a href="/">Introduction</a>
+					</li>
+				</ul>
+
+				<ul>
+					
+					
+						<li class="nav-item top-level current">
+							
+							<a href="/faq/">General</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/faq/">Frequently Asked Questions</a></li>
+								
+									<li class="nav-item current"><a href="/compared_to_react/">Compared to React</a></li>
+								
+									<li class="nav-item "><a href="/arez/">Arez</a></li>
+								
+									<li class="nav-item "><a href="/dependency_injection/">Dependency Injection</a></li>
+								
+							</ul>
+						</li>
+					
+				</ul>
+				<ul>
+					<li class="nav-item top-level">
+						
+						<a href="/api/index.html" target="_blank">Javadocs</a>
+					</li>
+				</ul>
+				<ul>
+					<li class="nav-item top-level ">
+						
+						<a href="/changelog/">Change Log</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>General</h2>
+				<h3>Compared to React</h3>
+			</div>
+			<article class="content">
+				<p>React4j is based on <a href="https://reactjs.org">React</a> so it is natural to ask how they compare and
+what are the differences between the two libraries. React4j is written in Java rather than
+javascript so there are some features thar just don’t make sense to implement in a Java
+environment. There are also some features of React that exist for legacy reasons so are not
+implemented in React4j.</p>
+
+<h3 id="the-constructor-versus-componentdidconstruct">The constructor versus componentDidConstruct</h3>
+
+<p>In React, components perform initialization in their constructor except for “Stateless Function Components” (SFCs)
+which do not need initialization as they are stateless. However, we found that in many react applications there are
+a lot of SFCs or stateful components that perform no initialization or only perform event handler binding (which
+is not used in React4j). As such we found it to be unnecessary boilerplate and complexity.</p>
+
+<p>In React4j, we decided that components need not define a constructor and could instead make use of the default
+constructor automatically provided by the runtime. If you wanted to perform per-component initialization you can
+override the lifecycle method <code class="highlighter-rouge">componentDidConstruct</code>. In practice we found it was rarely used.</p>
+
+<h3 id="setstate-versus-schedulestateupdate">setState versus scheduleStateUpdate</h3>
+
+<p>In React, <a href="https://reactjs.org/docs/react-component.html#setstate"><code class="highlighter-rouge">setState(...)</code></a> enqueues changes to the
+component state and tells React that this component and its children need to be re-rendered with the updated
+state. This can be confusing to new users who sometimes try to read the state property immediately after calling
+<code class="highlighter-rouge">setState(...)</code> and the “old” value is returned. To avoid this confusion React4j decided to rename this method
+to <a href="/api/react4j/core/Component.html#scheduleStateUpdate-S-">scheduleStateUpdate()</a>. This continues to be the primary
+method you use to update the user interface in response to event handlers and server responses.</p>
+
+<h3 id="forceupdate-versus-schedulerender">forceUpdate versus scheduleRender</h3>
+
+<p>In React, <a href="https://reactjs.org/docs/react-component.html#forceupdate"><code class="highlighter-rouge">forceUpdate(...)</code></a> tells the runtime
+to schedule the component for re-rendering. If this method is invoked it will skip the <code class="highlighter-rouge">shouldComponentUpdate()</code>
+method. It is not an uncommon pattern for a component to schedule a re-render by invoking <code class="highlighter-rouge">setState({})</code> if you
+still want the component to call <code class="highlighter-rouge">shouldComponentUpdate()</code> lifecycle method. To unify these two mechanisms for
+scheduling a render, React4j decided to define the method to <a href="/api/react4j/core/Component.html#scheduleRender-boolean-">scheduleRender(boolean force)</a>.
+If you pass <code class="highlighter-rouge">force = true</code> then <code class="highlighter-rouge">forceUpdate()</code> will be invoked on the underlying react component otherwise
+<code class="highlighter-rouge">setState({})</code> will be invoked. In both React and React4j, explicitly scheduling a re-render should be avoided
+but if you need to do it you can.</p>
+
+<h3 id="getinitialprops-versus-defaultprops">getInitialProps versus defaultProps</h3>
+
+<p>In React, a static property named <a href="https://reactjs.org/docs/react-component.html#defaultprops"><code class="highlighter-rouge">defaultProps</code></a> on the
+class or constructor tells the react runtime the default props for a component. The props provided by the developer
+are merged into these props. The equivalent in React4j is the <code class="highlighter-rouge">getInitialProps()</code> static method on the component
+class. This method is called when the component constructor function is created and the results are set as the default
+props for the component. The method must be static, non-private, have no parameters, throw no exceptions and must
+return a value that is compatible with the prop type for the component.</p>
+
+<h3 id="jsx">JSX</h3>
+
+<p>Most react code uses <a href="https://facebook.github.io/jsx/">JSX</a> to build component hierarchies. JSX is an xml-like
+syntax extension that is processed by a transpilers to transform the xml-like expression tokens into standard
+ECMAScript.</p>
+
+<p>Consider the following JSX to render a drop-down list:</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;Dropdown&gt;</span>
+  A dropdown list
+  <span class="nt">&lt;Menu&gt;</span>
+    <span class="nt">&lt;MenuItem&gt;</span>Do Something<span class="nt">&lt;/MenuItem&gt;</span>
+    <span class="nt">&lt;MenuItem&gt;</span>Do Something Fun!<span class="nt">&lt;/MenuItem&gt;</span>
+    <span class="nt">&lt;MenuItem&gt;</span>Do Something Else<span class="nt">&lt;/MenuItem&gt;</span>
+  <span class="nt">&lt;/Menu&gt;</span>
+<span class="nt">&lt;/Dropdown&gt;</span>
+</code></pre>
+</div>
+
+<p>This would be transpiled into:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">Dropdown</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">"A dropdown list"</span><span class="p">,</span>
+  <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">Menu</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">MenuItem</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">"Do Something"</span><span class="p">),</span>
+    <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">MenuItem</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">"Do Something Fun!"</span><span class="p">),</span>
+    <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">MenuItem</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">"Do Something Else"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+
+<p>React also supports html inside JSX which would transform:</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;section&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>My Title<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;p&gt;</span>My text...<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+</div>
+
+<p>into</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"section"</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"h1"</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">"My Title"</span><span class="p">),</span>
+  <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"p"</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">"My text..."</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre>
+</div>
+
+<p>React4j does not have the option to use a transpiler so has to use the createElement approach directly. An
+introduction to this approach can be found in the article
+<a href="http://jamesknelson.com/learn-raw-react-no-jsx-flux-es6-webpack/">“Learn Raw React — no JSX, no Flux, no ES6, no Webpack…”</a>.
+And the java code is very similar to the transpiled output.</p>
+
+<p>However this approach can be too verbose, so most code actually uses a factory based approach such as the code
+that follows. In some cases this is more verbose than the equivalent JSX and sometimes it is more succinct.</p>
+
+<div class="example">
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">section</span><span class="o">(</span> <span class="n">h1</span><span class="o">(</span> <span class="s">"My Title"</span> <span class="o">),</span> <span class="n">p</span><span class="o">(</span> <span class="s">"My text..."</span> <span class="o">)</span> <span class="o">);</span></code></pre></figure>
+
+</div>
+
+<h3 id="stateless-function-components">Stateless Function Components</h3>
+
+<p>Stateless function components or SFCs are often used in React but not so much in React4j. The reasoning for this is
+in the answer to the FAQ question <a href="/faq/#where-is-the-equivalent-of-reacts-stateless-function-components">“Where is the equivalent of React’s stateless function components?”</a></p>
+
+			</article>
+		</section>
+
+		<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+				document.body.classList.toggle("nav-open");
+			});
+		</script>
+	</body>
+</html>

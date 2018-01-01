@@ -1,0 +1,12 @@
+react4j.annotations
+react4j.arez
+react4j.arez.spy
+react4j.core
+react4j.core.util
+react4j.dom
+react4j.dom.events
+react4j.dom.proptypes.cssPropertyTypes
+react4j.dom.proptypes.html
+react4j.dom.proptypes.html.attributeTypes
+react4j.processor
+react4j.widget
