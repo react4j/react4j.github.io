@@ -95,6 +95,51 @@
 				<div class="changelog">
 	
 		<div class="changelog-item">
+			<h3>React4j 0.31 released</h3>
+			<p><span class="date">January 02, 2018</span> <span class="badge minor">minor</span></p>
+
+			<p><a href="https://github.com/react4j/react4j/compare/v0.30...v0.31">Full Changelog</a></p>
+
+<p>Changes in this release:</p>
+
+<h5 id="changed">Changed</h5>
+<ul>
+  <li>💥 <strong>[dom]</strong> Re-add <code class="highlighter-rouge">DOM.*()</code> factory methods that accepted a <code class="highlighter-rouge">java.util.List</code> parameter using a mechanism
+that is compatible with J2CL/GWT3.</li>
+</ul>
+
+		</div>
+	
+		<div class="changelog-item">
+			<h3>React4j 0.30 released</h3>
+			<p><span class="date">January 02, 2018</span> <span class="badge minor">minor</span></p>
+
+			<p><a href="https://github.com/react4j/react4j/compare/v0.29...v0.30">Full Changelog</a></p>
+
+<p>Changes in this release:</p>
+
+<h5 id="fixed">Fixed</h5>
+<ul>
+  <li>💥 <strong>[processor]</strong> Fix the generated class so that they generate an invariant failure if you attempt
+to instantiate a React4j component that requires dependency injection without correctly configuring the
+dependency injection provider. This means that during development mode a meaningful error message will
+be generated but the invariant check will be compiled out during production compiles.</li>
+</ul>
+
+<h5 id="changed">Changed</h5>
+<ul>
+  <li>💥 <strong>[dom]</strong> Changed <code class="highlighter-rouge">DOM.*()</code> factory methods that accepted a <code class="highlighter-rouge">java.util.List</code> to accept a
+<code class="highlighter-rouge">java.util.stream.Stream</code> instead. The aim was to discourage the creation of intermediate <code class="highlighter-rouge">java.util.List</code>
+instances when not needed. The change also removes the last direct JSNI dependency that was blocking
+a move to J2CL/GWT3.</li>
+  <li>💥 <strong>[core]</strong> Remove <code class="highlighter-rouge">JsUtil.asJsArray()</code> as it is no longer used from within the React4j library.</li>
+  <li>💥 <strong>[core]</strong> Revert the change in <code class="highlighter-rouge">v0.21</code>  that modified the <code class="highlighter-rouge">Component.componentDidConstruct()</code> lifecycle
+method to accept two parameters <code class="highlighter-rouge">props</code> and <code class="highlighter-rouge">context</code> and instead just use the helper methods.</li>
+</ul>
+
+		</div>
+	
+		<div class="changelog-item">
 			<h3>React4j 0.29 released</h3>
 			<p><span class="date">December 28, 2017</span> <span class="badge minor">minor</span></p>
 
