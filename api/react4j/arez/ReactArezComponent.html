@@ -121,7 +121,7 @@ extends <a href="../../react4j/core/Component.html" title="class in react4j.core
  <p>To achieve this goal, the props and state of the component are converted into
  observable properties. This of course means they must be accessed within the scope
  of an Arez transaction. (Typically this means it needs to be accessed within the
- scope of a <a href="https://arez.github.io/api/org/realityforge/arez/annotations/Action.html?is-external=true" title="class or interface in org.realityforge.arez.annotations"><code>Action</code></a> annotated method or within the scope of the render method.</p></div>
+ scope of a <code>Action</code> annotated method or within the scope of the render method.</p></div>
 </li>
 </ul>
 </div>
@@ -200,19 +200,19 @@ extends <a href="../../react4j/core/Component.html" title="class in react4j.core
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>protected <a href="https://arez.github.io/api/org/realityforge/arez/ArezContext.html?is-external=true" title="class or interface in org.realityforge.arez">ArezContext</a></code></td>
+<td class="colFirst"><code>protected org.realityforge.arez.ArezContext</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#getContext--">getContext</a></span>()</code>
 <div class="block">Return the arez context that this component is associated with.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected <a href="https://arez.github.io/api/org/realityforge/arez/Observable.html?is-external=true" title="class or interface in org.realityforge.arez">Observable</a>&lt;<a href="../../react4j/arez/ReactArezComponent.html" title="type parameter in ReactArezComponent">P</a>&gt;</code></td>
+<td class="colFirst"><code>protected org.realityforge.arez.Observable&lt;<a href="../../react4j/arez/ReactArezComponent.html" title="type parameter in ReactArezComponent">P</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#getPropsObservable--">getPropsObservable</a></span>()</code>
 <div class="block">Return the Observable used to make `props` observable.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>protected <a href="https://arez.github.io/api/org/realityforge/arez/Observer.html?is-external=true" title="class or interface in org.realityforge.arez">Observer</a></code></td>
+<td class="colFirst"><code>protected org.realityforge.arez.Observer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#getRenderObserver--">getRenderObserver</a></span>()</code>
 <div class="block">Return the Observer associated with the render tracker method.</div>
 </td>
@@ -327,7 +327,7 @@ extends <a href="../../react4j/core/Component.html" title="class in react4j.core
 <ul class="blockList">
 <li class="blockList">
 <h4>props</h4>
-<pre><a href="https://arez.github.io/api/org/realityforge/arez/annotations/Observable.html?is-external=true" title="class or interface in org.realityforge.arez.annotations">@Observable</a>(<a href="https://arez.github.io/api/org/realityforge/arez/annotations/Observable.html?is-external=true#expectSetter--" title="class or interface in org.realityforge.arez.annotations">expectSetter</a>=false)
+<pre>@Observable(expectSetter=false)
 protected&nbsp;<a href="../../react4j/arez/ReactArezComponent.html" title="type parameter in ReactArezComponent">P</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.63">props</a>()</pre>
 <div class="block">Return the component props from the native component.
  This may be null if no props were supplied.</div>
@@ -345,8 +345,8 @@ protected&nbsp;<a href="../../react4j/arez/ReactArezComponent.html" title="type 
 <ul class="blockList">
 <li class="blockList">
 <h4>getPropsObservable</h4>
-<pre><a href="https://arez.github.io/api/org/realityforge/arez/annotations/ObservableRef.html?is-external=true" title="class or interface in org.realityforge.arez.annotations">@ObservableRef</a>
-protected&nbsp;<a href="https://arez.github.io/api/org/realityforge/arez/Observable.html?is-external=true" title="class or interface in org.realityforge.arez">Observable</a>&lt;<a href="../../react4j/arez/ReactArezComponent.html" title="type parameter in ReactArezComponent">P</a>&gt;&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.74">getPropsObservable</a>()</pre>
+<pre>@ObservableRef
+protected&nbsp;org.realityforge.arez.Observable&lt;<a href="../../react4j/arez/ReactArezComponent.html" title="type parameter in ReactArezComponent">P</a>&gt;&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.74">getPropsObservable</a>()</pre>
 <div class="block">Return the Observable used to make `props` observable.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -360,7 +360,7 @@ protected&nbsp;<a href="https://arez.github.io/api/org/realityforge/arez/Observa
 <ul class="blockList">
 <li class="blockList">
 <h4>reportPropsChanged</h4>
-<pre><a href="https://arez.github.io/api/org/realityforge/arez/annotations/Action.html?is-external=true" title="class or interface in org.realityforge.arez.annotations">@Action</a>
+<pre>@Action
 protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.83">reportPropsChanged</a>()</pre>
 <div class="block">Action that invoked when props changes.</div>
 </li>
@@ -431,7 +431,7 @@ protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent
 <ul class="blockList">
 <li class="blockList">
 <h4>onRenderDepsChanged</h4>
-<pre><a href="https://arez.github.io/api/org/realityforge/arez/annotations/OnDepsChanged.html?is-external=true" title="class or interface in org.realityforge.arez.annotations">@OnDepsChanged</a>
+<pre>@OnDepsChanged
 protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.130">onRenderDepsChanged</a>()</pre>
 <div class="block">Hook used by Arez to notify component that it needs to be re-rendered.</div>
 </li>
@@ -442,9 +442,9 @@ protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezCom
 <ul class="blockList">
 <li class="blockList">
 <h4>getContext</h4>
-<pre><a href="https://arez.github.io/api/org/realityforge/arez/annotations/ContextRef.html?is-external=true" title="class or interface in org.realityforge.arez.annotations">@ContextRef</a>
+<pre>@ContextRef
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected&nbsp;<a href="https://arez.github.io/api/org/realityforge/arez/ArezContext.html?is-external=true" title="class or interface in org.realityforge.arez">ArezContext</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.145">getContext</a>()</pre>
+protected&nbsp;org.realityforge.arez.ArezContext&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.145">getContext</a>()</pre>
 <div class="block">Return the arez context that this component is associated with.
  The component is associated with the context that was active when it was created
  and can only react to observables associated with the same context.</div>
@@ -460,7 +460,7 @@ protected&nbsp;<a href="https://arez.github.io/api/org/realityforge/arez/ArezCon
 <ul class="blockList">
 <li class="blockList">
 <h4>getArezComponentId</h4>
-<pre><a href="https://arez.github.io/api/org/realityforge/arez/annotations/ComponentId.html?is-external=true" title="class or interface in org.realityforge.arez.annotations">@ComponentId</a>
+<pre>@ComponentId
 protected final&nbsp;int&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.157">getArezComponentId</a>()</pre>
 <div class="block">Return the unique identifier of component according to Arez.
  This method is invoked by the code generated by the Arez annotation processor.</div>
@@ -476,9 +476,9 @@ protected final&nbsp;int&nbsp;<a href="../../src-html/react4j/arez/ReactArezComp
 <ul class="blockList">
 <li class="blockList">
 <h4>getRenderObserver</h4>
-<pre><a href="https://arez.github.io/api/org/realityforge/arez/annotations/ObserverRef.html?is-external=true" title="class or interface in org.realityforge.arez.annotations">@ObserverRef</a>
+<pre>@ObserverRef
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected&nbsp;<a href="https://arez.github.io/api/org/realityforge/arez/Observer.html?is-external=true" title="class or interface in org.realityforge.arez">Observer</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.169">getRenderObserver</a>()</pre>
+protected&nbsp;org.realityforge.arez.Observer&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.169">getRenderObserver</a>()</pre>
 <div class="block">Return the Observer associated with the render tracker method.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -492,7 +492,7 @@ protected&nbsp;<a href="https://arez.github.io/api/org/realityforge/arez/Observe
 <ul class="blockList">
 <li class="blockList">
 <h4>performRender</h4>
-<pre><a href="https://arez.github.io/api/org/realityforge/arez/annotations/Track.html?is-external=true" title="class or interface in org.realityforge.arez.annotations">@Track</a>(<a href="https://arez.github.io/api/org/realityforge/arez/annotations/Track.html?is-external=true#name--" title="class or interface in org.realityforge.arez.annotations">name</a>="render")
+<pre>@Track(name="render")
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
 protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.180">performRender</a>()</pre>
 <div class="block">Wrapper method for rendering the component.
