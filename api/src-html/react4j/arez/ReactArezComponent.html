@@ -8,25 +8,25 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package react4j.arez;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import elemental2.core.JsObject;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import java.util.List;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import javax.annotation.Nonnull;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import javax.annotation.Nullable;<a name="line.6"></a>
-<span class="sourceLineNo">007</span>import jsinterop.base.Js;<a name="line.7"></a>
-<span class="sourceLineNo">008</span>import jsinterop.base.JsPropertyMap;<a name="line.8"></a>
-<span class="sourceLineNo">009</span>import org.realityforge.arez.Arez;<a name="line.9"></a>
-<span class="sourceLineNo">010</span>import org.realityforge.arez.ArezContext;<a name="line.10"></a>
-<span class="sourceLineNo">011</span>import org.realityforge.arez.Disposable;<a name="line.11"></a>
-<span class="sourceLineNo">012</span>import org.realityforge.arez.Observer;<a name="line.12"></a>
-<span class="sourceLineNo">013</span>import org.realityforge.arez.annotations.Action;<a name="line.13"></a>
-<span class="sourceLineNo">014</span>import org.realityforge.arez.annotations.ComponentId;<a name="line.14"></a>
-<span class="sourceLineNo">015</span>import org.realityforge.arez.annotations.ContextRef;<a name="line.15"></a>
-<span class="sourceLineNo">016</span>import org.realityforge.arez.annotations.Observable;<a name="line.16"></a>
-<span class="sourceLineNo">017</span>import org.realityforge.arez.annotations.ObservableRef;<a name="line.17"></a>
-<span class="sourceLineNo">018</span>import org.realityforge.arez.annotations.ObserverRef;<a name="line.18"></a>
-<span class="sourceLineNo">019</span>import org.realityforge.arez.annotations.OnDepsChanged;<a name="line.19"></a>
-<span class="sourceLineNo">020</span>import org.realityforge.arez.annotations.Track;<a name="line.20"></a>
-<span class="sourceLineNo">021</span>import org.realityforge.arez.spy.ObservableInfo;<a name="line.21"></a>
+<span class="sourceLineNo">003</span>import arez.Arez;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import arez.ArezContext;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import arez.Disposable;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import arez.Observer;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import arez.annotations.Action;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import arez.annotations.ComponentId;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import arez.annotations.ContextRef;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import arez.annotations.Observable;<a name="line.10"></a>
+<span class="sourceLineNo">011</span>import arez.annotations.ObservableRef;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>import arez.annotations.ObserverRef;<a name="line.12"></a>
+<span class="sourceLineNo">013</span>import arez.annotations.OnDepsChanged;<a name="line.13"></a>
+<span class="sourceLineNo">014</span>import arez.annotations.Track;<a name="line.14"></a>
+<span class="sourceLineNo">015</span>import arez.spy.ObservableInfo;<a name="line.15"></a>
+<span class="sourceLineNo">016</span>import elemental2.core.JsObject;<a name="line.16"></a>
+<span class="sourceLineNo">017</span>import java.util.List;<a name="line.17"></a>
+<span class="sourceLineNo">018</span>import javax.annotation.Nonnull;<a name="line.18"></a>
+<span class="sourceLineNo">019</span>import javax.annotation.Nullable;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import jsinterop.base.Js;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import jsinterop.base.JsPropertyMap;<a name="line.21"></a>
 <span class="sourceLineNo">022</span>import org.realityforge.braincheck.Guards;<a name="line.22"></a>
 <span class="sourceLineNo">023</span>import react4j.core.BaseContext;<a name="line.23"></a>
 <span class="sourceLineNo">024</span>import react4j.core.BaseProps;<a name="line.24"></a>
@@ -79,7 +79,7 @@
 <span class="sourceLineNo">071</span>   * @return the Observable used to make `props` observable.<a name="line.71"></a>
 <span class="sourceLineNo">072</span>   */<a name="line.72"></a>
 <span class="sourceLineNo">073</span>  @ObservableRef<a name="line.73"></a>
-<span class="sourceLineNo">074</span>  protected org.realityforge.arez.Observable&lt;P&gt; getPropsObservable()<a name="line.74"></a>
+<span class="sourceLineNo">074</span>  protected arez.Observable&lt;P&gt; getPropsObservable()<a name="line.74"></a>
 <span class="sourceLineNo">075</span>  {<a name="line.75"></a>
 <span class="sourceLineNo">076</span>    throw new IllegalStateException();<a name="line.76"></a>
 <span class="sourceLineNo">077</span>  }<a name="line.77"></a>

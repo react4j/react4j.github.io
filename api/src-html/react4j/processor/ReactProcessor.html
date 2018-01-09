@@ -310,12 +310,12 @@
 <span class="sourceLineNo">302</span>      if ( null == nonActionAnnotation )<a name="line.302"></a>
 <span class="sourceLineNo">303</span>      {<a name="line.303"></a>
 <span class="sourceLineNo">304</span>        final AnnotationMirror actionAnnotation = method.getAnnotationMirrors().stream().<a name="line.304"></a>
-<span class="sourceLineNo">305</span>          filter( m -&gt; m.getAnnotationType().toString().equals( "org.realityforge.arez.annotations.Action" ) ).<a name="line.305"></a>
+<span class="sourceLineNo">305</span>          filter( m -&gt; m.getAnnotationType().toString().equals( "arez.annotations.Action" ) ).<a name="line.305"></a>
 <span class="sourceLineNo">306</span>          findAny().orElse( null );<a name="line.306"></a>
 <span class="sourceLineNo">307</span>        if ( null != actionAnnotation )<a name="line.307"></a>
 <span class="sourceLineNo">308</span>        {<a name="line.308"></a>
 <span class="sourceLineNo">309</span>          throw new ReactProcessorException( "Method annotated with @EventHandler is also annotated with " +<a name="line.309"></a>
-<span class="sourceLineNo">310</span>                                             "@org.realityforge.arez.annotations.Action but is not annotated with " +<a name="line.310"></a>
+<span class="sourceLineNo">310</span>                                             "@arez.annotations.Action but is not annotated with " +<a name="line.310"></a>
 <span class="sourceLineNo">311</span>                                             "@react4j.arez.NoAutoAction which would stop react4j from also " +<a name="line.311"></a>
 <span class="sourceLineNo">312</span>                                             "annotating the method with @Action. Please remove @Action or add " +<a name="line.312"></a>
 <span class="sourceLineNo">313</span>                                             "@NoAutoAction annotation.", method );<a name="line.313"></a>
@@ -521,12 +521,12 @@
 <span class="sourceLineNo">513</span>    else if ( isArezComponent )<a name="line.513"></a>
 <span class="sourceLineNo">514</span>    {<a name="line.514"></a>
 <span class="sourceLineNo">515</span>      final AnnotationMirror arezAnnotation = typeElement.getAnnotationMirrors().stream().<a name="line.515"></a>
-<span class="sourceLineNo">516</span>        filter( m -&gt; m.getAnnotationType().toString().equals( "org.realityforge.arez.annotations.ArezComponent" ) ).<a name="line.516"></a>
+<span class="sourceLineNo">516</span>        filter( m -&gt; m.getAnnotationType().toString().equals( "arez.annotations.ArezComponent" ) ).<a name="line.516"></a>
 <span class="sourceLineNo">517</span>        findAny().orElse( null );<a name="line.517"></a>
 <span class="sourceLineNo">518</span>      if ( null != arezAnnotation )<a name="line.518"></a>
 <span class="sourceLineNo">519</span>      {<a name="line.519"></a>
 <span class="sourceLineNo">520</span>        throw new ReactProcessorException( "@ReactComponent target extends react4j.arez.ReactArezComponent and should " +<a name="line.520"></a>
-<span class="sourceLineNo">521</span>                                           "not be annotated with org.realityforge.arez.annotations.ArezComponent as " +<a name="line.521"></a>
+<span class="sourceLineNo">521</span>                                           "not be annotated with arez.annotations.ArezComponent as " +<a name="line.521"></a>
 <span class="sourceLineNo">522</span>                                           "React4j will add annotation", typeElement );<a name="line.522"></a>
 <span class="sourceLineNo">523</span>      }<a name="line.523"></a>
 <span class="sourceLineNo">524</span>    }<a name="line.524"></a>
