@@ -183,8 +183,8 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <h4>inject</h4>
 <pre>public abstract&nbsp;<a href="../../react4j/annotations/ReactComponent.Feature.html" title="enum in react4j.annotations">ReactComponent.Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.46">inject</a></pre>
 <div class="block">Indicate whether an @Inject annotation should be added to constructor of generated class.
- <a href="../../react4j/annotations/ReactComponent.Feature.html#TRUE"><code>ReactComponent.Feature.TRUE</code></a> will force the addition of an @Inject annotation, <a href="../../react4j/annotations/ReactComponent.Feature.html#FALSE"><code>ReactComponent.Feature.FALSE</code></a>
- will result in no @Inject annotation and <a href="../../react4j/annotations/ReactComponent.Feature.html#IF_DETECTED"><code>ReactComponent.Feature.IF_DETECTED</code></a> will add an @Inject
+ <a href="../../react4j/annotations/ReactComponent.Feature.html#ENABLE"><code>ReactComponent.Feature.ENABLE</code></a> will force the addition of an @Inject annotation, <a href="../../react4j/annotations/ReactComponent.Feature.html#DISABLE"><code>ReactComponent.Feature.DISABLE</code></a>
+ will result in no @Inject annotation and <a href="../../react4j/annotations/ReactComponent.Feature.html#AUTODETECT"><code>ReactComponent.Feature.AUTODETECT</code></a> will add an @Inject
  if any fields or methods in the react4j component or any parent type has an @Inject annotation.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -192,7 +192,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>react4j.annotations.ReactComponent.Feature.IF_DETECTED</dd>
+<dd>react4j.annotations.ReactComponent.Feature.AUTODETECT</dd>
 </dl>
 </li>
 </ul>
@@ -215,7 +215,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>react4j.annotations.ReactComponent.Feature.IF_DETECTED</dd>
+<dd>react4j.annotations.ReactComponent.Feature.AUTODETECT</dd>
 </dl>
 </li>
 </ul>

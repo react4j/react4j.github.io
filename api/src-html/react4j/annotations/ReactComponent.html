@@ -27,7 +27,7 @@
 <span class="sourceLineNo">019</span>   */<a name="line.19"></a>
 <span class="sourceLineNo">020</span>  enum Feature<a name="line.20"></a>
 <span class="sourceLineNo">021</span>  {<a name="line.21"></a>
-<span class="sourceLineNo">022</span>    TRUE, FALSE, IF_DETECTED<a name="line.22"></a>
+<span class="sourceLineNo">022</span>    ENABLE, DISABLE, AUTODETECT<a name="line.22"></a>
 <span class="sourceLineNo">023</span>  }<a name="line.23"></a>
 <span class="sourceLineNo">024</span><a name="line.24"></a>
 <span class="sourceLineNo">025</span>  /**<a name="line.25"></a>
@@ -45,13 +45,13 @@
 <span class="sourceLineNo">037</span><a name="line.37"></a>
 <span class="sourceLineNo">038</span>  /**<a name="line.38"></a>
 <span class="sourceLineNo">039</span>   * Indicate whether an @Inject annotation should be added to constructor of generated class.<a name="line.39"></a>
-<span class="sourceLineNo">040</span>   * {@link Feature#TRUE} will force the addition of an @Inject annotation, {@link Feature#FALSE}<a name="line.40"></a>
-<span class="sourceLineNo">041</span>   * will result in no @Inject annotation and {@link Feature#IF_DETECTED} will add an @Inject<a name="line.41"></a>
+<span class="sourceLineNo">040</span>   * {@link Feature#ENABLE} will force the addition of an @Inject annotation, {@link Feature#DISABLE}<a name="line.40"></a>
+<span class="sourceLineNo">041</span>   * will result in no @Inject annotation and {@link Feature#AUTODETECT} will add an @Inject<a name="line.41"></a>
 <span class="sourceLineNo">042</span>   * if any fields or methods in the react4j component or any parent type has an @Inject annotation.<a name="line.42"></a>
 <span class="sourceLineNo">043</span>   *<a name="line.43"></a>
 <span class="sourceLineNo">044</span>   * @return enum controlling present of Inject annotation on constructor.<a name="line.44"></a>
 <span class="sourceLineNo">045</span>   */<a name="line.45"></a>
-<span class="sourceLineNo">046</span>  Feature inject() default Feature.IF_DETECTED;<a name="line.46"></a>
+<span class="sourceLineNo">046</span>  Feature inject() default Feature.AUTODETECT;<a name="line.46"></a>
 <span class="sourceLineNo">047</span><a name="line.47"></a>
 <span class="sourceLineNo">048</span>  /**<a name="line.48"></a>
 <span class="sourceLineNo">049</span>   * Indicate whether a dagger sub-component and module is created for component.<a name="line.49"></a>
@@ -60,7 +60,7 @@
 <span class="sourceLineNo">052</span>   *<a name="line.52"></a>
 <span class="sourceLineNo">053</span>   * @return enum controlling whether dagger artifacts are generated.<a name="line.53"></a>
 <span class="sourceLineNo">054</span>   */<a name="line.54"></a>
-<span class="sourceLineNo">055</span>  Feature dagger() default Feature.IF_DETECTED;<a name="line.55"></a>
+<span class="sourceLineNo">055</span>  Feature dagger() default Feature.AUTODETECT;<a name="line.55"></a>
 <span class="sourceLineNo">056</span>}<a name="line.56"></a>
 
 

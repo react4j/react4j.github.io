@@ -553,9 +553,9 @@
 <span class="sourceLineNo">545</span>                                        "inject" ).getValue();<a name="line.545"></a>
 <span class="sourceLineNo">546</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.546"></a>
 <span class="sourceLineNo">547</span>    {<a name="line.547"></a>
-<span class="sourceLineNo">548</span>      case "TRUE":<a name="line.548"></a>
+<span class="sourceLineNo">548</span>      case "ENABLE":<a name="line.548"></a>
 <span class="sourceLineNo">549</span>        return true;<a name="line.549"></a>
-<span class="sourceLineNo">550</span>      case "FALSE":<a name="line.550"></a>
+<span class="sourceLineNo">550</span>      case "DISABLE":<a name="line.550"></a>
 <span class="sourceLineNo">551</span>        return false;<a name="line.551"></a>
 <span class="sourceLineNo">552</span>      default:<a name="line.552"></a>
 <span class="sourceLineNo">553</span>        return ProcessorUtil.getFieldElements( typeElement ).stream().anyMatch( this::hasInjectAnnotation ) ||<a name="line.553"></a>
@@ -573,9 +573,9 @@
 <span class="sourceLineNo">565</span>                                        "dagger" ).getValue();<a name="line.565"></a>
 <span class="sourceLineNo">566</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.566"></a>
 <span class="sourceLineNo">567</span>    {<a name="line.567"></a>
-<span class="sourceLineNo">568</span>      case "TRUE":<a name="line.568"></a>
+<span class="sourceLineNo">568</span>      case "ENABLE":<a name="line.568"></a>
 <span class="sourceLineNo">569</span>        return true;<a name="line.569"></a>
-<span class="sourceLineNo">570</span>      case "FALSE":<a name="line.570"></a>
+<span class="sourceLineNo">570</span>      case "DISABLE":<a name="line.570"></a>
 <span class="sourceLineNo">571</span>        return false;<a name="line.571"></a>
 <span class="sourceLineNo">572</span>      default:<a name="line.572"></a>
 <span class="sourceLineNo">573</span>        return null != processingEnv.getElementUtils().getTypeElement( Constants.DAGGER_MODULE_CLASSNAME );<a name="line.573"></a>
