@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://react4j.github.io/blog</id>
+    <title>React4j Blog</title>
+    <updated>2018-01-11T06:00:00Z</updated>
+    <generator>Feed for Node.js</generator>
+    <link rel="alternate" href="https://react4j.github.io/blog"/>
+    <subtitle>The best place to stay up-to-date with the latest React4j news and events.</subtitle>
+    <logo>https://react4j.github.ioimg/logo.svg</logo>
+    <rights>Copyright © 2018 the React4j Project</rights>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.35 released]]></title>
+        <id>https://react4j.github.io/blog/2018/01/11/version-0.35-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/01/11/version-0.35-release.html">
+        </link>
+        <updated>2018-01-11T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.34...v0.35)
+
+Changes in this release:
+
+##### Changed
+* 💥 **\[arez\]** Upgrade Arez to version `0.42`.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.34 released]]></title>
+        <id>https://react4j.github.io/blog/2018/01/10/version-0.34-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/01/10/version-0.34-release.html">
+        </link>
+        <updated>2018-01-10T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.33...v0.34)
+
+Changes in this release:
+
+##### Changed
+* 💥 **\[arez\]** Upgrade Arez to version `0.40`.
+* 💥 **\[annotations\]** Rename the `ReactComponent.Feature` constants to improve cl]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.33 released]]></title>
+        <id>https://react4j.github.io/blog/2018/01/09/version-0.33-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/01/09/version-0.33-release.html">
+        </link>
+        <updated>2018-01-09T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.32...v0.33)
+
+Changes in this release:
+
+##### Changed
+* 💥 **\[arez\]** Upgrade Arez to version `0.38`.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.32 released]]></title>
+        <id>https://react4j.github.io/blog/2018/01/09/version-0.32-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/01/09/version-0.32-release.html">
+        </link>
+        <updated>2018-01-09T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.31...v0.32)
+
+Changes in this release:
+
+##### Fixed
+* **\[arez\]** Add an inherit for the `org.realityforge.arez.annotations.Annotations` GWT module to the
+  `react4j.arez.ReactArez` GWT m]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.31 released]]></title>
+        <id>https://react4j.github.io/blog/2018/01/02/version-0.31-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/01/02/version-0.31-release.html">
+        </link>
+        <updated>2018-01-02T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.30...v0.31)
+
+Changes in this release:
+
+##### Changed
+* 💥 **\[dom\]** Re-add `DOM.*()` factory methods that accepted a `java.util.List` parameter using a mechanism
+  that is compatible wi]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.30 released]]></title>
+        <id>https://react4j.github.io/blog/2018/01/02/version-0.30-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/01/02/version-0.30-release.html">
+        </link>
+        <updated>2018-01-02T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.29...v0.30)
+
+Changes in this release:
+
+##### Fixed
+* 💥 **\[processor\]** Fix the generated class so that they generate an invariant failure if you attempt
+  to instantiate a React4j comp]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.29 released]]></title>
+        <id>https://react4j.github.io/blog/2017/12/28/version-0.29-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/12/28/version-0.29-release.html">
+        </link>
+        <updated>2017-12-28T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.28...v0.29)
+
+Changes in this release:
+
+##### Fixed
+* 💥 **\[arez\]** Ensure that the generated subclasses of `ReactArezComponent` set the
+  `deferSchedule` parameter on the `@ArezComponen]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.28 released]]></title>
+        <id>https://react4j.github.io/blog/2017/12/19/version-0.28-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/12/19/version-0.28-release.html">
+        </link>
+        <updated>2017-12-19T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.27...v0.28)
+
+Changes in this release:
+
+##### Changed
+* 💥 **\[core\]** Upgrade `com.google.jsinterop:base` library to version `1.0.0-RC1`.
+* 💥 **\[core\]** Upgrade `com.google.elemental2]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.27 released]]></title>
+        <id>https://react4j.github.io/blog/2017/12/18/version-0.27-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/12/18/version-0.27-release.html">
+        </link>
+        <updated>2017-12-18T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.26...v0.27)
+
+Changes in this release:
+
+##### Added
+* **\[docs\]** Add initial documentation about integrating React4j components into dependency injection
+  frameworks such as [Dagger2](h]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.26 released]]></title>
+        <id>https://react4j.github.io/blog/2017/12/13/version-0.26-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/12/13/version-0.26-release.html">
+        </link>
+        <updated>2017-12-13T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.25...v0.26)
+
+Changes in this release:
+
+##### Changed
+* 💥 **\[arez\]** Upgrade Arez to version `0.36`.
+* 💥 **\[dom\]** Change type of the `value` parameter passed to `HtmlGlobalFields.pr]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.25 released]]></title>
+        <id>https://react4j.github.io/blog/2017/12/12/version-0.25-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/12/12/version-0.25-release.html">
+        </link>
+        <updated>2017-12-12T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.24...v0.25)
+
+Changes in this release:
+
+##### Changed
+* 💥 **\[arez\]** Upgrade Arez to version `0.35`.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.24 released]]></title>
+        <id>https://react4j.github.io/blog/2017/12/11/version-0.24-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/12/11/version-0.24-release.html">
+        </link>
+        <updated>2017-12-11T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.23...v0.24)
+
+Changes in this release:
+
+##### Fixed
+* **\[core\]** Fixed bug where `ReactArezComponent.scheduleStateUpdate()` could result in a call to
+  `Component.forceUpdate()` within t]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.23 released]]></title>
+        <id>https://react4j.github.io/blog/2017/12/10/version-0.23-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/12/10/version-0.23-release.html">
+        </link>
+        <updated>2017-12-10T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.22...v0.23)
+
+Changes in this release:
+
+##### Changed
+* **\[core\]** Remove unused methods `JsUtil.asList(..)` and `JsUtil.getPrototypeForClass(..)`.
+* **\[annotations\]** Add parameter `i]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.22 released]]></title>
+        <id>https://react4j.github.io/blog/2017/12/05/version-0.22-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/12/05/version-0.22-release.html">
+        </link>
+        <updated>2017-12-05T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.21...v0.22)
+
+Changes in this release:
+
+##### Changed
+* Incorporate the processorpath buildr addon to simplify build configuration.
+* **\[processor\]** Initial support for integration into]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.21 released]]></title>
+        <id>https://react4j.github.io/blog/2017/12/04/version-0.21-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/12/04/version-0.21-release.html">
+        </link>
+        <updated>2017-12-04T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.20...v0.21)
+
+Changes in this release:
+
+##### Changed
+* **\[core\]** Upgrade to react 16.2.0.
+* 💥 **\[core\]** Remove `Component.isComponentBound()` method as usage is an indication that ]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.20 released]]></title>
+        <id>https://react4j.github.io/blog/2017/12/01/version-0.20-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/12/01/version-0.20-release.html">
+        </link>
+        <updated>2017-12-01T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.19...v0.20)
+
+Changes in this release:
+
+##### Fixed
+* **\[arez\]** Enhance `ReactArezComponent` so that autoruns are not scheduled when the component is created but are
+  instead scheduled]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.19 released]]></title>
+        <id>https://react4j.github.io/blog/2017/11/29/version-0.19-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/11/29/version-0.19-release.html">
+        </link>
+        <updated>2017-11-29T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.18...v0.19)
+
+Changes in this release:
+
+##### Changed
+* **\[processor\]** Remove a few more direct dependencies on the `javax.annotation.Nonnull` annotation
+  from the `react4j-processor` ]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.18 released]]></title>
+        <id>https://react4j.github.io/blog/2017/11/29/version-0.18-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/11/29/version-0.18-release.html">
+        </link>
+        <updated>2017-11-29T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.17...v0.18)
+
+Changes in this release:
+
+##### Changed
+* Upgrade Arez to version 0.30.
+* **\[processor\]** Remove the direct dependency on the `javax.annotation.Nonnull` and
+  `javax.annota]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.17 released]]></title>
+        <id>https://react4j.github.io/blog/2017/11/28/version-0.17-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/11/28/version-0.17-release.html">
+        </link>
+        <updated>2017-11-28T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.16...v0.17)
+
+Changes in this release:
+
+##### Changed
+* 💥 **\[processor\]** Changed the naming convention of the classes generated from nested static classes.
+  Previously the name compon]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.16 released]]></title>
+        <id>https://react4j.github.io/blog/2017/11/14/version-0.16-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/11/14/version-0.16-release.html">
+        </link>
+        <updated>2017-11-14T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.15...v0.16)
+
+Changes in this release:
+
+##### Changed
+* 💥 Move react4j from `https://github.com/realityforge/react4j` to it's own organization `https://github.com/react4j`.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.15 released]]></title>
+        <id>https://react4j.github.io/blog/2017/11/14/version-0.15-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/11/14/version-0.15-release.html">
+        </link>
+        <updated>2017-11-14T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.14...v0.15)
+
+Changes in this release:
+
+##### Added
+* **\[processor\]** Initial support added for React's `"defaultProps"` added. The component defines a static,
+  non-private methods name]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.14 released]]></title>
+        <id>https://react4j.github.io/blog/2017/11/13/version-0.14-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/11/13/version-0.14-release.html">
+        </link>
+        <updated>2017-11-13T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.13...v0.14)
+
+Changes in this release:
+
+##### Fixed
+* Make sure the `react4j-extras` module is correctly defined and can be released to Maven Central.
+
+##### Changed
+* **\[dom\]** Refactor]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.13 released]]></title>
+        <id>https://react4j.github.io/blog/2017/11/13/version-0.13-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/11/13/version-0.13-release.html">
+        </link>
+        <updated>2017-11-13T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.12...v0.13)
+
+Changes in this release:
+
+##### Added
+* **\[dom\]** Add `ReactDOM.createPortal()` method to support React 16 portals.
+* **\[extras\]** Add an "extras" module that will contai]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.12 released]]></title>
+        <id>https://react4j.github.io/blog/2017/11/09/version-0.12-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/11/09/version-0.12-release.html">
+        </link>
+        <updated>2017-11-09T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.11...v0.12)
+
+Changes in this release:
+
+##### Changed
+* Upgrade to Arez 0.25.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.11 released]]></title>
+        <id>https://react4j.github.io/blog/2017/11/03/version-0.11-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/11/03/version-0.11-release.html">
+        </link>
+        <updated>2017-11-03T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.10...v0.11)
+
+Changes in this release:
+
+##### Fixed
+* Fixed bug in `DragEvent` where field name was `clipboardData` rather than `dataTransfer`.
+
+##### Changed
+* Upgrade to Arez 0.24.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.10 released]]></title>
+        <id>https://react4j.github.io/blog/2017/11/01/version-0.10-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/11/01/version-0.10-release.html">
+        </link>
+        <updated>2017-11-01T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.09...v0.10)
+
+Changes in this release:
+
+##### Changed
+* 💥 Upgrade to Arez 0.23.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.09 released]]></title>
+        <id>https://react4j.github.io/blog/2017/10/30/version-0.09-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/10/30/version-0.09-release.html">
+        </link>
+        <updated>2017-10-30T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.08...v0.09)
+
+Changes in this release:
+
+##### Fixed
+* Fixed bug introduced when `ReactDOM.createElement(String,Props)` variant was converted from native method
+  to an overlay method.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.08 released]]></title>
+        <id>https://react4j.github.io/blog/2017/10/29/version-0.08-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/10/29/version-0.08-release.html">
+        </link>
+        <updated>2017-10-29T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.07...v0.08)
+
+Changes in this release:
+
+##### Changed
+* Upgrade to Arez 0.22.
+* Use Arez's `@ContextRef` annotation to get access to `ArezContext` rather than relying on custom code
+  in `]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.07 released]]></title>
+        <id>https://react4j.github.io/blog/2017/10/27/version-0.07-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/10/27/version-0.07-release.html">
+        </link>
+        <updated>2017-10-27T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.06...v0.07)
+
+Changes in this release:
+
+##### Fixed
+* Ensure that `ReactArezComponent` runs all actions using the context in which the component was created. This avoids
+  assertion failur]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.06 released]]></title>
+        <id>https://react4j.github.io/blog/2017/10/23/version-0.06-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/10/23/version-0.06-release.html">
+        </link>
+        <updated>2017-10-23T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.05...v0.06)
+
+Changes in this release:
+
+##### Fixed
+* Rewrite the `react4j.core.React` class, moving some code to java where possible and eliminating as yet unused
+  code. Some code (i.e. ]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.05 released]]></title>
+        <id>https://react4j.github.io/blog/2017/10/19/version-0.05-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/10/19/version-0.05-release.html">
+        </link>
+        <updated>2017-10-19T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.04...v0.05)
+
+Changes in this release:
+
+##### Added
+* Added `RenderResult` union type that abstracts over the results of rendering from a component. It is designed
+  to support the types s]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.04 released]]></title>
+        <id>https://react4j.github.io/blog/2017/10/16/version-0.04-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/10/16/version-0.04-release.html">
+        </link>
+        <updated>2017-10-16T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.03...v0.04)
+
+Changes in this release:
+
+##### Changed
+* **\[core\]** 💥 Replace `Component.setState(...)` with `Component.scheduleStateUpdate(...)` so that it
+  accurately reflects intent.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.03 released]]></title>
+        <id>https://react4j.github.io/blog/2017/10/16/version-0.03-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/10/16/version-0.03-release.html">
+        </link>
+        <updated>2017-10-16T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.02...v0.03)
+
+Changes in this release:
+
+##### Added
+* Cached javascript functions created for methods annotated with `@EventHandler`. This allows the equivalent
+  of `PureComponent` to be ]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.02 released]]></title>
+        <id>https://react4j.github.io/blog/2017/10/09/version-0.02-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/10/09/version-0.02-release.html">
+        </link>
+        <updated>2017-10-09T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.01...v0.02)
+
+Changes in this release:
+
+##### Fixed
+* Upgraded `braincheck` dependency to ensure that invariant checks are correctly compiled out during
+  production builds.
+* Upgraded `ar]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.01 released]]></title>
+        <id>https://react4j.github.io/blog/2017/10/06/version-0.01-release.html</id>
+        <link href="https://react4j.github.io/blog/2017/10/06/version-0.01-release.html">
+        </link>
+        <updated>2017-10-06T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/934ed5a707bfdab7959e9af5a793575a42a780ff...v0.01)
+
+‎🎉	Initial super-alpha release ‎🎉.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Website Launched]]></title>
+        <id>https://react4j.github.io/blog/2017/10/04/website-launched.html</id>
+        <link href="https://react4j.github.io/blog/2017/10/04/website-launched.html">
+        </link>
+        <updated>2017-10-04T06:00:00Z</updated>
+        <summary type="html"><![CDATA[This marks the date when the website was launched. The website marks the time
+when the development on the core features of React4J stabilized enough that documenting
+the toolkit became viable. For now see the [Javadocs]({{ site.baseurl }}/api/index.h]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+</feed>

@@ -1,0 +1,346 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Arez · React4j</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Arez · React4j"/><meta property="og:type" content="website"/><meta property="og:url" content="https://react4j.github.io/index.html"/><meta property="og:description" content="The combination of [Arez](https://arez.github.io) and React4j creates a powerful toolkit. Arez manages"/><link rel="shortcut icon" href="/img/favicon-32x32.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><link rel="alternate" type="application/atom+xml" href="https://react4j.github.io/blog/atom.xml" title="React4j Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://react4j.github.io/blog/feed.xml" title="React4j Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">React4j</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="/blog" target="_self">Blog</a></li><li><a href="https://github.com/react4j/react4j/releases" target="_blank">Releases</a></li><li><a href="https://github.com/react4j/react4j" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>About</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>About</h3><ul><li class="navListItem"><a class="navItem" href="/docs/overview.html">Introduction</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/arez.html">Arez</a></li><li class="navListItem"><a class="navItem" href="/docs/compared_to_react.html">Compared to React</a></li><li class="navListItem"><a class="navItem" href="/docs/dependency_injection.html">Dependency Injection</a></li></ul></div><div class="navGroup navGroupActive"><h3>Project Documentation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq.html">Frequently Asked Questions</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/react4j/react4j/tree/master/docs/arez.md" target="_blank">Edit</a><h1>Arez</h1></header><article><div><span><p>The combination of <a href="https://arez.github.io">Arez</a> and React4j creates a powerful toolkit. Arez manages
+the application state and React4j transforms the application state into a view. The React4jArez library provides
+the mechanisms for synchronizing the application state with the view. Both React4j and Arez are based on functional
+principles and trade higher memory usage for faster execution speed.</p>
+<p>React reduces the number of expensive DOM updates through the use of a virtual DOM. The application builds a future
+view and this is reconciled against the current view and any differences are applied to the DOM.</p>
+<p>Arez is built around a data flow graph where state modifications flow through the graph updating nodes only as
+required. Data nodes are always up to date and perform the minimum amount of work based on the graph definition.</p>
+<p>The React4jArez library bridges the two systems, triggering view updates when the state updates. Changes to observable
+data that a <code>ReactArezComponent</code> component uses during rendering will schedule the component for re-rendering. The
+developer controls the scope of the re-render by controlling the size of the component.</p>
+<h2><a class="anchor" aria-hidden="true" name="getting-started"></a><a href="#getting-started" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Started</h2>
+<p>The simplest approach to defining an Arez enabled component is simply to extend
+<a href="/api/react4j/arez/ReactArezComponent.html"><code>ReactArezComponent</code></a>. This will result in the <code>render()</code> method being invoked
+within the scope of a read-only, tracking (Arez) transaction. Changes to the observable state accessed within the
+scope of the <code>render()</code> will schedule the component for re-rendering.</p>
+<p>As most event handlers within a <code>ReactArezComponent</code> component will either access or mutate observable state, the
+helper methods generated as a result of annotating a method with <code>@EventHandler</code> will default to being annotated with
+arez's <code>@Action</code> annotation. If you do not wish an event handler to be run as an action you can annotate the event
+handler with the <a href="/api/react4j/arez/NoAutoAction.html#"><code>@NoAutoAction</code></a> annotation. This can be useful if you want to
+explicitly control the actions parameters (i.e. to make the action run in a read-only transaction) or you want to
+optimize a frequently called event handler by removing the overhead associated with annotating a method with
+<code>@Action</code>.</p>
+<p>Below is a <code>Footer</code> component extracted from a <a href="http://todomvc.com/">TodoMVC</a> implementation. It accesses the
+observable state <code>AppData.model.totalCount()</code>, <code>AppData.viewService.getFilterMode()</code> and
+<code>AppData.model.completedCount()</code> and will re-render each time any of these values change.</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
+  <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>&lt;<span class="hljs-title">BaseProps</span>, <span class="hljs-title">BaseContext</span>&gt;
+</span>{
+  <span class="hljs-meta">@EventHandler</span>( MouseEventHandler.class )
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handleClearCompleted</span><span class="hljs-params">()</span>
+  </span>{
+    AppData.service.clearCompleted();
+  }
+
+  <span class="hljs-meta">@Nullable</span>
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> count = AppData.model.totalCount();
+    <span class="hljs-keyword">final</span> String activeTodoWord = <span class="hljs-string">"item"</span> + ( count == <span class="hljs-number">1</span> ? <span class="hljs-string">""</span> : <span class="hljs-string">"s"</span> );
+    <span class="hljs-keyword">final</span> FilterMode filterMode = AppData.viewService.getFilterMode();
+    <span class="hljs-keyword">return</span>
+      footer( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"footer"</span> ),
+              span( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"todo-count"</span> ),
+                    strong( Integer.toString( count ) ),
+                    text( <span class="hljs-string">" "</span> + activeTodoWord + <span class="hljs-string">" left"</span> )
+              ),
+              ul( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"filters"</span> ),
+                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
+                           .className( FilterMode.ALL == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
+                           .href( <span class="hljs-string">"#"</span> ), <span class="hljs-string">"All"</span> )
+                  ),
+                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
+                           .className( FilterMode.ACTIVE == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
+                           .href( <span class="hljs-string">"#active"</span> ), <span class="hljs-string">"Active"</span> )
+                  ),
+                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
+                           .className( FilterMode.COMPLETED == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
+                           .href( <span class="hljs-string">"#completed"</span> ), <span class="hljs-string">"Completed"</span> )
+                  )
+              ),
+              AppData.model.completedCount() &gt; <span class="hljs-number">0</span> ?
+              button( <span class="hljs-keyword">new</span> BtnProps().className( <span class="hljs-string">"clear-completed"</span> ).onClick( _handleClearCompleted( <span class="hljs-keyword">this</span> ) ),
+                      <span class="hljs-string">"Clear Completed"</span> ) :
+              <span class="hljs-keyword">null</span>
+      );
+  }
+}</code></pre></p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" name="optimizing-the-component"></a><a href="#optimizing-the-component" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optimizing the component</h2>
+<p>However this is not the most efficient component. There are several scenarios where the component wil re-render
+but produce identical output. This is inefficient as React4j will take time to re-render the component to the
+virtual DOM and then additional time to reconcile the virtual DOM against the actual DOM.</p>
+<p>Whether this inefficiency has any impact on the user experience will depend upon the application. In particular
+it will depend on how frequently the observable data changes, what other parts of the view are updated when the
+same observable data changes and how dynamic and complex the remainder of the view is. It is often the case that
+re-rendering the entire component is perfectly fine and will have no impact on the users experience, as in the
+case with a <a href="http://todomvc.com/">TodoMVC</a> implementation.</p>
+<p>However let's assume that this component needs to be optimized and walk through the steps that would be required to
+optimize the component to reduce the scope and frequency of re-renders.</p>
+<h3><a class="anchor" aria-hidden="true" name="use-computed"></a><a href="#use-computed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use @Computed</h3>
+<p>If you turn on &quot;Highlight Updates&quot; in React's DevTools you will notice that the whole component re-renders any time
+a Todo is toggled from &quot;complete&quot; to &quot;not complete&quot; or vice-versa. However the html output only changes if the
+number of completed Todos changes from 0 to not zero or from not zero to zero.</p>
+<p>To eliminate these unnecessary renders, the simplest approach is to extract the expression
+<code>AppData.model.completedCount() &gt; 0</code> into a separate <code>@Computed</code> method. The <code>render()</code> method will only be scheduled
+to render if the value returned from the <code>@Computed</code> method changes.</p>
+<p>This method will look like:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@Computed</span>
+<span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">hasCompletedItems</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">return</span> AppData.model.completedCount() &gt; <span class="hljs-number">0</span>;
+}</code></pre></p>
+<p>Using computed properties is one of the easiest and least intrusive mechanisms for optimizing components.</p>
+<h3><a class="anchor" aria-hidden="true" name="extract-components"></a><a href="#extract-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extract Components</h3>
+<p>If we return to React's DevTools and turn &quot;Highlight Updates&quot; on again. The next thing you will notice is that the
+component is re-rendered any time a Todo is added or removed as the value for the expression
+<code>AppData.model.totalCount()</code> changes. Unfortunately <code>@Computed</code> will not help us here as the html output changes
+every time a re-render occurs. However we can decide to limit the scope of the rendering by extracting a component
+that encapsulates the html that changes.</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooterTodoCount</span>
+  <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>&lt;<span class="hljs-title">BaseProps</span>, <span class="hljs-title">BaseContext</span>&gt;
+</span>{
+  <span class="hljs-meta">@Nonnull</span>
+  <span class="hljs-function"><span class="hljs-keyword">static</span> ReactNode <span class="hljs-title">create</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _create();
+  }
+
+  <span class="hljs-meta">@Nullable</span>
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> count = AppData.model.totalCount();
+    <span class="hljs-keyword">final</span> String activeTodoWord = <span class="hljs-string">"item"</span> + ( count == <span class="hljs-number">1</span> ? <span class="hljs-string">""</span> : <span class="hljs-string">"s"</span> );
+    <span class="hljs-keyword">return</span>
+      span( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"todo-count"</span> ),
+            strong( Integer.toString( count ) ),
+            text( <span class="hljs-string">" "</span> + activeTodoWord + <span class="hljs-string">" left"</span> )
+      );
+  }
+}</code></pre></p>
+<p>This component can be rendered via an expression such as <code>React.createElement( FooterTodoCount_.TYPE )</code>.</p>
+<p>The <code>FooterTodoCount</code> component will still be re-rendered every time a Todo is added or removed but the scope
+of the re-render is much smaller and thus the amount of work that React4j has to do is much smaller.</p>
+<p>We could also extract another component to manage the links and only re-render this new component when the
+<code>filterMode</code> observable property changes but we have decided against this as it is a relatively infrequent event.
+The final <code>Footer</code> component looks something like:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
+  <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>&lt;<span class="hljs-title">BaseProps</span>, <span class="hljs-title">BaseContext</span>&gt;
+</span>{
+  <span class="hljs-meta">@EventHandler</span>( MouseEventHandler.class )
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handleClearCompleted</span><span class="hljs-params">()</span>
+  </span>{
+    AppData.service.clearCompleted();
+  }
+
+  <span class="hljs-meta">@Nullable</span>
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">final</span> FilterMode filterMode = AppData.viewService.getFilterMode();
+    <span class="hljs-keyword">return</span>
+      footer( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"footer"</span> ),
+              FooterTodoCount.create(),
+              ul( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"filters"</span> ),
+                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
+                           .className( FilterMode.ALL == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
+                           .href( <span class="hljs-string">"#"</span> ), <span class="hljs-string">"All"</span> )
+                  ),
+                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
+                           .className( FilterMode.ACTIVE == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
+                           .href( <span class="hljs-string">"#active"</span> ), <span class="hljs-string">"Active"</span> )
+                  ),
+                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
+                           .className( FilterMode.COMPLETED == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
+                           .href( <span class="hljs-string">"#completed"</span> ), <span class="hljs-string">"Completed"</span> )
+                  )
+              ),
+              hasCompletedItems() ?
+              button( <span class="hljs-keyword">new</span> BtnProps().className( <span class="hljs-string">"clear-completed"</span> ).onClick( _handleClearCompleted( <span class="hljs-keyword">this</span> ) ),
+                      <span class="hljs-string">"Clear Completed"</span> ) :
+              <span class="hljs-keyword">null</span>
+      );
+  }
+
+  <span class="hljs-meta">@Computed</span>
+  <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">hasCompletedItems</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> AppData.model.completedCount() &gt; <span class="hljs-number">0</span>;
+  }
+}</code></pre></p>
+<h3><a class="anchor" aria-hidden="true" name="on-optimizing"></a><a href="#on-optimizing" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>On Optimizing</h3>
+<p>Ultimately measuring performance and optimizing when needed to keep within your performance budget is the ideal
+goal. It is important to know which parts of your application need to be fast and which parts are
+less important to optimize. In some cases, the application is small enough to never need optimization while
+in others optimizing components by default may be a good option (i.e. if the cost of optimization is lower
+than the cost of determining which parts of the application to optimize).</p>
+<h2><a class="anchor" aria-hidden="true" name="best-practices"></a><a href="#best-practices" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Best Practices</h2>
+<p>Arez and React4j is such a powerful combination that many of the best practices that you use when building a
+React4j application no longer make sense after you integrate Arez. However this section will try to give some
+helpful suggestions that simplify your development experience. You should also checkout the Arez
+<a href="faq.html#arez-integration">FAQ Section</a>.</p>
+<h3><a class="anchor" aria-hidden="true" name="ui-state-should-be-modelled-with-arez-observable-state"></a><a href="#ui-state-should-be-modelled-with-arez-observable-state" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UI state should be modelled with Arez Observable State</h3>
+<p>Often applications start by just modelling the application domain classes as observable state. So an application
+has observable entities to model <code>Employee</code>, <code>Sale</code>, <code>Customer</code> etc. However it is extremely useful to model user
+interface state such as which tab is visible, the current application place or route, whether a button is visible
+etc. using observable state. This provides a single, unified mechanism for reacting to changes and updating the user
+interface.</p>
+<p>In an ideal world, we should be able to persist the arez observable state, relaunch the web page and load the
+observable state and the application should appear just as it was before the relaunch.</p>
+<p>The question often arises, when should you use React4j component level state. In most cases this state is no
+longer necessary however it sometimes makes sense to use it if:</p>
+<ul>
+<li>The component would otherwise be a generic component and need not extend <code>ReactArezComponent</code>.</li>
+<li>The state never needs to be shared with any other component.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" name="avoid-writing-business-logic-in-your-react4j-components"></a><a href="#avoid-writing-business-logic-in-your-react4j-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Avoid writing &quot;business logic&quot; in your React4j components</h3>
+<p>In an ideal world your Arez/React4j application, React4j should just be providing the view and Arez should
+provide the business logic. The business logic method in the Arez components are then called from React4j
+components. This makes it much easier to reuse, refactor and test the business logic. In most cases
+the business logic can be tested outside the browser in pure java. Another advantage is that it makes the
+application much easier to understand.</p>
+<h3><a class="anchor" aria-hidden="true" name="separate-network-interactions-from-react4j-components-and-other-arez-business-logic-components"></a><a href="#separate-network-interactions-from-react4j-components-and-other-arez-business-logic-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Separate network interactions from React4j components and other arez business logic components</h3>
+<p>Network interactions can be notoriously difficult to test. They are business logic and should not be put in
+your React4j components and instead should be triggered from arez components.</p>
+<p>One approach is to extract the service API calls behind an interface and pass the service interface into the
+constructor of the arez component. This way the unit tests can pass in a mock API service during testing.</p>
+<p>Consider the example where you have an action that wants to transition to a view listing employees and wants
+to load all the employee data for the view. A typical example using the &quot;extract a remote service interface&quot;
+strategy would be:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeService</span>
+</span>{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RemoteServiceAPI _remote;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> _loading;
+  <span class="hljs-keyword">private</span> String _employeeData;
+  <span class="hljs-keyword">private</span> String _errorMessage;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EmployeeService</span><span class="hljs-params">( <span class="hljs-keyword">final</span> RemoteServiceAPI remote )</span>
+  </span>{
+    _remote = remote;
+  }
+
+  <span class="hljs-meta">@Action</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changeToEmployeeView</span><span class="hljs-params">()</span>
+  </span>{
+    setLoading( <span class="hljs-keyword">true</span> );
+    _remote.loadEmployeeData( data -&gt; {
+      setLoading( <span class="hljs-keyword">false</span> );
+      setEmployeeData( data );
+    }, errorMessage -&gt; {
+      setLoading( <span class="hljs-keyword">false</span> );
+      setErrorMessage( errorMessage );
+    } );
+  }
+
+  <span class="hljs-meta">@Observable</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isLoading</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _loading;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLoading</span><span class="hljs-params">( <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> loading )</span>
+  </span>{
+    _loading = loading;
+  }
+
+  <span class="hljs-meta">@Observable</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getEmployeeData</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _employeeData;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setEmployeeData</span><span class="hljs-params">( <span class="hljs-keyword">final</span> String employeeData )</span>
+  </span>{
+    _employeeData = employeeData;
+  }
+
+  <span class="hljs-meta">@Observable</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getErrorMessage</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> _errorMessage;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setErrorMessage</span><span class="hljs-params">( <span class="hljs-keyword">final</span> String errorMessage )</span>
+  </span>{
+    _errorMessage = errorMessage;
+  }
+}</code></pre></p>
+<p>Another approach that is even easier to test and arguably easier to understand is to have the the <code>@Action</code>
+annotated method set state the defines the &quot;intent&quot; to perform a remote service and then have a separate arez
+component that uses an <code>@Autorun</code> method that observes the &quot;intent&quot; and performs remote call when the intent
+indicates that it is required.</p>
+<p>So this results in some minor modifications to the employee service so that the action is implemented as follows:</p>
+<p><pre><code class="hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> _loadEmployeeData;
+
+<span class="hljs-meta">@Observable</span>( name = <span class="hljs-string">"loadEmployeeData"</span> )
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">shouldLoadEmployeeData</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">return</span> _loadEmployeeData;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLoadEmployeeData</span><span class="hljs-params">( <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> loadEmployeeData )</span>
+</span>{
+  _loadEmployeeData = loadEmployeeData;
+}
+
+<span class="hljs-meta">@Action</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changeToEmployeeView</span><span class="hljs-params">()</span>
+</span>{
+  setLoadEmployeeData( <span class="hljs-keyword">true</span> );
+}
+</code></pre></p>
+<p>Then there would be a separate arez component to observe the intent and perform the remote call:</p>
+<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeDataLoader</span>
+</span>{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RemoteServiceAPI _remote;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> EmployeeService _service;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EmployeeDataLoader</span><span class="hljs-params">( <span class="hljs-keyword">final</span> RemoteServiceAPI remote, <span class="hljs-keyword">final</span> EmployeeService service )</span>
+  </span>{
+    _remote = remote;
+    _service = service;
+  }
+
+  <span class="hljs-meta">@Autorun</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">loadEmployeeDataIfRequired</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">if</span> ( _service.shouldLoadEmployeeData() )
+    {
+      _service.setLoading( <span class="hljs-keyword">true</span> );
+      _remote.loadEmployeeData( data -&gt; {
+        _service.setLoading( <span class="hljs-keyword">false</span> );
+        _service.setEmployeeData( data );
+        _service.setLoadEmployeeData( <span class="hljs-keyword">false</span> );
+      }, errorMessage -&gt; {
+        _service.setLoading( <span class="hljs-keyword">false</span> );
+        _service.setErrorMessage( errorMessage );
+        _service.setLoadEmployeeData( <span class="hljs-keyword">false</span> );
+      } );
+    }
+  }
+}</code></pre></p>
+<p>This approach where you separate intent and have another component that performs the remote call means that
+your unit tests are much more focused and simpler to understand. It has the disadvantage that it requires more
+verbose code constructs and can result in more abstraction and indirection. In a small application with a single
+developer this can have a negative effect. Larger applications with larger teams may benefit from the higher
+level of abstraction.</p>
+<h3><a class="anchor" aria-hidden="true" name="avoid-arez-annotations-other-than-computed-and-action-in-react4j-components"></a><a href="#avoid-arez-annotations-other-than-computed-and-action-in-react4j-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Avoid arez annotations other than @Computed and @Action in React4j components</h3>
+<p>Following the above best practices, you will find you rarely if ever need to annotate any methods in a
+<code>ReactArezComponent</code> subclass with any Arez annotations other than <code>@Computed</code> and <code>@Action</code> and as most
+uses of <code>@Action</code> are in <code>@EventHandler</code> annotated methods that default to being annotated with an <code>@Action</code>
+you may find that is rarely a good use case for using <code>@Action</code> in your react components.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="overview.html">← Introduction</a><a class="docs-next button" href="compared_to_react.html">Compared to React →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="React4j" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/react4j/react4j" data-icon="octicon-star" data-count-href="/react4j/react4j/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the React4j Project.</section></footer></div></body></html>
