@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -189,24 +189,18 @@ extends <a href="../../react4j/core/NativeComponent.html" title="class in react4
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performComponentWillMount--">performComponentWillMount</a></span>()</code>
-<div class="block">Call componentWillMount on the target component.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performComponentWillReceiveProps-P-C-">performComponentWillReceiveProps</a></span>(<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
                                 <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">C</a>&nbsp;nextContext)</code>
 <div class="block">Call componentWillReceiveProps on the target component.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performComponentWillUnmount--">performComponentWillUnmount</a></span>()</code>
 <div class="block">Call componentWillUnmount on the target component.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performComponentWillUpdate-P-S-C-">performComponentWillUpdate</a></span>(<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
                           <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState,
@@ -214,13 +208,13 @@ extends <a href="../../react4j/core/NativeComponent.html" title="class in react4
 <div class="block">Call componentWillUpdate on the target component.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected &lt;CC extends <a href="../../react4j/core/BaseChildContext.html" title="class in react4j.core">BaseChildContext</a>&gt;<br>CC</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performGetChildContext--">performGetChildContext</a></span>()</code>
 <div class="block">Call getChildContext on the target component.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performShouldComponentUpdate-P-S-C-">performShouldComponentUpdate</a></span>(<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
                             <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState,
@@ -228,7 +222,7 @@ extends <a href="../../react4j/core/NativeComponent.html" title="class in react4
 <div class="block">Call shouldComponentUpdate on the target component.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#render--">render</a></span>()</code>
 <div class="block">Call render on the target component.</div>
@@ -305,7 +299,7 @@ extends <a href="../../react4j/core/NativeComponent.html" title="class in react4
 <li class="blockList">
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.87">render</a>()</pre>
+public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.83">render</a>()</pre>
 <div class="block">Call render on the target component.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -323,7 +317,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentDidMount</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.113">performComponentDidMount</a>()</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.109">performComponentDidMount</a>()</pre>
 <div class="block">Call componentDidMount on the target component.
  It is expected that the subclass will implement a public method componentDidMount() that
  delegates to this method to perform the work.</div>
@@ -333,29 +327,13 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 </dl>
 </li>
 </ul>
-<a name="performComponentWillMount--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>performComponentWillMount</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.140">performComponentWillMount</a>()</pre>
-<div class="block">Call componentWillMount on the target component.
- It is expected that the subclass will implement a public method componentWillMount() that
- delegates to this method to perform the work.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../react4j/core/Component.html#componentWillMount--"><code>Component.componentWillMount()</code></a></dd>
-</dl>
-</li>
-</ul>
 <a name="performComponentWillUnmount--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentWillUnmount</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.166">performComponentWillUnmount</a>()</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.136">performComponentWillUnmount</a>()</pre>
 <div class="block">Call componentWillUnmount on the target component.
  It is expected that the subclass will implement a public method componentWillUnmount() that
  delegates to this method to perform the work.</div>
@@ -373,7 +351,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentWillUpdate</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.196">performComponentWillUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.166">performComponentWillUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                 <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
                                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                 <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState,
@@ -400,7 +378,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <ul class="blockList">
 <li class="blockList">
 <h4>performShouldComponentUpdate</h4>
-<pre>protected final&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.228">performShouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected final&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.198">performShouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                      <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
                                                      <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                      <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState,
@@ -429,7 +407,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentWillReceiveProps</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.258">performComponentWillReceiveProps</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.228">performComponentWillReceiveProps</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                       <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
                                                       <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                       <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">C</a>&nbsp;nextContext)</pre>
@@ -453,7 +431,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentDidUpdate</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.286">performComponentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.256">performComponentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
                                                <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState)</pre>
@@ -475,7 +453,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentDidCatch</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.314">performComponentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.284">performComponentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               elemental2.core.JsError&nbsp;error,
                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               <a href="../../react4j/core/ReactErrorInfo.html" title="class in react4j.core">ReactErrorInfo</a>&nbsp;info)</pre>
@@ -497,7 +475,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <ul class="blockListLast">
 <li class="blockList">
 <h4>performGetChildContext</h4>
-<pre>protected final&nbsp;&lt;CC extends <a href="../../react4j/core/BaseChildContext.html" title="class in react4j.core">BaseChildContext</a>&gt;&nbsp;CC&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.343">performGetChildContext</a>()</pre>
+<pre>protected final&nbsp;&lt;CC extends <a href="../../react4j/core/BaseChildContext.html" title="class in react4j.core">BaseChildContext</a>&gt;&nbsp;CC&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.313">performGetChildContext</a>()</pre>
 <div class="block">Call getChildContext on the target component.
  It is expected that the subclass will implement a public method getChildContext() that
  delegates to this method to perform the work.</div>
