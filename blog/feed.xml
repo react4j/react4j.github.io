@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Thu, 25 Jan 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 26 Jan 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,21 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.37 released]]></title>
+            <link>https://react4j.github.io/blog/2018/01/26/version-0.37-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/01/26/version-0.37-release.html</guid>
+            <pubDate>Fri, 26 Jan 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.36...v0.37)
+
+Changes in this release:
+
+##### Fixed
+* **\[docs\]** Fixed documentation describing the dependency injection `Feature` enum values.
+
+#### Changed
+* 💥 **\[arez\]** Upgrade Ar]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.36 released]]></title>
             <link>https://react4j.github.io/blog/2018/01/25/version-0.36-release.html</link>
