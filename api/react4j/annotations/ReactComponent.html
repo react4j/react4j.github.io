@@ -41,8 +41,8 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../react4j/annotations/EventHandler.Procedure.html" title="interface in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../react4j/annotations/ReactComponent.Feature.html" title="enum in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?react4j/annotations/ReactComponent.html" target="_top">Frames</a></li>
@@ -116,13 +116,13 @@ public @interface <a href="../../src-html/react4j/annotations/ReactComponent.htm
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="../../react4j/annotations/ReactComponent.Feature.html" title="enum in react4j.annotations">ReactComponent.Feature</a></code></td>
+<td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.html#dagger--">dagger</a></span></code>
 <div class="block">Indicate whether a dagger sub-component and module is created for component.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="../../react4j/annotations/ReactComponent.Feature.html" title="enum in react4j.annotations">ReactComponent.Feature</a></code></td>
+<td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.html#inject--">inject</a></span></code>
 <div class="block">Indicate whether an @Inject annotation should be added to constructor of generated class.</div>
 </td>
@@ -155,7 +155,7 @@ public @interface <a href="../../src-html/react4j/annotations/ReactComponent.htm
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.36">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.28">name</a></pre>
 <div class="block">Return the name of the component.
  The value defaults to the simple name name of the class. If the value is specified, the
  value must conform to the requirements of a java identifier. It should also be unique
@@ -181,10 +181,10 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>inject</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/ReactComponent.Feature.html" title="enum in react4j.annotations">ReactComponent.Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.46">inject</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.38">inject</a></pre>
 <div class="block">Indicate whether an @Inject annotation should be added to constructor of generated class.
- <a href="../../react4j/annotations/ReactComponent.Feature.html#ENABLE"><code>ReactComponent.Feature.ENABLE</code></a> will force the addition of an @Inject annotation, <a href="../../react4j/annotations/ReactComponent.Feature.html#DISABLE"><code>ReactComponent.Feature.DISABLE</code></a>
- will result in no @Inject annotation and <a href="../../react4j/annotations/ReactComponent.Feature.html#AUTODETECT"><code>ReactComponent.Feature.AUTODETECT</code></a> will add an @Inject
+ <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force the addition of an @Inject annotation, <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
+ will result in no @Inject annotation and <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will add an @Inject
  if any fields or methods in the react4j component or any parent type has an @Inject annotation.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -192,7 +192,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>react4j.annotations.ReactComponent.Feature.AUTODETECT</dd>
+<dd>react4j.annotations.Feature.AUTODETECT</dd>
 </dl>
 </li>
 </ul>
@@ -205,7 +205,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>dagger</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/ReactComponent.Feature.html" title="enum in react4j.annotations">ReactComponent.Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.55">dagger</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.47">dagger</a></pre>
 <div class="block">Indicate whether a dagger sub-component and module is created for component.
  Dagger is detected by searching for "dagger.Module" class in the same processing environment that
  is compiling the react4j component.</div>
@@ -215,7 +215,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </dl>
 <dl>
 <dt>Default:</dt>
-<dd>react4j.annotations.ReactComponent.Feature.AUTODETECT</dd>
+<dd>react4j.annotations.Feature.AUTODETECT</dd>
 </dl>
 </li>
 </ul>
@@ -246,8 +246,8 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../react4j/annotations/EventHandler.Procedure.html" title="interface in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../react4j/annotations/ReactComponent.Feature.html" title="enum in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?react4j/annotations/ReactComponent.html" target="_top">Frames</a></li>

@@ -31,7 +31,7 @@ optimize a frequently called event handler by removing the overhead associated w
 observable state <code>AppData.model.totalCount()</code>, <code>AppData.viewService.getFilterMode()</code> and
 <code>AppData.model.completedCount()</code> and will re-render each time any of these values change.</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
+<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
   <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>&lt;<span class="hljs-title">BaseProps</span>, <span class="hljs-title">BaseContext</span>&gt;
 </span>{
   <span class="hljs-meta">@EventHandler</span>( MouseEventHandler.class )
@@ -107,7 +107,7 @@ component is re-rendered any time a Todo is added or removed as the value for th
 every time a re-render occurs. However we can decide to limit the scope of the rendering by extracting a component
 that encapsulates the html that changes.</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooterTodoCount</span>
+<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooterTodoCount</span>
   <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>&lt;<span class="hljs-title">BaseProps</span>, <span class="hljs-title">BaseContext</span>&gt;
 </span>{
   <span class="hljs-meta">@Nonnull</span>
@@ -136,7 +136,7 @@ of the re-render is much smaller and thus the amount of work that React4j has to
 <code>filterMode</code> observable property changes but we have decided against this as it is a relatively infrequent event.
 The final <code>Footer</code> component looks something like:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
+<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
   <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>&lt;<span class="hljs-title">BaseProps</span>, <span class="hljs-title">BaseContext</span>&gt;
 </span>{
   <span class="hljs-meta">@EventHandler</span>( MouseEventHandler.class )
@@ -220,15 +220,15 @@ constructor of the arez component. This way the unit tests can pass in a mock AP
 to load all the employee data for the view. A typical example using the &quot;extract a remote service interface&quot;
 strategy would be:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeService</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeService</span>
 </span>{
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RemoteServiceAPI _remote;
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> _loading;
   <span class="hljs-keyword">private</span> String _employeeData;
   <span class="hljs-keyword">private</span> String _errorMessage;
 
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EmployeeService</span><span class="hljs-params">( <span class="hljs-keyword">final</span> RemoteServiceAPI remote )</span>
-  </span>{
+  EmployeeService( <span class="hljs-keyword">final</span> RemoteServiceAPI remote )
+  {
     _remote = remote;
   }
 
@@ -304,7 +304,7 @@ indicates that it is required.</p>
 </code></pre></p>
 <p>Then there would be a separate arez component to observe the intent and perform the remote call:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeDataLoader</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeDataLoader</span>
 </span>{
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RemoteServiceAPI _remote;
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> EmployeeService _service;
