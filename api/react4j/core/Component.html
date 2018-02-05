@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":6,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -170,7 +170,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -253,7 +253,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code>protected <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a></code></td>
+<td class="colFirst"><code>protected abstract <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#render--">render</a></span>()</code>
 <div class="block">Render the component.</div>
 </td>
@@ -390,7 +390,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>props</h4>
-<pre>protected&nbsp;<a href="../../react4j/core/Component.html" title="type parameter in Component">P</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.121">props</a>()</pre>
+<pre>protected final&nbsp;<a href="../../react4j/core/Component.html" title="type parameter in Component">P</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.121">props</a>()</pre>
 <div class="block">Return the component props from the native component.
  This may be null if no props were supplied.</div>
 <dl>
@@ -523,7 +523,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.250">render</a>()</pre>
+protected abstract&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.250">render</a>()</pre>
 <div class="block">Render the component.
  See the <a href="https://reactjs.org/docs/react-component.html#render">React Component documentation</a> for more details.</div>
 <dl>
@@ -539,7 +539,7 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 <li class="blockList">
 <h4>performRender</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.264">performRender</a>()</pre>
+protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.260">performRender</a>()</pre>
 <div class="block">Wrapper method for rendering the component.
  By default it just delegates to the <a href="../../react4j/core/Component.html#render--"><code>render()</code></a> method.
  This method exists to give middleware a mechanism of wrapping calls to render</div>
@@ -556,7 +556,7 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 <li class="blockList">
 <h4>getChildContext</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class in react4j.core">BaseChildContext</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.275">getChildContext</a>()</pre>
+protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class in react4j.core">BaseChildContext</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.271">getChildContext</a>()</pre>
 <div class="block">Return the context published by this component to child components.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -570,7 +570,7 @@ protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class i
 <ul class="blockList">
 <li class="blockList">
 <h4>performPostConstruct</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.285">performPostConstruct</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.281">performPostConstruct</a>()</pre>
 <div class="block">Wrapper method for constructing the component.
  By default it just delegates to the <a href="../../react4j/core/Component.html#postConstruct--"><code>postConstruct()</code></a> method.
  This method exists to give middleware a mechanism to hook into component construction lifecycle.</div>
@@ -582,7 +582,7 @@ protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class i
 <ul class="blockList">
 <li class="blockList">
 <h4>postConstruct</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.298">postConstruct</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.294">postConstruct</a>()</pre>
 <div class="block">This method is invoked after the component is constructed and bound to a native react component.
  This is a good place to perform initialization. It is called before <a href="../../react4j/core/Component.html#render--"><code>render()</code></a>, therefore
  setting state in this method will not trigger a re-rendering. This replaces the
@@ -597,7 +597,7 @@ protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class i
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidMount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.308">componentDidMount</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.304">componentDidMount</a>()</pre>
 <div class="block">This method is invoked after a component is attached to the DOM.
  Initialization that requires DOM nodes should go here.
  Setting state in this method will trigger a re-rendering.
@@ -612,7 +612,7 @@ protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class i
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidUpdate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.320">componentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.316">componentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                   <a href="../../react4j/core/Component.html" title="type parameter in Component">P</a>&nbsp;prevProps,
                                   <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                   <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;prevState)</pre>
@@ -634,7 +634,7 @@ protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class i
 <ul class="blockList">
 <li class="blockList">
 <h4>componentWillReceiveProps</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.342">componentWillReceiveProps</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.338">componentWillReceiveProps</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                          <a href="../../react4j/core/Component.html" title="type parameter in Component">P</a>&nbsp;nextProps,
                                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                          <a href="../../react4j/core/Component.html" title="type parameter in Component">C</a>&nbsp;nextContext)</pre>
@@ -664,7 +664,7 @@ protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class i
 <ul class="blockList">
 <li class="blockList">
 <h4>componentWillUnmount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.352">componentWillUnmount</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.348">componentWillUnmount</a>()</pre>
 <div class="block">This method is invoked immediately before a component is unmounted and destroyed.
  Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up
  any DOM elements that were created in <a href="../../react4j/core/Component.html#componentDidMount--"><code>componentDidMount()</code></a>
@@ -679,7 +679,7 @@ protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class i
 <ul class="blockList">
 <li class="blockList">
 <h4>componentWillUpdate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.372">componentWillUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.368">componentWillUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                    <a href="../../react4j/core/Component.html" title="type parameter in Component">P</a>&nbsp;nextProps,
                                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                    <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;nextState,
@@ -709,7 +709,7 @@ protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class i
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidCatch</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.391">componentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.387">componentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  elemental2.core.JsError&nbsp;error,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../../react4j/core/ReactErrorInfo.html" title="class in react4j.core">ReactErrorInfo</a>&nbsp;info)</pre>
@@ -736,7 +736,7 @@ protected&nbsp;<a href="../../react4j/core/BaseChildContext.html" title="class i
 <ul class="blockListLast">
 <li class="blockList">
 <h4>shouldComponentUpdate</h4>
-<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/Component.html#line.417">shouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/Component.html#line.413">shouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                         <a href="../../react4j/core/Component.html" title="type parameter in Component">P</a>&nbsp;nextProps,
                                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                         <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;nextState,
