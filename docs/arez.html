@@ -110,12 +110,6 @@ that encapsulates the html that changes.</p>
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooterTodoCount</span>
   <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>&lt;<span class="hljs-title">BaseProps</span>, <span class="hljs-title">BaseContext</span>&gt;
 </span>{
-  <span class="hljs-meta">@Nonnull</span>
-  <span class="hljs-function"><span class="hljs-keyword">static</span> ReactNode <span class="hljs-title">create</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-keyword">return</span> _create();
-  }
-
   <span class="hljs-meta">@Nullable</span>
   <span class="hljs-meta">@Override</span>
   <span class="hljs-function"><span class="hljs-keyword">protected</span> ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
@@ -152,7 +146,7 @@ The final <code>Footer</code> component looks something like:</p>
     <span class="hljs-keyword">final</span> FilterMode filterMode = AppData.viewService.getFilterMode();
     <span class="hljs-keyword">return</span>
       footer( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"footer"</span> ),
-              FooterTodoCount.create(),
+              FooterTodoCountBuilder.build(),
               ul( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"filters"</span> ),
                   li( a( <span class="hljs-keyword">new</span> AnchorProps()
                            .className( FilterMode.ALL == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
