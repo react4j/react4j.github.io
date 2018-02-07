@@ -109,7 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsType.html?is-external=true" title="class or interface in jsinterop.annotations">@JsType</a>(<a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsType.html?is-external=true#isNative--" title="class or interface in jsinterop.annotations">isNative</a>=true,
         <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsType.html?is-external=true#namespace--" title="class or interface in jsinterop.annotations">namespace</a>="&lt;global&gt;")
-public final class <a href="../../src-html/react4j/core/React.html#line.14">React</a>
+public final class <a href="../../src-html/react4j/core/React.html#line.15">React</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Native interface to native runtime for creating component.</div>
 </li>
@@ -131,29 +131,29 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static &lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,T&gt;<br><a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;P,T&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/React.html#cloneElement-react4j.core.ReactElement-P-">cloneElement</a></span>(<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;P,T&gt;&nbsp;element,
-            P&nbsp;props)</code>
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/React.html#cloneElement-react4j.core.ReactElement-jsinterop.base.JsPropertyMap-">cloneElement</a></span>(<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;T&gt;&nbsp;element,
+            jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</code>
 <div class="block">Clone and return a new ReactElement using element as the starting point.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static &lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;<br><a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;P,<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/React.html#createElement-react4j.core.ComponentConstructorFunction-">createElement</a></span>(<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&nbsp;type)</code>
+<td class="colFirst"><code>static &lt;C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;<br><a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/React.html#createElement-react4j.core.ComponentConstructorFunction-">createElement</a></span>(<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&nbsp;type)</code>
 <div class="block">Create a ReactElement for the specified React component with no props or children.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>static &lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;<br><a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;P,<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/React.html#createElement-react4j.core.ComponentConstructorFunction-P-">createElement</a></span>(<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&nbsp;type,
-             P&nbsp;props)</code>
+<td class="colFirst"><code>static &lt;C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;<br><a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/React.html#createElement-react4j.core.ComponentConstructorFunction-jsinterop.base.JsPropertyMap-">createElement</a></span>(<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&nbsp;type,
+             jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</code>
 <div class="block">Create a ReactElement for the specified React component with no children.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>static &lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;<br><a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;P,<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/React.html#createElement-react4j.core.ComponentConstructorFunction-P-react4j.core.ReactNode-">createElement</a></span>(<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&nbsp;type,
-             P&nbsp;props,
+<td class="colFirst"><code>static &lt;C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;<br><a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/React.html#createElement-react4j.core.ComponentConstructorFunction-jsinterop.base.JsPropertyMap-react4j.core.ReactNode-">createElement</a></span>(<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&nbsp;type,
+             jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props,
              <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;child)</code>
 <div class="block">Create a ReactElement for the specified React component.</div>
 </td>
@@ -187,12 +187,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>createElement</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;&lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;&nbsp;<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;P,<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&gt;&nbsp;<a href="../../src-html/react4j/core/React.html#line.33">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                                                                                     <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&nbsp;type)</pre>
+public static&nbsp;&lt;C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;&nbsp;<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&gt;&nbsp;<a href="../../src-html/react4j/core/React.html#line.30">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                                                             <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&nbsp;type)</pre>
 <div class="block">Create a ReactElement for the specified React component with no props or children.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>P</code> - the type of the component props.</dd>
 <dd><code>C</code> - the type of the component context.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>type</code> - the constructor function for the native React component.</dd>
@@ -201,23 +200,20 @@ public static&nbsp;&lt;P extends <a href="../../react4j/core/BaseProps.html" tit
 </dl>
 </li>
 </ul>
-<a name="createElement-react4j.core.ComponentConstructorFunction-react4j.core.BaseProps-">
-<!--   -->
-</a><a name="createElement-react4j.core.ComponentConstructorFunction-P-">
+<a name="createElement-react4j.core.ComponentConstructorFunction-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>createElement</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;&lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;&nbsp;<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;P,<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&gt;&nbsp;<a href="../../src-html/react4j/core/React.html#line.52">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                                                                                     <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&nbsp;type,
-                                                                                                                                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                                                                                                                     P&nbsp;props)</pre>
+public static&nbsp;&lt;C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;&nbsp;<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&gt;&nbsp;<a href="../../src-html/react4j/core/React.html#line.45">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                                                             <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&nbsp;type,
+                                                                                                             <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                                                                                             jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</pre>
 <div class="block">Create a ReactElement for the specified React component with no children.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>P</code> - the type of the component props.</dd>
 <dd><code>C</code> - the type of the component context.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>type</code> - the constructor function for the native React component.</dd>
@@ -227,24 +223,21 @@ public static&nbsp;&lt;P extends <a href="../../react4j/core/BaseProps.html" tit
 </dl>
 </li>
 </ul>
-<a name="createElement-react4j.core.ComponentConstructorFunction-react4j.core.BaseProps-react4j.core.ReactNode-">
-<!--   -->
-</a><a name="createElement-react4j.core.ComponentConstructorFunction-P-react4j.core.ReactNode-">
+<a name="createElement-react4j.core.ComponentConstructorFunction-jsinterop.base.JsPropertyMap-react4j.core.ReactNode-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>createElement</h4>
-<pre>public static&nbsp;&lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;&nbsp;<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;P,<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&gt;&nbsp;<a href="../../src-html/react4j/core/React.html#line.74">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                                                                          <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;P,C&gt;&nbsp;type,
-                                                                                                                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                                                                                                          P&nbsp;props,
-                                                                                                                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                                                                                                          <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;child)</pre>
+<pre>public static&nbsp;&lt;C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;&nbsp;<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;<a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&gt;&nbsp;<a href="../../src-html/react4j/core/React.html#line.63">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                                                  <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&lt;C&gt;&nbsp;type,
+                                                                                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                                                                                  jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props,
+                                                                                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                                                                                  <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;child)</pre>
 <div class="block">Create a ReactElement for the specified React component.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>P</code> - the type of the component props.</dd>
 <dd><code>C</code> - the type of the component context.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>type</code> - the constructor function for the native React component.</dd>
@@ -255,18 +248,16 @@ public static&nbsp;&lt;P extends <a href="../../react4j/core/BaseProps.html" tit
 </dl>
 </li>
 </ul>
-<a name="cloneElement-react4j.core.ReactElement-react4j.core.BaseProps-">
-<!--   -->
-</a><a name="cloneElement-react4j.core.ReactElement-P-">
+<a name="cloneElement-react4j.core.ReactElement-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>cloneElement</h4>
-<pre>public static&nbsp;&lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,T&gt;&nbsp;<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;P,T&gt;&nbsp;<a href="../../src-html/react4j/core/React.html#line.92">cloneElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                     <a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;P,T&gt;&nbsp;element,
-                                                                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                                                     P&nbsp;props)</pre>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;T&gt;&nbsp;<a href="../../src-html/react4j/core/React.html#line.80">cloneElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                               <a href="../../react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a>&lt;T&gt;&nbsp;element,
+                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                               jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</pre>
 <div class="block">Clone and return a new ReactElement using element as the starting point. The resulting
  element will have the original element's props with the new props merged in shallowly.
  New children will replace existing children. Unlike React.addons.cloneWithProps, key and
@@ -274,7 +265,6 @@ public static&nbsp;&lt;P extends <a href="../../react4j/core/BaseProps.html" tit
  any props (unlike cloneWithProps).</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>P</code> - the type of the component props.</dd>
 <dd><code>T</code> - the type of the component.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>element</code> - the element to clone</dd>

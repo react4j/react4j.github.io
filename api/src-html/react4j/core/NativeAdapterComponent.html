@@ -11,23 +11,23 @@
 <span class="sourceLineNo">003</span>import elemental2.core.JsError;<a name="line.3"></a>
 <span class="sourceLineNo">004</span>import javax.annotation.Nonnull;<a name="line.4"></a>
 <span class="sourceLineNo">005</span>import javax.annotation.Nullable;<a name="line.5"></a>
-<span class="sourceLineNo">006</span><a name="line.6"></a>
-<span class="sourceLineNo">007</span>/**<a name="line.7"></a>
-<span class="sourceLineNo">008</span> * This class provides a base class that designed to forward all lifecycle methods to a target component.<a name="line.8"></a>
-<span class="sourceLineNo">009</span> * The target component is of type {@link Component}. This class is also responsible for calling<a name="line.9"></a>
-<span class="sourceLineNo">010</span> * {@link Component#setLifecycleMethod(LifecycleMethod)} before and after each call to the target component<a name="line.10"></a>
-<span class="sourceLineNo">011</span> * if {@link ReactConfig#checkComponentStateInvariants()} returns true. This will make it possible for the<a name="line.11"></a>
-<span class="sourceLineNo">012</span> * target component to check that the application code is correctly interacting with the React component<a name="line.12"></a>
-<span class="sourceLineNo">013</span> * framework. In production builds it is expected that the method calls will be inlined and the checks will<a name="line.13"></a>
-<span class="sourceLineNo">014</span> * be optimized away, having no significant performance impact.<a name="line.14"></a>
-<span class="sourceLineNo">015</span> */<a name="line.15"></a>
-<span class="sourceLineNo">016</span>public abstract class NativeAdapterComponent&lt;<a name="line.16"></a>
-<span class="sourceLineNo">017</span>  P extends BaseProps,<a name="line.17"></a>
+<span class="sourceLineNo">006</span>import jsinterop.base.JsPropertyMap;<a name="line.6"></a>
+<span class="sourceLineNo">007</span><a name="line.7"></a>
+<span class="sourceLineNo">008</span>/**<a name="line.8"></a>
+<span class="sourceLineNo">009</span> * This class provides a base class that designed to forward all lifecycle methods to a target component.<a name="line.9"></a>
+<span class="sourceLineNo">010</span> * The target component is of type {@link Component}. This class is also responsible for calling<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * {@link Component#setLifecycleMethod(LifecycleMethod)} before and after each call to the target component<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * if {@link ReactConfig#checkComponentStateInvariants()} returns true. This will make it possible for the<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * target component to check that the application code is correctly interacting with the React component<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * framework. In production builds it is expected that the method calls will be inlined and the checks will<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * be optimized away, having no significant performance impact.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>public abstract class NativeAdapterComponent&lt;<a name="line.17"></a>
 <span class="sourceLineNo">018</span>  S extends BaseState,<a name="line.18"></a>
 <span class="sourceLineNo">019</span>  C extends BaseContext,<a name="line.19"></a>
-<span class="sourceLineNo">020</span>  I extends Component&lt;P, S, C&gt;<a name="line.20"></a>
+<span class="sourceLineNo">020</span>  I extends Component&lt;S, C&gt;<a name="line.20"></a>
 <span class="sourceLineNo">021</span>  &gt;<a name="line.21"></a>
-<span class="sourceLineNo">022</span>  extends NativeComponent&lt;P, S, C&gt;<a name="line.22"></a>
+<span class="sourceLineNo">022</span>  extends NativeComponent&lt;S, C&gt;<a name="line.22"></a>
 <span class="sourceLineNo">023</span>{<a name="line.23"></a>
 <span class="sourceLineNo">024</span>  /**<a name="line.24"></a>
 <span class="sourceLineNo">025</span>   * The target component that all lifecycle methods are forwarded to.<a name="line.25"></a>
@@ -40,7 +40,7 @@
 <span class="sourceLineNo">032</span>   * @param props   the initial props.<a name="line.32"></a>
 <span class="sourceLineNo">033</span>   * @param context the initial context.<a name="line.33"></a>
 <span class="sourceLineNo">034</span>   */<a name="line.34"></a>
-<span class="sourceLineNo">035</span>  protected NativeAdapterComponent( @Nullable final P props,<a name="line.35"></a>
+<span class="sourceLineNo">035</span>  protected NativeAdapterComponent( @Nullable final JsPropertyMap&lt;Object&gt; props,<a name="line.35"></a>
 <span class="sourceLineNo">036</span>                                    @Nullable final C context )<a name="line.36"></a>
 <span class="sourceLineNo">037</span>  {<a name="line.37"></a>
 <span class="sourceLineNo">038</span>    super( props, context );<a name="line.38"></a>
@@ -169,9 +169,9 @@
 <span class="sourceLineNo">161</span>   * @param nextProps   the new properties of the component.<a name="line.161"></a>
 <span class="sourceLineNo">162</span>   * @param nextState   the state.<a name="line.162"></a>
 <span class="sourceLineNo">163</span>   * @param nextContext the new context of the component.<a name="line.163"></a>
-<span class="sourceLineNo">164</span>   * @see Component#componentWillUpdate(BaseProps, BaseState, BaseContext)<a name="line.164"></a>
+<span class="sourceLineNo">164</span>   * @see Component#componentWillUpdate(JsPropertyMap, BaseState, BaseContext)<a name="line.164"></a>
 <span class="sourceLineNo">165</span>   */<a name="line.165"></a>
-<span class="sourceLineNo">166</span>  protected final void performComponentWillUpdate( @Nonnull final P nextProps,<a name="line.166"></a>
+<span class="sourceLineNo">166</span>  protected final void performComponentWillUpdate( @Nonnull final JsPropertyMap&lt;Object&gt; nextProps,<a name="line.166"></a>
 <span class="sourceLineNo">167</span>                                                   @Nonnull final S nextState,<a name="line.167"></a>
 <span class="sourceLineNo">168</span>                                                   @Nonnull final C nextContext )<a name="line.168"></a>
 <span class="sourceLineNo">169</span>  {<a name="line.169"></a>
@@ -201,9 +201,9 @@
 <span class="sourceLineNo">193</span>   * @param nextState   the new state of the component.<a name="line.193"></a>
 <span class="sourceLineNo">194</span>   * @param nextContext the new context of the component.<a name="line.194"></a>
 <span class="sourceLineNo">195</span>   * @return true if the component should be updated.<a name="line.195"></a>
-<span class="sourceLineNo">196</span>   * @see Component#shouldComponentUpdate(BaseProps, BaseState, BaseContext)<a name="line.196"></a>
+<span class="sourceLineNo">196</span>   * @see Component#shouldComponentUpdate(JsPropertyMap, BaseState, BaseContext)<a name="line.196"></a>
 <span class="sourceLineNo">197</span>   */<a name="line.197"></a>
-<span class="sourceLineNo">198</span>  protected final boolean performShouldComponentUpdate( @Nonnull final P nextProps,<a name="line.198"></a>
+<span class="sourceLineNo">198</span>  protected final boolean performShouldComponentUpdate( @Nonnull final JsPropertyMap&lt;Object&gt; nextProps,<a name="line.198"></a>
 <span class="sourceLineNo">199</span>                                                        @Nonnull final S nextState,<a name="line.199"></a>
 <span class="sourceLineNo">200</span>                                                        @Nullable final C nextContext )<a name="line.200"></a>
 <span class="sourceLineNo">201</span>  {<a name="line.201"></a>
@@ -231,98 +231,100 @@
 <span class="sourceLineNo">223</span>   *<a name="line.223"></a>
 <span class="sourceLineNo">224</span>   * @param nextProps   the new properties of the component.<a name="line.224"></a>
 <span class="sourceLineNo">225</span>   * @param nextContext the new context of the component.<a name="line.225"></a>
-<span class="sourceLineNo">226</span>   * @see Component#componentWillReceiveProps(BaseProps, BaseContext)<a name="line.226"></a>
+<span class="sourceLineNo">226</span>   * @see Component#componentWillReceiveProps(JsPropertyMap, BaseContext)<a name="line.226"></a>
 <span class="sourceLineNo">227</span>   */<a name="line.227"></a>
-<span class="sourceLineNo">228</span>  protected final void performComponentWillReceiveProps( @Nonnull final P nextProps, @Nonnull final C nextContext )<a name="line.228"></a>
-<span class="sourceLineNo">229</span>  {<a name="line.229"></a>
-<span class="sourceLineNo">230</span>    if ( ReactConfig.checkComponentStateInvariants() )<a name="line.230"></a>
-<span class="sourceLineNo">231</span>    {<a name="line.231"></a>
-<span class="sourceLineNo">232</span>      _component.setLifecycleMethod( LifecycleMethod.COMPONENT_WILL_RECEIVE_PROPS );<a name="line.232"></a>
-<span class="sourceLineNo">233</span>    }<a name="line.233"></a>
-<span class="sourceLineNo">234</span>    try<a name="line.234"></a>
-<span class="sourceLineNo">235</span>    {<a name="line.235"></a>
-<span class="sourceLineNo">236</span>      _component.componentWillReceiveProps( nextProps, nextContext );<a name="line.236"></a>
-<span class="sourceLineNo">237</span>    }<a name="line.237"></a>
-<span class="sourceLineNo">238</span>    finally<a name="line.238"></a>
-<span class="sourceLineNo">239</span>    {<a name="line.239"></a>
-<span class="sourceLineNo">240</span>      if ( ReactConfig.checkComponentStateInvariants() )<a name="line.240"></a>
-<span class="sourceLineNo">241</span>      {<a name="line.241"></a>
-<span class="sourceLineNo">242</span>        _component.setLifecycleMethod( LifecycleMethod.UNKNOWN );<a name="line.242"></a>
-<span class="sourceLineNo">243</span>      }<a name="line.243"></a>
-<span class="sourceLineNo">244</span>    }<a name="line.244"></a>
-<span class="sourceLineNo">245</span>  }<a name="line.245"></a>
-<span class="sourceLineNo">246</span><a name="line.246"></a>
-<span class="sourceLineNo">247</span>  /**<a name="line.247"></a>
-<span class="sourceLineNo">248</span>   * Call componentDidUpdate on the target component.<a name="line.248"></a>
-<span class="sourceLineNo">249</span>   * It is expected that the subclass will implement a public method componentDidUpdate() that<a name="line.249"></a>
-<span class="sourceLineNo">250</span>   * delegates to this method to perform the work.<a name="line.250"></a>
-<span class="sourceLineNo">251</span>   *<a name="line.251"></a>
-<span class="sourceLineNo">252</span>   * @param nextProps the new properties of the component.<a name="line.252"></a>
-<span class="sourceLineNo">253</span>   * @param nextState the new state of the component.<a name="line.253"></a>
-<span class="sourceLineNo">254</span>   * @see Component#componentDidUpdate(BaseProps, BaseState)<a name="line.254"></a>
-<span class="sourceLineNo">255</span>   */<a name="line.255"></a>
-<span class="sourceLineNo">256</span>  protected final void performComponentDidUpdate( @Nonnull final P nextProps, @Nonnull final S nextState )<a name="line.256"></a>
-<span class="sourceLineNo">257</span>  {<a name="line.257"></a>
-<span class="sourceLineNo">258</span>    if ( ReactConfig.checkComponentStateInvariants() )<a name="line.258"></a>
-<span class="sourceLineNo">259</span>    {<a name="line.259"></a>
-<span class="sourceLineNo">260</span>      _component.setLifecycleMethod( LifecycleMethod.COMPONENT_DID_UPDATE );<a name="line.260"></a>
-<span class="sourceLineNo">261</span>    }<a name="line.261"></a>
-<span class="sourceLineNo">262</span>    try<a name="line.262"></a>
-<span class="sourceLineNo">263</span>    {<a name="line.263"></a>
-<span class="sourceLineNo">264</span>      _component.componentDidUpdate( nextProps, nextState );<a name="line.264"></a>
-<span class="sourceLineNo">265</span>    }<a name="line.265"></a>
-<span class="sourceLineNo">266</span>    finally<a name="line.266"></a>
-<span class="sourceLineNo">267</span>    {<a name="line.267"></a>
-<span class="sourceLineNo">268</span>      if ( ReactConfig.checkComponentStateInvariants() )<a name="line.268"></a>
-<span class="sourceLineNo">269</span>      {<a name="line.269"></a>
-<span class="sourceLineNo">270</span>        _component.setLifecycleMethod( LifecycleMethod.UNKNOWN );<a name="line.270"></a>
-<span class="sourceLineNo">271</span>      }<a name="line.271"></a>
-<span class="sourceLineNo">272</span>    }<a name="line.272"></a>
-<span class="sourceLineNo">273</span>  }<a name="line.273"></a>
-<span class="sourceLineNo">274</span><a name="line.274"></a>
-<span class="sourceLineNo">275</span>  /**<a name="line.275"></a>
-<span class="sourceLineNo">276</span>   * Call componentDidCatch on the target component.<a name="line.276"></a>
-<span class="sourceLineNo">277</span>   * It is expected that the subclass will implement a public method componentDidCatch() that<a name="line.277"></a>
-<span class="sourceLineNo">278</span>   * delegates to this method to perform the work.<a name="line.278"></a>
-<span class="sourceLineNo">279</span>   *<a name="line.279"></a>
-<span class="sourceLineNo">280</span>   * @param error the error that has been thrown.<a name="line.280"></a>
-<span class="sourceLineNo">281</span>   * @param info  information about component stack during thrown error.<a name="line.281"></a>
-<span class="sourceLineNo">282</span>   * @see Component#componentDidCatch(JsError, ReactErrorInfo)<a name="line.282"></a>
-<span class="sourceLineNo">283</span>   */<a name="line.283"></a>
-<span class="sourceLineNo">284</span>  protected final void performComponentDidCatch( @Nonnull final JsError error, @Nonnull final ReactErrorInfo info )<a name="line.284"></a>
-<span class="sourceLineNo">285</span>  {<a name="line.285"></a>
-<span class="sourceLineNo">286</span>    if ( ReactConfig.checkComponentStateInvariants() )<a name="line.286"></a>
-<span class="sourceLineNo">287</span>    {<a name="line.287"></a>
-<span class="sourceLineNo">288</span>      _component.setLifecycleMethod( LifecycleMethod.COMPONENT_DID_CATCH );<a name="line.288"></a>
-<span class="sourceLineNo">289</span>    }<a name="line.289"></a>
-<span class="sourceLineNo">290</span>    try<a name="line.290"></a>
-<span class="sourceLineNo">291</span>    {<a name="line.291"></a>
-<span class="sourceLineNo">292</span>      _component.componentDidCatch( error, info );<a name="line.292"></a>
-<span class="sourceLineNo">293</span>    }<a name="line.293"></a>
-<span class="sourceLineNo">294</span>    finally<a name="line.294"></a>
-<span class="sourceLineNo">295</span>    {<a name="line.295"></a>
-<span class="sourceLineNo">296</span>      if ( ReactConfig.checkComponentStateInvariants() )<a name="line.296"></a>
-<span class="sourceLineNo">297</span>      {<a name="line.297"></a>
-<span class="sourceLineNo">298</span>        _component.setLifecycleMethod( LifecycleMethod.UNKNOWN );<a name="line.298"></a>
-<span class="sourceLineNo">299</span>      }<a name="line.299"></a>
-<span class="sourceLineNo">300</span>    }<a name="line.300"></a>
-<span class="sourceLineNo">301</span>  }<a name="line.301"></a>
-<span class="sourceLineNo">302</span><a name="line.302"></a>
-<span class="sourceLineNo">303</span>  /**<a name="line.303"></a>
-<span class="sourceLineNo">304</span>   * Call getChildContext on the target component.<a name="line.304"></a>
-<span class="sourceLineNo">305</span>   * It is expected that the subclass will implement a public method getChildContext() that<a name="line.305"></a>
-<span class="sourceLineNo">306</span>   * delegates to this method to perform the work.<a name="line.306"></a>
-<span class="sourceLineNo">307</span>   *<a name="line.307"></a>
-<span class="sourceLineNo">308</span>   * @param &lt;CC&gt; the type of the child context.<a name="line.308"></a>
-<span class="sourceLineNo">309</span>   * @return the child context.<a name="line.309"></a>
-<span class="sourceLineNo">310</span>   * @see Component#getChildContext()<a name="line.310"></a>
-<span class="sourceLineNo">311</span>   */<a name="line.311"></a>
-<span class="sourceLineNo">312</span>  @SuppressWarnings( "unchecked" )<a name="line.312"></a>
-<span class="sourceLineNo">313</span>  protected final &lt;CC extends BaseChildContext&gt; CC performGetChildContext()<a name="line.313"></a>
-<span class="sourceLineNo">314</span>  {<a name="line.314"></a>
-<span class="sourceLineNo">315</span>    return (CC) _component.getChildContext();<a name="line.315"></a>
-<span class="sourceLineNo">316</span>  }<a name="line.316"></a>
-<span class="sourceLineNo">317</span>}<a name="line.317"></a>
+<span class="sourceLineNo">228</span>  protected final void performComponentWillReceiveProps( @Nonnull final JsPropertyMap&lt;Object&gt; nextProps,<a name="line.228"></a>
+<span class="sourceLineNo">229</span>                                                         @Nonnull final C nextContext )<a name="line.229"></a>
+<span class="sourceLineNo">230</span>  {<a name="line.230"></a>
+<span class="sourceLineNo">231</span>    if ( ReactConfig.checkComponentStateInvariants() )<a name="line.231"></a>
+<span class="sourceLineNo">232</span>    {<a name="line.232"></a>
+<span class="sourceLineNo">233</span>      _component.setLifecycleMethod( LifecycleMethod.COMPONENT_WILL_RECEIVE_PROPS );<a name="line.233"></a>
+<span class="sourceLineNo">234</span>    }<a name="line.234"></a>
+<span class="sourceLineNo">235</span>    try<a name="line.235"></a>
+<span class="sourceLineNo">236</span>    {<a name="line.236"></a>
+<span class="sourceLineNo">237</span>      _component.componentWillReceiveProps( nextProps, nextContext );<a name="line.237"></a>
+<span class="sourceLineNo">238</span>    }<a name="line.238"></a>
+<span class="sourceLineNo">239</span>    finally<a name="line.239"></a>
+<span class="sourceLineNo">240</span>    {<a name="line.240"></a>
+<span class="sourceLineNo">241</span>      if ( ReactConfig.checkComponentStateInvariants() )<a name="line.241"></a>
+<span class="sourceLineNo">242</span>      {<a name="line.242"></a>
+<span class="sourceLineNo">243</span>        _component.setLifecycleMethod( LifecycleMethod.UNKNOWN );<a name="line.243"></a>
+<span class="sourceLineNo">244</span>      }<a name="line.244"></a>
+<span class="sourceLineNo">245</span>    }<a name="line.245"></a>
+<span class="sourceLineNo">246</span>  }<a name="line.246"></a>
+<span class="sourceLineNo">247</span><a name="line.247"></a>
+<span class="sourceLineNo">248</span>  /**<a name="line.248"></a>
+<span class="sourceLineNo">249</span>   * Call componentDidUpdate on the target component.<a name="line.249"></a>
+<span class="sourceLineNo">250</span>   * It is expected that the subclass will implement a public method componentDidUpdate() that<a name="line.250"></a>
+<span class="sourceLineNo">251</span>   * delegates to this method to perform the work.<a name="line.251"></a>
+<span class="sourceLineNo">252</span>   *<a name="line.252"></a>
+<span class="sourceLineNo">253</span>   * @param nextProps the new properties of the component.<a name="line.253"></a>
+<span class="sourceLineNo">254</span>   * @param nextState the new state of the component.<a name="line.254"></a>
+<span class="sourceLineNo">255</span>   * @see Component#componentDidUpdate(JsPropertyMap, BaseState)<a name="line.255"></a>
+<span class="sourceLineNo">256</span>   */<a name="line.256"></a>
+<span class="sourceLineNo">257</span>  protected final void performComponentDidUpdate( @Nonnull final JsPropertyMap&lt;Object&gt; nextProps,<a name="line.257"></a>
+<span class="sourceLineNo">258</span>                                                  @Nonnull final S nextState )<a name="line.258"></a>
+<span class="sourceLineNo">259</span>  {<a name="line.259"></a>
+<span class="sourceLineNo">260</span>    if ( ReactConfig.checkComponentStateInvariants() )<a name="line.260"></a>
+<span class="sourceLineNo">261</span>    {<a name="line.261"></a>
+<span class="sourceLineNo">262</span>      _component.setLifecycleMethod( LifecycleMethod.COMPONENT_DID_UPDATE );<a name="line.262"></a>
+<span class="sourceLineNo">263</span>    }<a name="line.263"></a>
+<span class="sourceLineNo">264</span>    try<a name="line.264"></a>
+<span class="sourceLineNo">265</span>    {<a name="line.265"></a>
+<span class="sourceLineNo">266</span>      _component.componentDidUpdate( nextProps, nextState );<a name="line.266"></a>
+<span class="sourceLineNo">267</span>    }<a name="line.267"></a>
+<span class="sourceLineNo">268</span>    finally<a name="line.268"></a>
+<span class="sourceLineNo">269</span>    {<a name="line.269"></a>
+<span class="sourceLineNo">270</span>      if ( ReactConfig.checkComponentStateInvariants() )<a name="line.270"></a>
+<span class="sourceLineNo">271</span>      {<a name="line.271"></a>
+<span class="sourceLineNo">272</span>        _component.setLifecycleMethod( LifecycleMethod.UNKNOWN );<a name="line.272"></a>
+<span class="sourceLineNo">273</span>      }<a name="line.273"></a>
+<span class="sourceLineNo">274</span>    }<a name="line.274"></a>
+<span class="sourceLineNo">275</span>  }<a name="line.275"></a>
+<span class="sourceLineNo">276</span><a name="line.276"></a>
+<span class="sourceLineNo">277</span>  /**<a name="line.277"></a>
+<span class="sourceLineNo">278</span>   * Call componentDidCatch on the target component.<a name="line.278"></a>
+<span class="sourceLineNo">279</span>   * It is expected that the subclass will implement a public method componentDidCatch() that<a name="line.279"></a>
+<span class="sourceLineNo">280</span>   * delegates to this method to perform the work.<a name="line.280"></a>
+<span class="sourceLineNo">281</span>   *<a name="line.281"></a>
+<span class="sourceLineNo">282</span>   * @param error the error that has been thrown.<a name="line.282"></a>
+<span class="sourceLineNo">283</span>   * @param info  information about component stack during thrown error.<a name="line.283"></a>
+<span class="sourceLineNo">284</span>   * @see Component#componentDidCatch(JsError, ReactErrorInfo)<a name="line.284"></a>
+<span class="sourceLineNo">285</span>   */<a name="line.285"></a>
+<span class="sourceLineNo">286</span>  protected final void performComponentDidCatch( @Nonnull final JsError error, @Nonnull final ReactErrorInfo info )<a name="line.286"></a>
+<span class="sourceLineNo">287</span>  {<a name="line.287"></a>
+<span class="sourceLineNo">288</span>    if ( ReactConfig.checkComponentStateInvariants() )<a name="line.288"></a>
+<span class="sourceLineNo">289</span>    {<a name="line.289"></a>
+<span class="sourceLineNo">290</span>      _component.setLifecycleMethod( LifecycleMethod.COMPONENT_DID_CATCH );<a name="line.290"></a>
+<span class="sourceLineNo">291</span>    }<a name="line.291"></a>
+<span class="sourceLineNo">292</span>    try<a name="line.292"></a>
+<span class="sourceLineNo">293</span>    {<a name="line.293"></a>
+<span class="sourceLineNo">294</span>      _component.componentDidCatch( error, info );<a name="line.294"></a>
+<span class="sourceLineNo">295</span>    }<a name="line.295"></a>
+<span class="sourceLineNo">296</span>    finally<a name="line.296"></a>
+<span class="sourceLineNo">297</span>    {<a name="line.297"></a>
+<span class="sourceLineNo">298</span>      if ( ReactConfig.checkComponentStateInvariants() )<a name="line.298"></a>
+<span class="sourceLineNo">299</span>      {<a name="line.299"></a>
+<span class="sourceLineNo">300</span>        _component.setLifecycleMethod( LifecycleMethod.UNKNOWN );<a name="line.300"></a>
+<span class="sourceLineNo">301</span>      }<a name="line.301"></a>
+<span class="sourceLineNo">302</span>    }<a name="line.302"></a>
+<span class="sourceLineNo">303</span>  }<a name="line.303"></a>
+<span class="sourceLineNo">304</span><a name="line.304"></a>
+<span class="sourceLineNo">305</span>  /**<a name="line.305"></a>
+<span class="sourceLineNo">306</span>   * Call getChildContext on the target component.<a name="line.306"></a>
+<span class="sourceLineNo">307</span>   * It is expected that the subclass will implement a public method getChildContext() that<a name="line.307"></a>
+<span class="sourceLineNo">308</span>   * delegates to this method to perform the work.<a name="line.308"></a>
+<span class="sourceLineNo">309</span>   *<a name="line.309"></a>
+<span class="sourceLineNo">310</span>   * @param &lt;CC&gt; the type of the child context.<a name="line.310"></a>
+<span class="sourceLineNo">311</span>   * @return the child context.<a name="line.311"></a>
+<span class="sourceLineNo">312</span>   * @see Component#getChildContext()<a name="line.312"></a>
+<span class="sourceLineNo">313</span>   */<a name="line.313"></a>
+<span class="sourceLineNo">314</span>  @SuppressWarnings( "unchecked" )<a name="line.314"></a>
+<span class="sourceLineNo">315</span>  protected final &lt;CC extends BaseChildContext&gt; CC performGetChildContext()<a name="line.315"></a>
+<span class="sourceLineNo">316</span>  {<a name="line.316"></a>
+<span class="sourceLineNo">317</span>    return (CC) _component.getChildContext();<a name="line.317"></a>
+<span class="sourceLineNo">318</span>  }<a name="line.318"></a>
+<span class="sourceLineNo">319</span>}<a name="line.319"></a>
 
 
 

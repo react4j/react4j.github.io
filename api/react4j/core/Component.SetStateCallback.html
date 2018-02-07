@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">react4j.core</div>
-<h2 title="Interface Component.SetStateCallback" class="title">Interface Component.SetStateCallback&lt;P,S&gt;</h2>
+<h2 title="Interface Component.SetStateCallback" class="title">Interface Component.SetStateCallback&lt;S&gt;</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -99,12 +99,12 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>Enclosing class:</dt>
-<dd><a href="../../react4j/core/Component.html" title="class in react4j.core">Component</a>&lt;<a href="../../react4j/core/Component.html" title="type parameter in Component">P</a> extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,<a href="../../react4j/core/Component.html" title="type parameter in Component">S</a> extends <a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>,<a href="../../react4j/core/Component.html" title="type parameter in Component">C</a> extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;</dd>
+<dd><a href="../../react4j/core/Component.html" title="class in react4j.core">Component</a>&lt;<a href="../../react4j/core/Component.html" title="type parameter in Component">S</a> extends <a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>,<a href="../../react4j/core/Component.html" title="type parameter in Component">C</a> extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;</dd>
 </dl>
 <hr>
 <br>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsFunction.html?is-external=true" title="class or interface in jsinterop.annotations">@JsFunction</a>
-public static interface <a href="../../src-html/react4j/core/Component.html#line.25">Component.SetStateCallback</a>&lt;P,S&gt;</pre>
+public static interface <a href="../../src-html/react4j/core/Component.html#line.24">Component.SetStateCallback</a>&lt;S&gt;</pre>
 <div class="block">Callback function for updating state.
  Useful if the state update is based on current state.</div>
 </li>
@@ -127,8 +127,8 @@ public static interface <a href="../../src-html/react4j/core/Component.html#line
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../react4j/core/Component.SetStateCallback.html" title="type parameter in Component.SetStateCallback">S</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.SetStateCallback.html#onSetState-S-P-">onSetState</a></span>(<a href="../../react4j/core/Component.SetStateCallback.html" title="type parameter in Component.SetStateCallback">S</a>&nbsp;previousState,
-          <a href="../../react4j/core/Component.SetStateCallback.html" title="type parameter in Component.SetStateCallback">P</a>&nbsp;currentProps)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.SetStateCallback.html#onSetState-S-jsinterop.base.JsPropertyMap-">onSetState</a></span>(<a href="../../react4j/core/Component.SetStateCallback.html" title="type parameter in Component.SetStateCallback">S</a>&nbsp;previousState,
+          jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;currentProps)</code>
 <div class="block">Callback used to update state.</div>
 </td>
 </tr>
@@ -147,19 +147,19 @@ public static interface <a href="../../src-html/react4j/core/Component.html#line
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="onSetState-java.lang.Object-java.lang.Object-">
+<a name="onSetState-java.lang.Object-jsinterop.base.JsPropertyMap-">
 <!--   -->
-</a><a name="onSetState-S-P-">
+</a><a name="onSetState-S-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>onSetState</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-<a href="../../react4j/core/Component.SetStateCallback.html" title="type parameter in Component.SetStateCallback">S</a>&nbsp;<a href="../../src-html/react4j/core/Component.SetStateCallback.html#line.37">onSetState</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<a href="../../react4j/core/Component.SetStateCallback.html" title="type parameter in Component.SetStateCallback">S</a>&nbsp;<a href="../../src-html/react4j/core/Component.SetStateCallback.html#line.36">onSetState</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                        <a href="../../react4j/core/Component.SetStateCallback.html" title="type parameter in Component.SetStateCallback">S</a>&nbsp;previousState,
                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                       <a href="../../react4j/core/Component.SetStateCallback.html" title="type parameter in Component.SetStateCallback">P</a>&nbsp;currentProps)</pre>
+                       jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;currentProps)</pre>
 <div class="block">Callback used to update state.
  Result is merged into existing state.
  Return null to abort state update.</div>

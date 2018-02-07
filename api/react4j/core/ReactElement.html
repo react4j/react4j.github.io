@@ -85,14 +85,14 @@
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">react4j.core</div>
-<h2 title="Class ReactElement" class="title">Class ReactElement&lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,T&gt;</h2>
+<h2 title="Class ReactElement" class="title">Class ReactElement&lt;T&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
-<li>react4j.core.ReactElement&lt;P,T&gt;</li>
+<li>react4j.core.ReactElement&lt;T&gt;</li>
 </ul>
 </li>
 </ul>
@@ -108,7 +108,7 @@
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsType.html?is-external=true" title="class or interface in jsinterop.annotations">@JsType</a>(<a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsType.html?is-external=true#isNative--" title="class or interface in jsinterop.annotations">isNative</a>=true,
         <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsType.html?is-external=true#namespace--" title="class or interface in jsinterop.annotations">namespace</a>="&lt;global&gt;",
         <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsType.html?is-external=true#name--" title="class or interface in jsinterop.annotations">name</a>="Object")
-public class <a href="../../src-html/react4j/core/ReactElement.html#line.9">ReactElement</a>&lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,T&gt;
+public class <a href="../../src-html/react4j/core/ReactElement.html#line.10">ReactElement</a>&lt;T&gt;
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a></pre>
 </li>
@@ -134,7 +134,7 @@ implements <a href="../../react4j/core/ReactNode.html" title="interface in react
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/ReactElement.html#key">key</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="../../react4j/core/ReactElement.html" title="type parameter in ReactElement">P</a></code></td>
+<td class="colFirst"><code>jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/ReactElement.html#props">props</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -206,7 +206,7 @@ implements <a href="../../react4j/core/ReactNode.html" title="interface in react
 <li class="blockList">
 <h4>type</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public&nbsp;<a href="../../react4j/core/ReactElement.html" title="type parameter in ReactElement">T</a> <a href="../../src-html/react4j/core/ReactElement.html#line.14">type</a></pre>
+public&nbsp;<a href="../../react4j/core/ReactElement.html" title="type parameter in ReactElement">T</a> <a href="../../src-html/react4j/core/ReactElement.html#line.15">type</a></pre>
 </li>
 </ul>
 <a name="props">
@@ -216,7 +216,7 @@ public&nbsp;<a href="../../react4j/core/ReactElement.html" title="type parameter
 <li class="blockList">
 <h4>props</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-public&nbsp;<a href="../../react4j/core/ReactElement.html" title="type parameter in ReactElement">P</a> extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a> <a href="../../src-html/react4j/core/ReactElement.html#line.16">props</a></pre>
+public&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt; <a href="../../src-html/react4j/core/ReactElement.html#line.17">props</a></pre>
 </li>
 </ul>
 <a name="key">
@@ -226,7 +226,7 @@ public&nbsp;<a href="../../react4j/core/ReactElement.html" title="type parameter
 <li class="blockList">
 <h4>key</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> <a href="../../src-html/react4j/core/ReactElement.html#line.18">key</a></pre>
+public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> <a href="../../src-html/react4j/core/ReactElement.html#line.19">key</a></pre>
 </li>
 </ul>
 </li>
@@ -243,7 +243,7 @@ public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ReactElement</h4>
-<pre>protected&nbsp;<a href="../../src-html/react4j/core/ReactElement.html#line.23">ReactElement</a>()</pre>
+<pre>protected&nbsp;<a href="../../src-html/react4j/core/ReactElement.html#line.24">ReactElement</a>()</pre>
 <div class="block">Objects of this class cannot be directly instantiated by the user.</div>
 </li>
 </ul>

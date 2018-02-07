@@ -30,14 +30,14 @@
 <span class="sourceLineNo">022</span>  /**<a name="line.22"></a>
 <span class="sourceLineNo">023</span>   * The react widget to render.<a name="line.23"></a>
 <span class="sourceLineNo">024</span>   */<a name="line.24"></a>
-<span class="sourceLineNo">025</span>  private final ReactElement&lt;?, ?&gt; _reactElement;<a name="line.25"></a>
+<span class="sourceLineNo">025</span>  private final ReactElement&lt;?&gt; _reactElement;<a name="line.25"></a>
 <span class="sourceLineNo">026</span><a name="line.26"></a>
 <span class="sourceLineNo">027</span>  /**<a name="line.27"></a>
 <span class="sourceLineNo">028</span>   * Create the widget.<a name="line.28"></a>
 <span class="sourceLineNo">029</span>   *<a name="line.29"></a>
 <span class="sourceLineNo">030</span>   * @param reactElement the react element to render.<a name="line.30"></a>
 <span class="sourceLineNo">031</span>   */<a name="line.31"></a>
-<span class="sourceLineNo">032</span>  public ReactWidget( @Nonnull final ReactElement&lt;?, ?&gt; reactElement )<a name="line.32"></a>
+<span class="sourceLineNo">032</span>  public ReactWidget( @Nonnull final ReactElement&lt;?&gt; reactElement )<a name="line.32"></a>
 <span class="sourceLineNo">033</span>  {<a name="line.33"></a>
 <span class="sourceLineNo">034</span>    _element = Document.get().createDivElement();<a name="line.34"></a>
 <span class="sourceLineNo">035</span>    _reactElement = Objects.requireNonNull( reactElement );<a name="line.35"></a>

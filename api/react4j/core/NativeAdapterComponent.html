@@ -91,17 +91,17 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">react4j.core</div>
-<h2 title="Class NativeAdapterComponent" class="title">Class NativeAdapterComponent&lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,S extends <a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>,C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>,I extends <a href="../../react4j/core/Component.html" title="class in react4j.core">Component</a>&lt;P,S,C&gt;&gt;</h2>
+<h2 title="Class NativeAdapterComponent" class="title">Class NativeAdapterComponent&lt;S extends <a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>,C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>,I extends <a href="../../react4j/core/Component.html" title="class in react4j.core">Component</a>&lt;S,C&gt;&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../react4j/core/NativeComponent.html" title="class in react4j.core">react4j.core.NativeComponent</a>&lt;P,S,C&gt;</li>
+<li><a href="../../react4j/core/NativeComponent.html" title="class in react4j.core">react4j.core.NativeComponent</a>&lt;S,C&gt;</li>
 <li>
 <ul class="inheritance">
-<li>react4j.core.NativeAdapterComponent&lt;P,S,C,I&gt;</li>
+<li>react4j.core.NativeAdapterComponent&lt;S,C,I&gt;</li>
 </ul>
 </li>
 </ul>
@@ -112,8 +112,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public abstract class <a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.16">NativeAdapterComponent</a>&lt;P extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,S extends <a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>,C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>,I extends <a href="../../react4j/core/Component.html" title="class in react4j.core">Component</a>&lt;P,S,C&gt;&gt;
-extends <a href="../../react4j/core/NativeComponent.html" title="class in react4j.core">NativeComponent</a>&lt;P,S,C&gt;</pre>
+<pre>public abstract class <a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.17">NativeAdapterComponent</a>&lt;S extends <a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>,C extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>,I extends <a href="../../react4j/core/Component.html" title="class in react4j.core">Component</a>&lt;S,C&gt;&gt;
+extends <a href="../../react4j/core/NativeComponent.html" title="class in react4j.core">NativeComponent</a>&lt;S,C&gt;</pre>
 <div class="block">This class provides a base class that designed to forward all lifecycle methods to a target component.
  The target component is of type <a href="../../react4j/core/Component.html" title="class in react4j.core"><code>Component</code></a>. This class is also responsible for calling
  <a href="../../react4j/core/Component.html#setLifecycleMethod-react4j.core.LifecycleMethod-"><code>Component.setLifecycleMethod(LifecycleMethod)</code></a> before and after each call to the target component
@@ -141,7 +141,7 @@ extends <a href="../../react4j/core/NativeComponent.html" title="class in react4
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#NativeAdapterComponent-P-C-">NativeAdapterComponent</a></span>(<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;props,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#NativeAdapterComponent-jsinterop.base.JsPropertyMap-C-">NativeAdapterComponent</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props,
                       <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">C</a>&nbsp;context)</code>
 <div class="block">Create a component that designed to delegate to a target component.</div>
 </td>
@@ -182,14 +182,14 @@ extends <a href="../../react4j/core/NativeComponent.html" title="class in react4
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performComponentDidUpdate-P-S-">performComponentDidUpdate</a></span>(<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performComponentDidUpdate-jsinterop.base.JsPropertyMap-S-">performComponentDidUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                          <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState)</code>
 <div class="block">Call componentDidUpdate on the target component.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performComponentWillReceiveProps-P-C-">performComponentWillReceiveProps</a></span>(<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performComponentWillReceiveProps-jsinterop.base.JsPropertyMap-C-">performComponentWillReceiveProps</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                                 <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">C</a>&nbsp;nextContext)</code>
 <div class="block">Call componentWillReceiveProps on the target component.</div>
 </td>
@@ -202,7 +202,7 @@ extends <a href="../../react4j/core/NativeComponent.html" title="class in react4
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performComponentWillUpdate-P-S-C-">performComponentWillUpdate</a></span>(<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performComponentWillUpdate-jsinterop.base.JsPropertyMap-S-C-">performComponentWillUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                           <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState,
                           <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">C</a>&nbsp;nextContext)</code>
 <div class="block">Call componentWillUpdate on the target component.</div>
@@ -216,7 +216,7 @@ extends <a href="../../react4j/core/NativeComponent.html" title="class in react4
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performShouldComponentUpdate-P-S-C-">performShouldComponentUpdate</a></span>(<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/NativeAdapterComponent.html#performShouldComponentUpdate-jsinterop.base.JsPropertyMap-S-C-">performShouldComponentUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                             <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState,
                             <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">C</a>&nbsp;nextContext)</code>
 <div class="block">Call shouldComponentUpdate on the target component.</div>
@@ -250,16 +250,16 @@ extends <a href="../../react4j/core/NativeComponent.html" title="class in react4
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="NativeAdapterComponent-react4j.core.BaseProps-react4j.core.BaseContext-">
+<a name="NativeAdapterComponent-jsinterop.base.JsPropertyMap-react4j.core.BaseContext-">
 <!--   -->
-</a><a name="NativeAdapterComponent-P-C-">
+</a><a name="NativeAdapterComponent-jsinterop.base.JsPropertyMap-C-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>NativeAdapterComponent</h4>
 <pre>protected&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.35">NativeAdapterComponent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                 <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;props,
+                                 jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                  <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">C</a>&nbsp;context)</pre>
 <div class="block">Create a component that designed to delegate to a target component.</div>
@@ -303,7 +303,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <div class="block">Call render on the target component.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../react4j/core/NativeComponent.html#render--">render</a></code>&nbsp;in class&nbsp;<code><a href="../../react4j/core/NativeComponent.html" title="class in react4j.core">NativeComponent</a>&lt;<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a> extends <a href="../../react4j/core/BaseProps.html" title="class in react4j.core">BaseProps</a>,<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a> extends <a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>,<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">C</a> extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;</code></dd>
+<dd><code><a href="../../react4j/core/NativeComponent.html#render--">render</a></code>&nbsp;in class&nbsp;<code><a href="../../react4j/core/NativeComponent.html" title="class in react4j.core">NativeComponent</a>&lt;<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a> extends <a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>,<a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">C</a> extends <a href="../../react4j/core/BaseContext.html" title="class in react4j.core">BaseContext</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the output of rendering.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -343,16 +343,16 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 </dl>
 </li>
 </ul>
-<a name="performComponentWillUpdate-react4j.core.BaseProps-react4j.core.BaseState-react4j.core.BaseContext-">
+<a name="performComponentWillUpdate-jsinterop.base.JsPropertyMap-react4j.core.BaseState-react4j.core.BaseContext-">
 <!--   -->
-</a><a name="performComponentWillUpdate-P-S-C-">
+</a><a name="performComponentWillUpdate-jsinterop.base.JsPropertyMap-S-C-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentWillUpdate</h4>
 <pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.166">performComponentWillUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
+                                                jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                 <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState,
                                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -366,20 +366,20 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <dd><code>nextState</code> - the state.</dd>
 <dd><code>nextContext</code> - the new context of the component.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../react4j/core/Component.html#componentWillUpdate-P-S-C-"><code>Component.componentWillUpdate(BaseProps, BaseState, BaseContext)</code></a></dd>
+<dd><a href="../../react4j/core/Component.html#componentWillUpdate-jsinterop.base.JsPropertyMap-S-C-"><code>Component.componentWillUpdate(JsPropertyMap, BaseState, BaseContext)</code></a></dd>
 </dl>
 </li>
 </ul>
-<a name="performShouldComponentUpdate-react4j.core.BaseProps-react4j.core.BaseState-react4j.core.BaseContext-">
+<a name="performShouldComponentUpdate-jsinterop.base.JsPropertyMap-react4j.core.BaseState-react4j.core.BaseContext-">
 <!--   -->
-</a><a name="performShouldComponentUpdate-P-S-C-">
+</a><a name="performShouldComponentUpdate-jsinterop.base.JsPropertyMap-S-C-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>performShouldComponentUpdate</h4>
 <pre>protected final&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.198">performShouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                     <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
+                                                     jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                                                      <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                      <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState,
                                                      <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
@@ -395,20 +395,20 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the component should be updated.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../react4j/core/Component.html#shouldComponentUpdate-P-S-C-"><code>Component.shouldComponentUpdate(BaseProps, BaseState, BaseContext)</code></a></dd>
+<dd><a href="../../react4j/core/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-S-C-"><code>Component.shouldComponentUpdate(JsPropertyMap, BaseState, BaseContext)</code></a></dd>
 </dl>
 </li>
 </ul>
-<a name="performComponentWillReceiveProps-react4j.core.BaseProps-react4j.core.BaseContext-">
+<a name="performComponentWillReceiveProps-jsinterop.base.JsPropertyMap-react4j.core.BaseContext-">
 <!--   -->
-</a><a name="performComponentWillReceiveProps-P-C-">
+</a><a name="performComponentWillReceiveProps-jsinterop.base.JsPropertyMap-C-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentWillReceiveProps</h4>
 <pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.228">performComponentWillReceiveProps</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                      <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
+                                                      jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                                                       <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                       <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">C</a>&nbsp;nextContext)</pre>
 <div class="block">Call componentWillReceiveProps on the target component.
@@ -419,20 +419,20 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <dd><code>nextProps</code> - the new properties of the component.</dd>
 <dd><code>nextContext</code> - the new context of the component.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../react4j/core/Component.html#componentWillReceiveProps-P-C-"><code>Component.componentWillReceiveProps(BaseProps, BaseContext)</code></a></dd>
+<dd><a href="../../react4j/core/Component.html#componentWillReceiveProps-jsinterop.base.JsPropertyMap-C-"><code>Component.componentWillReceiveProps(JsPropertyMap, BaseContext)</code></a></dd>
 </dl>
 </li>
 </ul>
-<a name="performComponentDidUpdate-react4j.core.BaseProps-react4j.core.BaseState-">
+<a name="performComponentDidUpdate-jsinterop.base.JsPropertyMap-react4j.core.BaseState-">
 <!--   -->
-</a><a name="performComponentDidUpdate-P-S-">
+</a><a name="performComponentDidUpdate-jsinterop.base.JsPropertyMap-S-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentDidUpdate</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.256">performComponentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                               <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">P</a>&nbsp;nextProps,
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.257">performComponentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                               jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                                                <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                <a href="../../react4j/core/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">S</a>&nbsp;nextState)</pre>
 <div class="block">Call componentDidUpdate on the target component.
@@ -443,7 +443,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <dd><code>nextProps</code> - the new properties of the component.</dd>
 <dd><code>nextState</code> - the new state of the component.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../react4j/core/Component.html#componentDidUpdate-P-S-"><code>Component.componentDidUpdate(BaseProps, BaseState)</code></a></dd>
+<dd><a href="../../react4j/core/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-S-"><code>Component.componentDidUpdate(JsPropertyMap, BaseState)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -453,7 +453,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentDidCatch</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.284">performComponentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.286">performComponentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               elemental2.core.JsError&nbsp;error,
                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               <a href="../../react4j/core/ReactErrorInfo.html" title="class in react4j.core">ReactErrorInfo</a>&nbsp;info)</pre>
@@ -475,7 +475,7 @@ public final&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface i
 <ul class="blockListLast">
 <li class="blockList">
 <h4>performGetChildContext</h4>
-<pre>protected final&nbsp;&lt;CC extends <a href="../../react4j/core/BaseChildContext.html" title="class in react4j.core">BaseChildContext</a>&gt;&nbsp;CC&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.313">performGetChildContext</a>()</pre>
+<pre>protected final&nbsp;&lt;CC extends <a href="../../react4j/core/BaseChildContext.html" title="class in react4j.core">BaseChildContext</a>&gt;&nbsp;CC&nbsp;<a href="../../src-html/react4j/core/NativeAdapterComponent.html#line.315">performGetChildContext</a>()</pre>
 <div class="block">Call getChildContext on the target component.
  It is expected that the subclass will implement a public method getChildContext() that
  delegates to this method to perform the work.</div>
