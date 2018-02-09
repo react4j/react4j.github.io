@@ -32,7 +32,7 @@ observable state <code>AppData.model.totalCount()</code>, <code>AppData.viewServ
 <code>AppData.model.completedCount()</code> and will re-render each time any of these values change.</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
-  <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>&lt;<span class="hljs-title">BaseContext</span>&gt;
+  <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>
 </span>{
   <span class="hljs-meta">@EventHandler</span>( MouseEventHandler.class )
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handleClearCompleted</span><span class="hljs-params">()</span>
@@ -108,7 +108,7 @@ every time a re-render occurs. However we can decide to limit the scope of the r
 that encapsulates the html that changes.</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooterTodoCount</span>
-  <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>&lt;<span class="hljs-title">BaseContext</span>&gt;
+  <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>
 </span>{
   <span class="hljs-meta">@Nullable</span>
   <span class="hljs-meta">@Override</span>
@@ -131,7 +131,7 @@ of the re-render is much smaller and thus the amount of work that React4j has to
 The final <code>Footer</code> component looks something like:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
-  <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>&lt;<span class="hljs-title">BaseContext</span>&gt;
+  <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>
 </span>{
   <span class="hljs-meta">@EventHandler</span>( MouseEventHandler.class )
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handleClearCompleted</span><span class="hljs-params">()</span>
