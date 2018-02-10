@@ -40,7 +40,20 @@
 <span class="sourceLineNo">032</span>   */<a name="line.32"></a>
 <span class="sourceLineNo">033</span>  @Nonnull<a name="line.33"></a>
 <span class="sourceLineNo">034</span>  String name() default "&lt;default&gt;";<a name="line.34"></a>
-<span class="sourceLineNo">035</span>}<a name="line.35"></a>
+<span class="sourceLineNo">035</span><a name="line.35"></a>
+<span class="sourceLineNo">036</span>  /**<a name="line.36"></a>
+<span class="sourceLineNo">037</span>   * Return enum indicating whether prop should be when component is constructed.<a name="line.37"></a>
+<span class="sourceLineNo">038</span>   * This influences validation when enabled and how the Builder class is created.<a name="line.38"></a>
+<span class="sourceLineNo">039</span>   * If set to {@link Feature#ENABLE} then the user MUST supply the prop and the builder will require the user<a name="line.39"></a>
+<span class="sourceLineNo">040</span>   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the prop.<a name="line.40"></a>
+<span class="sourceLineNo">041</span>   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#DISABLE}<a name="line.41"></a>
+<span class="sourceLineNo">042</span>   * if theere is a corresponding {@link PropDefault} for the prop, otherwise it will be treated as<a name="line.42"></a>
+<span class="sourceLineNo">043</span>   * {@link Feature#ENABLE}.<a name="line.43"></a>
+<span class="sourceLineNo">044</span>   *<a name="line.44"></a>
+<span class="sourceLineNo">045</span>   * @return the flag indicating whether the prop needs to be supplied.<a name="line.45"></a>
+<span class="sourceLineNo">046</span>   */<a name="line.46"></a>
+<span class="sourceLineNo">047</span>  Feature require() default Feature.AUTODETECT;<a name="line.47"></a>
+<span class="sourceLineNo">048</span>}<a name="line.48"></a>
 
 
 

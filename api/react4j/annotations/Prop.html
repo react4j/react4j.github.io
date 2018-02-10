@@ -129,6 +129,12 @@ public @interface <a href="../../src-html/react4j/annotations/Prop.html#line.23"
 <div class="block">Return the name of the prop.</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#require--">require</a></span></code>
+<div class="block">Return enum indicating whether prop should be when component is constructed.</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -147,7 +153,7 @@ public @interface <a href="../../src-html/react4j/annotations/Prop.html#line.23"
 <a name="name--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -163,6 +169,33 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>"&lt;default&gt;"</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="require--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>require</h4>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.47">require</a></pre>
+<div class="block">Return enum indicating whether prop should be when component is constructed.
+ This influences validation when enabled and how the Builder class is created.
+ If set to <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then the user MUST supply the prop and the builder will require the user
+ to specify the value. If set to <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> then the user can optionally supply the prop.
+ If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will treat it as <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
+ if theere is a corresponding <a href="../../react4j/annotations/PropDefault.html" title="annotation in react4j.annotations"><code>PropDefault</code></a> for the prop, otherwise it will be treated as
+ <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the flag indicating whether the prop needs to be supplied.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>react4j.annotations.Feature.AUTODETECT</dd>
 </dl>
 </li>
 </ul>
