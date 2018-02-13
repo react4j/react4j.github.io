@@ -95,7 +95,7 @@
 <span class="sourceLineNo">087</span>  @Nonnull<a name="line.87"></a>
 <span class="sourceLineNo">088</span>  public static ReactNode a( @Nonnull final AnchorProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.88"></a>
 <span class="sourceLineNo">089</span>  {<a name="line.89"></a>
-<span class="sourceLineNo">090</span>    return a( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.90"></a>
+<span class="sourceLineNo">090</span>    return a( props, children.toArray( ReactNode[]::new ) );<a name="line.90"></a>
 <span class="sourceLineNo">091</span>  }<a name="line.91"></a>
 <span class="sourceLineNo">092</span><a name="line.92"></a>
 <span class="sourceLineNo">093</span>  @Nonnull<a name="line.93"></a>
@@ -143,7 +143,7 @@
 <span class="sourceLineNo">135</span>  @Nonnull<a name="line.135"></a>
 <span class="sourceLineNo">136</span>  public static ReactNode article( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.136"></a>
 <span class="sourceLineNo">137</span>  {<a name="line.137"></a>
-<span class="sourceLineNo">138</span>    return article( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.138"></a>
+<span class="sourceLineNo">138</span>    return article( props, children.toArray( ReactNode[]::new ) );<a name="line.138"></a>
 <span class="sourceLineNo">139</span>  }<a name="line.139"></a>
 <span class="sourceLineNo">140</span><a name="line.140"></a>
 <span class="sourceLineNo">141</span>  @Nonnull<a name="line.141"></a>
@@ -191,7 +191,7 @@
 <span class="sourceLineNo">183</span>  @Nonnull<a name="line.183"></a>
 <span class="sourceLineNo">184</span>  public static ReactNode audio( @Nonnull final AudioProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.184"></a>
 <span class="sourceLineNo">185</span>  {<a name="line.185"></a>
-<span class="sourceLineNo">186</span>    return audio( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.186"></a>
+<span class="sourceLineNo">186</span>    return audio( props, children.toArray( ReactNode[]::new ) );<a name="line.186"></a>
 <span class="sourceLineNo">187</span>  }<a name="line.187"></a>
 <span class="sourceLineNo">188</span><a name="line.188"></a>
 <span class="sourceLineNo">189</span>  @Nonnull<a name="line.189"></a>
@@ -239,7 +239,7 @@
 <span class="sourceLineNo">231</span>  @Nonnull<a name="line.231"></a>
 <span class="sourceLineNo">232</span>  public static ReactNode br( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.232"></a>
 <span class="sourceLineNo">233</span>  {<a name="line.233"></a>
-<span class="sourceLineNo">234</span>    return br( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.234"></a>
+<span class="sourceLineNo">234</span>    return br( props, children.toArray( ReactNode[]::new ) );<a name="line.234"></a>
 <span class="sourceLineNo">235</span>  }<a name="line.235"></a>
 <span class="sourceLineNo">236</span><a name="line.236"></a>
 <span class="sourceLineNo">237</span>  @Nonnull<a name="line.237"></a>
@@ -287,7 +287,7 @@
 <span class="sourceLineNo">279</span>  @Nonnull<a name="line.279"></a>
 <span class="sourceLineNo">280</span>  public static ReactNode button( @Nonnull final BtnProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.280"></a>
 <span class="sourceLineNo">281</span>  {<a name="line.281"></a>
-<span class="sourceLineNo">282</span>    return button( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.282"></a>
+<span class="sourceLineNo">282</span>    return button( props, children.toArray( ReactNode[]::new ) );<a name="line.282"></a>
 <span class="sourceLineNo">283</span>  }<a name="line.283"></a>
 <span class="sourceLineNo">284</span><a name="line.284"></a>
 <span class="sourceLineNo">285</span>  @Nonnull<a name="line.285"></a>
@@ -335,7 +335,7 @@
 <span class="sourceLineNo">327</span>  @Nonnull<a name="line.327"></a>
 <span class="sourceLineNo">328</span>  public static ReactNode canvas( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.328"></a>
 <span class="sourceLineNo">329</span>  {<a name="line.329"></a>
-<span class="sourceLineNo">330</span>    return canvas( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.330"></a>
+<span class="sourceLineNo">330</span>    return canvas( props, children.toArray( ReactNode[]::new ) );<a name="line.330"></a>
 <span class="sourceLineNo">331</span>  }<a name="line.331"></a>
 <span class="sourceLineNo">332</span><a name="line.332"></a>
 <span class="sourceLineNo">333</span>  @Nonnull<a name="line.333"></a>
@@ -383,7 +383,7 @@
 <span class="sourceLineNo">375</span>  @Nonnull<a name="line.375"></a>
 <span class="sourceLineNo">376</span>  public static ReactNode caption( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.376"></a>
 <span class="sourceLineNo">377</span>  {<a name="line.377"></a>
-<span class="sourceLineNo">378</span>    return caption( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.378"></a>
+<span class="sourceLineNo">378</span>    return caption( props, children.toArray( ReactNode[]::new ) );<a name="line.378"></a>
 <span class="sourceLineNo">379</span>  }<a name="line.379"></a>
 <span class="sourceLineNo">380</span><a name="line.380"></a>
 <span class="sourceLineNo">381</span>  @Nonnull<a name="line.381"></a>
@@ -431,7 +431,7 @@
 <span class="sourceLineNo">423</span>  @Nonnull<a name="line.423"></a>
 <span class="sourceLineNo">424</span>  public static ReactNode col( @Nonnull final ColProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.424"></a>
 <span class="sourceLineNo">425</span>  {<a name="line.425"></a>
-<span class="sourceLineNo">426</span>    return col( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.426"></a>
+<span class="sourceLineNo">426</span>    return col( props, children.toArray( ReactNode[]::new ) );<a name="line.426"></a>
 <span class="sourceLineNo">427</span>  }<a name="line.427"></a>
 <span class="sourceLineNo">428</span><a name="line.428"></a>
 <span class="sourceLineNo">429</span>  @Nonnull<a name="line.429"></a>
@@ -479,7 +479,7 @@
 <span class="sourceLineNo">471</span>  @Nonnull<a name="line.471"></a>
 <span class="sourceLineNo">472</span>  public static ReactNode colgroup( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.472"></a>
 <span class="sourceLineNo">473</span>  {<a name="line.473"></a>
-<span class="sourceLineNo">474</span>    return colgroup( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.474"></a>
+<span class="sourceLineNo">474</span>    return colgroup( props, children.toArray( ReactNode[]::new ) );<a name="line.474"></a>
 <span class="sourceLineNo">475</span>  }<a name="line.475"></a>
 <span class="sourceLineNo">476</span><a name="line.476"></a>
 <span class="sourceLineNo">477</span>  @Nonnull<a name="line.477"></a>
@@ -527,7 +527,7 @@
 <span class="sourceLineNo">519</span>  @Nonnull<a name="line.519"></a>
 <span class="sourceLineNo">520</span>  public static ReactNode div( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.520"></a>
 <span class="sourceLineNo">521</span>  {<a name="line.521"></a>
-<span class="sourceLineNo">522</span>    return div( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.522"></a>
+<span class="sourceLineNo">522</span>    return div( props, children.toArray( ReactNode[]::new ) );<a name="line.522"></a>
 <span class="sourceLineNo">523</span>  }<a name="line.523"></a>
 <span class="sourceLineNo">524</span><a name="line.524"></a>
 <span class="sourceLineNo">525</span>  @Nonnull<a name="line.525"></a>
@@ -575,7 +575,7 @@
 <span class="sourceLineNo">567</span>  @Nonnull<a name="line.567"></a>
 <span class="sourceLineNo">568</span>  public static ReactNode footer( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.568"></a>
 <span class="sourceLineNo">569</span>  {<a name="line.569"></a>
-<span class="sourceLineNo">570</span>    return footer( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.570"></a>
+<span class="sourceLineNo">570</span>    return footer( props, children.toArray( ReactNode[]::new ) );<a name="line.570"></a>
 <span class="sourceLineNo">571</span>  }<a name="line.571"></a>
 <span class="sourceLineNo">572</span><a name="line.572"></a>
 <span class="sourceLineNo">573</span>  @Nonnull<a name="line.573"></a>
@@ -623,7 +623,7 @@
 <span class="sourceLineNo">615</span>  @Nonnull<a name="line.615"></a>
 <span class="sourceLineNo">616</span>  public static ReactNode form( @Nonnull final FormProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.616"></a>
 <span class="sourceLineNo">617</span>  {<a name="line.617"></a>
-<span class="sourceLineNo">618</span>    return form( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.618"></a>
+<span class="sourceLineNo">618</span>    return form( props, children.toArray( ReactNode[]::new ) );<a name="line.618"></a>
 <span class="sourceLineNo">619</span>  }<a name="line.619"></a>
 <span class="sourceLineNo">620</span><a name="line.620"></a>
 <span class="sourceLineNo">621</span>  @Nonnull<a name="line.621"></a>
@@ -671,7 +671,7 @@
 <span class="sourceLineNo">663</span>  @Nonnull<a name="line.663"></a>
 <span class="sourceLineNo">664</span>  public static ReactNode header( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.664"></a>
 <span class="sourceLineNo">665</span>  {<a name="line.665"></a>
-<span class="sourceLineNo">666</span>    return header( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.666"></a>
+<span class="sourceLineNo">666</span>    return header( props, children.toArray( ReactNode[]::new ) );<a name="line.666"></a>
 <span class="sourceLineNo">667</span>  }<a name="line.667"></a>
 <span class="sourceLineNo">668</span><a name="line.668"></a>
 <span class="sourceLineNo">669</span>  @Nonnull<a name="line.669"></a>
@@ -719,7 +719,7 @@
 <span class="sourceLineNo">711</span>  @Nonnull<a name="line.711"></a>
 <span class="sourceLineNo">712</span>  public static ReactNode h1( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.712"></a>
 <span class="sourceLineNo">713</span>  {<a name="line.713"></a>
-<span class="sourceLineNo">714</span>    return h1( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.714"></a>
+<span class="sourceLineNo">714</span>    return h1( props, children.toArray( ReactNode[]::new ) );<a name="line.714"></a>
 <span class="sourceLineNo">715</span>  }<a name="line.715"></a>
 <span class="sourceLineNo">716</span><a name="line.716"></a>
 <span class="sourceLineNo">717</span>  @Nonnull<a name="line.717"></a>
@@ -767,7 +767,7 @@
 <span class="sourceLineNo">759</span>  @Nonnull<a name="line.759"></a>
 <span class="sourceLineNo">760</span>  public static ReactNode h2( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.760"></a>
 <span class="sourceLineNo">761</span>  {<a name="line.761"></a>
-<span class="sourceLineNo">762</span>    return h2( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.762"></a>
+<span class="sourceLineNo">762</span>    return h2( props, children.toArray( ReactNode[]::new ) );<a name="line.762"></a>
 <span class="sourceLineNo">763</span>  }<a name="line.763"></a>
 <span class="sourceLineNo">764</span><a name="line.764"></a>
 <span class="sourceLineNo">765</span>  @Nonnull<a name="line.765"></a>
@@ -815,7 +815,7 @@
 <span class="sourceLineNo">807</span>  @Nonnull<a name="line.807"></a>
 <span class="sourceLineNo">808</span>  public static ReactNode h3( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.808"></a>
 <span class="sourceLineNo">809</span>  {<a name="line.809"></a>
-<span class="sourceLineNo">810</span>    return h3( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.810"></a>
+<span class="sourceLineNo">810</span>    return h3( props, children.toArray( ReactNode[]::new ) );<a name="line.810"></a>
 <span class="sourceLineNo">811</span>  }<a name="line.811"></a>
 <span class="sourceLineNo">812</span><a name="line.812"></a>
 <span class="sourceLineNo">813</span>  @Nonnull<a name="line.813"></a>
@@ -863,7 +863,7 @@
 <span class="sourceLineNo">855</span>  @Nonnull<a name="line.855"></a>
 <span class="sourceLineNo">856</span>  public static ReactNode h4( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.856"></a>
 <span class="sourceLineNo">857</span>  {<a name="line.857"></a>
-<span class="sourceLineNo">858</span>    return h4( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.858"></a>
+<span class="sourceLineNo">858</span>    return h4( props, children.toArray( ReactNode[]::new ) );<a name="line.858"></a>
 <span class="sourceLineNo">859</span>  }<a name="line.859"></a>
 <span class="sourceLineNo">860</span><a name="line.860"></a>
 <span class="sourceLineNo">861</span>  @Nonnull<a name="line.861"></a>
@@ -911,7 +911,7 @@
 <span class="sourceLineNo">903</span>  @Nonnull<a name="line.903"></a>
 <span class="sourceLineNo">904</span>  public static ReactNode h5( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.904"></a>
 <span class="sourceLineNo">905</span>  {<a name="line.905"></a>
-<span class="sourceLineNo">906</span>    return h5( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.906"></a>
+<span class="sourceLineNo">906</span>    return h5( props, children.toArray( ReactNode[]::new ) );<a name="line.906"></a>
 <span class="sourceLineNo">907</span>  }<a name="line.907"></a>
 <span class="sourceLineNo">908</span><a name="line.908"></a>
 <span class="sourceLineNo">909</span>  @Nonnull<a name="line.909"></a>
@@ -959,7 +959,7 @@
 <span class="sourceLineNo">951</span>  @Nonnull<a name="line.951"></a>
 <span class="sourceLineNo">952</span>  public static ReactNode h6( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.952"></a>
 <span class="sourceLineNo">953</span>  {<a name="line.953"></a>
-<span class="sourceLineNo">954</span>    return h6( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.954"></a>
+<span class="sourceLineNo">954</span>    return h6( props, children.toArray( ReactNode[]::new ) );<a name="line.954"></a>
 <span class="sourceLineNo">955</span>  }<a name="line.955"></a>
 <span class="sourceLineNo">956</span><a name="line.956"></a>
 <span class="sourceLineNo">957</span>  @Nonnull<a name="line.957"></a>
@@ -1007,7 +1007,7 @@
 <span class="sourceLineNo">999</span>  @Nonnull<a name="line.999"></a>
 <span class="sourceLineNo">1000</span>  public static ReactNode i( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1000"></a>
 <span class="sourceLineNo">1001</span>  {<a name="line.1001"></a>
-<span class="sourceLineNo">1002</span>    return i( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1002"></a>
+<span class="sourceLineNo">1002</span>    return i( props, children.toArray( ReactNode[]::new ) );<a name="line.1002"></a>
 <span class="sourceLineNo">1003</span>  }<a name="line.1003"></a>
 <span class="sourceLineNo">1004</span><a name="line.1004"></a>
 <span class="sourceLineNo">1005</span>  @Nonnull<a name="line.1005"></a>
@@ -1055,7 +1055,7 @@
 <span class="sourceLineNo">1047</span>  @Nonnull<a name="line.1047"></a>
 <span class="sourceLineNo">1048</span>  public static ReactNode iframe( @Nonnull final IFrameProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1048"></a>
 <span class="sourceLineNo">1049</span>  {<a name="line.1049"></a>
-<span class="sourceLineNo">1050</span>    return iframe( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1050"></a>
+<span class="sourceLineNo">1050</span>    return iframe( props, children.toArray( ReactNode[]::new ) );<a name="line.1050"></a>
 <span class="sourceLineNo">1051</span>  }<a name="line.1051"></a>
 <span class="sourceLineNo">1052</span><a name="line.1052"></a>
 <span class="sourceLineNo">1053</span>  @Nonnull<a name="line.1053"></a>
@@ -1103,7 +1103,7 @@
 <span class="sourceLineNo">1095</span>  @Nonnull<a name="line.1095"></a>
 <span class="sourceLineNo">1096</span>  public static ReactNode img( @Nonnull final ImgProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1096"></a>
 <span class="sourceLineNo">1097</span>  {<a name="line.1097"></a>
-<span class="sourceLineNo">1098</span>    return img( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1098"></a>
+<span class="sourceLineNo">1098</span>    return img( props, children.toArray( ReactNode[]::new ) );<a name="line.1098"></a>
 <span class="sourceLineNo">1099</span>  }<a name="line.1099"></a>
 <span class="sourceLineNo">1100</span><a name="line.1100"></a>
 <span class="sourceLineNo">1101</span>  @Nonnull<a name="line.1101"></a>
@@ -1151,7 +1151,7 @@
 <span class="sourceLineNo">1143</span>  @Nonnull<a name="line.1143"></a>
 <span class="sourceLineNo">1144</span>  public static ReactNode input( @Nonnull final InputProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1144"></a>
 <span class="sourceLineNo">1145</span>  {<a name="line.1145"></a>
-<span class="sourceLineNo">1146</span>    return input( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1146"></a>
+<span class="sourceLineNo">1146</span>    return input( props, children.toArray( ReactNode[]::new ) );<a name="line.1146"></a>
 <span class="sourceLineNo">1147</span>  }<a name="line.1147"></a>
 <span class="sourceLineNo">1148</span><a name="line.1148"></a>
 <span class="sourceLineNo">1149</span>  @Nonnull<a name="line.1149"></a>
@@ -1199,7 +1199,7 @@
 <span class="sourceLineNo">1191</span>  @Nonnull<a name="line.1191"></a>
 <span class="sourceLineNo">1192</span>  public static ReactNode label( @Nonnull final LabelProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1192"></a>
 <span class="sourceLineNo">1193</span>  {<a name="line.1193"></a>
-<span class="sourceLineNo">1194</span>    return label( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1194"></a>
+<span class="sourceLineNo">1194</span>    return label( props, children.toArray( ReactNode[]::new ) );<a name="line.1194"></a>
 <span class="sourceLineNo">1195</span>  }<a name="line.1195"></a>
 <span class="sourceLineNo">1196</span><a name="line.1196"></a>
 <span class="sourceLineNo">1197</span>  @Nonnull<a name="line.1197"></a>
@@ -1247,7 +1247,7 @@
 <span class="sourceLineNo">1239</span>  @Nonnull<a name="line.1239"></a>
 <span class="sourceLineNo">1240</span>  public static ReactNode li( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1240"></a>
 <span class="sourceLineNo">1241</span>  {<a name="line.1241"></a>
-<span class="sourceLineNo">1242</span>    return li( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1242"></a>
+<span class="sourceLineNo">1242</span>    return li( props, children.toArray( ReactNode[]::new ) );<a name="line.1242"></a>
 <span class="sourceLineNo">1243</span>  }<a name="line.1243"></a>
 <span class="sourceLineNo">1244</span><a name="line.1244"></a>
 <span class="sourceLineNo">1245</span>  @Nonnull<a name="line.1245"></a>
@@ -1295,7 +1295,7 @@
 <span class="sourceLineNo">1287</span>  @Nonnull<a name="line.1287"></a>
 <span class="sourceLineNo">1288</span>  public static ReactNode ol( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1288"></a>
 <span class="sourceLineNo">1289</span>  {<a name="line.1289"></a>
-<span class="sourceLineNo">1290</span>    return ol( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1290"></a>
+<span class="sourceLineNo">1290</span>    return ol( props, children.toArray( ReactNode[]::new ) );<a name="line.1290"></a>
 <span class="sourceLineNo">1291</span>  }<a name="line.1291"></a>
 <span class="sourceLineNo">1292</span><a name="line.1292"></a>
 <span class="sourceLineNo">1293</span>  @Nonnull<a name="line.1293"></a>
@@ -1343,7 +1343,7 @@
 <span class="sourceLineNo">1335</span>  @Nonnull<a name="line.1335"></a>
 <span class="sourceLineNo">1336</span>  public static ReactNode option( @Nonnull final OptionProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1336"></a>
 <span class="sourceLineNo">1337</span>  {<a name="line.1337"></a>
-<span class="sourceLineNo">1338</span>    return option( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1338"></a>
+<span class="sourceLineNo">1338</span>    return option( props, children.toArray( ReactNode[]::new ) );<a name="line.1338"></a>
 <span class="sourceLineNo">1339</span>  }<a name="line.1339"></a>
 <span class="sourceLineNo">1340</span><a name="line.1340"></a>
 <span class="sourceLineNo">1341</span>  @Nonnull<a name="line.1341"></a>
@@ -1391,7 +1391,7 @@
 <span class="sourceLineNo">1383</span>  @Nonnull<a name="line.1383"></a>
 <span class="sourceLineNo">1384</span>  public static ReactNode optgroup( @Nonnull final OptGroupProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1384"></a>
 <span class="sourceLineNo">1385</span>  {<a name="line.1385"></a>
-<span class="sourceLineNo">1386</span>    return optgroup( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1386"></a>
+<span class="sourceLineNo">1386</span>    return optgroup( props, children.toArray( ReactNode[]::new ) );<a name="line.1386"></a>
 <span class="sourceLineNo">1387</span>  }<a name="line.1387"></a>
 <span class="sourceLineNo">1388</span><a name="line.1388"></a>
 <span class="sourceLineNo">1389</span>  @Nonnull<a name="line.1389"></a>
@@ -1439,7 +1439,7 @@
 <span class="sourceLineNo">1431</span>  @Nonnull<a name="line.1431"></a>
 <span class="sourceLineNo">1432</span>  public static ReactNode p( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1432"></a>
 <span class="sourceLineNo">1433</span>  {<a name="line.1433"></a>
-<span class="sourceLineNo">1434</span>    return p( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1434"></a>
+<span class="sourceLineNo">1434</span>    return p( props, children.toArray( ReactNode[]::new ) );<a name="line.1434"></a>
 <span class="sourceLineNo">1435</span>  }<a name="line.1435"></a>
 <span class="sourceLineNo">1436</span><a name="line.1436"></a>
 <span class="sourceLineNo">1437</span>  @Nonnull<a name="line.1437"></a>
@@ -1487,7 +1487,7 @@
 <span class="sourceLineNo">1479</span>  @Nonnull<a name="line.1479"></a>
 <span class="sourceLineNo">1480</span>  public static ReactNode span( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1480"></a>
 <span class="sourceLineNo">1481</span>  {<a name="line.1481"></a>
-<span class="sourceLineNo">1482</span>    return span( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1482"></a>
+<span class="sourceLineNo">1482</span>    return span( props, children.toArray( ReactNode[]::new ) );<a name="line.1482"></a>
 <span class="sourceLineNo">1483</span>  }<a name="line.1483"></a>
 <span class="sourceLineNo">1484</span><a name="line.1484"></a>
 <span class="sourceLineNo">1485</span>  @Nonnull<a name="line.1485"></a>
@@ -1535,7 +1535,7 @@
 <span class="sourceLineNo">1527</span>  @Nonnull<a name="line.1527"></a>
 <span class="sourceLineNo">1528</span>  public static ReactNode select( @Nonnull final SelectProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1528"></a>
 <span class="sourceLineNo">1529</span>  {<a name="line.1529"></a>
-<span class="sourceLineNo">1530</span>    return select( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1530"></a>
+<span class="sourceLineNo">1530</span>    return select( props, children.toArray( ReactNode[]::new ) );<a name="line.1530"></a>
 <span class="sourceLineNo">1531</span>  }<a name="line.1531"></a>
 <span class="sourceLineNo">1532</span><a name="line.1532"></a>
 <span class="sourceLineNo">1533</span>  @Nonnull<a name="line.1533"></a>
@@ -1583,7 +1583,7 @@
 <span class="sourceLineNo">1575</span>  @Nonnull<a name="line.1575"></a>
 <span class="sourceLineNo">1576</span>  public static ReactNode section( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1576"></a>
 <span class="sourceLineNo">1577</span>  {<a name="line.1577"></a>
-<span class="sourceLineNo">1578</span>    return section( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1578"></a>
+<span class="sourceLineNo">1578</span>    return section( props, children.toArray( ReactNode[]::new ) );<a name="line.1578"></a>
 <span class="sourceLineNo">1579</span>  }<a name="line.1579"></a>
 <span class="sourceLineNo">1580</span><a name="line.1580"></a>
 <span class="sourceLineNo">1581</span>  @Nonnull<a name="line.1581"></a>
@@ -1631,7 +1631,7 @@
 <span class="sourceLineNo">1623</span>  @Nonnull<a name="line.1623"></a>
 <span class="sourceLineNo">1624</span>  public static ReactNode strong( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1624"></a>
 <span class="sourceLineNo">1625</span>  {<a name="line.1625"></a>
-<span class="sourceLineNo">1626</span>    return strong( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1626"></a>
+<span class="sourceLineNo">1626</span>    return strong( props, children.toArray( ReactNode[]::new ) );<a name="line.1626"></a>
 <span class="sourceLineNo">1627</span>  }<a name="line.1627"></a>
 <span class="sourceLineNo">1628</span><a name="line.1628"></a>
 <span class="sourceLineNo">1629</span>  @Nonnull<a name="line.1629"></a>
@@ -1679,7 +1679,7 @@
 <span class="sourceLineNo">1671</span>  @Nonnull<a name="line.1671"></a>
 <span class="sourceLineNo">1672</span>  public static ReactNode source( @Nonnull final SourceProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1672"></a>
 <span class="sourceLineNo">1673</span>  {<a name="line.1673"></a>
-<span class="sourceLineNo">1674</span>    return source( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1674"></a>
+<span class="sourceLineNo">1674</span>    return source( props, children.toArray( ReactNode[]::new ) );<a name="line.1674"></a>
 <span class="sourceLineNo">1675</span>  }<a name="line.1675"></a>
 <span class="sourceLineNo">1676</span><a name="line.1676"></a>
 <span class="sourceLineNo">1677</span>  @Nonnull<a name="line.1677"></a>
@@ -1727,7 +1727,7 @@
 <span class="sourceLineNo">1719</span>  @Nonnull<a name="line.1719"></a>
 <span class="sourceLineNo">1720</span>  public static ReactNode table( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1720"></a>
 <span class="sourceLineNo">1721</span>  {<a name="line.1721"></a>
-<span class="sourceLineNo">1722</span>    return table( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1722"></a>
+<span class="sourceLineNo">1722</span>    return table( props, children.toArray( ReactNode[]::new ) );<a name="line.1722"></a>
 <span class="sourceLineNo">1723</span>  }<a name="line.1723"></a>
 <span class="sourceLineNo">1724</span><a name="line.1724"></a>
 <span class="sourceLineNo">1725</span>  @Nonnull<a name="line.1725"></a>
@@ -1775,7 +1775,7 @@
 <span class="sourceLineNo">1767</span>  @Nonnull<a name="line.1767"></a>
 <span class="sourceLineNo">1768</span>  public static ReactNode textarea( @Nonnull final TextAreaProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1768"></a>
 <span class="sourceLineNo">1769</span>  {<a name="line.1769"></a>
-<span class="sourceLineNo">1770</span>    return textarea( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1770"></a>
+<span class="sourceLineNo">1770</span>    return textarea( props, children.toArray( ReactNode[]::new ) );<a name="line.1770"></a>
 <span class="sourceLineNo">1771</span>  }<a name="line.1771"></a>
 <span class="sourceLineNo">1772</span><a name="line.1772"></a>
 <span class="sourceLineNo">1773</span>  @Nonnull<a name="line.1773"></a>
@@ -1823,7 +1823,7 @@
 <span class="sourceLineNo">1815</span>  @Nonnull<a name="line.1815"></a>
 <span class="sourceLineNo">1816</span>  public static ReactNode td( @Nonnull final TdProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1816"></a>
 <span class="sourceLineNo">1817</span>  {<a name="line.1817"></a>
-<span class="sourceLineNo">1818</span>    return td( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1818"></a>
+<span class="sourceLineNo">1818</span>    return td( props, children.toArray( ReactNode[]::new ) );<a name="line.1818"></a>
 <span class="sourceLineNo">1819</span>  }<a name="line.1819"></a>
 <span class="sourceLineNo">1820</span><a name="line.1820"></a>
 <span class="sourceLineNo">1821</span>  @Nonnull<a name="line.1821"></a>
@@ -1871,7 +1871,7 @@
 <span class="sourceLineNo">1863</span>  @Nonnull<a name="line.1863"></a>
 <span class="sourceLineNo">1864</span>  public static ReactNode th( @Nonnull final ThProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1864"></a>
 <span class="sourceLineNo">1865</span>  {<a name="line.1865"></a>
-<span class="sourceLineNo">1866</span>    return th( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1866"></a>
+<span class="sourceLineNo">1866</span>    return th( props, children.toArray( ReactNode[]::new ) );<a name="line.1866"></a>
 <span class="sourceLineNo">1867</span>  }<a name="line.1867"></a>
 <span class="sourceLineNo">1868</span><a name="line.1868"></a>
 <span class="sourceLineNo">1869</span>  @Nonnull<a name="line.1869"></a>
@@ -1919,7 +1919,7 @@
 <span class="sourceLineNo">1911</span>  @Nonnull<a name="line.1911"></a>
 <span class="sourceLineNo">1912</span>  public static ReactNode tr( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1912"></a>
 <span class="sourceLineNo">1913</span>  {<a name="line.1913"></a>
-<span class="sourceLineNo">1914</span>    return tr( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1914"></a>
+<span class="sourceLineNo">1914</span>    return tr( props, children.toArray( ReactNode[]::new ) );<a name="line.1914"></a>
 <span class="sourceLineNo">1915</span>  }<a name="line.1915"></a>
 <span class="sourceLineNo">1916</span><a name="line.1916"></a>
 <span class="sourceLineNo">1917</span>  @Nonnull<a name="line.1917"></a>
@@ -1967,7 +1967,7 @@
 <span class="sourceLineNo">1959</span>  @Nonnull<a name="line.1959"></a>
 <span class="sourceLineNo">1960</span>  public static ReactNode ul( @Nonnull final HtmlProps props, @Nonnull final Stream&lt;? extends ReactNode&gt; children )<a name="line.1960"></a>
 <span class="sourceLineNo">1961</span>  {<a name="line.1961"></a>
-<span class="sourceLineNo">1962</span>    return ul( props, Js.&lt;ReactNode[]&gt;uncheckedCast( children.toArray( ReactNode[]::new ) ) );<a name="line.1962"></a>
+<span class="sourceLineNo">1962</span>    return ul( props, children.toArray( ReactNode[]::new ) );<a name="line.1962"></a>
 <span class="sourceLineNo">1963</span>  }<a name="line.1963"></a>
 <span class="sourceLineNo">1964</span>}<a name="line.1964"></a>
 
