@@ -34,7 +34,7 @@ observable state <code>AppData.model.totalCount()</code>, <code>AppData.viewServ
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
   <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>
 </span>{
-  <span class="hljs-meta">@EventHandler</span>( MouseEventHandler.class )
+  <span class="hljs-meta">@Callback</span>( MouseEventHandler.class )
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handleClearCompleted</span><span class="hljs-params">()</span>
   </span>{
     AppData.service.clearCompleted();
@@ -133,7 +133,7 @@ The final <code>Footer</code> component looks something like:</p>
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
   <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactArezComponent</span>
 </span>{
-  <span class="hljs-meta">@EventHandler</span>( MouseEventHandler.class )
+  <span class="hljs-meta">@Callback</span>( MouseEventHandler.class )
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handleClearCompleted</span><span class="hljs-params">()</span>
   </span>{
     AppData.service.clearCompleted();
