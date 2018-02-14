@@ -9,6 +9,24 @@
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the React4j Project</rights>
     <entry>
+        <title type="html"><![CDATA[React4j 0.45 released]]></title>
+        <id>https://react4j.github.io/blog/2018/02/14/version-0.45-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/02/14/version-0.45-release.html">
+        </link>
+        <updated>2018-02-14T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.44...v0.45)
+
+Changes in this release:
+
+#### Fixed
+* **\[processor\]** Fixed potential null pointer exception in the `reportPropsChanged` method generated
+  by the annotation processor for]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[React4j 0.44 released]]></title>
         <id>https://react4j.github.io/blog/2018/02/14/version-0.44-release.html</id>
         <link href="https://react4j.github.io/blog/2018/02/14/version-0.44-release.html">
