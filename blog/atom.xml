@@ -9,6 +9,24 @@
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the React4j Project</rights>
     <entry>
+        <title type="html"><![CDATA[React4j 0.44 released]]></title>
+        <id>https://react4j.github.io/blog/2018/02/14/version-0.44-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/02/14/version-0.44-release.html">
+        </link>
+        <updated>2018-02-14T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.43...v0.44)
+
+Changes in this release:
+
+##### Fixed
+* **\[processor\]** Fix a bug where a `@Prop` named child would incorrectly use the key `child` rather
+  than `children` to access the u]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[React4j 0.43 released]]></title>
         <id>https://react4j.github.io/blog/2018/02/14/version-0.43-release.html</id>
         <link href="https://react4j.github.io/blog/2018/02/14/version-0.43-release.html">
