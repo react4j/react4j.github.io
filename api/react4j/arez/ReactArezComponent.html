@@ -268,7 +268,7 @@ extends <a href="../../react4j/core/Component.html" title="class in react4j.core
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;react4j.core.<a href="../../react4j/core/Component.html" title="class in react4j.core">Component</a></h3>
-<code><a href="../../react4j/core/Component.html#componentDidCatch-elemental2.core.JsError-react4j.core.ReactErrorInfo-">componentDidCatch</a>, <a href="../../react4j/core/Component.html#componentWillReceiveProps-jsinterop.base.JsPropertyMap-">componentWillReceiveProps</a>, <a href="../../react4j/core/Component.html#componentWillUpdate-jsinterop.base.JsPropertyMap-S-">componentWillUpdate</a>, <a href="../../react4j/core/Component.html#getKey--">getKey</a>, <a href="../../react4j/core/Component.html#postConstruct--">postConstruct</a>, <a href="../../react4j/core/Component.html#props--">props</a>, <a href="../../react4j/core/Component.html#render--">render</a>, <a href="../../react4j/core/Component.html#scheduleRender-boolean-">scheduleRender</a>, <a href="../../react4j/core/Component.html#scheduleStateUpdate-react4j.core.Component.SetStateCallback-">scheduleStateUpdate</a>, <a href="../../react4j/core/Component.html#scheduleStateUpdate-S-">scheduleStateUpdate</a>, <a href="../../react4j/core/Component.html#scheduleStateUpdate-S-react4j.core.Procedure-">scheduleStateUpdate</a>, <a href="../../react4j/core/Component.html#setInitialState-S-">setInitialState</a>, <a href="../../react4j/core/Component.html#state--">state</a></code></li>
+<code><a href="../../react4j/core/Component.html#componentDidCatch-elemental2.core.JsError-react4j.core.ReactErrorInfo-">componentDidCatch</a>, <a href="../../react4j/core/Component.html#componentWillReceiveProps-jsinterop.base.JsPropertyMap-">componentWillReceiveProps</a>, <a href="../../react4j/core/Component.html#getKey--">getKey</a>, <a href="../../react4j/core/Component.html#postConstruct--">postConstruct</a>, <a href="../../react4j/core/Component.html#props--">props</a>, <a href="../../react4j/core/Component.html#render--">render</a>, <a href="../../react4j/core/Component.html#scheduleRender-boolean-">scheduleRender</a>, <a href="../../react4j/core/Component.html#scheduleStateUpdate-react4j.core.Component.SetStateCallback-">scheduleStateUpdate</a>, <a href="../../react4j/core/Component.html#scheduleStateUpdate-S-">scheduleStateUpdate</a>, <a href="../../react4j/core/Component.html#scheduleStateUpdate-S-react4j.core.Procedure-">scheduleStateUpdate</a>, <a href="../../react4j/core/Component.html#setInitialState-S-">setInitialState</a>, <a href="../../react4j/core/Component.html#state--">state</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -481,10 +481,9 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 
  <p>Returning false does not prevent child components from re-rendering when their state changes.</p>
 
- <p>If this method returns false, then <a href="../../react4j/core/Component.html#componentWillUpdate-jsinterop.base.JsPropertyMap-S-"><code>Component.componentWillUpdate(JsPropertyMap, BaseState)</code></a>,
- <a href="../../react4j/core/Component.html#render--"><code>Component.render()</code></a>, and <a href="../../react4j/core/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-S-"><code>Component.componentDidUpdate(JsPropertyMap, BaseState)</code></a> will not be invoked. In the future
- React may treat this method  as a hint rather than a strict directive, and returning false may still result
- in a re-rendering of the component.</p></div>
+ <p>If this method returns false, then <a href="../../react4j/core/Component.html#render--"><code>Component.render()</code></a>, and <a href="../../react4j/core/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-S-"><code>Component.componentDidUpdate(JsPropertyMap, BaseState)</code></a>
+ will not be invoked. In the future React may treat this method  as a hint rather than a strict directive, and
+ returning false may still result in a re-rendering of the component.</p></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../react4j/core/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-S-">shouldComponentUpdate</a></code>&nbsp;in class&nbsp;<code><a href="../../react4j/core/Component.html" title="class in react4j.core">Component</a>&lt;<a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>&gt;</code></dd>
