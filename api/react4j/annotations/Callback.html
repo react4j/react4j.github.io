@@ -121,12 +121,18 @@ public @interface <a href="../../src-html/react4j/annotations/Callback.html#line
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Callback.html#initCallbackContext--">initCallbackContext</a></span></code>
+<div class="block">The flag indicates whether the annotation processor should manage the calling context.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Callback.html#name--">name</a></span></code>
 <div class="block">Return the name of the callback.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Callback.html#value--">value</a></span></code>
 <div class="block">The type of the callback.</div>
@@ -174,7 +180,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="value--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>value</h4>
 <pre>public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;<a href="../../src-html/react4j/annotations/Callback.html#line.41">value</a></pre>
@@ -189,6 +195,35 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>react4j.annotations.Callback.Procedure.class</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="initCallbackContext--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>initCallbackContext</h4>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Callback.html#line.56">initCallbackContext</a></pre>
+<div class="block">The flag indicates whether the annotation processor should manage the calling context.
+ if set to <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then caller context will be setup. In practical terms
+ this means that subclasses of <code>ReactArezComponent</code> will have the callback
+ annotated with an <code>arez.annotations.Action</code> annotation. if set to <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
+ then the code that invokes the callback is responsible for setting up the calling context. This is
+ typically used when you are passing a "render" prop into a component that invokes the callback to
+ render react4j.ReactNode. The <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> value will detect whether the component needs
+ calling context setup and do so if necessary. At the moment this means that subclasses of
+ <code>ReactArezComponent</code> are enabled.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the flag to control calling context.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>react4j.annotations.Feature.AUTODETECT</dd>
 </dl>
 </li>
 </ul>

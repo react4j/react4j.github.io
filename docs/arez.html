@@ -21,12 +21,11 @@ developer controls the scope of the re-render by controlling the size of the com
 within the scope of a read-only, tracking (Arez) transaction. Changes to the observable state accessed within the
 scope of the <code>render()</code> will schedule the component for re-rendering.</p>
 <p>As most event handlers within a <code>ReactArezComponent</code> component will either access or mutate observable state, the
-helper methods generated as a result of annotating a method with <code>@EventHandler</code> will default to being annotated with
-arez's <code>@Action</code> annotation. If you do not wish an event handler to be run as an action you can annotate the event
-handler with the <a href="/api/react4j/arez/NoAutoAction.html#"><code>@NoAutoAction</code></a> annotation. This can be useful if you want to
-explicitly control the actions parameters (i.e. to make the action run in a read-only transaction) or you want to
-optimize a frequently called event handler by removing the overhead associated with annotating a method with
-<code>@Action</code>.</p>
+helper methods generated as a result of annotating a method with <code>@Callback</code> will default to being annotated with
+arez's <code>@Action</code> annotation. If you do not wish an callback to be run as an action you can set the
+<code>initCallbackContext</code> parameter to <code>DISABLE</code>. This may be useful if you want to explicitly control the actions
+parameters (i.e. to make the action run in a read-only transaction) or you want to optimize a frequently invoked
+calback by removing the overhead associated with annotating a method with <code>@Action</code>.</p>
 <p>Below is a <code>Footer</code> component extracted from a <a href="http://todomvc.com/">TodoMVC</a> implementation. It accesses the
 observable state <code>AppData.model.totalCount()</code>, <code>AppData.viewService.getFilterMode()</code> and
 <code>AppData.model.completedCount()</code> and will re-render each time any of these values change.</p>
@@ -335,6 +334,6 @@ level of abstraction.</p>
 <h3><a class="anchor" aria-hidden="true" name="avoid-arez-annotations-other-than-computed-and-action-in-react4j-components"></a><a href="#avoid-arez-annotations-other-than-computed-and-action-in-react4j-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Avoid arez annotations other than @Computed and @Action in React4j components</h3>
 <p>Following the above best practices, you will find you rarely if ever need to annotate any methods in a
 <code>ReactArezComponent</code> subclass with any Arez annotations other than <code>@Computed</code> and <code>@Action</code> and as most
-uses of <code>@Action</code> are in <code>@EventHandler</code> annotated methods that default to being annotated with an <code>@Action</code>
+uses of <code>@Action</code> are in <code>@Callback</code> annotated methods that default to being annotated with an <code>@Action</code>
 you may find that is rarely a good use case for using <code>@Action</code> in your react components.</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="overview.html">← Introduction</a><a class="docs-next button" href="compared_to_react.html">Compared to React →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="React4j" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/react4j/react4j" data-icon="octicon-star" data-count-href="/react4j/react4j/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the React4j Project.</section></footer></div></body></html>
