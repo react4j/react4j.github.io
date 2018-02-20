@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../react4j/core/BaseState.html" title="class in react4j.core"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li>Prev&nbsp;Class</li>
 <li><a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -91,14 +91,14 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">react4j.core</div>
-<h2 title="Class Component" class="title">Class Component&lt;S extends <a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>&gt;</h2>
+<h2 title="Class Component" class="title">Class Component</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
-<li>react4j.core.Component&lt;S&gt;</li>
+<li>react4j.core.Component</li>
 </ul>
 </li>
 </ul>
@@ -106,16 +106,12 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <dl>
-<dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>S</code> - the type of state that this component maintains.</dd>
-</dl>
-<dl>
 <dt>Direct Known Subclasses:</dt>
 <dd><a href="../../react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dd>
 </dl>
 <hr>
 <br>
-<pre>public abstract class <a href="../../src-html/react4j/core/Component.html#line.17">Component</a>&lt;S extends <a href="../../react4j/core/BaseState.html" title="class in react4j.core">BaseState</a>&gt;
+<pre>public abstract class <a href="../../src-html/react4j/core/Component.html#line.15">Component</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">The base java class that mirrors the react component.</div>
 </li>
@@ -138,7 +134,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static interface&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core">Component.SetStateCallback</a>&lt;<a href="../../react4j/core/Component.SetStateCallback.html" title="type parameter in Component.SetStateCallback">S</a>&gt;</span></code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core">Component.SetStateCallback</a></span></code>
 <div class="block">Callback function for updating state.</div>
 </td>
 </tr>
@@ -189,8 +185,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-S-">componentDidUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
-                  <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;prevState)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">componentDidUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
+                  jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevState)</code>
 <div class="block">This method is invoked immediately after updating occurs.</div>
 </td>
 </tr>
@@ -250,46 +246,46 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#scheduleStateUpdate-react4j.core.Component.SetStateCallback-">scheduleStateUpdate</a></span>(<a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core">Component.SetStateCallback</a>&lt;<a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&gt;&nbsp;callback)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#scheduleStateUpdate-react4j.core.Component.SetStateCallback-">scheduleStateUpdate</a></span>(<a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core">Component.SetStateCallback</a>&nbsp;callback)</code>
 <div class="block">Schedule a shallow merge of supplied state into current state.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#scheduleStateUpdate-react4j.core.Component.SetStateCallback-react4j.core.Procedure-">scheduleStateUpdate</a></span>(<a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core">Component.SetStateCallback</a>&lt;<a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&gt;&nbsp;callback,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#scheduleStateUpdate-react4j.core.Component.SetStateCallback-react4j.core.Procedure-">scheduleStateUpdate</a></span>(<a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core">Component.SetStateCallback</a>&nbsp;callback,
                    <a href="../../react4j/core/Procedure.html" title="interface in react4j.core">Procedure</a>&nbsp;onStateUpdateComplete)</code>
 <div class="block">Schedule a shallow merge of supplied state into current state.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#scheduleStateUpdate-S-">scheduleStateUpdate</a></span>(<a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;state)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#scheduleStateUpdate-jsinterop.base.JsPropertyMap-">scheduleStateUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state)</code>
 <div class="block">Schedule a shallow merge of supplied state into current state.</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#scheduleStateUpdate-S-react4j.core.Procedure-">scheduleStateUpdate</a></span>(<a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;state,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#scheduleStateUpdate-jsinterop.base.JsPropertyMap-react4j.core.Procedure-">scheduleStateUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state,
                    <a href="../../react4j/core/Procedure.html" title="interface in react4j.core">Procedure</a>&nbsp;onStateUpdateComplete)</code>
 <div class="block">Schedule a shallow merge of supplied state into current state.</div>
 </td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#setInitialState-S-">setInitialState</a></span>(<a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;state)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#setInitialState-jsinterop.base.JsPropertyMap-">setInitialState</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state)</code>
 <div class="block">Set the initial state of the component.</div>
 </td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-S-">shouldComponentUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
-                     <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;nextState)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">shouldComponentUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
+                     jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</code>
 <div class="block">Use this method to let React know if a component's output is not affected
  by the current change in state or props.</div>
 </td>
 </tr>
 <tr id="i18" class="altColor">
-<td class="colFirst"><code>protected <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a></code></td>
+<td class="colFirst"><code>protected jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/Component.html#state--">state</a></span>()</code>
 <div class="block">Return the component state from the native component.</div>
 </td>
@@ -322,7 +318,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Component</h4>
-<pre>public&nbsp;<a href="../../src-html/react4j/core/Component.html#line.17">Component</a>()</pre>
+<pre>public&nbsp;<a href="../../src-html/react4j/core/Component.html#line.15">Component</a>()</pre>
 </li>
 </ul>
 </li>
@@ -333,16 +329,14 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="setInitialState-react4j.core.BaseState-">
-<!--   -->
-</a><a name="setInitialState-S-">
+<a name="setInitialState-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setInitialState</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.80">setInitialState</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                     <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;state)</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.79">setInitialState</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                     jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state)</pre>
 <div class="block">Set the initial state of the component.
  This should only be invoked when the component is initializing.
  Calling this at any other time is an error.</div>
@@ -358,7 +352,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>state</h4>
-<pre>protected final&nbsp;<a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.109">state</a>()</pre>
+<pre>protected final&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;<a href="../../src-html/react4j/core/Component.html#line.108">state</a>()</pre>
 <div class="block">Return the component state from the native component.
  This may be null if initial state was never set.</div>
 <dl>
@@ -373,7 +367,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>props</h4>
-<pre>protected final&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;<a href="../../src-html/react4j/core/Component.html#line.120">props</a>()</pre>
+<pre>protected final&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;<a href="../../src-html/react4j/core/Component.html#line.119">props</a>()</pre>
 <div class="block">Return the component props from the native component.
  This may be null if no props were supplied.</div>
 <dl>
@@ -389,7 +383,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>getKey</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.135">getKey</a>()</pre>
+protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.134">getKey</a>()</pre>
 <div class="block">Return the key associated with the component if any.
  The key is used by the react reconcilliation process as a means to identify components so that they
  can be moved rather than recreated or reconfigured. Typically, it should not be used by the component
@@ -401,16 +395,14 @@ protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </dl>
 </li>
 </ul>
-<a name="scheduleStateUpdate-react4j.core.BaseState-">
-<!--   -->
-</a><a name="scheduleStateUpdate-S-">
+<a name="scheduleStateUpdate-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>scheduleStateUpdate</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.147">scheduleStateUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                         <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;state)</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.146">scheduleStateUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state)</pre>
 <div class="block">Schedule a shallow merge of supplied state into current state.
  This will trigger an update cycle and is the primary method you
  use to trigger UI updates from event handlers and server request callbacks.</div>
@@ -420,16 +412,14 @@ protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </dl>
 </li>
 </ul>
-<a name="scheduleStateUpdate-react4j.core.BaseState-react4j.core.Procedure-">
-<!--   -->
-</a><a name="scheduleStateUpdate-S-react4j.core.Procedure-">
+<a name="scheduleStateUpdate-jsinterop.base.JsPropertyMap-react4j.core.Procedure-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>scheduleStateUpdate</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.160">scheduleStateUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                         <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;state,
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.159">scheduleStateUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state,
                                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                          <a href="../../react4j/core/Procedure.html" title="interface in react4j.core">Procedure</a>&nbsp;onStateUpdateComplete)</pre>
 <div class="block">Schedule a shallow merge of supplied state into current state.
@@ -448,8 +438,8 @@ protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>scheduleStateUpdate</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.173">scheduleStateUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                         <a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core">Component.SetStateCallback</a>&lt;<a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&gt;&nbsp;callback)</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.172">scheduleStateUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                         <a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core">Component.SetStateCallback</a>&nbsp;callback)</pre>
 <div class="block">Schedule a shallow merge of supplied state into current state.
  This will trigger an update cycle and is the primary method you
  use to trigger UI updates from event handlers and server request callbacks.</div>
@@ -465,8 +455,8 @@ protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>scheduleStateUpdate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.186">scheduleStateUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                   <a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core">Component.SetStateCallback</a>&lt;<a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&gt;&nbsp;callback,
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.185">scheduleStateUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                   <a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core">Component.SetStateCallback</a>&nbsp;callback,
                                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                    <a href="../../react4j/core/Procedure.html" title="interface in react4j.core">Procedure</a>&nbsp;onStateUpdateComplete)</pre>
 <div class="block">Schedule a shallow merge of supplied state into current state.
@@ -485,17 +475,17 @@ protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>scheduleRender</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.223">scheduleRender</a>(boolean&nbsp;force)</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.222">scheduleRender</a>(boolean&nbsp;force)</pre>
 <div class="block">Schedule this component for re-rendering.
  The component re-renders when state or props change but calling this method is another way to
  schedule the component to be re-rendered.
 
- <p>If the force parameter is true then the <a href="../../react4j/core/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-S-"><code>shouldComponentUpdate(JsPropertyMap, BaseState)</code></a> will be skipped
+ <p>If the force parameter is true then the <a href="../../react4j/core/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap, JsPropertyMap)</code></a> will be skipped
  and it is equivalent to calling forceUpdate() on the native react component. See the
  <a href="https://reactjs.org/docs/react-component.html#forceupdate">React Component documentation</a> for more
  details.</p>
 
- <p>If the force parameter is true then the <a href="../../react4j/core/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-S-"><code>shouldComponentUpdate(JsPropertyMap, BaseState)</code></a> will be
+ <p>If the force parameter is true then the <a href="../../react4j/core/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap, JsPropertyMap)</code></a> will be
  invoked. This is equivalent to calling setState({}) on the native react component.</p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -510,7 +500,7 @@ protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList">
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected abstract&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.249">render</a>()</pre>
+protected abstract&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.248">render</a>()</pre>
 <div class="block">Render the component.
  See the <a href="https://reactjs.org/docs/react-component.html#render">React Component documentation</a> for more details.</div>
 <dl>
@@ -526,7 +516,7 @@ protected abstract&nbsp;<a href="../../react4j/core/ReactNode.html" title="inter
 <li class="blockList">
 <h4>performRender</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.259">performRender</a>()</pre>
+protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/Component.html#line.258">performRender</a>()</pre>
 <div class="block">Wrapper method for rendering the component.
  By default it just delegates to the <a href="../../react4j/core/Component.html#render--"><code>render()</code></a> method.
  This method exists to give middleware a mechanism of wrapping calls to render</div>
@@ -542,7 +532,7 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 <ul class="blockList">
 <li class="blockList">
 <h4>performPostConstruct</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.269">performPostConstruct</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.268">performPostConstruct</a>()</pre>
 <div class="block">Wrapper method for constructing the component.
  By default it just delegates to the <a href="../../react4j/core/Component.html#postConstruct--"><code>postConstruct()</code></a> method.
  This method exists to give middleware a mechanism to hook into component construction lifecycle.</div>
@@ -554,7 +544,7 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 <ul class="blockList">
 <li class="blockList">
 <h4>postConstruct</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.282">postConstruct</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.281">postConstruct</a>()</pre>
 <div class="block">This method is invoked after the component is constructed and bound to a native react component.
  This is a good place to perform initialization. It is called before <a href="../../react4j/core/Component.html#render--"><code>render()</code></a>, therefore
  setting state in this method will not trigger a re-rendering. This replaces the
@@ -569,25 +559,23 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidMount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.292">componentDidMount</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.291">componentDidMount</a>()</pre>
 <div class="block">This method is invoked after a component is attached to the DOM.
  Initialization that requires DOM nodes should go here.
  Setting state in this method will trigger a re-rendering.
  See the <a href="https://reactjs.org/docs/react-component.html#componentdidmount">React Component documentation</a> for more details.</div>
 </li>
 </ul>
-<a name="componentDidUpdate-jsinterop.base.JsPropertyMap-react4j.core.BaseState-">
-<!--   -->
-</a><a name="componentDidUpdate-jsinterop.base.JsPropertyMap-S-">
+<a name="componentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidUpdate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.304">componentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.303">componentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                   jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
                                   <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                  <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;prevState)</pre>
+                                  jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevState)</pre>
 <div class="block">This method is invoked immediately after updating occurs.
  If you need to interact with the DOM after the component has been updated.
  See the <a href="https://reactjs.org/docs/react-component.html#componentdidupdate">React Component documentation</a> for more details.</div>
@@ -604,12 +592,12 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 <ul class="blockList">
 <li class="blockList">
 <h4>componentWillReceiveProps</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.325">componentWillReceiveProps</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.326">componentWillReceiveProps</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                          jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps)</pre>
 <div class="block">This method is invoked before a mounted component receives new props.
  If you need to update the state in response to prop changes (for example, to reset it), you
  may compare the <a href="../../react4j/core/Component.html#props--"><code>props()</code></a> and supplied nextProps and perform state transitions using
- <a href="../../react4j/core/Component.html#scheduleStateUpdate-S-"><code>scheduleStateUpdate(BaseState)</code></a> in this method.
+ <a href="../../react4j/core/Component.html#scheduleStateUpdate-jsinterop.base.JsPropertyMap-"><code>scheduleStateUpdate(JsPropertyMap)</code></a> in this method.
  See the <a href="https://reactjs.org/docs/react-component.html#componentwillreceiveprops">React Component documentation</a> for more details.
 
  <p>Note that React may call this method even if the props have not changed, so make sure to
@@ -617,7 +605,8 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
  parent component causes your component to re-render.</p>
 
  <p>React doesn't call this method with initial props during mounting. It only calls this method
- if some of component's props may update. Calling <a href="../../react4j/core/Component.html#scheduleStateUpdate-S-"><code>scheduleStateUpdate(BaseState)</code></a> generally doesn't trigger
+ if some of component's props may update. Calling <a href="../../react4j/core/Component.html#scheduleStateUpdate-jsinterop.base.JsPropertyMap-"><code>scheduleStateUpdate(JsPropertyMap)</code></a>
+ generally doesn't trigger
  this method.</p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -631,7 +620,7 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 <ul class="blockList">
 <li class="blockList">
 <h4>componentWillUnmount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.335">componentWillUnmount</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.336">componentWillUnmount</a>()</pre>
 <div class="block">This method is invoked immediately before a component is unmounted and destroyed.
  Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up
  any DOM elements that were created in <a href="../../react4j/core/Component.html#componentDidMount--"><code>componentDidMount()</code></a>
@@ -644,7 +633,7 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidCatch</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.352">componentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/core/Component.html#line.353">componentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  elemental2.core.JsError&nbsp;error,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../../react4j/core/ReactErrorInfo.html" title="class in react4j.core">ReactErrorInfo</a>&nbsp;info)</pre>
@@ -663,18 +652,16 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 </dl>
 </li>
 </ul>
-<a name="shouldComponentUpdate-jsinterop.base.JsPropertyMap-react4j.core.BaseState-">
-<!--   -->
-</a><a name="shouldComponentUpdate-jsinterop.base.JsPropertyMap-S-">
+<a name="shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>shouldComponentUpdate</h4>
-<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/Component.html#line.376">shouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/Component.html#line.377">shouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                        <a href="../../react4j/core/Component.html" title="type parameter in Component">S</a>&nbsp;nextState)</pre>
+                                        jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</pre>
 <div class="block">Use this method to let React know if a component's output is not affected
  by the current change in state or props. The default behavior is to re-render on
  every state change, and in the vast majority of cases you should rely on the default behavior.
@@ -686,7 +673,7 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 
  <p>Returning false does not prevent child components from re-rendering when their state changes.</p>
 
- <p>If this method returns false, then <a href="../../react4j/core/Component.html#render--"><code>render()</code></a>, and <a href="../../react4j/core/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-S-"><code>componentDidUpdate(JsPropertyMap, BaseState)</code></a>
+ <p>If this method returns false, then <a href="../../react4j/core/Component.html#render--"><code>render()</code></a>, and <a href="../../react4j/core/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>componentDidUpdate(JsPropertyMap, JsPropertyMap)</code></a>
  will not be invoked. In the future React may treat this method  as a hint rather than a strict directive, and
  returning false may still result in a re-rendering of the component.</p></div>
 <dl>
@@ -725,7 +712,7 @@ protected&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in r
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../react4j/core/BaseState.html" title="class in react4j.core"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li>Prev&nbsp;Class</li>
 <li><a href="../../react4j/core/Component.SetStateCallback.html" title="interface in react4j.core"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
