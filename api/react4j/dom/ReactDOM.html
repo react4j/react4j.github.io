@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -131,19 +131,25 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#batchedUpdates-react4j.core.Procedure-">batchedUpdates</a></span>(<a href="../../react4j/core/Procedure.html" title="interface in react4j.core">Procedure</a>&nbsp;action)</code>
+<div class="block">Batch all state updates within the action.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#createElement-java.lang.String-">createElement</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type)</code>
 <div class="block">Create and return a new ReactElement of the given type.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static &lt;P extends <a href="../../react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a>&gt;<br><a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#createElement-java.lang.String-P-">createElement</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
              P&nbsp;props)</code>
 <div class="block">Create and return a new ReactElement of the given type.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static &lt;P extends <a href="../../react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a>&gt;<br><a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#createElement-java.lang.String-P-react4j.core.ReactNode...-">createElement</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
              P&nbsp;props,
@@ -151,7 +157,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block">Create and return a new ReactElement of the given type with specified children.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static <a href="../../react4j/dom/ReactPortal.html" title="class in react4j.dom">ReactPortal</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#createPortal-react4j.core.ReactNode-elemental2.dom.Element-">createPortal</a></span>(<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;children,
             elemental2.dom.Element&nbsp;container)</code>
@@ -159,14 +165,14 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  of the parent component.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#render-react4j.core.ReactNode-elemental2.dom.Element-">render</a></span>(<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;node,
       elemental2.dom.Element&nbsp;container)</code>
 <div class="block">Render a React element into the DOM in the supplied container.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#render-react4j.core.ReactNode-elemental2.dom.Element-react4j.core.Procedure-">render</a></span>(<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;node,
       elemental2.dom.Element&nbsp;container,
@@ -174,7 +180,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block">Render a React element into the DOM in the supplied container.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#unmountComponentAtNode-elemental2.dom.Element-">unmountComponentAtNode</a></span>(elemental2.dom.Element&nbsp;container)</code>
 <div class="block">Remove a mounted React component from the DOM and clean up its event handlers and state.</div>
@@ -354,7 +360,7 @@ public static&nbsp;&lt;P extends <a href="../../react4j/dom/proptypes/html/HtmlG
 </a><a name="createElement-java.lang.String-P-react4j.core.ReactNode...-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>createElement</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
@@ -375,6 +381,25 @@ public static&nbsp;&lt;P extends <a href="../../react4j/dom/proptypes/html/HtmlG
 <dd><code>children</code> - The child elements.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the created DOMElement</dd>
+</dl>
+</li>
+</ul>
+<a name="batchedUpdates-react4j.core.Procedure-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>batchedUpdates</h4>
+<pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
+public static&nbsp;void&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.135">batchedUpdates</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                             <a href="../../react4j/core/Procedure.html" title="interface in react4j.core">Procedure</a>&nbsp;action)</pre>
+<div class="block">Batch all state updates within the action.
+ This is currently an unstable API within the React 16, mostly because it is only useful when called
+ outside an event handler (i.e. from network code) and because it is likely to be enabled by default
+ in a later version of React.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>action</code> - the action where all state updates are batched.</dd>
 </dl>
 </li>
 </ul>
