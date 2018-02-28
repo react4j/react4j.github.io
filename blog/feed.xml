@@ -14,6 +14,19 @@
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
         <item>
+            <title><![CDATA[React4j 0.49 released]]></title>
+            <link>https://react4j.github.io/blog/2018/02/28/version-0.49-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/02/28/version-0.49-release.html</guid>
+            <pubDate>Wed, 28 Feb 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.48...v0.49)
+
+Changes in this release:
+
+##### Added
+* **\[arez\]** Introduce the `ReactArezEnvironment` utility class to aid install an Arez `ReactionEnvironment`
+  that batches all update]]></description>
+        </item>
+        <item>
             <title><![CDATA[React4j 0.48 released]]></title>
             <link>https://react4j.github.io/blog/2018/02/28/version-0.48-release.html</link>
             <guid>https://react4j.github.io/blog/2018/02/28/version-0.48-release.html</guid>
