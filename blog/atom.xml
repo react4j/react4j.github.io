@@ -2,12 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://react4j.github.io/blog</id>
     <title>React4j Blog</title>
-    <updated>2018-02-28T06:00:00Z</updated>
+    <updated>2018-03-05T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://react4j.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest React4j news and events.</subtitle>
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the React4j Project</rights>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.50 released]]></title>
+        <id>https://react4j.github.io/blog/2018/03/05/version-0.50-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/03/05/version-0.50-release.html">
+        </link>
+        <updated>2018-03-05T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.49...v0.50)
+
+Changes in this release:
+
+##### Added
+* **\[core\]** Add support for the `React.Fragment` node type introduced in React `v16.2.0` as described in
+  the [fragments]()https://r]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React4j 0.49 released]]></title>
         <id>https://react4j.github.io/blog/2018/02/28/version-0.49-release.html</id>
