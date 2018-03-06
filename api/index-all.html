@@ -533,7 +533,7 @@
 <dd>
 <div class="block">Clipping crops an graphic, so that only a portion of the graphic is rendered, or filled.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/core/React.html#cloneElement-react4j.core.ReactElement-jsinterop.base.JsPropertyMap-">cloneElement(ReactElement&lt;T&gt;, JsPropertyMap&lt;Object&gt;)</a></span> - Static method in class react4j.core.<a href="react4j/core/React.html" title="class in react4j.core">React</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/core/React.html#cloneElement-react4j.core.ReactNode-jsinterop.base.JsPropertyMap-">cloneElement(ReactNode, JsPropertyMap&lt;Object&gt;)</a></span> - Static method in class react4j.core.<a href="react4j/core/React.html" title="class in react4j.core">React</a></dt>
 <dd>
 <div class="block">Clone and return a new ReactElement using element as the starting point.</div>
 </dd>
@@ -2462,6 +2462,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#isUnselectable--">isUnselectable()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/core/React.html#isValidElement-react4j.core.ReactNode-">isValidElement(ReactNode)</a></span> - Static method in class react4j.core.<a href="react4j/core/React.html" title="class in react4j.core">React</a></dt>
+<dd>
+<div class="block">Return true if the specified node is a ReactElement.</div>
+</dd>
 </dl>
 <a name="I:J">
 <!--   -->
@@ -2478,8 +2482,6 @@
 </a>
 <h2 class="title">K</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="react4j/core/ReactElement.html#key">key</a></span> - Variable in class react4j.core.<a href="react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#key">key</a></span> - Variable in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#key-java.lang.String-">key(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
@@ -3861,8 +3863,6 @@
 <dd>
 <div class="block">Return the component props from the native component.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/core/ReactElement.html#props">props</a></span> - Variable in class react4j.core.<a href="react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a></dt>
-<dd>&nbsp;</dd>
 </dl>
 <a name="I:Q">
 <!--   -->
@@ -3945,12 +3945,6 @@
 <dd>
 <div class="block">Core interface into React DOM library.</div>
 </dd>
-<dt><a href="react4j/core/ReactElement.html" title="class in react4j.core"><span class="typeNameLink">ReactElement</span></a>&lt;<a href="react4j/core/ReactElement.html" title="type parameter in ReactElement">T</a>&gt; - Class in <a href="react4j/core/package-summary.html">react4j.core</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/core/ReactElement.html#ReactElement--">ReactElement()</a></span> - Constructor for class react4j.core.<a href="react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a></dt>
-<dd>
-<div class="block">Objects of this class cannot be directly instantiated by the user.</div>
-</dd>
 <dt><a href="react4j/core/ReactErrorInfo.html" title="class in react4j.core"><span class="typeNameLink">ReactErrorInfo</span></a> - Class in <a href="react4j/core/package-summary.html">react4j.core</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/core/ReactErrorInfo.html#ReactErrorInfo--">ReactErrorInfo()</a></span> - Constructor for class react4j.core.<a href="react4j/core/ReactErrorInfo.html" title="class in react4j.core">ReactErrorInfo</a></dt>
@@ -3977,7 +3971,7 @@
 <dd>
 <div class="block">A GWT widget that renders a React4j element.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/widget/ReactWidget.html#ReactWidget-react4j.core.ReactElement-">ReactWidget(ReactElement&lt;?&gt;)</a></span> - Constructor for class react4j.widget.<a href="react4j/widget/ReactWidget.html" title="class in react4j.widget">ReactWidget</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/widget/ReactWidget.html#ReactWidget-react4j.core.ReactNode-">ReactWidget(ReactNode)</a></span> - Constructor for class react4j.widget.<a href="react4j/widget/ReactWidget.html" title="class in react4j.widget">ReactWidget</a></dt>
 <dd>
 <div class="block">Create the widget.</div>
 </dd>
@@ -5491,8 +5485,6 @@
 <dd>
 <div class="block">Template method overridden by annotation processor if there are autoruns to schedule.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/core/ReactElement.html#type">type</a></span> - Variable in class react4j.core.<a href="react4j/core/ReactElement.html" title="class in react4j.core">ReactElement</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/AnchorProps.html#type-java.lang.String-">type(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/AnchorProps.html" title="class in react4j.dom.proptypes.html">AnchorProps</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/BtnProps.html#type-react4j.dom.proptypes.html.attributeTypes.ButtonType-">type(ButtonType)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/BtnProps.html" title="class in react4j.dom.proptypes.html">BtnProps</a></dt>
