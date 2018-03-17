@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public final class <a href="../../src-html/react4j/core/ReactConfig.html#line.6">ReactConfig</a>
+<pre>public final class <a href="../../src-html/react4j/core/ReactConfig.html#line.8">ReactConfig</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Location of all compile time configuration settings for framework.</div>
 </li>
@@ -146,6 +146,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block">Return true if in production mode.</div>
 </td>
 </tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/ReactConfig.html#shouldCheckInvariants--">shouldCheckInvariants</a></span>()</code>
+<div class="block">Return true if invariants will be checked.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -174,7 +180,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>isProductionMode</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/ReactConfig.html#line.28">isProductionMode</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/ReactConfig.html#line.32">isProductionMode</a>()</pre>
 <div class="block">Return true if in production mode.
  Production mode sets the default values for other compile time constants to the variant
  that assumes your code is correct and does not generate additional assert or debug statements.
@@ -191,7 +197,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enableComponentNames</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/ReactConfig.html#line.39">enableComponentNames</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/ReactConfig.html#line.43">enableComponentNames</a>()</pre>
 <div class="block">Return true if components should have human readable names specified.
  Useful if you want to interact via DevTools or other tool chains.</div>
 <dl>
@@ -203,16 +209,30 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <a name="checkComponentStateInvariants--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>checkComponentStateInvariants</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/ReactConfig.html#line.51">checkComponentStateInvariants</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/ReactConfig.html#line.55">checkComponentStateInvariants</a>()</pre>
 <div class="block">Return true if we should check that the user interacts with React component in a way compatible with the state.
  i.e. setInitialState should only be invoked at the start, setState should not be invoked while render
  is running etc.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true to enable invariant checking about how we interact with native react component.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldCheckInvariants--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>shouldCheckInvariants</h4>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/ReactConfig.html#line.65">shouldCheckInvariants</a>()</pre>
+<div class="block">Return true if invariants will be checked.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if invariants will be checked.</dd>
 </dl>
 </li>
 </ul>
