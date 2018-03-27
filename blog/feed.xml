@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Sun, 25 Mar 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 27 Mar 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.55 released]]></title>
+            <link>https://react4j.github.io/blog/2018/03/27/version-0.55-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/03/27/version-0.55-release.html</guid>
+            <pubDate>Tue, 27 Mar 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.54...v0.55)
+
+Changes in this release:
+
+#### Changed
+* 💥 **\[widget\]** The `react-widget` artifact has been removed from the `react4j` project and migrated
+  to it's own top level reposi]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.54 released]]></title>
             <link>https://react4j.github.io/blog/2018/03/25/version-0.54-release.html</link>
