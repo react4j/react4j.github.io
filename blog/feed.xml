@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Tue, 27 Mar 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 Mar 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.56 released]]></title>
+            <link>https://react4j.github.io/blog/2018/03/28/version-0.56-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/03/28/version-0.56-release.html</guid>
+            <pubDate>Wed, 28 Mar 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.55...v0.56)
+
+Changes in this release:
+
+#### Changed
+* **\[processor\]** Update the processor so that `@Prop` annotated methods that are marked as `@Nullable`
+  with a `required` parameter]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.55 released]]></title>
             <link>https://react4j.github.io/blog/2018/03/27/version-0.55-release.html</link>
