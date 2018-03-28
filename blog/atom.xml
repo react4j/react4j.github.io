@@ -9,6 +9,24 @@
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the React4j Project</rights>
     <entry>
+        <title type="html"><![CDATA[React4j 0.57 released]]></title>
+        <id>https://react4j.github.io/blog/2018/03/28/version-0.57-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/03/28/version-0.57-release.html">
+        </link>
+        <updated>2018-03-28T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.56...v0.57)
+
+Changes in this release:
+
+#### Fixed
+* **\[processor\]** A component that has a single optional `@Prop` annotated method will terminate the build after
+  the builder method f]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[React4j 0.56 released]]></title>
         <id>https://react4j.github.io/blog/2018/03/28/version-0.56-release.html</id>
         <link href="https://react4j.github.io/blog/2018/03/28/version-0.56-release.html">
