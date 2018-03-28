@@ -326,79 +326,58 @@
 <span class="sourceLineNo">318</span>  }<a name="line.318"></a>
 <span class="sourceLineNo">319</span><a name="line.319"></a>
 <span class="sourceLineNo">320</span>  /**<a name="line.320"></a>
-<span class="sourceLineNo">321</span>   * This method is invoked before a mounted component receives new props.<a name="line.321"></a>
-<span class="sourceLineNo">322</span>   * If you need to update the state in response to prop changes (for example, to reset it), you<a name="line.322"></a>
-<span class="sourceLineNo">323</span>   * may compare the {@link #props()} and supplied nextProps and perform state transitions using<a name="line.323"></a>
-<span class="sourceLineNo">324</span>   * {@link #scheduleStateUpdate(JsPropertyMap)} in this method.<a name="line.324"></a>
-<span class="sourceLineNo">325</span>   * See the &lt;a href="https://reactjs.org/docs/react-component.html#componentwillreceiveprops"&gt;React Component documentation&lt;/a&gt; for more details.<a name="line.325"></a>
-<span class="sourceLineNo">326</span>   *<a name="line.326"></a>
-<span class="sourceLineNo">327</span>   * &lt;p&gt;Note that React may call this method even if the props have not changed, so make sure to<a name="line.327"></a>
-<span class="sourceLineNo">328</span>   * compare the current and next values if you only want to handle changes. This may occur when the<a name="line.328"></a>
-<span class="sourceLineNo">329</span>   * parent component causes your component to re-render.&lt;/p&gt;<a name="line.329"></a>
-<span class="sourceLineNo">330</span>   *<a name="line.330"></a>
-<span class="sourceLineNo">331</span>   * &lt;p&gt;React doesn't call this method with initial props during mounting. It only calls this method<a name="line.331"></a>
-<span class="sourceLineNo">332</span>   * if some of component's props may update. Calling {@link #scheduleStateUpdate(JsPropertyMap)}<a name="line.332"></a>
-<span class="sourceLineNo">333</span>   * generally doesn't trigger this method.&lt;/p&gt;<a name="line.333"></a>
+<span class="sourceLineNo">321</span>   * This method is invoked immediately before a component is unmounted and destroyed.<a name="line.321"></a>
+<span class="sourceLineNo">322</span>   * Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up<a name="line.322"></a>
+<span class="sourceLineNo">323</span>   * any DOM elements that were created in {@link #componentDidMount()}<a name="line.323"></a>
+<span class="sourceLineNo">324</span>   * See the &lt;a href="https://reactjs.org/docs/react-component.html#componentwillunmount"&gt;React Component documentation&lt;/a&gt; for more details.<a name="line.324"></a>
+<span class="sourceLineNo">325</span>   */<a name="line.325"></a>
+<span class="sourceLineNo">326</span>  protected void componentWillUnmount()<a name="line.326"></a>
+<span class="sourceLineNo">327</span>  {<a name="line.327"></a>
+<span class="sourceLineNo">328</span>  }<a name="line.328"></a>
+<span class="sourceLineNo">329</span><a name="line.329"></a>
+<span class="sourceLineNo">330</span>  /**<a name="line.330"></a>
+<span class="sourceLineNo">331</span>   * The componentDidCatch() method works like a JavaScript catch {} block, but for components.<a name="line.331"></a>
+<span class="sourceLineNo">332</span>   * Only class components can be error boundaries. In practice, most of the time you’ll want to<a name="line.332"></a>
+<span class="sourceLineNo">333</span>   * declare an error boundary component once and use it throughout your application.<a name="line.333"></a>
 <span class="sourceLineNo">334</span>   *<a name="line.334"></a>
-<span class="sourceLineNo">335</span>   * @param nextProps the new properties of the component.<a name="line.335"></a>
-<span class="sourceLineNo">336</span>   */<a name="line.336"></a>
-<span class="sourceLineNo">337</span>  protected void componentWillReceiveProps( @Nonnull final JsPropertyMap&lt;Object&gt; nextProps )<a name="line.337"></a>
-<span class="sourceLineNo">338</span>  {<a name="line.338"></a>
-<span class="sourceLineNo">339</span>  }<a name="line.339"></a>
-<span class="sourceLineNo">340</span><a name="line.340"></a>
-<span class="sourceLineNo">341</span>  /**<a name="line.341"></a>
-<span class="sourceLineNo">342</span>   * This method is invoked immediately before a component is unmounted and destroyed.<a name="line.342"></a>
-<span class="sourceLineNo">343</span>   * Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up<a name="line.343"></a>
-<span class="sourceLineNo">344</span>   * any DOM elements that were created in {@link #componentDidMount()}<a name="line.344"></a>
-<span class="sourceLineNo">345</span>   * See the &lt;a href="https://reactjs.org/docs/react-component.html#componentwillunmount"&gt;React Component documentation&lt;/a&gt; for more details.<a name="line.345"></a>
-<span class="sourceLineNo">346</span>   */<a name="line.346"></a>
-<span class="sourceLineNo">347</span>  protected void componentWillUnmount()<a name="line.347"></a>
-<span class="sourceLineNo">348</span>  {<a name="line.348"></a>
-<span class="sourceLineNo">349</span>  }<a name="line.349"></a>
-<span class="sourceLineNo">350</span><a name="line.350"></a>
-<span class="sourceLineNo">351</span>  /**<a name="line.351"></a>
-<span class="sourceLineNo">352</span>   * The componentDidCatch() method works like a JavaScript catch {} block, but for components.<a name="line.352"></a>
-<span class="sourceLineNo">353</span>   * Only class components can be error boundaries. In practice, most of the time you’ll want to<a name="line.353"></a>
-<span class="sourceLineNo">354</span>   * declare an error boundary component once and use it throughout your application.<a name="line.354"></a>
-<span class="sourceLineNo">355</span>   *<a name="line.355"></a>
-<span class="sourceLineNo">356</span>   * &lt;p&gt;Note that error boundaries only catch errors in the components below them in the tree. An<a name="line.356"></a>
-<span class="sourceLineNo">357</span>   * error boundary can’t catch an error within itself. If an error boundary fails trying to render<a name="line.357"></a>
-<span class="sourceLineNo">358</span>   * the error message, the error will propagate to the closest error boundary above it. This, too,<a name="line.358"></a>
-<span class="sourceLineNo">359</span>   * is similar to how catch {} block works in JavaScript.&lt;/p&gt;<a name="line.359"></a>
-<span class="sourceLineNo">360</span>   *<a name="line.360"></a>
-<span class="sourceLineNo">361</span>   * @param error the error that has been thrown.<a name="line.361"></a>
-<span class="sourceLineNo">362</span>   * @param info  information about component stack during thrown error.<a name="line.362"></a>
-<span class="sourceLineNo">363</span>   */<a name="line.363"></a>
-<span class="sourceLineNo">364</span>  protected void componentDidCatch( @Nonnull final JsError error, @Nonnull final ReactErrorInfo info )<a name="line.364"></a>
-<span class="sourceLineNo">365</span>  {<a name="line.365"></a>
-<span class="sourceLineNo">366</span>  }<a name="line.366"></a>
-<span class="sourceLineNo">367</span><a name="line.367"></a>
-<span class="sourceLineNo">368</span>  /**<a name="line.368"></a>
-<span class="sourceLineNo">369</span>   * Use this method to let React know if a component's output is not affected<a name="line.369"></a>
-<span class="sourceLineNo">370</span>   * by the current change in state or props. The default behavior is to re-render on<a name="line.370"></a>
-<span class="sourceLineNo">371</span>   * every state change, and in the vast majority of cases you should rely on the default behavior.<a name="line.371"></a>
-<span class="sourceLineNo">372</span>   * See the &lt;a href="https://reactjs.org/docs/react-component.html#shouldcomponentupdate"&gt;React Component documentation&lt;/a&gt; for more details.<a name="line.372"></a>
-<span class="sourceLineNo">373</span>   *<a name="line.373"></a>
-<span class="sourceLineNo">374</span>   * &lt;p&gt;This method is invoked before rendering when new props or state are being received.<a name="line.374"></a>
-<span class="sourceLineNo">375</span>   * This method is not called for the initial render or when {@link #scheduleRender(boolean)}} is called<a name="line.375"></a>
-<span class="sourceLineNo">376</span>   * with the force parameter set to true.&lt;/p&gt;<a name="line.376"></a>
-<span class="sourceLineNo">377</span>   *<a name="line.377"></a>
-<span class="sourceLineNo">378</span>   * &lt;p&gt;Returning false does not prevent child components from re-rendering when their state changes.&lt;/p&gt;<a name="line.378"></a>
-<span class="sourceLineNo">379</span>   *<a name="line.379"></a>
-<span class="sourceLineNo">380</span>   * &lt;p&gt;If this method returns false, then {@link #render()}, and {@link #componentDidUpdate(JsPropertyMap, JsPropertyMap)}<a name="line.380"></a>
-<span class="sourceLineNo">381</span>   * will not be invoked. In the future React may treat this method  as a hint rather than a strict directive, and<a name="line.381"></a>
-<span class="sourceLineNo">382</span>   * returning false may still result in a re-rendering of the component.&lt;/p&gt;<a name="line.382"></a>
-<span class="sourceLineNo">383</span>   *<a name="line.383"></a>
-<span class="sourceLineNo">384</span>   * @param nextProps the new properties of the component.<a name="line.384"></a>
-<span class="sourceLineNo">385</span>   * @param nextState the new state of the component.<a name="line.385"></a>
-<span class="sourceLineNo">386</span>   * @return true if the component should be updated.<a name="line.386"></a>
-<span class="sourceLineNo">387</span>   */<a name="line.387"></a>
-<span class="sourceLineNo">388</span>  protected boolean shouldComponentUpdate( @Nullable final JsPropertyMap&lt;Object&gt; nextProps,<a name="line.388"></a>
-<span class="sourceLineNo">389</span>                                           @Nullable final JsPropertyMap&lt;Object&gt; nextState )<a name="line.389"></a>
-<span class="sourceLineNo">390</span>  {<a name="line.390"></a>
-<span class="sourceLineNo">391</span>    return true;<a name="line.391"></a>
-<span class="sourceLineNo">392</span>  }<a name="line.392"></a>
-<span class="sourceLineNo">393</span>}<a name="line.393"></a>
+<span class="sourceLineNo">335</span>   * &lt;p&gt;Note that error boundaries only catch errors in the components below them in the tree. An<a name="line.335"></a>
+<span class="sourceLineNo">336</span>   * error boundary can’t catch an error within itself. If an error boundary fails trying to render<a name="line.336"></a>
+<span class="sourceLineNo">337</span>   * the error message, the error will propagate to the closest error boundary above it. This, too,<a name="line.337"></a>
+<span class="sourceLineNo">338</span>   * is similar to how catch {} block works in JavaScript.&lt;/p&gt;<a name="line.338"></a>
+<span class="sourceLineNo">339</span>   *<a name="line.339"></a>
+<span class="sourceLineNo">340</span>   * @param error the error that has been thrown.<a name="line.340"></a>
+<span class="sourceLineNo">341</span>   * @param info  information about component stack during thrown error.<a name="line.341"></a>
+<span class="sourceLineNo">342</span>   */<a name="line.342"></a>
+<span class="sourceLineNo">343</span>  protected void componentDidCatch( @Nonnull final JsError error, @Nonnull final ReactErrorInfo info )<a name="line.343"></a>
+<span class="sourceLineNo">344</span>  {<a name="line.344"></a>
+<span class="sourceLineNo">345</span>  }<a name="line.345"></a>
+<span class="sourceLineNo">346</span><a name="line.346"></a>
+<span class="sourceLineNo">347</span>  /**<a name="line.347"></a>
+<span class="sourceLineNo">348</span>   * Use this method to let React know if a component's output is not affected<a name="line.348"></a>
+<span class="sourceLineNo">349</span>   * by the current change in state or props. The default behavior is to re-render on<a name="line.349"></a>
+<span class="sourceLineNo">350</span>   * every state change, and in the vast majority of cases you should rely on the default behavior.<a name="line.350"></a>
+<span class="sourceLineNo">351</span>   * See the &lt;a href="https://reactjs.org/docs/react-component.html#shouldcomponentupdate"&gt;React Component documentation&lt;/a&gt; for more details.<a name="line.351"></a>
+<span class="sourceLineNo">352</span>   *<a name="line.352"></a>
+<span class="sourceLineNo">353</span>   * &lt;p&gt;This method is invoked before rendering when new props or state are being received.<a name="line.353"></a>
+<span class="sourceLineNo">354</span>   * This method is not called for the initial render or when {@link #scheduleRender(boolean)}} is called<a name="line.354"></a>
+<span class="sourceLineNo">355</span>   * with the force parameter set to true.&lt;/p&gt;<a name="line.355"></a>
+<span class="sourceLineNo">356</span>   *<a name="line.356"></a>
+<span class="sourceLineNo">357</span>   * &lt;p&gt;Returning false does not prevent child components from re-rendering when their state changes.&lt;/p&gt;<a name="line.357"></a>
+<span class="sourceLineNo">358</span>   *<a name="line.358"></a>
+<span class="sourceLineNo">359</span>   * &lt;p&gt;If this method returns false, then {@link #render()}, and {@link #componentDidUpdate(JsPropertyMap, JsPropertyMap)}<a name="line.359"></a>
+<span class="sourceLineNo">360</span>   * will not be invoked. In the future React may treat this method  as a hint rather than a strict directive, and<a name="line.360"></a>
+<span class="sourceLineNo">361</span>   * returning false may still result in a re-rendering of the component.&lt;/p&gt;<a name="line.361"></a>
+<span class="sourceLineNo">362</span>   *<a name="line.362"></a>
+<span class="sourceLineNo">363</span>   * @param nextProps the new properties of the component.<a name="line.363"></a>
+<span class="sourceLineNo">364</span>   * @param nextState the new state of the component.<a name="line.364"></a>
+<span class="sourceLineNo">365</span>   * @return true if the component should be updated.<a name="line.365"></a>
+<span class="sourceLineNo">366</span>   */<a name="line.366"></a>
+<span class="sourceLineNo">367</span>  protected boolean shouldComponentUpdate( @Nullable final JsPropertyMap&lt;Object&gt; nextProps,<a name="line.367"></a>
+<span class="sourceLineNo">368</span>                                           @Nullable final JsPropertyMap&lt;Object&gt; nextState )<a name="line.368"></a>
+<span class="sourceLineNo">369</span>  {<a name="line.369"></a>
+<span class="sourceLineNo">370</span>    return true;<a name="line.370"></a>
+<span class="sourceLineNo">371</span>  }<a name="line.371"></a>
+<span class="sourceLineNo">372</span>}<a name="line.372"></a>
 
 
 
