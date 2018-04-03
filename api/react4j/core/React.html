@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -205,6 +205,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code>static <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/React.html#createStrictMode-react4j.core.ReactNode...-">createStrictMode</a></span>(<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>...&nbsp;children)</code>
+<div class="block">Create a StrictMode component with the specified children.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/core/React.html#isValidElement-react4j.core.ReactNode-">isValidElement</a></span>(<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;node)</code>
 <div class="block">Return true if the specified node is a ReactElement.</div>
@@ -238,7 +244,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>isValidElement</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/React.html#line.40">isValidElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/core/React.html#line.47">isValidElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                      <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;node)</pre>
 <div class="block">Return true if the specified node is a ReactElement.</div>
 <dl>
@@ -254,7 +260,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>createElement</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.49">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.56">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                  <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&nbsp;type)</pre>
 <div class="block">Create a ReactElement for the specified React component with no props or children.</div>
 <dl>
@@ -272,7 +278,7 @@ public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface 
 <li class="blockList">
 <h4>createElement</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.62">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.69">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                  <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&nbsp;type,
                                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                  jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</pre>
@@ -292,7 +298,7 @@ public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface 
 <ul class="blockList">
 <li class="blockList">
 <h4>createElement</h4>
-<pre>public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.78">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.85">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                       <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&nbsp;type,
                                       <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                       jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props,
@@ -316,7 +322,7 @@ public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface 
 <li class="blockList">
 <h4>createElement</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.91">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.98">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                  <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&nbsp;type,
                                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                  jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props,
@@ -339,7 +345,7 @@ public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface 
 <ul class="blockList">
 <li class="blockList">
 <h4>createElement</h4>
-<pre>public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.106">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.113">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                       <a href="../../react4j/core/ComponentConstructorFunction.html" title="interface in react4j.core">ComponentConstructorFunction</a>&nbsp;type,
                                       <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                       jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props,
@@ -356,6 +362,24 @@ public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface 
 </dl>
 </li>
 </ul>
+<a name="createStrictMode-react4j.core.ReactNode...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createStrictMode</h4>
+<pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
+public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.124">createStrictMode</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                    <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>...&nbsp;children)</pre>
+<div class="block">Create a StrictMode component with the specified children.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>children</code> - the child nodes.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new React.Fragment object.</dd>
+</dl>
+</li>
+</ul>
 <a name="createFragment-react4j.core.ReactNode...-">
 <!--   -->
 </a>
@@ -363,7 +387,7 @@ public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface 
 <li class="blockList">
 <h4>createFragment</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.117">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.136">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>...&nbsp;children)</pre>
 <div class="block">Create a Fragment with the specified children.</div>
 <dl>
@@ -381,7 +405,7 @@ public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface 
 <li class="blockList">
 <h4>createFragment</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.130">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.149">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   elemental2.core.JsArray&lt;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&gt;&nbsp;children)</pre>
 <div class="block">Create a Fragment with the specified children.</div>
 <dl>
@@ -401,7 +425,7 @@ public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface 
 <li class="blockList">
 <h4>createFragment</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.143">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.162">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;? extends <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&gt;&nbsp;children)</pre>
 <div class="block">Create a Fragment with the specified children.</div>
 <dl>
@@ -421,7 +445,7 @@ public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface 
 <li class="blockList">
 <h4>createFragment</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.156">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.175">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;? extends <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&gt;&nbsp;children)</pre>
 <div class="block">Create a Fragment with the specified children.</div>
 <dl>
@@ -443,7 +467,7 @@ public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface 
 <li class="blockList">
 <h4>createContext</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;&lt;T&gt;&nbsp;<a href="../../react4j/core/Context.html" title="class in react4j.core">Context</a>&lt;T&gt;&nbsp;<a href="../../src-html/react4j/core/React.html#line.174">createContext</a>(T&nbsp;defaultValue)</pre>
+public static&nbsp;&lt;T&gt;&nbsp;<a href="../../react4j/core/Context.html" title="class in react4j.core">Context</a>&lt;T&gt;&nbsp;<a href="../../src-html/react4j/core/React.html#line.193">createContext</a>(T&nbsp;defaultValue)</pre>
 <div class="block">Creates a context with specified default value.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -462,7 +486,7 @@ public static&nbsp;&lt;T&gt;&nbsp;<a href="../../react4j/core/Context.html" titl
 <li class="blockList">
 <h4>cloneElement</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.188">cloneElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;<a href="../../src-html/react4j/core/React.html#line.207">cloneElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                 <a href="../../react4j/core/ReactNode.html" title="interface in react4j.core">ReactNode</a>&nbsp;element,
                                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                 jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</pre>
