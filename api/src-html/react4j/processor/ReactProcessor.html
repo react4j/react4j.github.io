@@ -998,100 +998,107 @@
 <span class="sourceLineNo">990</span>    final boolean needsInjection = isInjectionRequired( typeElement );<a name="line.990"></a>
 <span class="sourceLineNo">991</span>    final boolean isDaggerPresent = needsInjection &amp;&amp; isDaggerRequired( typeElement );<a name="line.991"></a>
 <span class="sourceLineNo">992</span><a name="line.992"></a>
-<span class="sourceLineNo">993</span>    descriptor.setNeedsInjection( needsInjection );<a name="line.993"></a>
-<span class="sourceLineNo">994</span>    descriptor.setNeedsDaggerIntegration( isDaggerPresent );<a name="line.994"></a>
-<span class="sourceLineNo">995</span>    descriptor.setArezComponent( isArezComponent );<a name="line.995"></a>
-<span class="sourceLineNo">996</span>    descriptor.setRunArezScheduler( runArezScheduler );<a name="line.996"></a>
-<span class="sourceLineNo">997</span>  }<a name="line.997"></a>
-<span class="sourceLineNo">998</span><a name="line.998"></a>
-<span class="sourceLineNo">999</span>  private boolean isInjectionRequired( @Nonnull final TypeElement typeElement )<a name="line.999"></a>
-<span class="sourceLineNo">1000</span>  {<a name="line.1000"></a>
-<span class="sourceLineNo">1001</span>    final VariableElement injectParameter = (VariableElement)<a name="line.1001"></a>
-<span class="sourceLineNo">1002</span>      ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1002"></a>
-<span class="sourceLineNo">1003</span>                                        typeElement,<a name="line.1003"></a>
-<span class="sourceLineNo">1004</span>                                        Constants.REACT_COMPONENT_ANNOTATION_CLASSNAME,<a name="line.1004"></a>
-<span class="sourceLineNo">1005</span>                                        "inject" ).getValue();<a name="line.1005"></a>
-<span class="sourceLineNo">1006</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.1006"></a>
-<span class="sourceLineNo">1007</span>    {<a name="line.1007"></a>
-<span class="sourceLineNo">1008</span>      case "ENABLE":<a name="line.1008"></a>
-<span class="sourceLineNo">1009</span>        return true;<a name="line.1009"></a>
-<span class="sourceLineNo">1010</span>      case "DISABLE":<a name="line.1010"></a>
-<span class="sourceLineNo">1011</span>        return false;<a name="line.1011"></a>
-<span class="sourceLineNo">1012</span>      default:<a name="line.1012"></a>
-<span class="sourceLineNo">1013</span>        return ProcessorUtil.getFieldElements( typeElement ).stream().anyMatch( this::hasInjectAnnotation ) ||<a name="line.1013"></a>
-<span class="sourceLineNo">1014</span>               ProcessorUtil.getMethods( typeElement, processingEnv.getTypeUtils() ).<a name="line.1014"></a>
-<span class="sourceLineNo">1015</span>                 stream().anyMatch( this::hasInjectAnnotation );<a name="line.1015"></a>
-<span class="sourceLineNo">1016</span>    }<a name="line.1016"></a>
-<span class="sourceLineNo">1017</span>  }<a name="line.1017"></a>
-<span class="sourceLineNo">1018</span><a name="line.1018"></a>
-<span class="sourceLineNo">1019</span>  private boolean isDaggerRequired( @Nonnull final TypeElement typeElement )<a name="line.1019"></a>
-<span class="sourceLineNo">1020</span>  {<a name="line.1020"></a>
-<span class="sourceLineNo">1021</span>    final VariableElement injectParameter = (VariableElement)<a name="line.1021"></a>
-<span class="sourceLineNo">1022</span>      ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1022"></a>
-<span class="sourceLineNo">1023</span>                                        typeElement,<a name="line.1023"></a>
-<span class="sourceLineNo">1024</span>                                        Constants.REACT_COMPONENT_ANNOTATION_CLASSNAME,<a name="line.1024"></a>
-<span class="sourceLineNo">1025</span>                                        "dagger" ).getValue();<a name="line.1025"></a>
-<span class="sourceLineNo">1026</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.1026"></a>
-<span class="sourceLineNo">1027</span>    {<a name="line.1027"></a>
-<span class="sourceLineNo">1028</span>      case "ENABLE":<a name="line.1028"></a>
-<span class="sourceLineNo">1029</span>        return true;<a name="line.1029"></a>
-<span class="sourceLineNo">1030</span>      case "DISABLE":<a name="line.1030"></a>
-<span class="sourceLineNo">1031</span>        return false;<a name="line.1031"></a>
-<span class="sourceLineNo">1032</span>      default:<a name="line.1032"></a>
-<span class="sourceLineNo">1033</span>        return null != processingEnv.getElementUtils().getTypeElement( Constants.DAGGER_MODULE_CLASSNAME );<a name="line.1033"></a>
-<span class="sourceLineNo">1034</span>    }<a name="line.1034"></a>
-<span class="sourceLineNo">1035</span>  }<a name="line.1035"></a>
-<span class="sourceLineNo">1036</span><a name="line.1036"></a>
-<span class="sourceLineNo">1037</span>  private boolean hasAutorunAnnotation( final Element method )<a name="line.1037"></a>
-<span class="sourceLineNo">1038</span>  {<a name="line.1038"></a>
-<span class="sourceLineNo">1039</span>    return null != ProcessorUtil.findAnnotationByType( method, Constants.AUTORUN_ANNOTATION_CLASSNAME );<a name="line.1039"></a>
-<span class="sourceLineNo">1040</span>  }<a name="line.1040"></a>
-<span class="sourceLineNo">1041</span><a name="line.1041"></a>
-<span class="sourceLineNo">1042</span>  private boolean hasInjectAnnotation( final Element method )<a name="line.1042"></a>
-<span class="sourceLineNo">1043</span>  {<a name="line.1043"></a>
-<span class="sourceLineNo">1044</span>    return null != ProcessorUtil.findAnnotationByType( method, Constants.INJECT_ANNOTATION_CLASSNAME );<a name="line.1044"></a>
-<span class="sourceLineNo">1045</span>  }<a name="line.1045"></a>
-<span class="sourceLineNo">1046</span><a name="line.1046"></a>
-<span class="sourceLineNo">1047</span>  @SuppressWarnings( { "unchecked", "SameParameterValue" } )<a name="line.1047"></a>
-<span class="sourceLineNo">1048</span>  private &lt;T&gt; T getAnnotationParameter( @Nonnull final Element element,<a name="line.1048"></a>
-<span class="sourceLineNo">1049</span>                                        @Nonnull final String annotationName,<a name="line.1049"></a>
-<span class="sourceLineNo">1050</span>                                        @Nonnull final String parameterName )<a name="line.1050"></a>
-<span class="sourceLineNo">1051</span>  {<a name="line.1051"></a>
-<span class="sourceLineNo">1052</span>    return (T) ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1052"></a>
-<span class="sourceLineNo">1053</span>                                                 element,<a name="line.1053"></a>
-<span class="sourceLineNo">1054</span>                                                 annotationName,<a name="line.1054"></a>
-<span class="sourceLineNo">1055</span>                                                 parameterName ).getValue();<a name="line.1055"></a>
-<span class="sourceLineNo">1056</span>  }<a name="line.1056"></a>
-<span class="sourceLineNo">1057</span><a name="line.1057"></a>
-<span class="sourceLineNo">1058</span>  private void verifyNoDuplicateAnnotations( @Nonnull final ExecutableElement method )<a name="line.1058"></a>
-<span class="sourceLineNo">1059</span>    throws ReactProcessorException<a name="line.1059"></a>
-<span class="sourceLineNo">1060</span>  {<a name="line.1060"></a>
-<span class="sourceLineNo">1061</span>    final String[] annotationTypes =<a name="line.1061"></a>
-<span class="sourceLineNo">1062</span>      new String[]{ Constants.CALLBACK_ANNOTATION_CLASSNAME,<a name="line.1062"></a>
-<span class="sourceLineNo">1063</span>                    Constants.STATE_ANNOTATION_CLASSNAME,<a name="line.1063"></a>
-<span class="sourceLineNo">1064</span>                    Constants.PROP_ANNOTATION_CLASSNAME };<a name="line.1064"></a>
-<span class="sourceLineNo">1065</span>    for ( int i = 0; i &lt; annotationTypes.length; i++ )<a name="line.1065"></a>
-<span class="sourceLineNo">1066</span>    {<a name="line.1066"></a>
-<span class="sourceLineNo">1067</span>      final String type1 = annotationTypes[ i ];<a name="line.1067"></a>
-<span class="sourceLineNo">1068</span>      final Object annotation1 = ProcessorUtil.findAnnotationByType( method, type1 );<a name="line.1068"></a>
-<span class="sourceLineNo">1069</span>      if ( null != annotation1 )<a name="line.1069"></a>
-<span class="sourceLineNo">1070</span>      {<a name="line.1070"></a>
-<span class="sourceLineNo">1071</span>        for ( int j = i + 1; j &lt; annotationTypes.length; j++ )<a name="line.1071"></a>
-<span class="sourceLineNo">1072</span>        {<a name="line.1072"></a>
-<span class="sourceLineNo">1073</span>          final String type2 = annotationTypes[ j ];<a name="line.1073"></a>
-<span class="sourceLineNo">1074</span>          final Object annotation2 = ProcessorUtil.findAnnotationByType( method, type2 );<a name="line.1074"></a>
-<span class="sourceLineNo">1075</span>          if ( null != annotation2 )<a name="line.1075"></a>
-<span class="sourceLineNo">1076</span>          {<a name="line.1076"></a>
-<span class="sourceLineNo">1077</span>            final String message =<a name="line.1077"></a>
-<span class="sourceLineNo">1078</span>              "Method can not be annotated with both @" + ProcessorUtil.toSimpleName( type1 ) +<a name="line.1078"></a>
-<span class="sourceLineNo">1079</span>              " and @" + ProcessorUtil.toSimpleName( type2 );<a name="line.1079"></a>
-<span class="sourceLineNo">1080</span>            throw new ReactProcessorException( message, method );<a name="line.1080"></a>
-<span class="sourceLineNo">1081</span>          }<a name="line.1081"></a>
-<span class="sourceLineNo">1082</span>        }<a name="line.1082"></a>
-<span class="sourceLineNo">1083</span>      }<a name="line.1083"></a>
-<span class="sourceLineNo">1084</span>    }<a name="line.1084"></a>
-<span class="sourceLineNo">1085</span>  }<a name="line.1085"></a>
-<span class="sourceLineNo">1086</span>}<a name="line.1086"></a>
+<span class="sourceLineNo">993</span>    if ( isDaggerPresent &amp;&amp; !descriptor.getDeclaredType().getTypeArguments().isEmpty() )<a name="line.993"></a>
+<span class="sourceLineNo">994</span>    {<a name="line.994"></a>
+<span class="sourceLineNo">995</span>        throw new ReactProcessorException( "@ReactComponent target has enabled dagger injection and the class " +<a name="line.995"></a>
+<span class="sourceLineNo">996</span>                                           "has type argument but type arguments on a component are not compatible " +<a name="line.996"></a>
+<span class="sourceLineNo">997</span>                                           "with dagger injected components", typeElement );<a name="line.997"></a>
+<span class="sourceLineNo">998</span>    }<a name="line.998"></a>
+<span class="sourceLineNo">999</span><a name="line.999"></a>
+<span class="sourceLineNo">1000</span>    descriptor.setNeedsInjection( needsInjection );<a name="line.1000"></a>
+<span class="sourceLineNo">1001</span>    descriptor.setNeedsDaggerIntegration( isDaggerPresent );<a name="line.1001"></a>
+<span class="sourceLineNo">1002</span>    descriptor.setArezComponent( isArezComponent );<a name="line.1002"></a>
+<span class="sourceLineNo">1003</span>    descriptor.setRunArezScheduler( runArezScheduler );<a name="line.1003"></a>
+<span class="sourceLineNo">1004</span>  }<a name="line.1004"></a>
+<span class="sourceLineNo">1005</span><a name="line.1005"></a>
+<span class="sourceLineNo">1006</span>  private boolean isInjectionRequired( @Nonnull final TypeElement typeElement )<a name="line.1006"></a>
+<span class="sourceLineNo">1007</span>  {<a name="line.1007"></a>
+<span class="sourceLineNo">1008</span>    final VariableElement injectParameter = (VariableElement)<a name="line.1008"></a>
+<span class="sourceLineNo">1009</span>      ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1009"></a>
+<span class="sourceLineNo">1010</span>                                        typeElement,<a name="line.1010"></a>
+<span class="sourceLineNo">1011</span>                                        Constants.REACT_COMPONENT_ANNOTATION_CLASSNAME,<a name="line.1011"></a>
+<span class="sourceLineNo">1012</span>                                        "inject" ).getValue();<a name="line.1012"></a>
+<span class="sourceLineNo">1013</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.1013"></a>
+<span class="sourceLineNo">1014</span>    {<a name="line.1014"></a>
+<span class="sourceLineNo">1015</span>      case "ENABLE":<a name="line.1015"></a>
+<span class="sourceLineNo">1016</span>        return true;<a name="line.1016"></a>
+<span class="sourceLineNo">1017</span>      case "DISABLE":<a name="line.1017"></a>
+<span class="sourceLineNo">1018</span>        return false;<a name="line.1018"></a>
+<span class="sourceLineNo">1019</span>      default:<a name="line.1019"></a>
+<span class="sourceLineNo">1020</span>        return ProcessorUtil.getFieldElements( typeElement ).stream().anyMatch( this::hasInjectAnnotation ) ||<a name="line.1020"></a>
+<span class="sourceLineNo">1021</span>               ProcessorUtil.getMethods( typeElement, processingEnv.getTypeUtils() ).<a name="line.1021"></a>
+<span class="sourceLineNo">1022</span>                 stream().anyMatch( this::hasInjectAnnotation );<a name="line.1022"></a>
+<span class="sourceLineNo">1023</span>    }<a name="line.1023"></a>
+<span class="sourceLineNo">1024</span>  }<a name="line.1024"></a>
+<span class="sourceLineNo">1025</span><a name="line.1025"></a>
+<span class="sourceLineNo">1026</span>  private boolean isDaggerRequired( @Nonnull final TypeElement typeElement )<a name="line.1026"></a>
+<span class="sourceLineNo">1027</span>  {<a name="line.1027"></a>
+<span class="sourceLineNo">1028</span>    final VariableElement injectParameter = (VariableElement)<a name="line.1028"></a>
+<span class="sourceLineNo">1029</span>      ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1029"></a>
+<span class="sourceLineNo">1030</span>                                        typeElement,<a name="line.1030"></a>
+<span class="sourceLineNo">1031</span>                                        Constants.REACT_COMPONENT_ANNOTATION_CLASSNAME,<a name="line.1031"></a>
+<span class="sourceLineNo">1032</span>                                        "dagger" ).getValue();<a name="line.1032"></a>
+<span class="sourceLineNo">1033</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.1033"></a>
+<span class="sourceLineNo">1034</span>    {<a name="line.1034"></a>
+<span class="sourceLineNo">1035</span>      case "ENABLE":<a name="line.1035"></a>
+<span class="sourceLineNo">1036</span>        return true;<a name="line.1036"></a>
+<span class="sourceLineNo">1037</span>      case "DISABLE":<a name="line.1037"></a>
+<span class="sourceLineNo">1038</span>        return false;<a name="line.1038"></a>
+<span class="sourceLineNo">1039</span>      default:<a name="line.1039"></a>
+<span class="sourceLineNo">1040</span>        return null != processingEnv.getElementUtils().getTypeElement( Constants.DAGGER_MODULE_CLASSNAME );<a name="line.1040"></a>
+<span class="sourceLineNo">1041</span>    }<a name="line.1041"></a>
+<span class="sourceLineNo">1042</span>  }<a name="line.1042"></a>
+<span class="sourceLineNo">1043</span><a name="line.1043"></a>
+<span class="sourceLineNo">1044</span>  private boolean hasAutorunAnnotation( final Element method )<a name="line.1044"></a>
+<span class="sourceLineNo">1045</span>  {<a name="line.1045"></a>
+<span class="sourceLineNo">1046</span>    return null != ProcessorUtil.findAnnotationByType( method, Constants.AUTORUN_ANNOTATION_CLASSNAME );<a name="line.1046"></a>
+<span class="sourceLineNo">1047</span>  }<a name="line.1047"></a>
+<span class="sourceLineNo">1048</span><a name="line.1048"></a>
+<span class="sourceLineNo">1049</span>  private boolean hasInjectAnnotation( final Element method )<a name="line.1049"></a>
+<span class="sourceLineNo">1050</span>  {<a name="line.1050"></a>
+<span class="sourceLineNo">1051</span>    return null != ProcessorUtil.findAnnotationByType( method, Constants.INJECT_ANNOTATION_CLASSNAME );<a name="line.1051"></a>
+<span class="sourceLineNo">1052</span>  }<a name="line.1052"></a>
+<span class="sourceLineNo">1053</span><a name="line.1053"></a>
+<span class="sourceLineNo">1054</span>  @SuppressWarnings( { "unchecked", "SameParameterValue" } )<a name="line.1054"></a>
+<span class="sourceLineNo">1055</span>  private &lt;T&gt; T getAnnotationParameter( @Nonnull final Element element,<a name="line.1055"></a>
+<span class="sourceLineNo">1056</span>                                        @Nonnull final String annotationName,<a name="line.1056"></a>
+<span class="sourceLineNo">1057</span>                                        @Nonnull final String parameterName )<a name="line.1057"></a>
+<span class="sourceLineNo">1058</span>  {<a name="line.1058"></a>
+<span class="sourceLineNo">1059</span>    return (T) ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1059"></a>
+<span class="sourceLineNo">1060</span>                                                 element,<a name="line.1060"></a>
+<span class="sourceLineNo">1061</span>                                                 annotationName,<a name="line.1061"></a>
+<span class="sourceLineNo">1062</span>                                                 parameterName ).getValue();<a name="line.1062"></a>
+<span class="sourceLineNo">1063</span>  }<a name="line.1063"></a>
+<span class="sourceLineNo">1064</span><a name="line.1064"></a>
+<span class="sourceLineNo">1065</span>  private void verifyNoDuplicateAnnotations( @Nonnull final ExecutableElement method )<a name="line.1065"></a>
+<span class="sourceLineNo">1066</span>    throws ReactProcessorException<a name="line.1066"></a>
+<span class="sourceLineNo">1067</span>  {<a name="line.1067"></a>
+<span class="sourceLineNo">1068</span>    final String[] annotationTypes =<a name="line.1068"></a>
+<span class="sourceLineNo">1069</span>      new String[]{ Constants.CALLBACK_ANNOTATION_CLASSNAME,<a name="line.1069"></a>
+<span class="sourceLineNo">1070</span>                    Constants.STATE_ANNOTATION_CLASSNAME,<a name="line.1070"></a>
+<span class="sourceLineNo">1071</span>                    Constants.PROP_ANNOTATION_CLASSNAME };<a name="line.1071"></a>
+<span class="sourceLineNo">1072</span>    for ( int i = 0; i &lt; annotationTypes.length; i++ )<a name="line.1072"></a>
+<span class="sourceLineNo">1073</span>    {<a name="line.1073"></a>
+<span class="sourceLineNo">1074</span>      final String type1 = annotationTypes[ i ];<a name="line.1074"></a>
+<span class="sourceLineNo">1075</span>      final Object annotation1 = ProcessorUtil.findAnnotationByType( method, type1 );<a name="line.1075"></a>
+<span class="sourceLineNo">1076</span>      if ( null != annotation1 )<a name="line.1076"></a>
+<span class="sourceLineNo">1077</span>      {<a name="line.1077"></a>
+<span class="sourceLineNo">1078</span>        for ( int j = i + 1; j &lt; annotationTypes.length; j++ )<a name="line.1078"></a>
+<span class="sourceLineNo">1079</span>        {<a name="line.1079"></a>
+<span class="sourceLineNo">1080</span>          final String type2 = annotationTypes[ j ];<a name="line.1080"></a>
+<span class="sourceLineNo">1081</span>          final Object annotation2 = ProcessorUtil.findAnnotationByType( method, type2 );<a name="line.1081"></a>
+<span class="sourceLineNo">1082</span>          if ( null != annotation2 )<a name="line.1082"></a>
+<span class="sourceLineNo">1083</span>          {<a name="line.1083"></a>
+<span class="sourceLineNo">1084</span>            final String message =<a name="line.1084"></a>
+<span class="sourceLineNo">1085</span>              "Method can not be annotated with both @" + ProcessorUtil.toSimpleName( type1 ) +<a name="line.1085"></a>
+<span class="sourceLineNo">1086</span>              " and @" + ProcessorUtil.toSimpleName( type2 );<a name="line.1086"></a>
+<span class="sourceLineNo">1087</span>            throw new ReactProcessorException( message, method );<a name="line.1087"></a>
+<span class="sourceLineNo">1088</span>          }<a name="line.1088"></a>
+<span class="sourceLineNo">1089</span>        }<a name="line.1089"></a>
+<span class="sourceLineNo">1090</span>      }<a name="line.1090"></a>
+<span class="sourceLineNo">1091</span>    }<a name="line.1091"></a>
+<span class="sourceLineNo">1092</span>  }<a name="line.1092"></a>
+<span class="sourceLineNo">1093</span>}<a name="line.1093"></a>
 
 
 
