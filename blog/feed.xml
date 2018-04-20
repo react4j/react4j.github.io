@@ -14,6 +14,19 @@
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
         <item>
+            <title><![CDATA[React4j 0.67 released]]></title>
+            <link>https://react4j.github.io/blog/2018/04/20/version-0.67-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/04/20/version-0.67-release.html</guid>
+            <pubDate>Fri, 20 Apr 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.66...v0.67)
+
+Changes in this release:
+
+#### Fixed
+* The react javascript packaged in `0.66` was corrupted during download from unpkg. This release
+  is only a repackage of correct javascr]]></description>
+        </item>
+        <item>
             <title><![CDATA[React4j 0.66 released]]></title>
             <link>https://react4j.github.io/blog/2018/04/20/version-0.66-release.html</link>
             <guid>https://react4j.github.io/blog/2018/04/20/version-0.66-release.html</guid>
