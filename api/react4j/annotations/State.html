@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/react4j/annotations/State.html#line.33">State</a></pre>
+public @interface <a href="../../src-html/react4j/annotations/State.html#line.34">State</a></pre>
 <div class="block">Annotation used to annotate a pair of methods to access and mutate reacts underlying state object.
  The annotation need only be applied to one of the methods; either the getter or setter.
 
@@ -102,6 +102,7 @@ public @interface <a href="../../src-html/react4j/annotations/State.html#line.33
  <li>Must not be annotated with any other react annotation</li>
  <li>Must be an abstract instance method</li>
  <li>Must not throw exceptions</li>
+ <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a></li>
  </ul>
  <p>The getter must also comply with the following constraints:</p>
  <ul>
@@ -161,7 +162,7 @@ public @interface <a href="../../src-html/react4j/annotations/State.html#line.33
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/State.html#line.45">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/State.html#line.46">name</a></pre>
 <div class="block">Return the name of the state value.
  This is the key that is used to access the value in the underlying state object.
  If the underlying method conforms to java beans accessor conventions (i.e. starts with "is" and is a boolean
