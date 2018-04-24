@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Fri, 20 Apr 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 24 Apr 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.68 released]]></title>
+            <link>https://react4j.github.io/blog/2018/04/24/version-0.68-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/04/24/version-0.68-release.html</guid>
+            <pubDate>Tue, 24 Apr 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.67...v0.68)
+
+Changes in this release:
+
+#### Changed
+* 💥 **\[arez\]** Upgrade Arez to version `0.80`.
+* **\[processor\]** Change the way that the annotation processor marks generated clas]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.67 released]]></title>
             <link>https://react4j.github.io/blog/2018/04/20/version-0.67-release.html</link>
