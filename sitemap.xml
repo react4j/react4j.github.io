@@ -74,7 +74,9 @@
 <url> <loc>https://react4j.github.io/docs/compared_to_react.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://react4j.github.io/docs/compared_to_react.html" /> </url>
 <url> <loc>https://react4j.github.io/docs/dependency_injection.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://react4j.github.io/docs/dependency_injection.html" /> </url>
 <url> <loc>https://react4j.github.io/docs/faq.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://react4j.github.io/docs/faq.html" /> </url>
+<url> <loc>https://react4j.github.io/docs/intellij.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://react4j.github.io/docs/intellij.html" /> </url>
 <url> <loc>https://react4j.github.io/docs/overview.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://react4j.github.io/docs/overview.html" /> </url>
+<url> <loc>https://react4j.github.io/docs/project_setup.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://react4j.github.io/docs/project_setup.html" /> </url>
 <url> <loc>https://react4j.github.io/docs/related_projects.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://react4j.github.io/docs/related_projects.html" /> </url>
 <url> <loc>https://react4j.github.io/docs/todomvc.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://react4j.github.io/docs/todomvc.html" /> </url>
 </urlset>

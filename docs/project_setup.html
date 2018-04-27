@@ -1,0 +1,120 @@
+<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Project Setup · React4j</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Project Setup · React4j"/><meta property="og:type" content="website"/><meta property="og:url" content="https://react4j.github.io/index.html"/><meta property="og:description" content="A React4j project can be setup using any build system that supports configuration of annotation"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><link rel="alternate" type="application/atom+xml" href="https://react4j.github.io/blog/atom.xml" title="React4j Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://react4j.github.io/blog/feed.xml" title="React4j Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">React4j</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="/blog" target="_self">Blog</a></li><li><a href="https://github.com/react4j/react4j/releases" target="_blank">Releases</a></li><li><a href="https://github.com/react4j/react4j" target="_blank">GitHub</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>About</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>About</h3><ul><li class="navListItem"><a class="navItem" href="/docs/overview.html">Introduction</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/project_setup.html">Project Setup</a></li></ul></div><div class="navGroup navGroupActive"><h3>Reference</h3><ul><li class="navListItem"><a class="navItem" href="/docs/arez.html">Arez</a></li><li class="navListItem"><a class="navItem" href="/docs/compared_to_react.html">Compared to React</a></li><li class="navListItem"><a class="navItem" href="/docs/dependency_injection.html">Dependency Injection</a></li></ul></div><div class="navGroup navGroupActive"><h3>Examples</h3><ul><li class="navListItem"><a class="navItem" href="/docs/todomvc.html">TodoMVC</a></li></ul></div><div class="navGroup navGroupActive"><h3>Project Documentation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq.html">Frequently Asked Questions</a></li><li class="navListItem"><a class="navItem" href="/docs/related_projects.html">Related projects</a></li><li class="navListItem"><a class="navItem" href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/react4j/react4j/tree/master/docs/project_setup.md" target="_blank">Edit</a><h1>Project Setup</h1></header><article><div><span><p>A React4j project can be setup using any build system that supports configuration of annotation
+processors. The authors prefer <a href="https://buildr.apache.org">Apache Buildr</a> but this is a relatively
+fringe build system so the project setup will be detailed using <a href="https://maven.apache.org">Apache Maven</a>
+as that tool is well known within the Java ecosystem. It is expected that most React4j applications are
+developed using an IDE and this is the recommended approach.</p>
+<h2><a class="anchor" aria-hidden="true" name="configure-maven"></a><a href="#configure-maven" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure Maven</h2>
+<p>Most React4j applications make use of the <code>react4j-dom</code> library for the DOM factories and this library
+needs to be added to the Maven <code>pom.xml</code> as a <code>compile</code> scope dependency. It will transitively include
+the <code>react4j-core</code> and <code>react4j-annotations</code>. To add this library to your Maven project, simply
+add the following to your <code>pom.xml</code>:</p>
+<pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.realityforge.react4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>react4j-dom<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.68<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+</code></pre>
+<p>If you plan to use <a href="/docs/arez.html">React Arez</a> components you can instead add the <code>react4j-arez</code> dependency
+which will transitively include the required dependencies. This can be done by instead adding the
+following to your <code>pom.xml</code>:</p>
+<pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.realityforge.react4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>react4j-arez<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.68<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+</code></pre>
+<p>To enable the annotation processor used by React4j, you need add the following
+snippet to configure the maven compiler plugin from within the <code>pom.xml</code>:</p>
+<pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+    ...
+      <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.5.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">source</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">target</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">useIncrementalCompilation</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">useIncrementalCompilation</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">annotationProcessorPaths</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">path</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.realityforge.react4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>react4j-processor<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.68<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">annotationProcessorPaths</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+      ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" name="configure-your-ide"></a><a href="#configure-your-ide" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure your IDE</h2>
+<p>It is expected that most React4j applications are developed from within an IDE. The configuration of the IDE is
+can be done by importing the <code>pom.xml</code> into the IDE but further customizations will often need to be done by
+the user. In particular, there is some additional steps required when using <a href="/docs/intellij.html">IntelliJ IDEA</a>.</p>
+<h2><a class="anchor" aria-hidden="true" name="configure-a-gwt-application"></a><a href="#configure-a-gwt-application" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure a GWT Application</h2>
+<p>As React4j applications, are GWT applications, you will also need to inherit the appropriate
+GWT module in your <code>.gwt.xml</code> file. For React4j applications that use Arez component then it issufficient to add:</p>
+<pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'react4j.arez.ReactArez'</span>/&gt;</span>
+  ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span>
+</code></pre>
+<p>Otherwise you can simply rely on the dom library via:</p>
+<pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'react4j.dom.ReactDOM'</span>/&gt;</span>
+  ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span>
+</code></pre>
+<p>In addition you can <em>also</em> add the <code>Dev</code> module if you want the framework to perform validation
+and limited invariant checking. The <code>Dev</code> module is very useful during development as it adds a
+level of safety and error checking but it should not be used in production environments as it adds
+some overhead. The <code>Dev</code> module decreases the execution speeds and significantly increases the code
+size. In small and medium sized applications, the extra safety afforded by developing with the <code>Dev</code>
+module always enabled and disabling the <code>Dev</code> module for production builds is usually worth the
+decreased performance of development builds. The <code>Dev</code> module can be added via:</p>
+<pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'react4j.core.ReactDev'</span>/&gt;</span>
+  ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span>
+</code></pre>
+<p>If you are using Arez components you can enable further invariant checking via:</p>
+<pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'react4j.arez.ReactArezDev'</span>/&gt;</span>
+  ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="overview.html">← Introduction</a><a class="docs-next button" href="arez.html">Arez →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="React4j" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/react4j/react4j" data-icon="octicon-star" data-count-href="/react4j/react4j/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the React4j Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                apiKey: 'bcbf32ec3754c54aadb410fd32ca236b',
+                indexName: 'react4j',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
