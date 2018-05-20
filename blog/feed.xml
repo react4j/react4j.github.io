@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Sat, 19 May 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 May 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,20 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.70 released]]></title>
+            <link>https://react4j.github.io/blog/2018/05/20/version-0.70-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/05/20/version-0.70-release.html</guid>
+            <pubDate>Sun, 20 May 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.69...v0.70)
+
+Changes in this release:
+
+#### Changed
+* Upgrade the `org.realityforge.braincheck:braincheck:jar` dependency to `1.6.0` as
+  previous version was incompatible with GWT 3.x.
+*]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.69 released]]></title>
             <link>https://react4j.github.io/blog/2018/05/19/version-0.69-release.html</link>
