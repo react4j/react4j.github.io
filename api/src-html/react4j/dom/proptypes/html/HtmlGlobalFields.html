@@ -1503,12 +1503,19 @@
 <span class="sourceLineNo">1495</span>  protected native void setOnWheel( WheelEventHandler onWheel );<a name="line.1495"></a>
 <span class="sourceLineNo">1496</span><a name="line.1496"></a>
 <span class="sourceLineNo">1497</span>  @JsOverlay<a name="line.1497"></a>
-<span class="sourceLineNo">1498</span>  @Nonnull<a name="line.1498"></a>
-<span class="sourceLineNo">1499</span>  protected final T self()<a name="line.1499"></a>
-<span class="sourceLineNo">1500</span>  {<a name="line.1500"></a>
-<span class="sourceLineNo">1501</span>    return Js.uncheckedCast( this );<a name="line.1501"></a>
+<span class="sourceLineNo">1498</span>  public final T onWheel( @Nullable final WheelEventHandler onWheel )<a name="line.1498"></a>
+<span class="sourceLineNo">1499</span>  {<a name="line.1499"></a>
+<span class="sourceLineNo">1500</span>    setOnWheel( onWheel );<a name="line.1500"></a>
+<span class="sourceLineNo">1501</span>    return self();<a name="line.1501"></a>
 <span class="sourceLineNo">1502</span>  }<a name="line.1502"></a>
-<span class="sourceLineNo">1503</span>}<a name="line.1503"></a>
+<span class="sourceLineNo">1503</span><a name="line.1503"></a>
+<span class="sourceLineNo">1504</span>  @JsOverlay<a name="line.1504"></a>
+<span class="sourceLineNo">1505</span>  @Nonnull<a name="line.1505"></a>
+<span class="sourceLineNo">1506</span>  protected final T self()<a name="line.1506"></a>
+<span class="sourceLineNo">1507</span>  {<a name="line.1507"></a>
+<span class="sourceLineNo">1508</span>    return Js.uncheckedCast( this );<a name="line.1508"></a>
+<span class="sourceLineNo">1509</span>  }<a name="line.1509"></a>
+<span class="sourceLineNo">1510</span>}<a name="line.1510"></a>
 
 
 
