@@ -14,6 +14,18 @@
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
         <item>
+            <title><![CDATA[React4j 0.75 released]]></title>
+            <link>https://react4j.github.io/blog/2018/06/13/version-0.75-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/06/13/version-0.75-release.html</guid>
+            <pubDate>Wed, 13 Jun 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.74...v0.75)
+
+Changes in this release:
+
+* **\[processor\]** Fixed bug introduced in `0.74` by generating `deferScheduler` parameter if a
+  `@Dependency` or `@Computed(keepAlive=true)` anno]]></description>
+        </item>
+        <item>
             <title><![CDATA[React4j 0.74 released]]></title>
             <link>https://react4j.github.io/blog/2018/06/13/version-0.74-release.html</link>
             <guid>https://react4j.github.io/blog/2018/06/13/version-0.74-release.html</guid>
