@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Wed, 13 Jun 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 17 Jun 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.76 released]]></title>
+            <link>https://react4j.github.io/blog/2018/06/17/version-0.76-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/06/17/version-0.76-release.html</guid>
+            <pubDate>Sun, 17 Jun 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.75...v0.76)
+
+Changes in this release:
+
+* **\[core\]** Make sure the core GWT module inherits the `react4j.annotations.Annotations` module.
+  This means downstream projects need only inher]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.75 released]]></title>
             <link>https://react4j.github.io/blog/2018/06/13/version-0.75-release.html</link>
