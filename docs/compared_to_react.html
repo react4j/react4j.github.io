@@ -28,14 +28,14 @@ has been removed from the React4j API.</p>
 component state and tells React that this component and its children need to be re-rendered with the updated
 state. This can be confusing to new users who sometimes try to read the state property immediately after calling
 <code>setState(...)</code> and the &quot;old&quot; value is returned. To avoid this confusion React4j decided to rename this method
-to <a href="/api/react4j/core/Component.html#scheduleStateUpdate-S-"><code>scheduleStateUpdate()</code></a>. This continues to be the primary
+to <a href="/api/react4j/Component.html#scheduleStateUpdate-S-"><code>scheduleStateUpdate()</code></a>. This continues to be the primary
 method you use to update the user interface in response to event handlers and server responses.</p>
 <h3><a class="anchor" aria-hidden="true" name="forceupdate-versus-schedulerender"></a><a href="#forceupdate-versus-schedulerender" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>forceUpdate versus scheduleRender</h3>
 <p>In React, <a href="https://reactjs.org/docs/react-component.html#forceupdate"><code>forceUpdate(...)</code></a> tells the runtime
 to schedule the component for re-rendering. If this method is invoked it will skip the <code>shouldComponentUpdate()</code>
 method. It is not an uncommon pattern for a component to schedule a re-render by invoking <code>setState({})</code> if you
 still want the component to call <code>shouldComponentUpdate()</code> lifecycle method. To unify these two mechanisms for
-scheduling a render, React4j decided to define the method to <a href="/api/react4j/core/Component.html#scheduleRender-boolean-"><code>scheduleRender(boolean force)</code></a>.
+scheduling a render, React4j decided to define the method to <a href="/api/react4j/Component.html#scheduleRender-boolean-"><code>scheduleRender(boolean force)</code></a>.
 If you pass <code>force = true</code> then <code>forceUpdate()</code> will be invoked on the underlying react component otherwise
 <code>setState({})</code> will be invoked. In both React and React4j, explicitly scheduling a re-render should be avoided
 but if you need to do it you can.</p>

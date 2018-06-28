@@ -10,21 +10,22 @@
 <span class="sourceLineNo">002</span><a name="line.2"></a>
 <span class="sourceLineNo">003</span>import elemental2.dom.Event;<a name="line.3"></a>
 <span class="sourceLineNo">004</span>import jsinterop.annotations.JsOverlay;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import jsinterop.annotations.JsType;<a name="line.5"></a>
-<span class="sourceLineNo">006</span><a name="line.6"></a>
-<span class="sourceLineNo">007</span>@JsType( isNative = true )<a name="line.7"></a>
-<span class="sourceLineNo">008</span>@SuppressWarnings( "unused" )<a name="line.8"></a>
-<span class="sourceLineNo">009</span>public class CompositionEvent<a name="line.9"></a>
-<span class="sourceLineNo">010</span>  extends SyntheticEvent&lt;Event&gt;<a name="line.10"></a>
-<span class="sourceLineNo">011</span>{<a name="line.11"></a>
-<span class="sourceLineNo">012</span>  private String data;<a name="line.12"></a>
-<span class="sourceLineNo">013</span><a name="line.13"></a>
-<span class="sourceLineNo">014</span>  @JsOverlay<a name="line.14"></a>
-<span class="sourceLineNo">015</span>  public final String getData()<a name="line.15"></a>
-<span class="sourceLineNo">016</span>  {<a name="line.16"></a>
-<span class="sourceLineNo">017</span>    return data;<a name="line.17"></a>
-<span class="sourceLineNo">018</span>  }<a name="line.18"></a>
-<span class="sourceLineNo">019</span>}<a name="line.19"></a>
+<span class="sourceLineNo">005</span>import jsinterop.annotations.JsPackage;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import jsinterop.annotations.JsType;<a name="line.6"></a>
+<span class="sourceLineNo">007</span><a name="line.7"></a>
+<span class="sourceLineNo">008</span>@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )<a name="line.8"></a>
+<span class="sourceLineNo">009</span>@SuppressWarnings( "unused" )<a name="line.9"></a>
+<span class="sourceLineNo">010</span>public class CompositionEvent<a name="line.10"></a>
+<span class="sourceLineNo">011</span>  extends SyntheticEvent&lt;Event&gt;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>{<a name="line.12"></a>
+<span class="sourceLineNo">013</span>  private String data;<a name="line.13"></a>
+<span class="sourceLineNo">014</span><a name="line.14"></a>
+<span class="sourceLineNo">015</span>  @JsOverlay<a name="line.15"></a>
+<span class="sourceLineNo">016</span>  public final String getData()<a name="line.16"></a>
+<span class="sourceLineNo">017</span>  {<a name="line.17"></a>
+<span class="sourceLineNo">018</span>    return data;<a name="line.18"></a>
+<span class="sourceLineNo">019</span>  }<a name="line.19"></a>
+<span class="sourceLineNo">020</span>}<a name="line.20"></a>
 
 
 

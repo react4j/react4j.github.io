@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Sun, 17 Jun 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 28 Jun 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,54 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.80 released]]></title>
+            <link>https://react4j.github.io/blog/2018/06/28/version-0.80-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/06/28/version-0.80-release.html</guid>
+            <pubDate>Thu, 28 Jun 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.79...v0.80)
+
+Changes in this release:
+
+* **\[arez\]** Stop annotating props with `@Dependency` if the prop type is annotated with
+  `@ArezComponent` and the prop is on a sub-class of `rea]]></description>
+        </item>
+        <item>
+            <title><![CDATA[React4j 0.79 released]]></title>
+            <link>https://react4j.github.io/blog/2018/06/24/version-0.79-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/06/24/version-0.79-release.html</guid>
+            <pubDate>Sun, 24 Jun 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.78...v0.79)
+
+Changes in this release:
+
+* **\[dom\]** Explicitly specify the namespace and name for event types. This is required by J2CL.
+* **\[dom\]** Move the javascript packaged in `re]]></description>
+        </item>
+        <item>
+            <title><![CDATA[React4j 0.78 released]]></title>
+            <link>https://react4j.github.io/blog/2018/06/20/version-0.78-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/06/20/version-0.78-release.html</guid>
+            <pubDate>Wed, 20 Jun 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.77...v0.78)
+
+Changes in this release:
+
+* **\[arez\]** Update the `org.realityforge.arez` dependencies to version `0.93`.
+* **\[arez\]** Change the priority of the `ReactArezComponent.trac]]></description>
+        </item>
+        <item>
+            <title><![CDATA[React4j 0.77 released]]></title>
+            <link>https://react4j.github.io/blog/2018/06/18/version-0.77-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/06/18/version-0.77-release.html</guid>
+            <pubDate>Mon, 18 Jun 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.76...v0.77)
+
+Changes in this release:
+
+* **\[gwt-output-qa\]** Upgrade the version of `gwt-symbolmap` to `0.08`.
+* **\[gwt-output-qa\]** Cleanup dependency tree in `gwt-output-qa` to use ]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.76 released]]></title>
             <link>https://react4j.github.io/blog/2018/06/17/version-0.76-release.html</link>
