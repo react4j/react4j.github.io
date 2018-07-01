@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -182,35 +182,50 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>static <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createFragment-elemental2.core.JsArray-">createFragment</a></span>(elemental2.core.JsArray&lt;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&gt;&nbsp;children)</code>
-<div class="block">Create a Fragment with the specified children.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createElement-java.lang.String-java.lang.Object-">createElement</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;props)</code>
+<div class="block">Create and return a new ReactElement of the given type.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>static <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createFragment-java.util.List-">createFragment</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;? extends <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&gt;&nbsp;children)</code>
-<div class="block">Create a Fragment with the specified children.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createElement-java.lang.String-java.lang.Object-react4j.ReactNode...-">createElement</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;props,
+             <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</code>
+<div class="block">Create and return a new ReactElement of the given type with specified children.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>static <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createFragment-react4j.ReactNode...-">createFragment</a></span>(<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createFragment-elemental2.core.JsArray-">createFragment</a></span>(elemental2.core.JsArray&lt;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&gt;&nbsp;children)</code>
 <div class="block">Create a Fragment with the specified children.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>static <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createFragment-java.util.stream.Stream-">createFragment</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;? extends <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&gt;&nbsp;children)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createFragment-java.util.List-">createFragment</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;? extends <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&gt;&nbsp;children)</code>
 <div class="block">Create a Fragment with the specified children.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>static <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createFragment-react4j.ReactNode...-">createFragment</a></span>(<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</code>
+<div class="block">Create a Fragment with the specified children.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>static <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createFragment-java.util.stream.Stream-">createFragment</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;? extends <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&gt;&nbsp;children)</code>
+<div class="block">Create a Fragment with the specified children.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>static <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#createStrictMode-react4j.ReactNode...-">createStrictMode</a></span>(<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</code>
 <div class="block">Create a StrictMode component with the specified children.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/React.html#isValidElement-react4j.ReactNode-">isValidElement</a></span>(<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;node)</code>
 <div class="block">Return true if the specified node is a ReactElement.</div>
@@ -362,6 +377,52 @@ public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react
 </dl>
 </li>
 </ul>
+<a name="createElement-java.lang.String-java.lang.Object-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createElement</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.124">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
+                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;props)</pre>
+<div class="block">Create and return a new ReactElement of the given type.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - A HTML tag name (eg. 'div', 'span', etc)</dd>
+<dd><code>props</code> - The props to pass to the element.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the created ReactNode</dd>
+</dl>
+</li>
+</ul>
+<a name="createElement-java.lang.String-java.lang.Object-react4j.ReactNode...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createElement</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+ <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsMethod.html?is-external=true" title="class or interface in jsinterop.annotations">@JsMethod</a>
+public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.136">createElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                          <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
+                                                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                                          <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;props,
+                                                          <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                                          <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</pre>
+<div class="block">Create and return a new ReactElement of the given type with specified children.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - A HTML tag name (eg. 'div', 'span', etc)</dd>
+<dd><code>props</code> - The props to pass to the element.</dd>
+<dd><code>children</code> - The child elements.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the created DOMElement</dd>
+</dl>
+</li>
+</ul>
 <a name="createStrictMode-react4j.ReactNode...-">
 <!--   -->
 </a>
@@ -369,7 +430,7 @@ public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react
 <li class="blockList">
 <h4>createStrictMode</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.124">createStrictMode</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.145">createStrictMode</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                     <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</pre>
 <div class="block">Create a StrictMode component with the specified children.</div>
 <dl>
@@ -387,7 +448,7 @@ public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react
 <li class="blockList">
 <h4>createFragment</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.136">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.157">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</pre>
 <div class="block">Create a Fragment with the specified children.</div>
 <dl>
@@ -405,7 +466,7 @@ public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react
 <li class="blockList">
 <h4>createFragment</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.149">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.170">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   elemental2.core.JsArray&lt;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&gt;&nbsp;children)</pre>
 <div class="block">Create a Fragment with the specified children.</div>
 <dl>
@@ -425,7 +486,7 @@ public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react
 <li class="blockList">
 <h4>createFragment</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.162">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.183">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;? extends <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&gt;&nbsp;children)</pre>
 <div class="block">Create a Fragment with the specified children.</div>
 <dl>
@@ -445,7 +506,7 @@ public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react
 <li class="blockList">
 <h4>createFragment</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.175">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.196">createFragment</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html?is-external=true" title="class or interface in java.util.stream">Stream</a>&lt;? extends <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&gt;&nbsp;children)</pre>
 <div class="block">Create a Fragment with the specified children.</div>
 <dl>
@@ -467,7 +528,7 @@ public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react
 <li class="blockList">
 <h4>createContext</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;&lt;T&gt;&nbsp;<a href="../react4j/Context.html" title="class in react4j">Context</a>&lt;T&gt;&nbsp;<a href="../src-html/react4j/React.html#line.193">createContext</a>(T&nbsp;defaultValue)</pre>
+public static&nbsp;&lt;T&gt;&nbsp;<a href="../react4j/Context.html" title="class in react4j">Context</a>&lt;T&gt;&nbsp;<a href="../src-html/react4j/React.html#line.214">createContext</a>(T&nbsp;defaultValue)</pre>
 <div class="block">Creates a context with specified default value.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -486,7 +547,7 @@ public static&nbsp;&lt;T&gt;&nbsp;<a href="../react4j/Context.html" title="class
 <li class="blockList">
 <h4>cloneElement</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.207">cloneElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/React.html#line.228">cloneElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                 <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;element,
                                                 <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                 jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</pre>
