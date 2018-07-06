@@ -504,10 +504,14 @@ protected abstract&nbsp;<a href="https://arez.github.io/api/arez/Observer.html?i
 <pre><a href="https://arez.github.io/api/arez/annotations/Track.html?is-external=true" title="class or interface in arez.annotations">@Track</a>(<a href="https://arez.github.io/api/arez/annotations/Track.html?is-external=true#name--" title="class or interface in arez.annotations">name</a>="render",
        <a href="https://arez.github.io/api/arez/annotations/Track.html?is-external=true#priority--" title="class or interface in arez.annotations">priority</a>=<a href="https://arez.github.io/api/arez/annotations/Priority.html?is-external=true#LOW" title="class or interface in arez.annotations">LOW</a>)
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.169">trackRender</a>()</pre>
+protected&nbsp;<a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.171">trackRender</a>()</pre>
 <div class="block">This method is the method enhanced by arez that performs render and tracks dependencies.
  This SHOULD NOT be merged with <a href="../../react4j/arez/ReactArezComponent.html#performRender--"><code>performRender()</code></a> as then the isDisposed check will be present
  in every instance of render method which can result in unnecessary code bloat.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the result of rendering.</dd>
+</dl>
 </li>
 </ul>
 <a name="shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
@@ -516,7 +520,7 @@ protected&nbsp;<a href="../../react4j/ReactNode.html" title="interface in react4
 <ul class="blockList">
 <li class="blockList">
 <h4>shouldComponentUpdate</h4>
-<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.194">shouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.196">shouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</pre>
@@ -551,7 +555,7 @@ protected&nbsp;<a href="../../react4j/ReactNode.html" title="interface in react4
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidMount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.227">componentDidMount</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.229">componentDidMount</a>()</pre>
 <div class="block">This method is invoked after a component is attached to the DOM.
  Initialization that requires DOM nodes should go here.
  Setting state in this method will trigger a re-rendering.
@@ -568,7 +572,7 @@ protected&nbsp;<a href="../../react4j/ReactNode.html" title="interface in react4
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidUpdate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.236">componentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.238">componentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                   jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
                                   <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                   jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevState)</pre>
@@ -590,7 +594,7 @@ protected&nbsp;<a href="../../react4j/ReactNode.html" title="interface in react4
 <ul class="blockList">
 <li class="blockList">
 <h4>componentWillUnmount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.246">componentWillUnmount</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.248">componentWillUnmount</a>()</pre>
 <div class="block">This method is invoked immediately before a component is unmounted and destroyed.
  Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up
  any DOM elements that were created in <a href="../../react4j/Component.html#componentDidMount--"><code>Component.componentDidMount()</code></a>
@@ -607,7 +611,7 @@ protected&nbsp;<a href="../../react4j/ReactNode.html" title="interface in react4
 <ul class="blockListLast">
 <li class="blockList">
 <h4>performComponentWillUnmount</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.258">performComponentWillUnmount</a>()</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.260">performComponentWillUnmount</a>()</pre>
 <div class="block">Wrapper method invoked when unmounting the component.
  It delegates to the <a href="../../react4j/Component.html#componentWillUnmount--"><code>Component.componentWillUnmount()</code></a> method.
  This method exists to give middleware a mechanism to hook into component unmounting lifecycle.</div>
