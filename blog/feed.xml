@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Mon, 02 Jul 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Jul 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.82 released]]></title>
+            <link>https://react4j.github.io/blog/2018/07/10/version-0.82-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/07/10/version-0.82-release.html</guid>
+            <pubDate>Tue, 10 Jul 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.81...v0.82)
+
+Changes in this release:
+
+* **\[arez\]** Update the `org.realityforge.arez` dependencies to version `0.96`.
+* **\[arez\]** Update the `org.realityforge.arez.browserlocation` ]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.81 released]]></title>
             <link>https://react4j.github.io/blog/2018/07/02/version-0.81-release.html</link>
