@@ -2,12 +2,47 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://react4j.github.io/blog</id>
     <title>React4j Blog</title>
-    <updated>2018-07-10T06:00:00Z</updated>
+    <updated>2018-07-17T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://react4j.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest React4j news and events.</subtitle>
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the React4j Project</rights>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.84 released]]></title>
+        <id>https://react4j.github.io/blog/2018/07/17/version-0.84-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/07/17/version-0.84-release.html">
+        </link>
+        <updated>2018-07-17T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.83...v0.84)
+
+Changes in this release:
+
+* Re-release library as a failure in the release process led to an invalid artifacts being deployed to
+  Maven central.
+* **\[processor\]** Update t]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.83 released]]></title>
+        <id>https://react4j.github.io/blog/2018/07/16/version-0.83-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/07/16/version-0.83-release.html">
+        </link>
+        <updated>2018-07-16T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.82...v0.83)
+
+Changes in this release:
+
+* **\[arez\]** Replace the jetbrains artifact with a J2CL compatible variant.
+* **\[arez\]** Made the `ReactArezEnvironment.ReactReactionEnvironment]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React4j 0.82 released]]></title>
         <id>https://react4j.github.io/blog/2018/07/10/version-0.82-release.html</id>
