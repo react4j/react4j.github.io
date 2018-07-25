@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Fri, 20 Jul 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Jul 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.87 released]]></title>
+            <link>https://react4j.github.io/blog/2018/07/25/version-0.87-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/07/25/version-0.87-release.html</guid>
+            <pubDate>Wed, 25 Jul 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.86...v0.87)
+
+Changes in this release:
+
+* **\[downstream-test\]** Test against output of J2CL over time to ensure that no size regressions occur.
+* **\[dom\]** Fix message generated for in]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.86 released]]></title>
             <link>https://react4j.github.io/blog/2018/07/20/version-0.86-release.html</link>
