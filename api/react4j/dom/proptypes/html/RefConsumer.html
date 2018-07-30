@@ -105,7 +105,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsFunction.html?is-external=true" title="class or interface in jsinterop.annotations">@JsFunction</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html?is-external=true" title="class or interface in java.lang">@FunctionalInterface</a>
-public interface <a href="../../../../src-html/react4j/dom/proptypes/html/RefConsumer.html#line.10">RefConsumer</a></pre>
+public interface <a href="../../../../src-html/react4j/dom/proptypes/html/RefConsumer.html#line.11">RefConsumer</a></pre>
 <div class="block">Method to pass an element or component instance back from the renderer.</div>
 </li>
 </ul>
@@ -152,8 +152,11 @@ public interface <a href="../../../../src-html/react4j/dom/proptypes/html/RefCon
 <ul class="blockListLast">
 <li class="blockList">
 <h4>accept</h4>
-<pre>void&nbsp;<a href="../../../../src-html/react4j/dom/proptypes/html/RefConsumer.html#line.17">accept</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;reference)</pre>
-<div class="block">Passes the reference to the component instance or element.</div>
+<pre>void&nbsp;<a href="../../../../src-html/react4j/dom/proptypes/html/RefConsumer.html#line.20">accept</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+            <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;reference)</pre>
+<div class="block">Passes the reference to the component instance or element.
+ The reference is nonnull when the element has been attached to the DOM and
+ null when the reference has been detached from the DOM.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>reference</code> - the reference.</dd>
