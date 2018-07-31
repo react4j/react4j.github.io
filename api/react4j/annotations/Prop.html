@@ -215,16 +215,14 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>shouldUpdateOnChange</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.64">shouldUpdateOnChange</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.62">shouldUpdateOnChange</a></pre>
 <div class="block">Return an enum indicating whether prop should trigger a change if it updated.
  This setting is used when the annotation processors is responsible for implementing
  the <a href="../../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>Component.shouldComponentUpdate(JsPropertyMap, JsPropertyMap)</code></a> lifecycle
  method. If set to <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then the code will check the prop when implementing
  <code>shouldComponentUpdate</code>. If set to <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> then the prop will be ignored
  when implementing <code>shouldComponentUpdate</code>. If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the
- annotation processor will treat it as <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> if the type of the prop is annotated with
- either <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsFunction.html?is-external=true" title="class or interface in jsinterop.annotations"><code>JsFunction</code></a> or <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html?is-external=true" title="class or interface in java.lang"><code>FunctionalInterface</code></a>, otherwise it will
- be treated as <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a>.</div>
+ annotation processor will treat it as <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the enum indicating whether prop should trigger a change if it updated.</dd>
