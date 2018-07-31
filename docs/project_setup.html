@@ -12,8 +12,8 @@ developed using an IDE and this is the recommended approach.</p>
 <h2><a class="anchor" aria-hidden="true" name="configure-maven"></a><a href="#configure-maven" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure Maven</h2>
 <p>Most React4j applications make use of the <code>react4j-dom</code> library for the DOM factories and this library
 needs to be added to the Maven <code>pom.xml</code> as a <code>compile</code> scope dependency. It will transitively include
-the <code>react4j-core</code> and <code>react4j-annotations</code>. To add this library to your Maven project, simply
-add the following to your <code>pom.xml</code>:</p>
+the <code>react4j-core</code> library. To add this library to your Maven project, simply add the following to your
+<code>pom.xml</code>:</p>
 <pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">project</span>&gt;</span>
   ...
   <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
@@ -21,7 +21,7 @@ add the following to your <code>pom.xml</code>:</p>
     <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.realityforge.react4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>react4j-dom<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.87<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.89<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
     ...
   <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
@@ -37,7 +37,7 @@ following to your <code>pom.xml</code>:</p>
     <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.realityforge.react4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>react4j-arez<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.87<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.89<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
     ...
   <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
@@ -61,7 +61,7 @@ snippet to configure the maven compiler plugin from within the <code>pom.xml</co
             <span class="hljs-tag">&lt;<span class="hljs-name">path</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.realityforge.react4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>react4j-processor<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.87<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.89<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">annotationProcessorPaths</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
@@ -80,14 +80,14 @@ the user. In particular, there is some additional steps required when using <a h
 GWT module in your <code>.gwt.xml</code> file. For React4j applications that use Arez component then it issufficient to add:</p>
 <pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>
   ...
-  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'react4j.arez.ReactArez'</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'react4j.arez.Arez'</span>/&gt;</span>
   ...
 <span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span>
 </code></pre>
 <p>Otherwise you can simply rely on the dom library via:</p>
 <pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>
   ...
-  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'react4j.dom.ReactDOM'</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'react4j.dom.Dom'</span>/&gt;</span>
   ...
 <span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span>
 </code></pre>
@@ -107,7 +107,7 @@ decreased performance of development builds. The <code>Dev</code> module can be 
 <p>If you are using Arez components you can enable further invariant checking via:</p>
 <pre><code class="hljs css xml"><span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>
   ...
-  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'react4j.arez.ReactArezDev'</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'react4j.arez.ArezDev'</span>/&gt;</span>
   ...
 <span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span>
 </code></pre>
