@@ -125,18 +125,24 @@ public @interface <a href="../../src-html/react4j/annotations/Prop.html#line.25"
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#disposable--">disposable</a></span></code>
+<div class="block">Return an enum indicating whether prop is disposable and should be checked before rendering component.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#name--">name</a></span></code>
 <div class="block">Return the name of the prop.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#require--">require</a></span></code>
 <div class="block">Return enum indicating whether prop should be when component is constructed.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#shouldUpdateOnChange--">shouldUpdateOnChange</a></span></code>
 <div class="block">Return an enum indicating whether prop should trigger a change if it updated.</div>
@@ -212,7 +218,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="shouldUpdateOnChange--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>shouldUpdateOnChange</h4>
 <pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.62">shouldUpdateOnChange</a></pre>
@@ -226,6 +232,36 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the enum indicating whether prop should trigger a change if it updated.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>react4j.annotations.Feature.AUTODETECT</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="disposable--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>disposable</h4>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.78">disposable</a></pre>
+<div class="block">Return an enum indicating whether prop is disposable and should be checked before rendering component.
+ If a prop is disposable then the class will override <code>ReactArezComponent.anyPropsDisposed()</code>
+ and check whether the prop is disposed prior to attempting to render the component. If any props
+ are disposed then rendering will be aborted and the render method will return null.
+ If set to <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then the code will add an isDisposed() check while if set to
+ <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> no such check will be generated. If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the
+ annotation processor will inspect the type of the prop and treat it as <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> if the
+ type is annotated with the <code>arez.annotations.ArezComponent</code> annotation and the host component is
+ an Arez component. It is invalid to specify <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> unless the host component is an Arez
+ component.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the enum indicating whether prop is disposable and should be checked before rendering component.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>
