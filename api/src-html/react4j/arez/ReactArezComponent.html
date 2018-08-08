@@ -364,37 +364,7 @@
 <span class="sourceLineNo">356</span>    super.scheduleStateUpdate( ( p, s ) -&gt; Js.cast( JsPropertyMap.of( AREZ_STATE_KEY, JsObject.freeze( data ) ) ),<a name="line.356"></a>
 <span class="sourceLineNo">357</span>                               null );<a name="line.357"></a>
 <span class="sourceLineNo">358</span>  }<a name="line.358"></a>
-<span class="sourceLineNo">359</span><a name="line.359"></a>
-<span class="sourceLineNo">360</span>  /**<a name="line.360"></a>
-<span class="sourceLineNo">361</span>   * Return true if the two objects do not have identical keys and values. The method assumes that the two<a name="line.361"></a>
-<span class="sourceLineNo">362</span>   * objects passed are js objects and compares the objects have the same key-value.<a name="line.362"></a>
-<span class="sourceLineNo">363</span>   *<a name="line.363"></a>
-<span class="sourceLineNo">364</span>   * @param o1 the first object.<a name="line.364"></a>
-<span class="sourceLineNo">365</span>   * @param o2 the second object.<a name="line.365"></a>
-<span class="sourceLineNo">366</span>   * @return true if the two objects do not have identical keys and values.<a name="line.366"></a>
-<span class="sourceLineNo">367</span>   */<a name="line.367"></a>
-<span class="sourceLineNo">368</span>  private boolean isObjectShallowModified( @Nullable final JsPropertyMap&lt;Object&gt; o1,<a name="line.368"></a>
-<span class="sourceLineNo">369</span>                                           @Nullable final JsPropertyMap&lt;Object&gt; o2 )<a name="line.369"></a>
-<span class="sourceLineNo">370</span>  {<a name="line.370"></a>
-<span class="sourceLineNo">371</span>    if ( null == o1 || null == o2 || !Js.typeof( o1 ).equals( "object" ) || !Js.typeof( o2 ).equals( "object" ) )<a name="line.371"></a>
-<span class="sourceLineNo">372</span>    {<a name="line.372"></a>
-<span class="sourceLineNo">373</span>      return !Js.isTripleEqual( o1, o2 );<a name="line.373"></a>
-<span class="sourceLineNo">374</span>    }<a name="line.374"></a>
-<span class="sourceLineNo">375</span>    final String[] keys = JsObject.keys( Js.uncheckedCast( o1 ) );<a name="line.375"></a>
-<span class="sourceLineNo">376</span>    if ( JsObject.keys( Js.uncheckedCast( o2 ) ).length != keys.length )<a name="line.376"></a>
-<span class="sourceLineNo">377</span>    {<a name="line.377"></a>
-<span class="sourceLineNo">378</span>      return true;<a name="line.378"></a>
-<span class="sourceLineNo">379</span>    }<a name="line.379"></a>
-<span class="sourceLineNo">380</span>    for ( final String key : keys )<a name="line.380"></a>
-<span class="sourceLineNo">381</span>    {<a name="line.381"></a>
-<span class="sourceLineNo">382</span>      if ( !Js.isTripleEqual( o1.get( key ), o2.get( key ) ) )<a name="line.382"></a>
-<span class="sourceLineNo">383</span>      {<a name="line.383"></a>
-<span class="sourceLineNo">384</span>        return true;<a name="line.384"></a>
-<span class="sourceLineNo">385</span>      }<a name="line.385"></a>
-<span class="sourceLineNo">386</span>    }<a name="line.386"></a>
-<span class="sourceLineNo">387</span>    return false;<a name="line.387"></a>
-<span class="sourceLineNo">388</span>  }<a name="line.388"></a>
-<span class="sourceLineNo">389</span>}<a name="line.389"></a>
+<span class="sourceLineNo">359</span>}<a name="line.359"></a>
 
 
 
