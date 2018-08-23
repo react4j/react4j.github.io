@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Tue, 07 Aug 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 23 Aug 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.93 released]]></title>
+            <link>https://react4j.github.io/blog/2018/08/23/version-0.93-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/08/23/version-0.93-release.html</guid>
+            <pubDate>Thu, 23 Aug 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.92...v0.93)
+
+Changes in this release:
+
+* **\[arez\]** Update the `org.realityforge.arez` dependencies to version `0.105`.
+* **\[arez\]** Update the `org.realityforge.arez.spytools` depend]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.92 released]]></title>
             <link>https://react4j.github.io/blog/2018/08/07/version-0.92-release.html</link>
