@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":6,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":6,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -204,79 +204,106 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performComponentWillUnmount--">performComponentWillUnmount</a></span>()</code>
-<div class="block">Wrapper method invoked when unmounting the component.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performComponentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">performComponentDidCatch</a></span>(elemental2.core.JsError&nbsp;error,
+                        <a href="../react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a>&nbsp;info)</code>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#componentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-"><code>componentDidCatch(JsError, ReactErrorInfo)</code></a> method.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performPostConstruct--">performPostConstruct</a></span>()</code>
-<div class="block">Wrapper method for constructing the component.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performComponentDidMount--">performComponentDidMount</a></span>()</code>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#componentDidMount--"><code>componentDidMount()</code></a> method.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>protected <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performRender--">performRender</a></span>()</code>
-<div class="block">Wrapper method for rendering the component.</div>
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performComponentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">performComponentDidUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
+                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevState)</code>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>componentDidUpdate(JsPropertyMap, JsPropertyMap)</code></a> method.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performComponentWillUnmount--">performComponentWillUnmount</a></span>()</code>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#componentWillUnmount--"><code>componentWillUnmount()</code></a> method.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performPostConstruct--">performPostConstruct</a></span>()</code>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#postConstruct--"><code>postConstruct()</code></a> method.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>protected <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performRender--">performRender</a></span>()</code>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#render--"><code>render()</code></a> method.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performShouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">performShouldComponentUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
+                            jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</code>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap, JsPropertyMap)</code></a> method.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#postConstruct--">postConstruct</a></span>()</code>
 <div class="block">This method is invoked after the component is constructed and bound to a native react component.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#props--">props</a></span>()</code>
 <div class="block">Return the component props from the native component.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#render--">render</a></span>()</code>
 <div class="block">Render the component.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#scheduleRender-boolean-">scheduleRender</a></span>(boolean&nbsp;force)</code>
 <div class="block">Schedule this component for re-rendering.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#scheduleStateUpdate-react4j.Component.SetStateCallback-">scheduleStateUpdate</a></span>(<a href="../react4j/Component.SetStateCallback.html" title="interface in react4j">Component.SetStateCallback</a>&nbsp;callback)</code>
 <div class="block">Schedule a shallow merge of supplied state into current state.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#scheduleStateUpdate-react4j.Component.SetStateCallback-react4j.Procedure-">scheduleStateUpdate</a></span>(<a href="../react4j/Component.SetStateCallback.html" title="interface in react4j">Component.SetStateCallback</a>&nbsp;callback,
                    <a href="../react4j/Procedure.html" title="interface in react4j">Procedure</a>&nbsp;onStateUpdateComplete)</code>
 <div class="block">Schedule a shallow merge of supplied state into current state.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#scheduleStateUpdate-jsinterop.base.JsPropertyMap-">scheduleStateUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state)</code>
 <div class="block">Schedule a shallow merge of supplied state into current state.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#scheduleStateUpdate-jsinterop.base.JsPropertyMap-react4j.Procedure-">scheduleStateUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state,
                    <a href="../react4j/Procedure.html" title="interface in react4j">Procedure</a>&nbsp;onStateUpdateComplete)</code>
 <div class="block">Schedule a shallow merge of supplied state into current state.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#setInitialState-jsinterop.base.JsPropertyMap-">setInitialState</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state)</code>
 <div class="block">Set the initial state of the component.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">shouldComponentUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                      jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</code>
@@ -284,7 +311,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  by the current change in state or props.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>protected jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#state--">state</a></span>()</code>
 <div class="block">Return the component state from the native component.</div>
@@ -516,10 +543,9 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 <li class="blockList">
 <h4>performRender</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.268">performRender</a>()</pre>
-<div class="block">Wrapper method for rendering the component.
- By default it just delegates to the <a href="../react4j/Component.html#render--"><code>render()</code></a> method.
- This method exists to give middleware a mechanism of wrapping calls to render</div>
+protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.267">performRender</a>()</pre>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#render--"><code>render()</code></a> method.
+ This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the result of rendering.</dd>
@@ -532,10 +558,9 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 <ul class="blockList">
 <li class="blockList">
 <h4>performPostConstruct</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.278">performPostConstruct</a>()</pre>
-<div class="block">Wrapper method for constructing the component.
- By default it just delegates to the <a href="../react4j/Component.html#postConstruct--"><code>postConstruct()</code></a> method.
- This method exists to give middleware a mechanism to hook into component construction lifecycle.</div>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.276">performPostConstruct</a>()</pre>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#postConstruct--"><code>postConstruct()</code></a> method.
+ This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
 </li>
 </ul>
 <a name="postConstruct--">
@@ -544,7 +569,7 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 <ul class="blockList">
 <li class="blockList">
 <h4>postConstruct</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.291">postConstruct</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.289">postConstruct</a>()</pre>
 <div class="block">This method is invoked after the component is constructed and bound to a native react component.
  This is a good place to perform initialization. It is called before <a href="../react4j/Component.html#render--"><code>render()</code></a>, therefore
  setting state in this method will not trigger a re-rendering. This replaces the
@@ -559,11 +584,22 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidMount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.301">componentDidMount</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.299">componentDidMount</a>()</pre>
 <div class="block">This method is invoked after a component is attached to the DOM.
  Initialization that requires DOM nodes should go here.
  Setting state in this method will trigger a re-rendering.
  See the <a href="https://reactjs.org/docs/react-component.html#componentdidmount">React Component documentation</a> for more details.</div>
+</li>
+</ul>
+<a name="performComponentDidMount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>performComponentDidMount</h4>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.307">performComponentDidMount</a>()</pre>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#componentDidMount--"><code>componentDidMount()</code></a> method.
+ This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
 </li>
 </ul>
 <a name="componentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
@@ -572,7 +608,7 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidUpdate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.313">componentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.320">componentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                   jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
                                   <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                   jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevState)</pre>
@@ -586,13 +622,32 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 </dl>
 </li>
 </ul>
+<a name="performComponentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>performComponentDidUpdate</h4>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.332">performComponentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
+                                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevState)</pre>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>componentDidUpdate(JsPropertyMap, JsPropertyMap)</code></a> method.
+ This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>prevProps</code> - the props before the component was updated.</dd>
+<dd><code>prevState</code> - the state before the component was updated.</dd>
+</dl>
+</li>
+</ul>
 <a name="componentWillUnmount--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>componentWillUnmount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.324">componentWillUnmount</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.344">componentWillUnmount</a>()</pre>
 <div class="block">This method is invoked immediately before a component is unmounted and destroyed.
  Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up
  any DOM elements that were created in <a href="../react4j/Component.html#componentDidMount--"><code>componentDidMount()</code></a>
@@ -605,10 +660,9 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentWillUnmount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.333">performComponentWillUnmount</a>()</pre>
-<div class="block">Wrapper method invoked when unmounting the component.
- It delegates to the <a href="../react4j/Component.html#componentWillUnmount--"><code>componentWillUnmount()</code></a> method.
- This method exists to give middleware a mechanism to hook into component unmounting lifecycle.</div>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.352">performComponentWillUnmount</a>()</pre>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#componentWillUnmount--"><code>componentWillUnmount()</code></a> method.
+ This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
 </li>
 </ul>
 <a name="componentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">
@@ -617,7 +671,7 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidCatch</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.351">componentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.370">componentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  elemental2.core.JsError&nbsp;error,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a>&nbsp;info)</pre>
@@ -636,13 +690,32 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 </dl>
 </li>
 </ul>
+<a name="performComponentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>performComponentDidCatch</h4>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.381">performComponentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                        elemental2.core.JsError&nbsp;error,
+                                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                        <a href="../react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a>&nbsp;info)</pre>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#componentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-"><code>componentDidCatch(JsError, ReactErrorInfo)</code></a> method.
+ This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>error</code> - the error that has been thrown.</dd>
+<dd><code>info</code> - information about component stack during thrown error.</dd>
+</dl>
+</li>
+</ul>
 <a name="shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>shouldComponentUpdate</h4>
-<pre>protected&nbsp;boolean&nbsp;<a href="../src-html/react4j/Component.html#line.375">shouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+<pre>protected&nbsp;boolean&nbsp;<a href="../src-html/react4j/Component.html#line.406">shouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
                                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</pre>
@@ -660,6 +733,27 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
  <p>If this method returns false, then <a href="../react4j/Component.html#render--"><code>render()</code></a>, and <a href="../react4j/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>componentDidUpdate(JsPropertyMap, JsPropertyMap)</code></a>
  will not be invoked. In the future React may treat this method  as a hint rather than a strict directive, and
  returning false may still result in a re-rendering of the component.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>nextProps</code> - the new properties of the component.</dd>
+<dd><code>nextState</code> - the new state of the component.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the component should be updated.</dd>
+</dl>
+</li>
+</ul>
+<a name="performShouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>performShouldComponentUpdate</h4>
+<pre>protected&nbsp;boolean&nbsp;<a href="../src-html/react4j/Component.html#line.420">performShouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                               jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
+                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                               jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</pre>
+<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap, JsPropertyMap)</code></a> method.
+ This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>nextProps</code> - the new properties of the component.</dd>
