@@ -138,11 +138,17 @@ public @interface <a href="../../src-html/react4j/annotations/Prop.html#line.25"
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#observable--">observable</a></span></code>
+<div class="block">Indicate whether prop is Arez observable.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#require--">require</a></span></code>
 <div class="block">Return enum indicating whether prop should be when component is constructed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#shouldUpdateOnChange--">shouldUpdateOnChange</a></span></code>
 <div class="block">Return an enum indicating whether prop should trigger a change if it updated.</div>
@@ -242,13 +248,41 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </li>
 </ul>
 <ul class="blockList">
+<li class="blockList"><a name="observable--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>observable</h4>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.76">observable</a></pre>
+<div class="block">Indicate whether prop is Arez observable.
+ If set to <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> the generated class will make the prop observable and report changes
+ in the prop when the prop changes. The component MUST be a subclass of <code>ReactArezComponent</code>.
+ If set to <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> then the prop will not be observable. If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a>
+ then the prop will be observable if the component is a subclass of <code>ReactArezComponent</code>, the value
+ of <a href="../../react4j/annotations/Prop.html#shouldUpdateOnChange--"><code>shouldUpdateOnChange()</code></a> is equivalent to <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> and the component has a method
+ annotated with <code>arez.annotations.Computed</code>, <code>arez.annotations.Memoize</code> or
+ <code>arez.annotations.Observed</code>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the enum indicating whether prop is observable.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>react4j.annotations.Feature.AUTODETECT</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a name="disposable--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>disposable</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.78">disposable</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.92">disposable</a></pre>
 <div class="block">Return an enum indicating whether prop is disposable and should be checked before rendering component.
  If a prop is disposable then the class will override <code>ReactArezComponent.anyPropsDisposed()</code>
  and check whether the prop is disposed prior to attempting to render the component. If any props
