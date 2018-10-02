@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Fri, 21 Sep 2018 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 Oct 2018 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2018 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.97 released]]></title>
+            <link>https://react4j.github.io/blog/2018/10/02/version-0.97-release.html</link>
+            <guid>https://react4j.github.io/blog/2018/10/02/version-0.97-release.html</guid>
+            <pubDate>Tue, 02 Oct 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.96...v0.97)
+
+Changes in this release:
+
+* Update the javascript included within package to react version `16.5.2`.
+* **\[arez\]** Make the `ReactArezConfig` class public to make the compil]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.96 released]]></title>
             <link>https://react4j.github.io/blog/2018/09/21/version-0.96-release.html</link>
