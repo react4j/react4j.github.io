@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -155,7 +155,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/ReactConfig.html#shouldMinimizePropKeys--">shouldMinimizePropKeys</a></span>()</code>
-<div class="block">Return true if prop keys should be minimized.</div>
+<div class="block">Return true if the prop keys should be minimized.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/ReactConfig.html#shouldValidatePropValues--">shouldValidatePropValues</a></span>()</code>
+<div class="block">Return true if the prop value should be validated when initially set or when changed.</div>
 </td>
 </tr>
 </table>
@@ -186,7 +192,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>isProductionMode</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.29">isProductionMode</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.30">isProductionMode</a>()</pre>
 <div class="block">Return true if in production mode.
  Production mode sets the default values for other compile time constants to the variant
  that assumes your code is correct and does not generate additional assert or debug statements.
@@ -203,7 +209,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>enableComponentNames</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.40">enableComponentNames</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.41">enableComponentNames</a>()</pre>
 <div class="block">Return true if components should have human readable names specified.
  Useful if you want to interact via DevTools or other tool chains.</div>
 <dl>
@@ -218,13 +224,27 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>shouldMinimizePropKeys</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.52">shouldMinimizePropKeys</a>()</pre>
-<div class="block">Return true if prop keys should be minimized.
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.53">shouldMinimizePropKeys</a>()</pre>
+<div class="block">Return true if the prop keys should be minimized.
  This will significantly reduce the size of the compiled output but will make inspecting the props
  in DevTools difficult if not impossible.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true to minimize prop keys.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldValidatePropValues--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldValidatePropValues</h4>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.63">shouldValidatePropValues</a>()</pre>
+<div class="block">Return true if the prop value should be validated when initially set or when changed.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true to validate prop values.</dd>
 </dl>
 </li>
 </ul>
@@ -234,7 +254,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>checkComponentStateInvariants</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.64">checkComponentStateInvariants</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.75">checkComponentStateInvariants</a>()</pre>
 <div class="block">Return true if we should check that the user interacts with React component in a way compatible with the state.
  i.e. setInitialState should only be invoked at the start, setState should not be invoked while render
  is running etc.</div>
@@ -250,7 +270,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>shouldCheckInvariants</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.74">shouldCheckInvariants</a>()</pre>
+<pre>public static&nbsp;boolean&nbsp;<a href="../src-html/react4j/ReactConfig.html#line.85">shouldCheckInvariants</a>()</pre>
 <div class="block">Return true if invariants will be checked.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

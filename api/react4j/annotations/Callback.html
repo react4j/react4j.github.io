@@ -93,22 +93,23 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/react4j/annotations/Callback.html#line.36">Callback</a></pre>
+public @interface <a href="../../src-html/react4j/annotations/Callback.html#line.37">Callback</a></pre>
 <div class="block">Annotation used to specify a callback passed to react components.
  This annotation used to generate a callback accessor method in the
  helper class. The callback accessor method will return the same callback
  instance each time it is called, making this ideal for use in "PureComponent"
- style components. If the callback is annotated with <code>@JsFunction</code>
+ style components. If the callback is annotated with <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsFunction.html?is-external=true" title="class or interface in jsinterop.annotations"><code>JsFunction</code></a>
  then the code gives the callback a user friendly name for debugging. The
  code for specifying the friendly name will be optimized away when
- ReactConfig.enableComponentNames() returns false.
+ ReactConfig.enableComponentNames() returns false. Using <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsFunction.html?is-external=true" title="class or interface in jsinterop.annotations"><code>JsFunction</code></a>
+ also reduces the generated code size.
 
  <p>Using this annotation and the corresponding helper method is entirely
  optional but does provide some value when building components that you
  want to easily interact with from the React DevTools or building a component
  that compares props values to determine whether it needs to re-render.</p>
 
- <p>The method that is annotated with <code>@Callback</code> must also comply with the following constraints:</p>
+ <p>The method that is annotated with this annotation must also comply with the following constraints:</p>
  <ul>
  <li>Must not be annotated with any other react annotation</li>
  <li>Must not be an abstract instance method</li>
@@ -175,7 +176,7 @@ public @interface <a href="../../src-html/react4j/annotations/Callback.html#line
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/Callback.html#line.46">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/Callback.html#line.47">name</a></pre>
 <div class="block">Return the name of the callback.
  The value defaults to the name of the method. The value must conform to the
  requirements of a java identifier and be unique across the component.</div>
@@ -198,7 +199,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>value</h4>
-<pre>public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;<a href="../../src-html/react4j/annotations/Callback.html#line.56">value</a></pre>
+<pre>public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;<a href="../../src-html/react4j/annotations/Callback.html#line.57">value</a></pre>
 <div class="block">The type of the callback.
  The type should be an interface and the interface should be annotated with
  <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsFunction.html?is-external=true" title="class or interface in jsinterop.annotations"><code>JsFunction</code></a> to ensure that the method can be
@@ -222,7 +223,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>initCallbackContext</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Callback.html#line.71">initCallbackContext</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Callback.html#line.72">initCallbackContext</a></pre>
 <div class="block">The flag indicates whether the annotation processor should manage the calling context.
  if set to <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then caller context will be setup. In practical terms
  this means that subclasses of <code>ReactArezComponent</code> will have the callback

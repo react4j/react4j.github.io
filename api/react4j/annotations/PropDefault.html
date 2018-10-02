@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../react4j/annotations/Prop.html" title="annotation in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../react4j/annotations/PropValidate.html" title="annotation in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?react4j/annotations/PropDefault.html" target="_top">Frames</a></li>
@@ -93,13 +93,12 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>={<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#FIELD" title="class or interface in java.lang.annotation">FIELD</a>})
-public @interface <a href="../../src-html/react4j/annotations/PropDefault.html#line.35">PropDefault</a></pre>
+public @interface <a href="../../src-html/react4j/annotations/PropDefault.html#line.33">PropDefault</a></pre>
 <div class="block">Annotation used to specify the default value for a prop.
  The annotation can be applied to a static field or static method on the component.
  The field or method is then accessed when initializing the default props for the component.
 
- <p>If a method is annotated with the <code>@PropDefault</code> annotation then it must also
- comply with the following constraints:</p>
+ <p>If a method is annotated with this annotation then it must also comply with the following constraints:</p>
  <ul>
  <li>Must have 0 parameters</li>
  <li>Must return a value with the same type as the associated <code>@Prop</code> annotated method</li>
@@ -108,8 +107,7 @@ public @interface <a href="../../src-html/react4j/annotations/PropDefault.html#l
  <li>Must not throw exceptions</li>
  </ul>
 
- <p>If a field is annotated with the <code>@PropDefault</code> annotation then it must also
- comply with the following constraints:</p>
+ <p>If a field is annotated with this annotation then it must also comply with the following constraints:</p>
  <ul>
  <li>Must have the same type as the associated <code>@Prop</code> annotated method</li>
  <li>Must be a static field</li>
@@ -163,7 +161,7 @@ public @interface <a href="../../src-html/react4j/annotations/PropDefault.html#l
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/PropDefault.html#line.49">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/PropDefault.html#line.47">name</a></pre>
 <div class="block">Return the name of the associated prop.
 
  <p>If the annotation is applied to a method, this value will be derived if the method name matches
@@ -209,7 +207,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../react4j/annotations/Prop.html" title="annotation in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../react4j/annotations/PropValidate.html" title="annotation in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?react4j/annotations/PropDefault.html" target="_top">Frames</a></li>
