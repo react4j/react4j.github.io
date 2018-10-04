@@ -2,12 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://react4j.github.io/blog</id>
     <title>React4j Blog</title>
-    <updated>2018-10-04T06:00:00Z</updated>
+    <updated>2018-10-05T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://react4j.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest React4j news and events.</subtitle>
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the React4j Project</rights>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.99 released]]></title>
+        <id>https://react4j.github.io/blog/2018/10/05/version-0.99-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/10/05/version-0.99-release.html">
+        </link>
+        <updated>2018-10-05T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.98...v0.99)
+
+Changes in this release:
+
+* **\[processor\]** Generate a compile time error if a `@Prop` annotated method returns a boxed primitive and
+  is annotated with `@Nonnull` annotat]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React4j 0.98 released]]></title>
         <id>https://react4j.github.io/blog/2018/10/04/version-0.98-release.html</id>
