@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../react4j/dom/DOM.html" title="class in react4j.dom"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../react4j/dom/ReactPortal.html" title="class in react4j.dom"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../react4j/dom/ReactDOM.BatchedUpdatesFn.html" title="interface in react4j.dom"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?react4j/dom/ReactDOM.html" target="_top">Frames</a></li>
@@ -72,7 +72,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -118,6 +118,33 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.BatchedUpdatesFn.html" title="interface in react4j.dom">ReactDOM.BatchedUpdatesFn</a></span></code>
+<div class="block">Interface for performing an action inside batch.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.RenderCallbackFn.html" title="interface in react4j.dom">ReactDOM.RenderCallbackFn</a></span></code>
+<div class="block">Interface for performing an action on render complete.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -132,7 +159,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#batchedUpdates-react4j.Procedure-">batchedUpdates</a></span>(<a href="../../react4j/Procedure.html" title="interface in react4j">Procedure</a>&nbsp;action)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#batchedUpdates-react4j.dom.ReactDOM.BatchedUpdatesFn-">batchedUpdates</a></span>(<a href="../../react4j/dom/ReactDOM.BatchedUpdatesFn.html" title="interface in react4j.dom">ReactDOM.BatchedUpdatesFn</a>&nbsp;action)</code>
 <div class="block">Batch all state updates within the action.</div>
 </td>
 </tr>
@@ -153,9 +180,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#render-react4j.ReactNode-elemental2.dom.Element-react4j.Procedure-">render</a></span>(<a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;node,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#render-react4j.ReactNode-elemental2.dom.Element-react4j.dom.ReactDOM.RenderCallbackFn-">render</a></span>(<a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;node,
       elemental2.dom.Element&nbsp;container,
-      <a href="../../react4j/Procedure.html" title="interface in react4j">Procedure</a>&nbsp;onUpdate)</code>
+      <a href="../../react4j/dom/ReactDOM.RenderCallbackFn.html" title="interface in react4j.dom">ReactDOM.RenderCallbackFn</a>&nbsp;onUpdate)</code>
 <div class="block">Render a React element into the DOM in the supplied container.</div>
 </td>
 </tr>
@@ -193,7 +220,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>createPortal</h4>
-<pre>public static&nbsp;<a href="../../react4j/dom/ReactPortal.html" title="class in react4j.dom">ReactPortal</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.41">createPortal</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public static&nbsp;<a href="../../react4j/dom/ReactPortal.html" title="class in react4j.dom">ReactPortal</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.70">createPortal</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;children,
                                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        elemental2.dom.Element&nbsp;container)</pre>
@@ -215,7 +242,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </dl>
 </li>
 </ul>
-<a name="render-react4j.ReactNode-elemental2.dom.Element-react4j.Procedure-">
+<a name="render-react4j.ReactNode-elemental2.dom.Element-react4j.dom.ReactDOM.RenderCallbackFn-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -223,12 +250,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
  <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.58">render</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.87">render</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   <a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;node,
                                                   <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   elemental2.dom.Element&nbsp;container,
                                                   <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                                  <a href="../../react4j/Procedure.html" title="interface in react4j">Procedure</a>&nbsp;onUpdate)</pre>
+                                                  <a href="../../react4j/dom/ReactDOM.RenderCallbackFn.html" title="interface in react4j.dom">ReactDOM.RenderCallbackFn</a>&nbsp;onUpdate)</pre>
 <div class="block">Render a React element into the DOM in the supplied container.
 
  <p>If the React element was previously rendered into container, this will perform an update on it and only
@@ -253,7 +280,7 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
  <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.95">render</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.124">render</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   <a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;node,
                                                   <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   elemental2.dom.Element&nbsp;container)</pre>
@@ -268,7 +295,7 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a reference to the created React Component, DOM Node, Portal or null (stateless components).</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../react4j/dom/ReactDOM.html#render-react4j.ReactNode-elemental2.dom.Element-react4j.Procedure-"><code>render(ReactNode, Element, Procedure)</code></a></dd>
+<dd><a href="../../react4j/dom/ReactDOM.html#render-react4j.ReactNode-elemental2.dom.Element-react4j.dom.ReactDOM.RenderCallbackFn-"><code>render(ReactNode, Element, RenderCallbackFn)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -278,7 +305,7 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 <ul class="blockList">
 <li class="blockList">
 <h4>unmountComponentAtNode</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.107">unmountComponentAtNode</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.136">unmountComponentAtNode</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                              elemental2.dom.Element&nbsp;container)</pre>
 <div class="block">Remove a mounted React component from the DOM and clean up its event handlers and state. If
  no component was mounted in the container, calling this function does nothing.</div>
@@ -290,15 +317,15 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 </dl>
 </li>
 </ul>
-<a name="batchedUpdates-react4j.Procedure-">
+<a name="batchedUpdates-react4j.dom.ReactDOM.BatchedUpdatesFn-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>batchedUpdates</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;void&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.118">batchedUpdates</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                             <a href="../../react4j/Procedure.html" title="interface in react4j">Procedure</a>&nbsp;action)</pre>
+public static&nbsp;void&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.147">batchedUpdates</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                             <a href="../../react4j/dom/ReactDOM.BatchedUpdatesFn.html" title="interface in react4j.dom">ReactDOM.BatchedUpdatesFn</a>&nbsp;action)</pre>
 <div class="block">Batch all state updates within the action.
  This is currently an unstable API within the React 16, mostly because it is only useful when called
  outside an event handler (i.e. from network code) and because it is likely to be enabled by default
@@ -337,7 +364,7 @@ public static&nbsp;void&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#l
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../react4j/dom/DOM.html" title="class in react4j.dom"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../react4j/dom/ReactPortal.html" title="class in react4j.dom"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../react4j/dom/ReactDOM.BatchedUpdatesFn.html" title="interface in react4j.dom"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?react4j/dom/ReactDOM.html" target="_top">Frames</a></li>
@@ -361,7 +388,7 @@ public static&nbsp;void&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#l
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

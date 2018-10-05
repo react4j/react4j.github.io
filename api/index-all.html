@@ -286,7 +286,7 @@
 <div class="block">Background-repeat defines if and how background images will be repeated after they have
  been sized and positioned</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/dom/ReactDOM.html#batchedUpdates-react4j.Procedure-">batchedUpdates(Procedure)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/ReactDOM.html" title="class in react4j.dom">ReactDOM</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactDOM.html#batchedUpdates-react4j.dom.ReactDOM.BatchedUpdatesFn-">batchedUpdates(ReactDOM.BatchedUpdatesFn)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/ReactDOM.html" title="class in react4j.dom">ReactDOM</a></dt>
 <dd>
 <div class="block">Batch all state updates within the action.</div>
 </dd>
@@ -505,6 +505,14 @@
 <dt><span class="memberNameLink"><a href="react4j/annotations/Callback.Procedure.html#call--">call()</a></span> - Method in interface react4j.annotations.<a href="react4j/annotations/Callback.Procedure.html" title="interface in react4j.annotations">Callback.Procedure</a></dt>
 <dd>
 <div class="block">Perform an action.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactDOM.BatchedUpdatesFn.html#call--">call()</a></span> - Method in interface react4j.dom.<a href="react4j/dom/ReactDOM.BatchedUpdatesFn.html" title="interface in react4j.dom">ReactDOM.BatchedUpdatesFn</a></dt>
+<dd>
+<div class="block">Perform action while batching react changes.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactDOM.RenderCallbackFn.html#call--">call()</a></span> - Method in interface react4j.dom.<a href="react4j/dom/ReactDOM.RenderCallbackFn.html" title="interface in react4j.dom">ReactDOM.RenderCallbackFn</a></dt>
+<dd>
+<div class="block">Perform action on render complete.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/Procedure.html#call--">call()</a></span> - Method in interface react4j.<a href="react4j/Procedure.html" title="interface in react4j">Procedure</a></dt>
 <dd>
@@ -4246,6 +4254,14 @@
 <dd>
 <div class="block">Core interface into React DOM library.</div>
 </dd>
+<dt><a href="react4j/dom/ReactDOM.BatchedUpdatesFn.html" title="interface in react4j.dom"><span class="typeNameLink">ReactDOM.BatchedUpdatesFn</span></a> - Interface in <a href="react4j/dom/package-summary.html">react4j.dom</a></dt>
+<dd>
+<div class="block">Interface for performing an action inside batch.</div>
+</dd>
+<dt><a href="react4j/dom/ReactDOM.RenderCallbackFn.html" title="interface in react4j.dom"><span class="typeNameLink">ReactDOM.RenderCallbackFn</span></a> - Interface in <a href="react4j/dom/package-summary.html">react4j.dom</a></dt>
+<dd>
+<div class="block">Interface for performing an action on render complete.</div>
+</dd>
 <dt><a href="react4j/ReactErrorInfo.html" title="class in react4j"><span class="typeNameLink">ReactErrorInfo</span></a> - Class in <a href="react4j/package-summary.html">react4j</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/ReactErrorInfo.html#ReactErrorInfo--">ReactErrorInfo()</a></span> - Constructor for class react4j.<a href="react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a></dt>
@@ -4302,7 +4318,7 @@
 <dd>
 <div class="block">Render the specified tree for context value.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/dom/ReactDOM.html#render-react4j.ReactNode-elemental2.dom.Element-react4j.Procedure-">render(ReactNode, Element, Procedure)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/ReactDOM.html" title="class in react4j.dom">ReactDOM</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactDOM.html#render-react4j.ReactNode-elemental2.dom.Element-react4j.dom.ReactDOM.RenderCallbackFn-">render(ReactNode, Element, ReactDOM.RenderCallbackFn)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/ReactDOM.html" title="class in react4j.dom">ReactDOM</a></dt>
 <dd>
 <div class="block">Render a React element into the DOM in the supplied container.</div>
 </dd>
