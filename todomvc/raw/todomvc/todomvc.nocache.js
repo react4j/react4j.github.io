@@ -1,11 +1,11 @@
-function todomvc(){var nb='',ob=0,pb='gwt.codesvr=',qb='gwt.hosted=',rb='gwt.hybrid',sb='todomvc',tb='__gwt_marker_todomvc',ub='<script id="',vb='"><\/script>',wb='SCRIPT',xb='#',yb='?',zb='/',Ab=1,Bb='base',Cb='img',Db='clear.cache.gif',Eb='meta',Fb='name',Gb='gwt:property',Hb='content',Ib='=',Jb='gwt:onPropertyErrorFn',Kb='Bad handler "',Lb='" for "gwt:onPropertyErrorFn"',Mb='gwt:onLoadErrorFn',Nb='" for "gwt:onLoadErrorFn"',Ob='Single-script hosted mode not yet implemented. See issue ',Pb='http://code.google.com/p/google-web-toolkit/issues/detail?id=2079',Qb='BEC546A4E7664921EA7B6C07CF4BA007',Rb=':',Sb='DOMContentLoaded',Tb=50;var k=nb,l=ob,m=pb,n=qb,o=rb,p=sb,q=tb,r=ub,s=vb,t=wb,u=xb,v=yb,w=zb,A=Ab,B=Bb,C=Cb,D=Db,F=Eb,G=Fb,H=Gb,I=Hb,J=Ib,K=Jb,L=Kb,M=Lb,N=Mb,O=Nb,P=Ob,Q=Pb,R=Qb,S=Rb,T=Sb,U=Tb;var V=window,W=document,X,Y,Z=k,$={},_=[],ab=[],bb=[],cb=l,db,eb;if(!V.__gwt_stylesLoaded){V.__gwt_stylesLoaded={}}if(!V.__gwt_scriptsLoaded){V.__gwt_scriptsLoaded={}}function fb(){var b=false;try{var c=V.location.search;return (c.indexOf(m)!=-1||(c.indexOf(n)!=-1||V.external&&V.external.gwtOnLoad))&&c.indexOf(o)==-1}catch(a){}fb=function(){return b};return b}
+function todomvc(){var nb='',ob=0,pb='gwt.codesvr=',qb='gwt.hosted=',rb='gwt.hybrid',sb='todomvc',tb='__gwt_marker_todomvc',ub='<script id="',vb='"><\/script>',wb='SCRIPT',xb='#',yb='?',zb='/',Ab=1,Bb='base',Cb='img',Db='clear.cache.gif',Eb='meta',Fb='name',Gb='gwt:property',Hb='content',Ib='=',Jb='gwt:onPropertyErrorFn',Kb='Bad handler "',Lb='" for "gwt:onPropertyErrorFn"',Mb='gwt:onLoadErrorFn',Nb='" for "gwt:onLoadErrorFn"',Ob='Single-script hosted mode not yet implemented. See issue ',Pb='http://code.google.com/p/google-web-toolkit/issues/detail?id=2079',Qb='BF8C4D7300DBBDD7DD21ADB86C8DBAF0',Rb=':',Sb='DOMContentLoaded',Tb=50;var k=nb,l=ob,m=pb,n=qb,o=rb,p=sb,q=tb,r=ub,s=vb,t=wb,u=xb,v=yb,w=zb,A=Ab,B=Bb,C=Cb,D=Db,F=Eb,G=Fb,H=Gb,I=Hb,J=Ib,K=Jb,L=Kb,M=Lb,N=Mb,O=Nb,P=Ob,Q=Pb,R=Qb,S=Rb,T=Sb,U=Tb;var V=window,W=document,X,Y,Z=k,$={},_=[],ab=[],bb=[],cb=l,db,eb;if(!V.__gwt_stylesLoaded){V.__gwt_stylesLoaded={}}if(!V.__gwt_scriptsLoaded){V.__gwt_scriptsLoaded={}}function fb(){var b=false;try{var c=V.location.search;return (c.indexOf(m)!=-1||(c.indexOf(n)!=-1||V.external&&V.external.gwtOnLoad))&&c.indexOf(o)==-1}catch(a){}fb=function(){return b};return b}
 function gb(){if(X&&Y){X(db,p,Z,cb)}}
 function hb(){var e,f=q,g;W.write(r+f+s);g=W.getElementById(f);e=g&&g.previousSibling;while(e&&e.tagName!=t){e=e.previousSibling}function h(a){var b=a.lastIndexOf(u);if(b==-1){b=a.length}var c=a.indexOf(v);if(c==-1){c=a.length}var d=a.lastIndexOf(w,Math.min(c,b));return d>=l?a.substring(l,d+A):k}
 ;if(e&&e.src){Z=h(e.src)}if(Z==k){var i=W.getElementsByTagName(B);if(i.length>l){Z=i[i.length-A].href}else{Z=h(W.location.href)}}else if(Z.match(/^\w+:\/\//)){}else{var j=W.createElement(C);j.src=Z+D;Z=h(j.src)}if(g){g.parentNode.removeChild(g)}}
 function ib(){var b=document.getElementsByTagName(F);for(var c=l,d=b.length;c<d;++c){var e=b[c],f=e.getAttribute(G),g;if(f){if(f==H){g=e.getAttribute(I);if(g){var h,i=g.indexOf(J);if(i>=l){f=g.substring(l,i);h=g.substring(i+A)}else{f=g;h=k}$[f]=h}}else if(f==K){g=e.getAttribute(I);if(g){try{eb=eval(g)}catch(a){alert(L+g+M)}}}else if(f==N){g=e.getAttribute(I);if(g){try{db=eval(g)}catch(a){alert(L+g+O)}}}}}}
 __gwt_isKnownPropertyValue=function(a,b){return b in _[a]};__gwt_getMetaProperty=function(a){var b=$[a];return b==null?null:b};todomvc.onScriptLoad=function(a){todomvc=null;X=a;gb()};if(fb()){alert(P+Q);return}hb();ib();try{var jb;jb=R;var kb=jb.indexOf(S);if(kb!=-1){cb=Number(jb.substring(kb+A))}}catch(a){return}var lb;function mb(){if(!Y){Y=true;gb();if(W.removeEventListener){W.removeEventListener(T,mb,false)}if(lb){clearInterval(lb)}}}
 if(W.addEventListener){W.addEventListener(T,function(){mb()},false)}var lb=setInterval(function(){if(/loaded|complete/.test(W.readyState)){mb()}},U)}
-todomvc();(function () {var $gwt_version = "2.8.2";var $wnd = window;var $doc = $wnd.document;var $moduleName, $moduleBase;var $stats = $wnd.__gwtStatsEvent ? function(a) {$wnd.__gwtStatsEvent(a)} : null;var $strongName = 'BEC546A4E7664921EA7B6C07CF4BA007';function n(){}
+todomvc();(function () {var $gwt_version = "2.8.2";var $wnd = window;var $doc = $wnd.document;var $moduleName, $moduleBase;var $stats = $wnd.__gwtStatsEvent ? function(a) {$wnd.__gwtStatsEvent(a)} : null;var $strongName = 'BF8C4D7300DBBDD7DD21ADB86C8DBAF0';function n(){}
 function S(){}
 function Z(){}
 function Hd(){}
@@ -138,21 +138,20 @@ function Kd(){Kd=Dd;Jd=$wnd.window.document}
 function jh(){jh=Dd;hh=new Bh;ih=new Oh(hh)}
 function xh(a,b,c){b.c=ve(c);ke(a.b,new Fh)}
 function Td(a){var b;b=Sd(a);Zd(a,b);return b}
-function bh(a,b){hf(a.a,'key',ve(b));return a}
-function je(a,b){a.a[a.a.length]=b;return true}
+function bh(a,b){ve(b);hf(a.a,'key',b);return a}
 function T(a,b){!a&&(a=[]);a[a.length]=b;return a}
-function sd(a){if(Ob(a)){return a|0}return Ab(a)}
-function td(a){if(Ob(a)){return ''+a}return Bb(a)}
-function Ge(a){Be(a);return new Ie(a,new Pe(a.a))}
-function ve(a){if(a==null){throw md(new de)}return a}
-function ff(){if(af==256){_e=bf;bf=new n;af=0}++af}
-function Ae(a){if(!a.b){Be(a);a.c=true}else{Ae(a.b)}}
+function je(a,b){a.a[a.a.length]=b;return true}
 function Le(a,b,c){if(a.a.J(c)){a.b=true;b.I(c)}}
 function Ye(b,c,d){try{b[c]=d}catch(a){}}
 function Gg(a){zh((jh(),hh),a.j.props['a'])}
 function Ig(a){wh((jh(),hh),gf(a.j.props,'a'))}
-function hg(){gg();this.a=Ed(kg.prototype.U,kg,[])}
-function Vg(){Ug();this.a=Ed(Yg.prototype.S,Yg,[])}
+function sd(a){if(Ob(a)){return a|0}return Ab(a)}
+function td(a){if(Ob(a)){return ''+a}return Bb(a)}
+function Ge(a){Be(a);return new Ie(a,new Pe(a.a))}
+function Ee(a,b){Be(a);return new Ie(a,new Me(b,a.a))}
+function Ae(a){if(!a.b){Be(a);a.c=true}else{Ae(a.b)}}
+function ve(a){if(a==null){throw md(new de)}return a}
+function ff(){if(af==256){_e=bf;bf=new n;af=0}++af}
 function Ce(a){if(!a){this.b=null;new oe}else{this.b=a}}
 function Pe(a){xe.call(this,a.F(),a.D()&-6);this.a=a}
 function rh(a,b){this.b=ve(a);this.c=ve(b);this.a=false}
@@ -160,43 +159,44 @@ function xe(a,b){this.e=a;this.d=(b&64)!=0?b|16384:b}
 function zf(a,b){a.type=b.a!=null?b.a:''+b.b;return a}
 function Ud(a,b){var c;c=Sd(a);Zd(a,c);c.e=b?8:0;return c}
 function Wd(a){if(a.A()){return null}var b=a.j;return zd[b]}
-function Ee(a,b){Be(a);return new Ie(a,new Me(b,a.a))}
-function Ph(a,b){return (nh(),lh)==a||(kh==a?!b.a:b.a)}
-function ue(a,b){return Qb(a)===Qb(b)||!!a&&Qb(a)===Qb(b)}
 function db(a){return Array.isArray(a)&&a.X===Hd}
 function Lb(a){return !Array.isArray(a)&&a.X===Hd}
+function Ph(a,b){return (nh(),lh)==a||(kh==a?!b.a:b.a)}
+function ue(a,b){return Qb(a)===Qb(b)||!!a&&Qb(a)===Qb(b)}
 function ph(){nh();return fb($(Zc,1),ei,21,0,[kh,mh,lh])}
-function L(a){F();$wnd.setTimeout(function(){throw a},0)}
-function Be(a){if(a.b){Be(a.b)}else if(a.c){throw md(new _d)}}
-function ye(a){if(!a.d){a.d=new re(a.b);a.c=a.b.a.length}}
-function K(a){a&&R((P(),O));--B;if(a){if(D!=-1){M(D);D=-1}}}
-function Fd(a){function b(){}
-;b.prototype=a||{};return new b}
-function yf(a){a.placeholder='What needs to be done?';return a}
-function s(b){if(!('stack' in b)){try{throw b}catch(a){}}return b}
-function Bd(a,b){for(var c in a){b[c]===undefined&&(b[c]=a[c])}}
-function Vd(a,b){var c=a.a=a.a||[];return c[b]||(c[b]=a.s(b))}
-function J(a,b,c){var d;d=H();try{return G(a,b,c)}finally{K(d)}}
-function Ld(a,b,c,d){a.addEventListener(b,c,(Nd(),d?true:false))}
+function hg(){gg();this.a=Ed(kg.prototype.U,kg,[])}
+function Vg(){Ug();this.a=Ed(Yg.prototype.S,Yg,[])}
+function Ug(){Ug=Dd;var a;Tg=(a=Ed(Wg.prototype.O,Wg,[]),a)}
 function gg(){gg=Dd;var a;fg=(a=Ed(ig.prototype.O,ig,[]),a)}
 function mg(){mg=Dd;var a;lg=(a=Ed(og.prototype.O,og,[]),a)}
 function sg(){sg=Dd;var a;rg=(a=Ed(vg.prototype.O,vg,[]),a)}
 function Eg(){Eg=Dd;var a;Dg=(a=Ed(Kg.prototype.O,Kg,[]),a)}
-function Ug(){Ug=Dd;var a;Tg=(a=Ed(Wg.prototype.O,Wg,[]),a)}
-function he(){t.call(this,'Add not supported on this collection')}
-function Me(a,b){xe.call(this,b.F(),b.D()&-16449);this.a=a;this.c=b}
+function Fd(a){function b(){}
+;b.prototype=a||{};return new b}
+function s(b){if(!('stack' in b)){try{throw b}catch(a){}}return b}
+function ye(a){if(!a.d){a.d=new re(a.b);a.c=a.b.a.length}}
+function Be(a){if(a.b){Be(a.b)}else if(a.c){throw md(new _d)}}
+function L(a){F();$wnd.setTimeout(function(){throw a},0)}
+function Ld(a,b,c,d){a.addEventListener(b,c,(Nd(),d?true:false))}
+function J(a,b,c){var d;d=H();try{return G(a,b,c)}finally{K(d)}}
+function Vd(a,b){var c=a.a=a.a||[];return c[b]||(c[b]=a.s(b))}
+function Bd(a,b){for(var c in a){b[c]===undefined&&(b[c]=a[c])}}
 function te(a,b){while(a.a<a.c.a.length){b.I((a.b=a.a++,a.c.a[a.b]))}}
-function Nh(a){var b;b=a.b;!!b&&!vh(a.c,b)&&(a.b=null,ke(a.a,new Sh))}
-function Ah(a,b){Fe(new Ie(null,new ze(a.a)),new Hh(b));ke(a.b,new Fh)}
-function He(a,b){var c;Ae(a);c=new Se;c.a=b;a.a.G(new Ue(c));return c.a}
+function Me(a,b){xe.call(this,b.F(),b.D()&-16449);this.a=a;this.c=b}
+function he(){t.call(this,'Add not supported on this collection')}
+function yf(a){a.placeholder='What needs to be done?';return a}
 function De(a){var b;Ae(a);b=0;while(a.a.H(new Te)){b=nd(b,1)}return b}
-function hb(a){var b,c,d;b=a&Zh;c=a>>22&Zh;d=a<0?$h:0;return jb(b,c,d)}
+function He(a,b){var c;Ae(a);c=new Se;c.a=b;a.a.G(new Ue(c));return c.a}
+function Ah(a,b){Fe(new Ie(null,new ze(a.a)),new Hh(b));ke(a.b,new Fh)}
+function Nh(a){var b;b=a.b;!!b&&!vh(a.c,b)&&(a.b=null,ke(a.a,new Sh))}
 function tg(a,b){var c;c=b.target;kf(a,Ed(xg.prototype.N,xg,[c.value]))}
+function hb(a){var b,c,d;b=a&Zh;c=a>>22&Zh;d=a<0?$h:0;return jb(b,c,d)}
 function bg(a){return $wnd.React.createElement((gg(),fg),a.a,undefined)}
 function dg(a){return $wnd.React.createElement((mg(),lg),a.a,undefined)}
 function Zg(a){return $wnd.React.createElement((sg(),rg),a.a,undefined)}
 function fh(a){return $wnd.React.createElement((Ug(),Tg),a.a,undefined)}
 function Rb(a){return Math.max(Math.min(a,2147483647),-2147483648)|0}
+function K(a){a&&R((P(),O));--B;if(a){if(D!=-1){M(D);D=-1}}}
 function I(b){F();return function(){return J(b,this,arguments);var a}}
 function A(){if(Date.now){return Date.now()}return (new Date).getTime()}
 function sh(a,b){je(a.a,new rh(''+td(pd(Date.now())),b));ke(a.b,new Fh)}
