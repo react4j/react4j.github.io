@@ -58,47 +58,45 @@
 <span class="sourceLineNo">050</span><a name="line.50"></a>
 <span class="sourceLineNo">051</span>  /**<a name="line.51"></a>
 <span class="sourceLineNo">052</span>   * Return an enum indicating whether prop should trigger a change if it updated.<a name="line.52"></a>
-<span class="sourceLineNo">053</span>   * This setting is used when the annotation processors is responsible for implementing<a name="line.53"></a>
-<span class="sourceLineNo">054</span>   * the {@link react4j.Component#shouldComponentUpdate(JsPropertyMap, JsPropertyMap)} lifecycle<a name="line.54"></a>
-<span class="sourceLineNo">055</span>   * method. If set to {@link Feature#ENABLE} then the code will check the prop when implementing<a name="line.55"></a>
-<span class="sourceLineNo">056</span>   * &lt;code&gt;shouldComponentUpdate&lt;/code&gt;. If set to {@link Feature#DISABLE} then the prop will be ignored<a name="line.56"></a>
-<span class="sourceLineNo">057</span>   * when implementing &lt;code&gt;shouldComponentUpdate&lt;/code&gt;. If set to {@link Feature#AUTODETECT} then the<a name="line.57"></a>
-<span class="sourceLineNo">058</span>   * annotation processor will treat it as {@link Feature#ENABLE}.<a name="line.58"></a>
-<span class="sourceLineNo">059</span>   *<a name="line.59"></a>
-<span class="sourceLineNo">060</span>   * @return the enum indicating whether prop should trigger a change if it updated.<a name="line.60"></a>
-<span class="sourceLineNo">061</span>   */<a name="line.61"></a>
-<span class="sourceLineNo">062</span>  Feature shouldUpdateOnChange() default Feature.AUTODETECT;<a name="line.62"></a>
-<span class="sourceLineNo">063</span><a name="line.63"></a>
-<span class="sourceLineNo">064</span>  /**<a name="line.64"></a>
-<span class="sourceLineNo">065</span>   * Indicate whether prop is Arez observable.<a name="line.65"></a>
-<span class="sourceLineNo">066</span>   * If set to {@link Feature#ENABLE} the generated class will make the prop observable and report changes<a name="line.66"></a>
-<span class="sourceLineNo">067</span>   * in the prop when the prop changes. The component MUST be a subclass of &lt;code&gt;ReactArezComponent&lt;/code&gt;.<a name="line.67"></a>
-<span class="sourceLineNo">068</span>   * If set to {@link Feature#DISABLE} then the prop will not be observable. If set to {@link Feature#AUTODETECT}<a name="line.68"></a>
-<span class="sourceLineNo">069</span>   * then the prop will be observable if the component is a subclass of &lt;code&gt;ReactArezComponent&lt;/code&gt;, the value<a name="line.69"></a>
-<span class="sourceLineNo">070</span>   * of {@link #shouldUpdateOnChange()} is equivalent to {@link Feature#ENABLE} and the component has a method<a name="line.70"></a>
-<span class="sourceLineNo">071</span>   * annotated with &lt;code&gt;arez.annotations.Computed&lt;/code&gt;, &lt;code&gt;arez.annotations.Memoize&lt;/code&gt; or<a name="line.71"></a>
-<span class="sourceLineNo">072</span>   * &lt;code&gt;arez.annotations.Observe&lt;/code&gt;.<a name="line.72"></a>
-<span class="sourceLineNo">073</span>   *<a name="line.73"></a>
-<span class="sourceLineNo">074</span>   * @return the enum indicating whether prop is observable.<a name="line.74"></a>
-<span class="sourceLineNo">075</span>   */<a name="line.75"></a>
-<span class="sourceLineNo">076</span>  Feature observable() default Feature.AUTODETECT;<a name="line.76"></a>
-<span class="sourceLineNo">077</span><a name="line.77"></a>
-<span class="sourceLineNo">078</span>  /**<a name="line.78"></a>
-<span class="sourceLineNo">079</span>   * Return an enum indicating whether prop is disposable and should be checked before rendering component.<a name="line.79"></a>
-<span class="sourceLineNo">080</span>   * If a prop is disposable then the class will override &lt;code&gt;ReactArezComponent.anyPropsDisposed()&lt;/code&gt;<a name="line.80"></a>
-<span class="sourceLineNo">081</span>   * and check whether the prop is disposed prior to attempting to render the component. If any props<a name="line.81"></a>
-<span class="sourceLineNo">082</span>   * are disposed then rendering will be aborted and the render method will return null.<a name="line.82"></a>
-<span class="sourceLineNo">083</span>   * If set to {@link Feature#ENABLE} then the code will add an isDisposed() check while if set to<a name="line.83"></a>
-<span class="sourceLineNo">084</span>   * {@link Feature#DISABLE} no such check will be generated. If set to {@link Feature#AUTODETECT} then the<a name="line.84"></a>
-<span class="sourceLineNo">085</span>   * annotation processor will inspect the type of the prop and treat it as {@link Feature#ENABLE} if the<a name="line.85"></a>
-<span class="sourceLineNo">086</span>   * type is annotated with the &lt;code&gt;arez.annotations.ArezComponent&lt;/code&gt; annotation and the host component is<a name="line.86"></a>
-<span class="sourceLineNo">087</span>   * an Arez component. It is invalid to specify {@link Feature#ENABLE} unless the host component is an Arez<a name="line.87"></a>
-<span class="sourceLineNo">088</span>   * component.<a name="line.88"></a>
-<span class="sourceLineNo">089</span>   *<a name="line.89"></a>
-<span class="sourceLineNo">090</span>   * @return the enum indicating whether prop is disposable and should be checked before rendering component.<a name="line.90"></a>
-<span class="sourceLineNo">091</span>   */<a name="line.91"></a>
-<span class="sourceLineNo">092</span>  Feature disposable() default Feature.AUTODETECT;<a name="line.92"></a>
-<span class="sourceLineNo">093</span>}<a name="line.93"></a>
+<span class="sourceLineNo">053</span>   * If set to {@link Feature#ENABLE} then the code will check the prop when implementing<a name="line.53"></a>
+<span class="sourceLineNo">054</span>   * &lt;code&gt;shouldComponentUpdate&lt;/code&gt; while setting the value to {@link Feature#DISABLE} will result in<a name="line.54"></a>
+<span class="sourceLineNo">055</span>   * the value of the prop being ignored when determining whether a prop change should cause a re-render.<a name="line.55"></a>
+<span class="sourceLineNo">056</span>   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#ENABLE}.<a name="line.56"></a>
+<span class="sourceLineNo">057</span>   *<a name="line.57"></a>
+<span class="sourceLineNo">058</span>   * @return the enum indicating whether prop should trigger a render if it is modified.<a name="line.58"></a>
+<span class="sourceLineNo">059</span>   */<a name="line.59"></a>
+<span class="sourceLineNo">060</span>  Feature shouldUpdateOnChange() default Feature.AUTODETECT;<a name="line.60"></a>
+<span class="sourceLineNo">061</span><a name="line.61"></a>
+<span class="sourceLineNo">062</span>  /**<a name="line.62"></a>
+<span class="sourceLineNo">063</span>   * Indicate whether the prop is an Arez observable.<a name="line.63"></a>
+<span class="sourceLineNo">064</span>   * If set to {@link Feature#ENABLE} the generated class will make the prop observable and report changes<a name="line.64"></a>
+<span class="sourceLineNo">065</span>   * in the prop when the prop changes. The component MUST be a subclass of &lt;code&gt;ReactArezComponent&lt;/code&gt;.<a name="line.65"></a>
+<span class="sourceLineNo">066</span>   * If set to {@link Feature#DISABLE} then the prop will not be observable. If set to {@link Feature#AUTODETECT}<a name="line.66"></a>
+<span class="sourceLineNo">067</span>   * then the prop will be observable if the component is a subclass of &lt;code&gt;ReactArezComponent&lt;/code&gt;, the value<a name="line.67"></a>
+<span class="sourceLineNo">068</span>   * of {@link #shouldUpdateOnChange()} is not {@link Feature#DISABLE} and the component has a method<a name="line.68"></a>
+<span class="sourceLineNo">069</span>   * annotated with &lt;code&gt;arez.annotations.Computed&lt;/code&gt;, &lt;code&gt;arez.annotations.Memoize&lt;/code&gt; or<a name="line.69"></a>
+<span class="sourceLineNo">070</span>   * &lt;code&gt;arez.annotations.Observe&lt;/code&gt;.<a name="line.70"></a>
+<span class="sourceLineNo">071</span>   *<a name="line.71"></a>
+<span class="sourceLineNo">072</span>   * @return the enum indicating whether prop is observable.<a name="line.72"></a>
+<span class="sourceLineNo">073</span>   */<a name="line.73"></a>
+<span class="sourceLineNo">074</span>  Feature observable() default Feature.AUTODETECT;<a name="line.74"></a>
+<span class="sourceLineNo">075</span><a name="line.75"></a>
+<span class="sourceLineNo">076</span>  /**<a name="line.76"></a>
+<span class="sourceLineNo">077</span>   * Return an enum indicating whether prop is disposable and should be checked before rendering component.<a name="line.77"></a>
+<span class="sourceLineNo">078</span>   * If a prop is disposable then the class will override &lt;code&gt;ReactArezComponent.anyPropsDisposed()&lt;/code&gt;<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * and check whether the prop is disposed prior to attempting to render the component. If any props<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   * are disposed then rendering will be aborted and the render method will return null.<a name="line.80"></a>
+<span class="sourceLineNo">081</span>   * If set to {@link Feature#ENABLE} then the code will add an isDisposed() check while if set to<a name="line.81"></a>
+<span class="sourceLineNo">082</span>   * {@link Feature#DISABLE} no such check will be generated. If set to {@link Feature#AUTODETECT} then the<a name="line.82"></a>
+<span class="sourceLineNo">083</span>   * annotation processor will inspect the type of the prop and treat it as {@link Feature#ENABLE} if the<a name="line.83"></a>
+<span class="sourceLineNo">084</span>   * type is annotated with the &lt;code&gt;arez.annotations.ArezComponent&lt;/code&gt; annotation and the host component is<a name="line.84"></a>
+<span class="sourceLineNo">085</span>   * an Arez component. It is invalid to specify {@link Feature#ENABLE} unless the host component is an Arez<a name="line.85"></a>
+<span class="sourceLineNo">086</span>   * component.<a name="line.86"></a>
+<span class="sourceLineNo">087</span>   *<a name="line.87"></a>
+<span class="sourceLineNo">088</span>   * @return the enum indicating whether prop is disposable and should be checked before rendering component.<a name="line.88"></a>
+<span class="sourceLineNo">089</span>   */<a name="line.89"></a>
+<span class="sourceLineNo">090</span>  Feature disposable() default Feature.AUTODETECT;<a name="line.90"></a>
+<span class="sourceLineNo">091</span>}<a name="line.91"></a>
 
 
 

@@ -185,8 +185,7 @@ extends <a href="../react4j/NativeComponent.html" title="class in react4j">Nativ
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#performComponentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">performComponentDidUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
-                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#performComponentDidUpdate-jsinterop.base.JsPropertyMap-">performComponentDidUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps)</code>
 <div class="block">Call componentDidUpdate on the target component.</div>
 </td>
 </tr>
@@ -198,8 +197,7 @@ extends <a href="../react4j/NativeComponent.html" title="class in react4j">Nativ
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#performShouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">performShouldComponentUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
-                            jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#performShouldComponentUpdate-jsinterop.base.JsPropertyMap-">performShouldComponentUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps)</code>
 <div class="block">Call shouldComponentUpdate on the target component.</div>
 </td>
 </tr>
@@ -320,49 +318,43 @@ public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4
 </dl>
 </li>
 </ul>
-<a name="performShouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
+<a name="performShouldComponentUpdate-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>performShouldComponentUpdate</h4>
-<pre>protected final&nbsp;boolean&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.164">performShouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                     jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
-                                                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                     jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</pre>
+<pre>protected final&nbsp;boolean&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.163">performShouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                     jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps)</pre>
 <div class="block">Call shouldComponentUpdate on the target component.
  It is expected that the subclass will implement a public method shouldComponentUpdate() that
  delegates to this method to perform the work.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>nextProps</code> - the new properties of the component.</dd>
-<dd><code>nextState</code> - the new state of the component.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the component should be updated.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>Component.shouldComponentUpdate(JsPropertyMap, JsPropertyMap)</code></a></dd>
+<dd><a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-"><code>Component.shouldComponentUpdate(JsPropertyMap)</code></a></dd>
 </dl>
 </li>
 </ul>
-<a name="performComponentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
+<a name="performComponentDidUpdate-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>performComponentDidUpdate</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.193">performComponentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                               jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
-                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                               jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextState)</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.190">performComponentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                               jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps)</pre>
 <div class="block">Call componentDidUpdate on the target component.
  It is expected that the subclass will implement a public method componentDidUpdate() that
  delegates to this method to perform the work.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>nextProps</code> - the new properties of the component.</dd>
-<dd><code>nextState</code> - the new state of the component.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../react4j/Component.html#componentDidUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-"><code>Component.componentDidUpdate(JsPropertyMap, JsPropertyMap)</code></a></dd>
+<dd><a href="../react4j/Component.html#componentDidUpdate--"><code>Component.componentDidUpdate()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -372,7 +364,7 @@ public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4
 <ul class="blockListLast">
 <li class="blockList">
 <h4>performComponentDidCatch</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.222">performComponentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.218">performComponentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               elemental2.core.JsError&nbsp;error,
                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               <a href="../react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a>&nbsp;info)</pre>
