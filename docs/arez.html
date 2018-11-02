@@ -73,15 +73,15 @@ re-rendering the entire component is perfectly fine and will have no impact on t
 case with a <a href="http://todomvc.com/">TodoMVC</a> implementation.</p>
 <p>However let's assume that this component needs to be optimized and walk through the steps that would be required to
 optimize the component to reduce the scope and frequency of re-renders.</p>
-<h3><a class="anchor" aria-hidden="true" name="use-computed"></a><a href="#use-computed" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use @Computed</h3>
+<h3><a class="anchor" aria-hidden="true" name="use-memoize"></a><a href="#use-memoize" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use @Memoize</h3>
 <p>If you turn on &quot;Highlight Updates&quot; in React's DevTools you will notice that the whole component re-renders any time
 a Todo is toggled from &quot;complete&quot; to &quot;not complete&quot; or vice-versa. However the html output only changes if the
 number of completed Todos changes from 0 to not zero or from not zero to zero.</p>
 <p>To eliminate these unnecessary renders, the simplest approach is to extract the expression
-<code>AppData.model.completedCount() &gt; 0</code> into a separate <code>@Computed</code> method. The <code>render()</code> method will only be scheduled
-to render if the value returned from the <code>@Computed</code> method changes.</p>
+<code>AppData.model.completedCount() &gt; 0</code> into a separate <code>@Memoize</code> method. The <code>render()</code> method will only be scheduled
+to render if the value returned from the <code>@Memoize</code> method changes.</p>
 <p>This method will look like:</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@Computed</span>
+<p><pre><code class="hljs"><span class="hljs-meta">@Memoize</span>
 <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">hasCompletedItems</span><span class="hljs-params">()</span>
 </span>{
   <span class="hljs-keyword">return</span> AppData.model.completedCount() &gt; <span class="hljs-number">0</span>;
@@ -90,7 +90,7 @@ to render if the value returned from the <code>@Computed</code> method changes.<
 <h3><a class="anchor" aria-hidden="true" name="extract-components"></a><a href="#extract-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extract Components</h3>
 <p>If we return to React's DevTools and turn &quot;Highlight Updates&quot; on again. The next thing you will notice is that the
 component is re-rendered any time a Todo is added or removed as the value for the expression
-<code>AppData.model.totalCount()</code> changes. Unfortunately <code>@Computed</code> will not help us here as the html output changes
+<code>AppData.model.totalCount()</code> changes. Unfortunately <code>@Memoize</code> will not help us here as the html output changes
 every time a re-render occurs. However we can decide to limit the scope of the rendering by extracting a component
 that encapsulates the html that changes.</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>
@@ -149,7 +149,7 @@ The final <code>Footer</code> component looks something like:</p>
       );
   }
 
-  <span class="hljs-meta">@Computed</span>
+  <span class="hljs-meta">@Memoize</span>
   <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">hasCompletedItems</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-keyword">return</span> AppData.model.completedCount() &gt; <span class="hljs-number">0</span>;
@@ -313,9 +313,9 @@ your unit tests are much more focused and simpler to understand. It has the disa
 verbose code constructs and can result in more abstraction and indirection. In a small application with a single
 developer this can have a negative effect. Larger applications with larger teams may benefit from the higher
 level of abstraction.</p>
-<h3><a class="anchor" aria-hidden="true" name="avoid-arez-annotations-other-than-computed-and-action-in-react4j-components"></a><a href="#avoid-arez-annotations-other-than-computed-and-action-in-react4j-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Avoid arez annotations other than @Computed and @Action in React4j components</h3>
+<h3><a class="anchor" aria-hidden="true" name="avoid-arez-annotations-other-than-memoize-and-action-in-react4j-components"></a><a href="#avoid-arez-annotations-other-than-memoize-and-action-in-react4j-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Avoid arez annotations other than @Memoize and @Action in React4j components</h3>
 <p>Following the above best practices, you will find you rarely if ever need to annotate any methods in a
-<code>ReactArezComponent</code> subclass with any Arez annotations other than <code>@Computed</code> and <code>@Action</code>.</p>
+<code>ReactArezComponent</code> subclass with any Arez annotations other than <code>@Memoize</code> and <code>@Action</code>.</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="project_setup.html">← Project Setup</a><a class="docs-next button" href="compared_to_react.html">Compared to React →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="React4j" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/react4j/react4j" data-icon="octicon-star" data-count-href="/react4j/react4j/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 the React4j Project.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
               var search = docsearch({
                 apiKey: 'bcbf32ec3754c54aadb410fd32ca236b',

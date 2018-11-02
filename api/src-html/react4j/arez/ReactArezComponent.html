@@ -19,7 +19,7 @@
 <span class="sourceLineNo">011</span>import arez.annotations.Executor;<a name="line.11"></a>
 <span class="sourceLineNo">012</span>import arez.annotations.Observe;<a name="line.12"></a>
 <span class="sourceLineNo">013</span>import arez.annotations.ObserverRef;<a name="line.13"></a>
-<span class="sourceLineNo">014</span>import arez.annotations.OnDepsChanged;<a name="line.14"></a>
+<span class="sourceLineNo">014</span>import arez.annotations.OnDepsChange;<a name="line.14"></a>
 <span class="sourceLineNo">015</span>import arez.annotations.Priority;<a name="line.15"></a>
 <span class="sourceLineNo">016</span>import arez.spy.ObservableValueInfo;<a name="line.16"></a>
 <span class="sourceLineNo">017</span>import arez.spy.ObserverInfo;<a name="line.17"></a>
@@ -92,8 +92,8 @@
 <span class="sourceLineNo">084</span>  /**<a name="line.84"></a>
 <span class="sourceLineNo">085</span>   * Hook used by Arez to notify component that it needs to be re-rendered.<a name="line.85"></a>
 <span class="sourceLineNo">086</span>   */<a name="line.86"></a>
-<span class="sourceLineNo">087</span>  @OnDepsChanged<a name="line.87"></a>
-<span class="sourceLineNo">088</span>  protected final void onRenderDepsChanged()<a name="line.88"></a>
+<span class="sourceLineNo">087</span>  @OnDepsChange<a name="line.87"></a>
+<span class="sourceLineNo">088</span>  protected final void onRenderDepsChange()<a name="line.88"></a>
 <span class="sourceLineNo">089</span>  {<a name="line.89"></a>
 <span class="sourceLineNo">090</span>    if ( !_renderDepsChanged )<a name="line.90"></a>
 <span class="sourceLineNo">091</span>    {<a name="line.91"></a>

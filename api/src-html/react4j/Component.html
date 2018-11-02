@@ -321,7 +321,7 @@
 <span class="sourceLineNo">313</span>   * call then the call from {@link #componentDidUpdate()} will report any changes to<a name="line.313"></a>
 <span class="sourceLineNo">314</span>   * the observable props otherwise this will only occur in the invocation of the method from the<a name="line.314"></a>
 <span class="sourceLineNo">315</span>   * {@link #shouldComponentUpdate(JsPropertyMap)} method. This means that the props<a name="line.315"></a>
-<span class="sourceLineNo">316</span>   * are marked as {@link Prop#observable()} and are used by a &lt;code&gt;@Computed&lt;/code&gt;<a name="line.316"></a>
+<span class="sourceLineNo">316</span>   * are marked as {@link Prop#observable()} and are used by a &lt;code&gt;@Memoize&lt;/code&gt;<a name="line.316"></a>
 <span class="sourceLineNo">317</span>   * method from within the render call will only be reported as being changed once, normally before the<a name="line.317"></a>
 <span class="sourceLineNo">318</span>   * render call. Thus the computed will be marked as potentially stale and recomputed if used in the render.<a name="line.318"></a>
 <span class="sourceLineNo">319</span>   * Otherwise the computed will be marked as potentially stale after the render which could potentially<a name="line.319"></a>

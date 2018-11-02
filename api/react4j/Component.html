@@ -517,7 +517,7 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
  call then the call from <a href="../react4j/Component.html#componentDidUpdate--"><code>componentDidUpdate()</code></a> will report any changes to
  the observable props otherwise this will only occur in the invocation of the method from the
  <a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap)</code></a> method. This means that the props
- are marked as <a href="../react4j/annotations/Prop.html#observable--"><code>Prop.observable()</code></a> and are used by a <code>@Computed</code>
+ are marked as <a href="../react4j/annotations/Prop.html#observable--"><code>Prop.observable()</code></a> and are used by a <code>@Memoize</code>
  method from within the render call will only be reported as being changed once, normally before the
  render call. Thus the computed will be marked as potentially stale and recomputed if used in the render.
  Otherwise the computed will be marked as potentially stale after the render which could potentially
