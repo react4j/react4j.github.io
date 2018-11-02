@@ -9,6 +9,23 @@
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the React4j Project</rights>
     <entry>
+        <title type="html"><![CDATA[React4j 0.105 released]]></title>
+        <id>https://react4j.github.io/blog/2018/11/02/version-0.105-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/11/02/version-0.105-release.html">
+        </link>
+        <updated>2018-11-02T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.104...v0.105)
+
+Changes in this release:
+
+* Convert several of the `React.createElement(...)` methods to be native methods to avoid passing an explicit
+  `undefined` parameter as the GWT2.]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[React4j 0.104 released]]></title>
         <id>https://react4j.github.io/blog/2018/11/02/version-0.104-release.html</id>
         <link href="https://react4j.github.io/blog/2018/11/02/version-0.104-release.html">
