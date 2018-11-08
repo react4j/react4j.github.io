@@ -2944,6 +2944,13 @@ var React = {
   memo: memo,
 
   Fragment: REACT_FRAGMENT_TYPE,
+  Portal: REACT_PORTAL_TYPE,
+  Element: REACT_ELEMENT_TYPE,
+  Provider: REACT_PROVIDER_TYPE,
+  Consumer: REACT_CONTEXT_TYPE,
+  ForwardRef: REACT_FORWARD_REF_TYPE,
+  Memo: REACT_MEMO_TYPE,
+  Lazy: REACT_LAZY_TYPE,
   StrictMode: REACT_STRICT_MODE_TYPE,
   unstable_ConcurrentMode: REACT_CONCURRENT_MODE_TYPE,
   Suspense: REACT_SUSPENSE_TYPE,
