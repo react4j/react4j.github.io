@@ -2,12 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://react4j.github.io/blog</id>
     <title>React4j Blog</title>
-    <updated>2018-11-02T06:00:00Z</updated>
+    <updated>2018-11-08T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://react4j.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest React4j news and events.</subtitle>
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2018 the React4j Project</rights>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.106 released]]></title>
+        <id>https://react4j.github.io/blog/2018/11/08/version-0.106-release.html</id>
+        <link href="https://react4j.github.io/blog/2018/11/08/version-0.106-release.html">
+        </link>
+        <updated>2018-11-08T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.105...v0.106)
+
+Changes in this release:
+
+* **\[processor\]** Upgrade the version of javapoet to `1.11.1`.
+* **\[processor\]** Upgrade the Dagger2 support to version `2.19`.
+* **\[dom\]** ]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React4j 0.105 released]]></title>
         <id>https://react4j.github.io/blog/2018/11/02/version-0.105-release.html</id>
