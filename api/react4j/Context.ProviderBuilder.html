@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../react4j/Context.ConsumerRenderFunction.html" title="interface in react4j"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../react4j/Key.html" title="interface in react4j"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../react4j/NativeAdapterComponent.html" title="class in react4j"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../index.html?react4j/Context.ProviderBuilder.html" target="_top">Frames</a></li>
@@ -111,7 +111,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public static final class <a href="../src-html/react4j/Context.html#line.52">Context.ProviderBuilder</a>&lt;ST&gt;
+<pre>public static final class <a href="../src-html/react4j/Context.html#line.49">Context.ProviderBuilder</a>&lt;ST&gt;
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">A Builder for the Provider component.
  A provider component is a react component that allows Consumers to subscribe to context changes.</div>
@@ -138,20 +138,16 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Context.ProviderBuilder.html#build--">build</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../react4j/Context.ProviderBuilder.html" title="class in react4j">Context.ProviderBuilder</a>&lt;<a href="../react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Context.ProviderBuilder.html#child-react4j.ReactNode-">child</a></span>(<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;child)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Context.ProviderBuilder.html#children-react4j.ReactNode...-">children</a></span>(<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../react4j/Context.ProviderBuilder.html" title="class in react4j">Context.ProviderBuilder</a>&lt;<a href="../react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Context.ProviderBuilder.html#key-java.lang.String-">key</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key)</code>
 <div class="block">Specify the key for the component if required.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../react4j/Context.ProviderBuilder.html" title="class in react4j">Context.ProviderBuilder</a>&lt;<a href="../react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Context.ProviderBuilder.html#value-ST-">value</a></span>(<a href="../react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&nbsp;value)</code>&nbsp;</td>
 </tr>
@@ -184,7 +180,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>key</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="../react4j/Context.ProviderBuilder.html" title="class in react4j">Context.ProviderBuilder</a>&lt;<a href="../react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&gt;&nbsp;<a href="../src-html/react4j/Context.ProviderBuilder.html#line.68">key</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public final&nbsp;<a href="../react4j/Context.ProviderBuilder.html" title="class in react4j">Context.ProviderBuilder</a>&lt;<a href="../react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&gt;&nbsp;<a href="../src-html/react4j/Context.ProviderBuilder.html#line.64">key</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                       <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key)</pre>
 <div class="block">Specify the key for the component if required.</div>
 <dl>
@@ -204,7 +200,7 @@ public final&nbsp;<a href="../react4j/Context.ProviderBuilder.html" title="class
 <li class="blockList">
 <h4>value</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="../react4j/Context.ProviderBuilder.html" title="class in react4j">Context.ProviderBuilder</a>&lt;<a href="../react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&gt;&nbsp;<a href="../src-html/react4j/Context.ProviderBuilder.html#line.75">value</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+public final&nbsp;<a href="../react4j/Context.ProviderBuilder.html" title="class in react4j">Context.ProviderBuilder</a>&lt;<a href="../react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&gt;&nbsp;<a href="../src-html/react4j/Context.ProviderBuilder.html#line.71">value</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                         <a href="../react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&nbsp;value)</pre>
 </li>
 </ul>
@@ -215,18 +211,7 @@ public final&nbsp;<a href="../react4j/Context.ProviderBuilder.html" title="class
 <li class="blockList">
 <h4>children</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Context.ProviderBuilder.html#line.82">children</a>(<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</pre>
-</li>
-</ul>
-<a name="child-react4j.ReactNode-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>child</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="../react4j/Context.ProviderBuilder.html" title="class in react4j">Context.ProviderBuilder</a>&lt;<a href="../react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&gt;&nbsp;<a href="../src-html/react4j/Context.ProviderBuilder.html#line.92">child</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                                        <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;child)</pre>
+public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Context.ProviderBuilder.html#line.78">children</a>(<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</pre>
 </li>
 </ul>
 <a name="build--">
@@ -236,7 +221,7 @@ public final&nbsp;<a href="../react4j/Context.ProviderBuilder.html" title="class
 <li class="blockList">
 <h4>build</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Context.ProviderBuilder.html#line.102">build</a>()</pre>
+public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Context.ProviderBuilder.html#line.85">build</a>()</pre>
 </li>
 </ul>
 </li>
@@ -267,7 +252,7 @@ public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4
 <div class="subNav">
 <ul class="navList">
 <li><a href="../react4j/Context.ConsumerRenderFunction.html" title="interface in react4j"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../react4j/Key.html" title="interface in react4j"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../react4j/NativeAdapterComponent.html" title="class in react4j"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../index.html?react4j/Context.ProviderBuilder.html" target="_top">Frames</a></li>
