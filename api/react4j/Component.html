@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":6,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":6,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -111,7 +111,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public abstract class <a href="../src-html/react4j/Component.html#line.17">Component</a>
+<pre>public abstract class <a href="../src-html/react4j/Component.html#line.16">Component</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">The base java class that mirrors the react component.</div>
 </li>
@@ -158,124 +158,47 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#componentDidMount--">componentDidMount</a></span>()</code>
-<div class="block">This method is invoked after a component is attached to the DOM.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#componentDidUpdate--">componentDidUpdate</a></span>()</code>
-<div class="block">This method is invoked immediately after updating occurs.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#componentPreUpdate-jsinterop.base.JsPropertyMap-">componentPreUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps)</code>
-<div class="block">This method is invoked immediately before updating occurs.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#componentWillUnmount--">componentWillUnmount</a></span>()</code>
-<div class="block">This method is invoked immediately before a component is unmounted and destroyed.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#getKey--">getKey</a></span>()</code>
-<div class="block">Return the key associated with the component if any.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performComponentWillUnmount--">performComponentWillUnmount</a></span>()</code>
-<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#componentWillUnmount--"><code>componentWillUnmount()</code></a> method.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performPostConstruct--">performPostConstruct</a></span>()</code>
 <div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#postConstruct--"><code>postConstruct()</code></a> method.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>protected <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performRender--">performRender</a></span>()</code>
-<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#render--"><code>render()</code></a> method.</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#populateDebugData-jsinterop.base.JsPropertyMap-">populateDebugData</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state)</code>
 <div class="block">Populate the state parameter with any data that is useful when debugging the component.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#postConstruct--">postConstruct</a></span>()</code>
 <div class="block">This method is invoked after the component is constructed and bound to a native react component.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#postUpdateOnPropChange-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">postUpdateOnPropChange</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
-                      jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</code>
-<div class="block">Template method called when onPropChange in POST phase declared.</div>
-</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#preUpdateOnPropChange-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">preUpdateOnPropChange</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
-                     jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</code>
-<div class="block">Template method called when onPropChange in PRE phase declared.</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#props--">props</a></span>()</code>
 <div class="block">Return the component props from the native component.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#render--">render</a></span>()</code>
 <div class="block">Render the component.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#reportPropChanges-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-boolean-">reportPropChanges</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props,
-                 jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
-                 boolean&nbsp;inComponentPreUpdate)</code>
-<div class="block">Detect and report changes in props that are <a href="../react4j/annotations/Prop.html#observable--"><code>Prop.observable()</code></a>.</div>
-</td>
-</tr>
-<tr id="i16" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#scheduleRender--">scheduleRender</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#scheduleRender-boolean-">scheduleRender</a></span>(boolean&nbsp;force)</code>
 <div class="block">Schedule this component for re-rendering.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#shouldReportPropChanges-boolean-">shouldReportPropChanges</a></span>(boolean&nbsp;inComponentPreUpdate)</code>
-<div class="block">Helper method invoked by <a href="../react4j/Component.html#reportPropChanges-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-boolean-"><code>reportPropChanges(JsPropertyMap, JsPropertyMap, boolean)</code></a> method
- generated by the annotation processor.</div>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#storeDebugDataAsState--">storeDebugDataAsState</a></span>()</code>
+<div class="block">Store debug data on the state object of the native component.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#shouldUpdateOnPropChanges-jsinterop.base.JsPropertyMap-">shouldUpdateOnPropChanges</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps)</code>
-<div class="block">Detect changes in props that that do not require specific actions on change.</div>
-</td>
-</tr>
-<tr id="i19" class="rowColor">
-<td class="colFirst"><code>protected jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#state--">state</a></span>()</code>
-<div class="block">Return the component state from the native component.</div>
-</td>
-</tr>
-<tr id="i20" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#validatePropValues-jsinterop.base.JsPropertyMap-">validatePropValues</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</code>
 <div class="block">Perform validation on props supplied to the component.</div>
@@ -309,7 +232,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Component</h4>
-<pre>public&nbsp;<a href="../src-html/react4j/Component.html#line.17">Component</a>()</pre>
+<pre>public&nbsp;<a href="../src-html/react4j/Component.html#line.16">Component</a>()</pre>
 </li>
 </ul>
 </li>
@@ -320,28 +243,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="state--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>state</h4>
-<pre>protected final&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;<a href="../src-html/react4j/Component.html#line.91">state</a>()</pre>
-<div class="block">Return the component state from the native component.
- This may be null if initial state was never set.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the component state.</dd>
-</dl>
-</li>
-</ul>
 <a name="props--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>props</h4>
-<pre>protected final&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;<a href="../src-html/react4j/Component.html#line.102">props</a>()</pre>
+<pre>protected final&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;<a href="../src-html/react4j/Component.html#line.54">props</a>()</pre>
 <div class="block">Return the component props from the native component.
  This may be null if no props were supplied.</div>
 <dl>
@@ -350,38 +258,23 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </dl>
 </li>
 </ul>
-<a name="getKey--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getKey</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/react4j/Component.html#line.117">getKey</a>()</pre>
-<div class="block">Return the key associated with the component if any.
- The key is used by the react reconcilliation process as a means to identify components so that they
- can be moved rather than recreated or reconfigured. Typically, it should not be used by the component
- itself except for generating keys of sub-components. This value may not be specified in which case null
- will be returned.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the key if specified.</dd>
-</dl>
-</li>
-</ul>
-<a name="scheduleRender--">
+<a name="scheduleRender-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>scheduleRender</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.156">scheduleRender</a>()</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.69">scheduleRender</a>(boolean&nbsp;force)</pre>
 <div class="block">Schedule this component for re-rendering.
  The component re-renders when props change but calling this method is another way to schedule the
- component to be re-rendered. When this method is called the <a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap)</code></a>
- lifecycle method will be skipped. Calling this method is equivalent to calling forceUpdate() on the native
- react component. See the <a href="https://reactjs.org/docs/react-component.html#forceupdate">React Component
+ component to be re-rendered. When this method is called the <code>shouldComponentUpdate()</code>
+ lifecycle method will be skipped if the force parameter is true as calling this method is equivalent to
+ calling forceUpdate() on the native react component. See the <a href="https://reactjs.org/docs/react-component.html#forceupdate">React Component
  documentation</a> for more details.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>force</code> - if true then the component will skip the <code>shouldComponentUpdate()</code> lifecycle method.</dd>
+</dl>
 </li>
 </ul>
 <a name="render--">
@@ -391,25 +284,9 @@ protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList">
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.174">render</a>()</pre>
+protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.88">render</a>()</pre>
 <div class="block">Render the component.
  See the <a href="https://reactjs.org/docs/react-component.html#render">React Component documentation</a> for more details.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the result of rendering.</dd>
-</dl>
-</li>
-</ul>
-<a name="performRender--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>performRender</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.183">performRender</a>()</pre>
-<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#render--"><code>render()</code></a> method.
- This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the result of rendering.</dd>
@@ -422,7 +299,7 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 <ul class="blockList">
 <li class="blockList">
 <h4>performPostConstruct</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.192">performPostConstruct</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.94">performPostConstruct</a>()</pre>
 <div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#postConstruct--"><code>postConstruct()</code></a> method.
  This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
 </li>
@@ -433,7 +310,7 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 <ul class="blockList">
 <li class="blockList">
 <h4>postConstruct</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.210">postConstruct</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.112">postConstruct</a>()</pre>
 <div class="block">This method is invoked after the component is constructed and bound to a native react component.
  This is a good place to perform initialization. It is called before <a href="../react4j/Component.html#render--"><code>render()</code></a>, therefore
  setting state in this method will not trigger a re-rendering. This replaces the
@@ -442,111 +319,13 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
  components.</div>
 </li>
 </ul>
-<a name="componentDidMount--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>componentDidMount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.220">componentDidMount</a>()</pre>
-<div class="block">This method is invoked after a component is attached to the DOM.
- Initialization that requires DOM nodes should go here.
- Setting state in this method will trigger a re-rendering.
- See the <a href="https://reactjs.org/docs/react-component.html#componentdidmount">React Component documentation</a> for more details.</div>
-</li>
-</ul>
-<a name="componentPreUpdate-jsinterop.base.JsPropertyMap-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>componentPreUpdate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.238">componentPreUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                  jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps)</pre>
-<div class="block">This method is invoked immediately before updating occurs.
- If you need to interact with the DOM before the component has been updated.
- See the <a href="https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate">React Component documentation</a> for more details.</div>
-</li>
-</ul>
-<a name="preUpdateOnPropChange-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>preUpdateOnPropChange</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.258">preUpdateOnPropChange</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                     jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
-                                     <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                     jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</pre>
-<div class="block">Template method called when onPropChange in PRE phase declared.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>prevProps</code> - the props before the component was updated.</dd>
-<dd><code>props</code> - the current props.</dd>
-</dl>
-</li>
-</ul>
-<a name="componentDidUpdate--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>componentDidUpdate</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.268">componentDidUpdate</a>()</pre>
-<div class="block">This method is invoked immediately after updating occurs.
- If you need to interact with the DOM after the component has been updated.
- See the <a href="https://reactjs.org/docs/react-component.html#componentdidupdate">React Component documentation</a> for more details.</div>
-</li>
-</ul>
-<a name="postUpdateOnPropChange-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>postUpdateOnPropChange</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.292">postUpdateOnPropChange</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                      jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps,
-                                      <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                      jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</pre>
-<div class="block">Template method called when onPropChange in POST phase declared.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>prevProps</code> - the props before the component was updated.</dd>
-<dd><code>props</code> - the current props.</dd>
-</dl>
-</li>
-</ul>
-<a name="componentWillUnmount--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>componentWillUnmount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.303">componentWillUnmount</a>()</pre>
-<div class="block">This method is invoked immediately before a component is unmounted and destroyed.
- Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up
- any DOM elements that were created in <a href="../react4j/Component.html#componentDidMount--"><code>componentDidMount()</code></a>
- See the <a href="https://reactjs.org/docs/react-component.html#componentwillunmount">React Component documentation</a> for more details.</div>
-</li>
-</ul>
-<a name="performComponentWillUnmount--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>performComponentWillUnmount</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.311">performComponentWillUnmount</a>()</pre>
-<div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#componentWillUnmount--"><code>componentWillUnmount()</code></a> method.
- This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
-</li>
-</ul>
 <a name="componentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidCatch</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.329">componentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.129">componentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  elemental2.core.JsError&nbsp;error,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a>&nbsp;info)</pre>
@@ -565,87 +344,13 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 </dl>
 </li>
 </ul>
-<a name="reportPropChanges-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>reportPropChanges</h4>
-<pre>protected&nbsp;boolean&nbsp;<a href="../src-html/react4j/Component.html#line.367">reportPropChanges</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                    jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props,
-                                    <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                    jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps,
-                                    boolean&nbsp;inComponentPreUpdate)</pre>
-<div class="block">Detect and report changes in props that are <a href="../react4j/annotations/Prop.html#observable--"><code>Prop.observable()</code></a>.
- This method is a template method that may be overridden by subclasses generated
- by the annotation processor based on configuration of props.
-
- <p>This method can be invoked from either the <a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap)</code></a> method
- or the <a href="../react4j/Component.html#componentPreUpdate-jsinterop.base.JsPropertyMap-"><code>componentPreUpdate(JsPropertyMap)</code></a> method. If the method is not invoked from the
- <a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap)</code></a> method first due to a <a href="../react4j/Component.html#scheduleRender--"><code>scheduleRender()</code></a>
- call then the call from <a href="../react4j/Component.html#componentPreUpdate-jsinterop.base.JsPropertyMap-"><code>componentPreUpdate(JsPropertyMap)</code></a> will report any changes to
- the observable props otherwise this will only occur in the invocation of the method from the
- <a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap)</code></a> method. This means that the props
- are marked as <a href="../react4j/annotations/Prop.html#observable--"><code>Prop.observable()</code></a> and are used by a <code>@Memoize</code>
- method from within the render call will only be reported as being changed once, normally before the
- render call. Thus the computed will be marked as potentially stale and recomputed if used in the render.
- Otherwise the computed will be marked as potentially stale after the render which could potentially
- trigger a re-render of the component.</p></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>props</code> - the old properties of the component.</dd>
-<dd><code>nextProps</code> - the new properties of the component.</dd>
-<dd><code>inComponentPreUpdate</code> - true if this is being invoked from <a href="../react4j/Component.html#componentPreUpdate-jsinterop.base.JsPropertyMap-"><code>componentPreUpdate(JsPropertyMap)</code></a>, false if this is being invoked from <a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap)</code></a></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the component should be re-rendered. This is true if a prop marked with <a href="../react4j/annotations/Prop.html#shouldUpdateOnChange--"><code>Prop.shouldUpdateOnChange()</code></a> has changed or framework can detect an update is required.</dd>
-</dl>
-</li>
-</ul>
-<a name="shouldReportPropChanges-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>shouldReportPropChanges</h4>
-<pre>protected final&nbsp;boolean&nbsp;<a href="../src-html/react4j/Component.html#line.383">shouldReportPropChanges</a>(boolean&nbsp;inComponentPreUpdate)</pre>
-<div class="block">Helper method invoked by <a href="../react4j/Component.html#reportPropChanges-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-boolean-"><code>reportPropChanges(JsPropertyMap, JsPropertyMap, boolean)</code></a> method
- generated by the annotation processor. This will return true if the changes should be reported.
- This is required because a <a href="../react4j/Component.html#scheduleRender--"><code>scheduleRender()</code></a> may cause the component to render but will
- skip <a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap)</code></a> so it is necessary to reportPropChanges</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>inComponentPreUpdate</code> - true if this is being invoked from <a href="../react4j/Component.html#componentPreUpdate-jsinterop.base.JsPropertyMap-"><code>componentPreUpdate(JsPropertyMap)</code></a>, false if this is being invoked from <a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-"><code>shouldComponentUpdate(JsPropertyMap)</code></a></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if changes to observable props should be reported.</dd>
-</dl>
-</li>
-</ul>
-<a name="shouldUpdateOnPropChanges-jsinterop.base.JsPropertyMap-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>shouldUpdateOnPropChanges</h4>
-<pre>protected&nbsp;boolean&nbsp;<a href="../src-html/react4j/Component.html#line.406">shouldUpdateOnPropChanges</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                            jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps)</pre>
-<div class="block">Detect changes in props that that do not require specific actions on change.
- This method may be overridden by the annotation processor. The method will return true if a prop has been updated
- and the prop has not set <a href="../react4j/annotations/Prop.html#shouldUpdateOnChange--"><code>Prop.shouldUpdateOnChange()</code></a> to false. Otherwise this method will return false.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>nextProps</code> - the new properties of the component.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the component should be updated.</dd>
-</dl>
-</li>
-</ul>
 <a name="validatePropValues-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>validatePropValues</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.450">validatePropValues</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.138">validatePropValues</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                   jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</pre>
 <div class="block">Perform validation on props supplied to the component.</div>
 <dl>
@@ -654,13 +359,25 @@ protected&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">
 </dl>
 </li>
 </ul>
+<a name="storeDebugDataAsState--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>storeDebugDataAsState</h4>
+<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.147">storeDebugDataAsState</a>()</pre>
+<div class="block">Store debug data on the state object of the native component.
+ This is only done if <a href="../react4j/ReactConfig.html#shouldStoreDebugDataAsState--"><code>ReactConfig.shouldStoreDebugDataAsState()</code></a> returns true and is primarily
+ done to make it easy to debug the component from within React DevTools.</div>
+</li>
+</ul>
 <a name="populateDebugData-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>populateDebugData</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.513">populateDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.201">populateDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state)</pre>
 <div class="block">Populate the state parameter with any data that is useful when debugging the component.</div>
 <dl>

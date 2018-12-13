@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":6,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -116,15 +116,10 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public abstract class <a href="../src-html/react4j/NativeAdapterComponent.html#line.20">NativeAdapterComponent</a>&lt;I extends <a href="../react4j/Component.html" title="class in react4j">Component</a>&gt;
+<pre>public abstract class <a href="../src-html/react4j/NativeAdapterComponent.html#line.13">NativeAdapterComponent</a>&lt;I extends <a href="../react4j/Component.html" title="class in react4j">Component</a>&gt;
 extends <a href="../react4j/NativeComponent.html" title="class in react4j">NativeComponent</a></pre>
 <div class="block">This class provides a base class that designed to forward all lifecycle methods to a target component.
- The target component is of type <a href="../react4j/Component.html" title="class in react4j"><code>Component</code></a>. This class is also responsible for calling
- <a href="../react4j/Component.html#setLifecycleMethod-react4j.LifecycleMethod-"><code>Component.setLifecycleMethod(LifecycleMethod)</code></a> before and after each call to the target component
- if <a href="../react4j/ReactConfig.html#checkComponentStateInvariants--"><code>ReactConfig.checkComponentStateInvariants()</code></a> returns true. This will make it possible for the
- target component to check that the application code is correctly interacting with the React component
- framework. In production builds it is expected that the method calls will be inlined and the checks will
- be optimized away, having no significant performance impact.</div>
+ The target component is of type <a href="../react4j/Component.html" title="class in react4j"><code>Component</code></a>.</div>
 </li>
 </ul>
 </div>
@@ -165,49 +160,18 @@ extends <a href="../react4j/NativeComponent.html" title="class in react4j">Nativ
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected <a href="../react4j/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">I</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#component--">component</a></span>()</code>
+<div class="block">Return the non-native component associated with this component.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../react4j/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">I</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#createComponent--">createComponent</a></span>()</code>
 <div class="block">Template method that actually creates the target component.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#performComponentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">performComponentDidCatch</a></span>(elemental2.core.JsError&nbsp;error,
-                        <a href="../react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a>&nbsp;info)</code>
-<div class="block">Call componentDidCatch on the target component.</div>
-</td>
-</tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#performComponentDidMount--">performComponentDidMount</a></span>()</code>
-<div class="block">Call componentDidMount on the target component.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#performComponentDidUpdate-jsinterop.base.JsPropertyMap-">performComponentDidUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps)</code>
-<div class="block">Call componentDidUpdate on the target component.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#performComponentPreUpdate-jsinterop.base.JsPropertyMap-">performComponentPreUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps)</code>
-<div class="block">Call componentPreUpdate on the target component.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#performComponentWillUnmount--">performComponentWillUnmount</a></span>()</code>
-<div class="block">Call componentWillUnmount on the target component.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#performShouldComponentUpdate-jsinterop.base.JsPropertyMap-">performShouldComponentUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps)</code>
-<div class="block">Call shouldComponentUpdate on the target component.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/NativeAdapterComponent.html#render--">render</a></span>()</code>
 <div class="block">Call render on the target component.</div>
@@ -242,7 +206,7 @@ extends <a href="../react4j/NativeComponent.html" title="class in react4j">Nativ
 <li class="blockList">
 <h4>NativeAdapterComponent</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsConstructor.html?is-external=true" title="class or interface in jsinterop.annotations">@JsConstructor</a>
-protected&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.34">NativeAdapterComponent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+protected&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.27">NativeAdapterComponent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
                                                 jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</pre>
 <div class="block">Create a component that designed to delegate to a target component.</div>
 <dl>
@@ -265,7 +229,7 @@ protected&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.34"
 <ul class="blockList">
 <li class="blockList">
 <h4>createComponent</h4>
-<pre>protected abstract&nbsp;<a href="../react4j/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">I</a>&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.48">createComponent</a>()</pre>
+<pre>protected abstract&nbsp;<a href="../react4j/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">I</a>&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.41">createComponent</a>()</pre>
 <div class="block">Template method that actually creates the target component.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -273,30 +237,28 @@ protected&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.34"
 </dl>
 </li>
 </ul>
-<a name="performComponentPreUpdate-jsinterop.base.JsPropertyMap-">
+<a name="component--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>performComponentPreUpdate</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected final&nbsp;void&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.80">performComponentPreUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps)</pre>
-<div class="block">Call componentPreUpdate on the target component.</div>
+<h4>component</h4>
+<pre>protected final&nbsp;<a href="../react4j/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">I</a>&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.56">component</a>()</pre>
+<div class="block">Return the non-native component associated with this component.</div>
 <dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../react4j/Component.html#componentPreUpdate-jsinterop.base.JsPropertyMap-"><code>Component.componentPreUpdate(JsPropertyMap)</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the component.</dd>
 </dl>
 </li>
 </ul>
 <a name="render--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.106">render</a>()</pre>
+public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.68">render</a>()</pre>
 <div class="block">Call render on the target component.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -305,98 +267,6 @@ public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4
 <dd>the output of rendering.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../react4j/Component.html#render--"><code>Component.render()</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="performComponentDidMount--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>performComponentDidMount</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.132">performComponentDidMount</a>()</pre>
-<div class="block">Call componentDidMount on the target component.
- It is expected that the subclass will implement a public method componentDidMount() that
- delegates to this method to perform the work.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../react4j/Component.html#componentDidMount--"><code>Component.componentDidMount()</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="performComponentWillUnmount--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>performComponentWillUnmount</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.159">performComponentWillUnmount</a>()</pre>
-<div class="block">Call componentWillUnmount on the target component.
- It is expected that the subclass will implement a public method componentWillUnmount() that
- delegates to this method to perform the work.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../react4j/Component.html#componentWillUnmount--"><code>Component.componentWillUnmount()</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="performShouldComponentUpdate-jsinterop.base.JsPropertyMap-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>performShouldComponentUpdate</h4>
-<pre>protected final&nbsp;boolean&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.188">performShouldComponentUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                     jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;nextProps)</pre>
-<div class="block">Call shouldComponentUpdate on the target component.
- It is expected that the subclass will implement a public method shouldComponentUpdate() that
- delegates to this method to perform the work.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>nextProps</code> - the new properties of the component.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the component should be updated.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../react4j/Component.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-"><code>Component.shouldComponentUpdate(JsPropertyMap)</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="performComponentDidUpdate-jsinterop.base.JsPropertyMap-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>performComponentDidUpdate</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.214">performComponentDidUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-                                               jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;prevProps)</pre>
-<div class="block">Call componentDidUpdate on the target component.
- It is expected that the subclass will implement a public method componentDidUpdate() that
- delegates to this method to perform the work.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../react4j/Component.html#componentDidUpdate--"><code>Component.componentDidUpdate()</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="performComponentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>performComponentDidCatch</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/NativeAdapterComponent.html#line.242">performComponentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                              elemental2.core.JsError&nbsp;error,
-                                              <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                              <a href="../react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a>&nbsp;info)</pre>
-<div class="block">Call componentDidCatch on the target component.
- It is expected that the subclass will implement a public method componentDidCatch() that
- delegates to this method to perform the work.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>error</code> - the error that has been thrown.</dd>
-<dd><code>info</code> - information about component stack during thrown error.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../react4j/Component.html#componentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-"><code>Component.componentDidCatch(JsError, ReactErrorInfo)</code></a></dd>
 </dl>
 </li>
 </ul>

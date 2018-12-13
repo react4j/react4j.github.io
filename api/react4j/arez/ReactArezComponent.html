@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":6,"i3":6,"i4":6,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var methods = {"i0":10,"i1":6,"i2":6,"i3":6,"i4":6,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../react4j/arez/ReactArezEnvironment.html" title="class in react4j.arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?react4j/arez/ReactArezComponent.html" target="_top">Frames</a></li>
@@ -112,7 +112,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public abstract class <a href="../../src-html/react4j/arez/ReactArezComponent.html#line.39">ReactArezComponent</a>
+<pre>public abstract class <a href="../../src-html/react4j/arez/ReactArezComponent.html#line.33">ReactArezComponent</a>
 extends <a href="../../react4j/Component.html" title="class in react4j">Component</a></pre>
 <div class="block">A base class for all Arez enabled components. This class makes the component
  rendering reactive and it will schedule a re-render any time any of the observable
@@ -160,13 +160,11 @@ extends <a href="../../react4j/Component.html" title="class in react4j">Componen
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#anyPropsDisposed--">anyPropsDisposed</a></span>()</code>
-<div class="block">Return true if any prop is an ArezComponent that has been disposed.</div>
-</td>
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#clearRenderDepsChanged--">clearRenderDepsChanged</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected int</code></td>
+<td class="colFirst"><code>protected abstract int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#getArezComponentId--">getArezComponentId</a></span>()</code>
 <div class="block">Return the unique identifier of component according to Arez.</div>
 </td>
@@ -197,14 +195,15 @@ extends <a href="../../react4j/Component.html" title="class in react4j">Componen
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#onRenderDepsChange--">onRenderDepsChange</a></span>()</code>
-<div class="block">Hook used by Arez to notify component that it needs to be re-rendered.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#onRenderDepsChange-boolean-">onRenderDepsChange</a></span>(boolean&nbsp;componentHasObservableProps)</code>
+<div class="block">Helper method invoked when it has detected a dependency of the render method has changed.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#performComponentWillUnmount--">performComponentWillUnmount</a></span>()</code>
-<div class="block">Wrapper method that delegates to the <a href="../../react4j/Component.html#componentWillUnmount--"><code>Component.componentWillUnmount()</code></a> method.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#pauseArezSchedulerUntilRenderLoopComplete--">pauseArezSchedulerUntilRenderLoopComplete</a></span>()</code>
+<div class="block">The first time an arez component is rendered it will lock the Arez scheduler and release
+ the lock in the micro-task immediately following the task that prompted the render.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -214,29 +213,16 @@ extends <a href="../../react4j/Component.html" title="class in react4j">Componen
 </td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#performRender--">performRender</a></span>()</code>
-<div class="block">Wrapper method that delegates to the <a href="../../react4j/Component.html#render--"><code>Component.render()</code></a> method.</div>
-</td>
-</tr>
-<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#populateDebugData-jsinterop.base.JsPropertyMap-">populateDebugData</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;newState)</code>
 <div class="block">Populate the state parameter with any data that is useful when debugging the component.</div>
 </td>
 </tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#preDispose--">preDispose</a></span>()</code>&nbsp;</td>
+</tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#renderValueAsState-arez.spy.ObservableValueInfo-java.lang.Object-">renderValueAsState</a></span>(<a href="https://arez.github.io/api/arez/spy/ObservableValueInfo.html?is-external=true" title="class or interface in arez.spy">ObservableValueInfo</a>&nbsp;observableInfo,
-                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>&nbsp;</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>protected <a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#trackRender--">trackRender</a></span>()</code>
-<div class="block">This method is the method enhanced by arez that performs render and tracks dependencies.</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/arez/ReactArezComponent.html#triggerScheduler--">triggerScheduler</a></span>()</code>
 <div class="block">Template method overridden by annotation processor if there are autoruns to schedule.</div>
@@ -248,7 +234,7 @@ extends <a href="../../react4j/Component.html" title="class in react4j">Componen
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;react4j.<a href="../../react4j/Component.html" title="class in react4j">Component</a></h3>
-<code><a href="../../react4j/Component.html#componentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">componentDidCatch</a>, <a href="../../react4j/Component.html#componentDidMount--">componentDidMount</a>, <a href="../../react4j/Component.html#componentDidUpdate--">componentDidUpdate</a>, <a href="../../react4j/Component.html#componentPreUpdate-jsinterop.base.JsPropertyMap-">componentPreUpdate</a>, <a href="../../react4j/Component.html#componentWillUnmount--">componentWillUnmount</a>, <a href="../../react4j/Component.html#getKey--">getKey</a>, <a href="../../react4j/Component.html#postConstruct--">postConstruct</a>, <a href="../../react4j/Component.html#postUpdateOnPropChange-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">postUpdateOnPropChange</a>, <a href="../../react4j/Component.html#preUpdateOnPropChange-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">preUpdateOnPropChange</a>, <a href="../../react4j/Component.html#props--">props</a>, <a href="../../react4j/Component.html#render--">render</a>, <a href="../../react4j/Component.html#reportPropChanges-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-boolean-">reportPropChanges</a>, <a href="../../react4j/Component.html#scheduleRender--">scheduleRender</a>, <a href="../../react4j/Component.html#shouldReportPropChanges-boolean-">shouldReportPropChanges</a>, <a href="../../react4j/Component.html#shouldUpdateOnPropChanges-jsinterop.base.JsPropertyMap-">shouldUpdateOnPropChanges</a>, <a href="../../react4j/Component.html#state--">state</a>, <a href="../../react4j/Component.html#validatePropValues-jsinterop.base.JsPropertyMap-">validatePropValues</a></code></li>
+<code><a href="../../react4j/Component.html#componentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">componentDidCatch</a>, <a href="../../react4j/Component.html#postConstruct--">postConstruct</a>, <a href="../../react4j/Component.html#props--">props</a>, <a href="../../react4j/Component.html#render--">render</a>, <a href="../../react4j/Component.html#scheduleRender-boolean-">scheduleRender</a>, <a href="../../react4j/Component.html#storeDebugDataAsState--">storeDebugDataAsState</a>, <a href="../../react4j/Component.html#validatePropValues-jsinterop.base.JsPropertyMap-">validatePropValues</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -277,7 +263,7 @@ extends <a href="../../react4j/Component.html" title="class in react4j">Componen
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ReactArezComponent</h4>
-<pre>protected&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.52">ReactArezComponent</a>()</pre>
+<pre>protected&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.44">ReactArezComponent</a>()</pre>
 </li>
 </ul>
 </li>
@@ -294,7 +280,7 @@ extends <a href="../../react4j/Component.html" title="class in react4j">Componen
 <ul class="blockList">
 <li class="blockList">
 <h4>performPostConstruct</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.61">performPostConstruct</a>()</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.52">performPostConstruct</a>()</pre>
 <div class="block">After construction of the object. Schedule any autoruns attached to component.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
@@ -308,7 +294,7 @@ extends <a href="../../react4j/Component.html" title="class in react4j">Componen
 <ul class="blockList">
 <li class="blockList">
 <h4>triggerScheduler</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.70">triggerScheduler</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.61">triggerScheduler</a>()</pre>
 <div class="block">Template method overridden by annotation processor if there are autoruns to schedule.</div>
 </li>
 </ul>
@@ -318,7 +304,7 @@ extends <a href="../../react4j/Component.html" title="class in react4j">Componen
 <ul class="blockList">
 <li class="blockList">
 <h4>hasRenderDepsChanged</h4>
-<pre>protected final&nbsp;boolean&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.79">hasRenderDepsChanged</a>()</pre>
+<pre>protected final&nbsp;boolean&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.70">hasRenderDepsChanged</a>()</pre>
 <div class="block">Return true if the render dependencies have been marked as changed and component has yet to be re-rendered.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -326,15 +312,27 @@ extends <a href="../../react4j/Component.html" title="class in react4j">Componen
 </dl>
 </li>
 </ul>
-<a name="onRenderDepsChange--">
+<a name="onRenderDepsChange-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>onRenderDepsChange</h4>
-<pre><a href="https://arez.github.io/api/arez/annotations/OnDepsChange.html?is-external=true" title="class or interface in arez.annotations">@OnDepsChange</a>
-protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.88">onRenderDepsChange</a>()</pre>
-<div class="block">Hook used by Arez to notify component that it needs to be re-rendered.</div>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.80">onRenderDepsChange</a>(boolean&nbsp;componentHasObservableProps)</pre>
+<div class="block">Helper method invoked when it has detected a dependency of the render method has changed.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>componentHasObservableProps</code> - flag indicating whether the component has any observable props.</dd>
+</dl>
+</li>
+</ul>
+<a name="clearRenderDepsChanged--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clearRenderDepsChanged</h4>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.92">clearRenderDepsChanged</a>()</pre>
 </li>
 </ul>
 <a name="getContext--">
@@ -345,7 +343,7 @@ protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezCom
 <h4>getContext</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/ContextRef.html?is-external=true" title="class or interface in arez.annotations">@ContextRef</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="https://arez.github.io/api/arez/ArezContext.html?is-external=true" title="class or interface in arez">ArezContext</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.109">getContext</a>()</pre>
+protected abstract&nbsp;<a href="https://arez.github.io/api/arez/ArezContext.html?is-external=true" title="class or interface in arez">ArezContext</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.106">getContext</a>()</pre>
 <div class="block">Return the arez context that this component is associated with.
  The component is associated with the context that was active when it was created
  and can only react to observables associated with the same context.</div>
@@ -361,8 +359,8 @@ protected abstract&nbsp;<a href="https://arez.github.io/api/arez/ArezContext.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>getArezComponentId</h4>
-<pre><a href="https://arez.github.io/api/arez/annotations/ComponentId.html?is-external=true" title="class or interface in arez.annotations">@ComponentId</a>
-protected final&nbsp;int&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.117">getArezComponentId</a>()</pre>
+<pre><a href="https://arez.github.io/api/arez/annotations/ComponentIdRef.html?is-external=true" title="class or interface in arez.annotations">@ComponentIdRef</a>
+protected abstract&nbsp;int&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.114">getArezComponentId</a>()</pre>
 <div class="block">Return the unique identifier of component according to Arez.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -377,7 +375,7 @@ protected final&nbsp;int&nbsp;<a href="../../src-html/react4j/arez/ReactArezComp
 <li class="blockList">
 <h4>getArezComponentName</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/ComponentNameRef.html?is-external=true" title="class or interface in arez.annotations">@ComponentNameRef</a>
-protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.128">getArezComponentName</a>()</pre>
+protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.122">getArezComponentName</a>()</pre>
 <div class="block">Return the name of the component according to Arez.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -393,7 +391,7 @@ protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/
 <h4>getRenderObserver</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/ObserverRef.html?is-external=true" title="class or interface in arez.annotations">@ObserverRef</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected abstract&nbsp;<a href="https://arez.github.io/api/arez/Observer.html?is-external=true" title="class or interface in arez">Observer</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.137">getRenderObserver</a>()</pre>
+protected abstract&nbsp;<a href="https://arez.github.io/api/arez/Observer.html?is-external=true" title="class or interface in arez">Observer</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.131">getRenderObserver</a>()</pre>
 <div class="block">Return the Observer associated with the render tracker method.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -401,82 +399,43 @@ protected abstract&nbsp;<a href="https://arez.github.io/api/arez/Observer.html?i
 </dl>
 </li>
 </ul>
-<a name="performRender--">
+<a name="pauseArezSchedulerUntilRenderLoopComplete--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>performRender</h4>
-<pre>protected final&nbsp;<a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.143">performRender</a>()</pre>
-<div class="block">Wrapper method that delegates to the <a href="../../react4j/Component.html#render--"><code>Component.render()</code></a> method.
- This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../react4j/Component.html#performRender--">performRender</a></code>&nbsp;in class&nbsp;<code><a href="../../react4j/Component.html" title="class in react4j">Component</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the result of rendering.</dd>
-</dl>
+<h4>pauseArezSchedulerUntilRenderLoopComplete</h4>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.146">pauseArezSchedulerUntilRenderLoopComplete</a>()</pre>
+<div class="block">The first time an arez component is rendered it will lock the Arez scheduler and release
+ the lock in the micro-task immediately following the task that prompted the render. If this
+ is not done it is possible that Arez can re-trigger a component render when the scheduler is
+ triggered after the tracked render completes but before the render method has returned to the
+ react runtime. This results in error message from react as a setState()/forceRender() was invoked
+ while still within a render() method.
+
+ <p>NOTE: While render methods are read-only transactions, they can un-observe components with
+ <code>disposeOnDeactivate=true</code> that would result in the component being disposed and
+ triggering an update that would mark particular React Components/Observers as STALE and trigger
+ a re-render of that component.</p></div>
 </li>
 </ul>
-<a name="anyPropsDisposed--">
+<a name="preDispose--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>anyPropsDisposed</h4>
-<pre>protected&nbsp;boolean&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.183">anyPropsDisposed</a>()</pre>
-<div class="block">Return true if any prop is an ArezComponent that has been disposed.
- This is used to guard against rendering a react component that has invalid props.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if any prop is an ArezComponent that has been disposed.</dd>
-</dl>
-</li>
-</ul>
-<a name="trackRender--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>trackRender</h4>
-<pre><a href="https://arez.github.io/api/arez/annotations/Observe.html?is-external=true" title="class or interface in arez.annotations">@Observe</a>(<a href="https://arez.github.io/api/arez/annotations/Observe.html?is-external=true#executor--" title="class or interface in arez.annotations">executor</a>=<a href="https://arez.github.io/api/arez/annotations/Executor.html?is-external=true#APPLICATION" title="class or interface in arez.annotations">APPLICATION</a>,
-         <a href="https://arez.github.io/api/arez/annotations/Observe.html?is-external=true#name--" title="class or interface in arez.annotations">name</a>="render",
-         <a href="https://arez.github.io/api/arez/annotations/Observe.html?is-external=true#priority--" title="class or interface in arez.annotations">priority</a>=<a href="https://arez.github.io/api/arez/annotations/Priority.html?is-external=true#LOW" title="class or interface in arez.annotations">LOW</a>,
-         <a href="https://arez.github.io/api/arez/annotations/Observe.html?is-external=true#observeLowerPriorityDependencies--" title="class or interface in arez.annotations">observeLowerPriorityDependencies</a>=true,
-         <a href="https://arez.github.io/api/arez/annotations/Observe.html?is-external=true#reportResult--" title="class or interface in arez.annotations">reportResult</a>=false)
- <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.197">trackRender</a>()</pre>
-<div class="block">This method is the method enhanced by arez that performs render and tracks dependencies.
- This SHOULD NOT be merged with <a href="../../react4j/arez/ReactArezComponent.html#performRender--"><code>performRender()</code></a> as then the isDisposed check will be present
- in every instance of render method which can result in unnecessary code bloat.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the result of rendering.</dd>
-</dl>
-</li>
-</ul>
-<a name="performComponentWillUnmount--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>performComponentWillUnmount</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.222">performComponentWillUnmount</a>()</pre>
-<div class="block">Wrapper method that delegates to the <a href="../../react4j/Component.html#componentWillUnmount--"><code>Component.componentWillUnmount()</code></a> method.
- This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../react4j/Component.html#performComponentWillUnmount--">performComponentWillUnmount</a></code>&nbsp;in class&nbsp;<code><a href="../../react4j/Component.html" title="class in react4j">Component</a></code></dd>
-</dl>
+<h4>preDispose</h4>
+<pre><a href="https://arez.github.io/api/arez/annotations/PreDispose.html?is-external=true" title="class or interface in arez.annotations">@PreDispose</a>
+protected&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.162">preDispose</a>()</pre>
 </li>
 </ul>
 <a name="populateDebugData-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>populateDebugData</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.245">populateDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected final&nbsp;void&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.171">populateDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;newState)</pre>
 <div class="block">Populate the state parameter with any data that is useful when debugging the component.</div>
 <dl>
@@ -485,19 +444,6 @@ protected&nbsp;<a href="../../react4j/ReactNode.html" title="interface in react4
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>newState</code> - the property map to populate with debug data.</dd>
 </dl>
-</li>
-</ul>
-<a name="renderValueAsState-arez.spy.ObservableValueInfo-java.lang.Object-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>renderValueAsState</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/react4j/arez/ReactArezComponent.html#line.331">renderValueAsState</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                              <a href="https://arez.github.io/api/arez/spy/ObservableValueInfo.html?is-external=true" title="class or interface in arez.spy">ObservableValueInfo</a>&nbsp;observableInfo,
-                                              <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
 </li>
 </ul>
 </li>
@@ -528,7 +474,7 @@ protected&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Obje
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../react4j/arez/ReactArezEnvironment.html" title="class in react4j.arez"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?react4j/arez/ReactArezComponent.html" target="_top">Frames</a></li>
