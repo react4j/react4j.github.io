@@ -719,12 +719,12 @@
 <span class="sourceLineNo">711</span><a name="line.711"></a>
 <span class="sourceLineNo">712</span>  private boolean isPropRequired( @Nonnull final PropDescriptor prop )<a name="line.712"></a>
 <span class="sourceLineNo">713</span>  {<a name="line.713"></a>
-<span class="sourceLineNo">714</span>    final VariableElement injectParameter = (VariableElement)<a name="line.714"></a>
+<span class="sourceLineNo">714</span>    final VariableElement parameter = (VariableElement)<a name="line.714"></a>
 <span class="sourceLineNo">715</span>      ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.715"></a>
 <span class="sourceLineNo">716</span>                                        prop.getMethod(),<a name="line.716"></a>
 <span class="sourceLineNo">717</span>                                        Constants.PROP_ANNOTATION_CLASSNAME,<a name="line.717"></a>
 <span class="sourceLineNo">718</span>                                        "require" ).getValue();<a name="line.718"></a>
-<span class="sourceLineNo">719</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.719"></a>
+<span class="sourceLineNo">719</span>    switch ( parameter.getSimpleName().toString() )<a name="line.719"></a>
 <span class="sourceLineNo">720</span>    {<a name="line.720"></a>
 <span class="sourceLineNo">721</span>      case "ENABLE":<a name="line.721"></a>
 <span class="sourceLineNo">722</span>        return true;<a name="line.722"></a>
@@ -1110,12 +1110,12 @@
 <span class="sourceLineNo">1102</span><a name="line.1102"></a>
 <span class="sourceLineNo">1103</span>  private boolean shouldUpdateOnChange( @Nonnull final ExecutableElement method )<a name="line.1103"></a>
 <span class="sourceLineNo">1104</span>  {<a name="line.1104"></a>
-<span class="sourceLineNo">1105</span>    final VariableElement injectParameter = (VariableElement)<a name="line.1105"></a>
+<span class="sourceLineNo">1105</span>    final VariableElement parameter = (VariableElement)<a name="line.1105"></a>
 <span class="sourceLineNo">1106</span>      ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1106"></a>
 <span class="sourceLineNo">1107</span>                                        method,<a name="line.1107"></a>
 <span class="sourceLineNo">1108</span>                                        Constants.PROP_ANNOTATION_CLASSNAME,<a name="line.1108"></a>
 <span class="sourceLineNo">1109</span>                                        "shouldUpdateOnChange" ).getValue();<a name="line.1109"></a>
-<span class="sourceLineNo">1110</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.1110"></a>
+<span class="sourceLineNo">1110</span>    switch ( parameter.getSimpleName().toString() )<a name="line.1110"></a>
 <span class="sourceLineNo">1111</span>    {<a name="line.1111"></a>
 <span class="sourceLineNo">1112</span>      case "ENABLE":<a name="line.1112"></a>
 <span class="sourceLineNo">1113</span>        return true;<a name="line.1113"></a>
@@ -1130,12 +1130,12 @@
 <span class="sourceLineNo">1122</span>                                    @Nonnull final ExecutableElement method,<a name="line.1122"></a>
 <span class="sourceLineNo">1123</span>                                    final boolean shouldUpdateOnChange )<a name="line.1123"></a>
 <span class="sourceLineNo">1124</span>  {<a name="line.1124"></a>
-<span class="sourceLineNo">1125</span>    final VariableElement injectParameter = (VariableElement)<a name="line.1125"></a>
+<span class="sourceLineNo">1125</span>    final VariableElement parameter = (VariableElement)<a name="line.1125"></a>
 <span class="sourceLineNo">1126</span>      ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1126"></a>
 <span class="sourceLineNo">1127</span>                                        method,<a name="line.1127"></a>
 <span class="sourceLineNo">1128</span>                                        Constants.PROP_ANNOTATION_CLASSNAME,<a name="line.1128"></a>
 <span class="sourceLineNo">1129</span>                                        "observable" ).getValue();<a name="line.1129"></a>
-<span class="sourceLineNo">1130</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.1130"></a>
+<span class="sourceLineNo">1130</span>    switch ( parameter.getSimpleName().toString() )<a name="line.1130"></a>
 <span class="sourceLineNo">1131</span>    {<a name="line.1131"></a>
 <span class="sourceLineNo">1132</span>      case "ENABLE":<a name="line.1132"></a>
 <span class="sourceLineNo">1133</span>        return true;<a name="line.1133"></a>
@@ -1161,12 +1161,12 @@
 <span class="sourceLineNo">1153</span>                                    @Nonnull final ExecutableElement method,<a name="line.1153"></a>
 <span class="sourceLineNo">1154</span>                                    @Nonnull final Element propType )<a name="line.1154"></a>
 <span class="sourceLineNo">1155</span>  {<a name="line.1155"></a>
-<span class="sourceLineNo">1156</span>    final VariableElement injectParameter = (VariableElement)<a name="line.1156"></a>
+<span class="sourceLineNo">1156</span>    final VariableElement parameter = (VariableElement)<a name="line.1156"></a>
 <span class="sourceLineNo">1157</span>      ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1157"></a>
 <span class="sourceLineNo">1158</span>                                        method,<a name="line.1158"></a>
 <span class="sourceLineNo">1159</span>                                        Constants.PROP_ANNOTATION_CLASSNAME,<a name="line.1159"></a>
 <span class="sourceLineNo">1160</span>                                        "disposable" ).getValue();<a name="line.1160"></a>
-<span class="sourceLineNo">1161</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.1161"></a>
+<span class="sourceLineNo">1161</span>    switch ( parameter.getSimpleName().toString() )<a name="line.1161"></a>
 <span class="sourceLineNo">1162</span>    {<a name="line.1162"></a>
 <span class="sourceLineNo">1163</span>      case "ENABLE":<a name="line.1163"></a>
 <span class="sourceLineNo">1164</span>        return true;<a name="line.1164"></a>
@@ -1181,12 +1181,12 @@
 <span class="sourceLineNo">1173</span><a name="line.1173"></a>
 <span class="sourceLineNo">1174</span>  private boolean isInjectionRequired( @Nonnull final TypeElement typeElement )<a name="line.1174"></a>
 <span class="sourceLineNo">1175</span>  {<a name="line.1175"></a>
-<span class="sourceLineNo">1176</span>    final VariableElement injectParameter = (VariableElement)<a name="line.1176"></a>
+<span class="sourceLineNo">1176</span>    final VariableElement parameter = (VariableElement)<a name="line.1176"></a>
 <span class="sourceLineNo">1177</span>      ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1177"></a>
 <span class="sourceLineNo">1178</span>                                        typeElement,<a name="line.1178"></a>
 <span class="sourceLineNo">1179</span>                                        Constants.REACT_COMPONENT_ANNOTATION_CLASSNAME,<a name="line.1179"></a>
 <span class="sourceLineNo">1180</span>                                        "inject" ).getValue();<a name="line.1180"></a>
-<span class="sourceLineNo">1181</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.1181"></a>
+<span class="sourceLineNo">1181</span>    switch ( parameter.getSimpleName().toString() )<a name="line.1181"></a>
 <span class="sourceLineNo">1182</span>    {<a name="line.1182"></a>
 <span class="sourceLineNo">1183</span>      case "ENABLE":<a name="line.1183"></a>
 <span class="sourceLineNo">1184</span>        return true;<a name="line.1184"></a>
@@ -1201,12 +1201,12 @@
 <span class="sourceLineNo">1193</span><a name="line.1193"></a>
 <span class="sourceLineNo">1194</span>  private boolean isDaggerRequired( @Nonnull final TypeElement typeElement )<a name="line.1194"></a>
 <span class="sourceLineNo">1195</span>  {<a name="line.1195"></a>
-<span class="sourceLineNo">1196</span>    final VariableElement injectParameter = (VariableElement)<a name="line.1196"></a>
+<span class="sourceLineNo">1196</span>    final VariableElement parameter = (VariableElement)<a name="line.1196"></a>
 <span class="sourceLineNo">1197</span>      ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1197"></a>
 <span class="sourceLineNo">1198</span>                                        typeElement,<a name="line.1198"></a>
 <span class="sourceLineNo">1199</span>                                        Constants.REACT_COMPONENT_ANNOTATION_CLASSNAME,<a name="line.1199"></a>
 <span class="sourceLineNo">1200</span>                                        "dagger" ).getValue();<a name="line.1200"></a>
-<span class="sourceLineNo">1201</span>    switch ( injectParameter.getSimpleName().toString() )<a name="line.1201"></a>
+<span class="sourceLineNo">1201</span>    switch ( parameter.getSimpleName().toString() )<a name="line.1201"></a>
 <span class="sourceLineNo">1202</span>    {<a name="line.1202"></a>
 <span class="sourceLineNo">1203</span>      case "ENABLE":<a name="line.1203"></a>
 <span class="sourceLineNo">1204</span>        return true;<a name="line.1204"></a>
