@@ -180,11 +180,11 @@
 <span class="sourceLineNo">172</span>    {<a name="line.172"></a>
 <span class="sourceLineNo">173</span>      if ( descriptor.isArezComponent() )<a name="line.173"></a>
 <span class="sourceLineNo">174</span>      {<a name="line.174"></a>
-<span class="sourceLineNo">175</span>        emitTypeSpec( descriptor.getPackageName(), Generator.buildArezDaggerFactory( descriptor ) );<a name="line.175"></a>
+<span class="sourceLineNo">175</span>        emitTypeSpec( descriptor.getPackageName(), Generator.buildArezDaggerComponentExtension( descriptor ) );<a name="line.175"></a>
 <span class="sourceLineNo">176</span>      }<a name="line.176"></a>
 <span class="sourceLineNo">177</span>      else<a name="line.177"></a>
 <span class="sourceLineNo">178</span>      {<a name="line.178"></a>
-<span class="sourceLineNo">179</span>        emitTypeSpec( descriptor.getPackageName(), Generator.buildDaggerFactory( descriptor ) );<a name="line.179"></a>
+<span class="sourceLineNo">179</span>        emitTypeSpec( descriptor.getPackageName(), Generator.buildDaggerComponentExtension( descriptor ) );<a name="line.179"></a>
 <span class="sourceLineNo">180</span>      }<a name="line.180"></a>
 <span class="sourceLineNo">181</span>    }<a name="line.181"></a>
 <span class="sourceLineNo">182</span>  }<a name="line.182"></a>

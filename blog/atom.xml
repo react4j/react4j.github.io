@@ -2,12 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://react4j.github.io/blog</id>
     <title>React4j Blog</title>
-    <updated>2018-11-22T06:00:00Z</updated>
+    <updated>2019-01-16T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://react4j.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest React4j news and events.</subtitle>
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2019 the React4j Project</rights>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.109 released]]></title>
+        <id>https://react4j.github.io/blog/2019/01/16/version-0.109-release.html</id>
+        <link href="https://react4j.github.io/blog/2019/01/16/version-0.109-release.html">
+        </link>
+        <updated>2019-01-16T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.108...v0.109)
+
+Changes in this release:
+
+* **\[core\]** Rename the `@OnPropChanged` annotation to `@OnPropChange`.
+* **\[core\]** Add support for the `Component.componentPreUpdate(...)` l]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React4j 0.108 released]]></title>
         <id>https://react4j.github.io/blog/2018/11/22/version-0.108-release.html</id>
