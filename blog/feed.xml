@@ -14,6 +14,15 @@
         </image>
         <copyright>Copyright © 2019 the React4j Project</copyright>
         <item>
+            <title><![CDATA[React4j 0.110 released]]></title>
+            <link>https://react4j.github.io/blog/2019/01/16/version-0.110-release.html</link>
+            <guid>https://react4j.github.io/blog/2019/01/16/version-0.110-release.html</guid>
+            <pubDate>Wed, 16 Jan 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.109...v0.110)
+
+Changes in this release:]]></description>
+        </item>
+        <item>
             <title><![CDATA[React4j 0.109 released]]></title>
             <link>https://react4j.github.io/blog/2019/01/16/version-0.109-release.html</link>
             <guid>https://react4j.github.io/blog/2019/01/16/version-0.109-release.html</guid>

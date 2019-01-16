@@ -9,6 +9,20 @@
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2019 the React4j Project</rights>
     <entry>
+        <title type="html"><![CDATA[React4j 0.110 released]]></title>
+        <id>https://react4j.github.io/blog/2019/01/16/version-0.110-release.html</id>
+        <link href="https://react4j.github.io/blog/2019/01/16/version-0.110-release.html">
+        </link>
+        <updated>2019-01-16T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.109...v0.110)
+
+Changes in this release:]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[React4j 0.109 released]]></title>
         <id>https://react4j.github.io/blog/2019/01/16/version-0.109-release.html</id>
         <link href="https://react4j.github.io/blog/2019/01/16/version-0.109-release.html">
