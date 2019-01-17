@@ -107,7 +107,7 @@
 <span class="sourceLineNo">099</span>  @Nonnull<a name="line.99"></a>
 <span class="sourceLineNo">100</span>  public static ReactElement createFragment( @Nonnull final ReactNode... children )<a name="line.100"></a>
 <span class="sourceLineNo">101</span>  {<a name="line.101"></a>
-<span class="sourceLineNo">102</span>    final ReactElement element = ReactElement.createRawNode( React.Fragment, React.Fragment );<a name="line.102"></a>
+<span class="sourceLineNo">102</span>    final ReactElement element = ReactElement.createRawNode( React.Element, React.Fragment );<a name="line.102"></a>
 <span class="sourceLineNo">103</span>    element.key = null;<a name="line.103"></a>
 <span class="sourceLineNo">104</span>    element.ref = null;<a name="line.104"></a>
 <span class="sourceLineNo">105</span>    element.props = JsPropertyMap.of( PropNames.CHILDREN_PROP_NAME, children );<a name="line.105"></a>
