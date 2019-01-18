@@ -17,7 +17,7 @@
 <span class="sourceLineNo">009</span>import jsinterop.base.Any;<a name="line.9"></a>
 <span class="sourceLineNo">010</span>import jsinterop.base.Js;<a name="line.10"></a>
 <span class="sourceLineNo">011</span>import jsinterop.base.JsPropertyMap;<a name="line.11"></a>
-<span class="sourceLineNo">012</span>import react4j.ReactConfig;<a name="line.12"></a>
+<span class="sourceLineNo">012</span>import react4j.React;<a name="line.12"></a>
 <span class="sourceLineNo">013</span>import react4j.ReactNode;<a name="line.13"></a>
 <span class="sourceLineNo">014</span>import react4j.dom.events.ClipboardEventHandler;<a name="line.14"></a>
 <span class="sourceLineNo">015</span>import react4j.dom.events.CompositionEventHandler;<a name="line.15"></a>
@@ -227,7 +227,7 @@
 <span class="sourceLineNo">219</span>    {<a name="line.219"></a>
 <span class="sourceLineNo">220</span>      if ( null != element )<a name="line.220"></a>
 <span class="sourceLineNo">221</span>      {<a name="line.221"></a>
-<span class="sourceLineNo">222</span>        if ( ReactConfig.shouldCheckInvariants() )<a name="line.222"></a>
+<span class="sourceLineNo">222</span>        if ( React.shouldCheckInvariants() )<a name="line.222"></a>
 <span class="sourceLineNo">223</span>        {<a name="line.223"></a>
 <span class="sourceLineNo">224</span>          invariant( () -&gt; !element.equals( "" ) &amp;&amp; !element.matches( "^\\s+$" ),<a name="line.224"></a>
 <span class="sourceLineNo">225</span>                     () -&gt; "Empty classname element supplied. Remove the element." );<a name="line.225"></a>

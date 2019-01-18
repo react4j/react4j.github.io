@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":6,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":6,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../react4j/ComponentConstructorFunction.html" title="interface in react4j"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../react4j/Context.html" title="class in react4j"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../index.html?react4j/Component.html" target="_top">Frames</a></li>
@@ -111,7 +111,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public abstract class <a href="../src-html/react4j/Component.html#line.16">Component</a>
+<pre>public abstract class <a href="../src-html/react4j/Component.html#line.17">Component</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">The base java class that mirrors the react component.</div>
 </li>
@@ -150,55 +150,63 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#bindComponent-react4j.internal.NativeComponent-">bindComponent</a></span>(<a href="../react4j/internal/NativeComponent.html" title="class in react4j.internal">NativeComponent</a>&nbsp;nativeComponent)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#componentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">componentDidCatch</a></span>(elemental2.core.JsError&nbsp;error,
                  <a href="../react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a>&nbsp;info)</code>
 <div class="block">The componentDidCatch() method works like a JavaScript catch {} block, but for components.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performPostConstruct--">performPostConstruct</a></span>()</code>
 <div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#postConstruct--"><code>postConstruct()</code></a> method.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#performRender--">performRender</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#populateDebugData-jsinterop.base.JsPropertyMap-">populateDebugData</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state)</code>
 <div class="block">Populate the state parameter with any data that is useful when debugging the component.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#postConstruct--">postConstruct</a></span>()</code>
 <div class="block">This method is invoked after the component is constructed and bound to a native react component.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#props--">props</a></span>()</code>
 <div class="block">Return the component props from the native component.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#render--">render</a></span>()</code>
 <div class="block">Render the component.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#scheduleRender-boolean-">scheduleRender</a></span>(boolean&nbsp;force)</code>
 <div class="block">Schedule this component for re-rendering.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#storeDebugDataAsState--">storeDebugDataAsState</a></span>()</code>
 <div class="block">Store debug data on the state object of the native component.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#validatePropValues-jsinterop.base.JsPropertyMap-">validatePropValues</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</code>
 <div class="block">Perform validation on props supplied to the component.</div>
@@ -232,7 +240,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Component</h4>
-<pre>public&nbsp;<a href="../src-html/react4j/Component.html#line.16">Component</a>()</pre>
+<pre>public&nbsp;<a href="../src-html/react4j/Component.html#line.17">Component</a>()</pre>
 </li>
 </ul>
 </li>
@@ -243,13 +251,23 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="bindComponent-react4j.internal.NativeComponent-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bindComponent</h4>
+<pre>public final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.29">bindComponent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                <a href="../react4j/internal/NativeComponent.html" title="class in react4j.internal">NativeComponent</a>&nbsp;nativeComponent)</pre>
+</li>
+</ul>
 <a name="props--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>props</h4>
-<pre>protected final&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;<a href="../src-html/react4j/Component.html#line.54">props</a>()</pre>
+<pre>protected final&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;<a href="../src-html/react4j/Component.html#line.55">props</a>()</pre>
 <div class="block">Return the component props from the native component.
  This may be null if no props were supplied.</div>
 <dl>
@@ -264,7 +282,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>scheduleRender</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.69">scheduleRender</a>(boolean&nbsp;force)</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.70">scheduleRender</a>(boolean&nbsp;force)</pre>
 <div class="block">Schedule this component for re-rendering.
  The component re-renders when props change but calling this method is another way to schedule the
  component to be re-rendered. When this method is called the <code>shouldComponentUpdate()</code>
@@ -284,7 +302,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.88">render</a>()</pre>
+protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.89">render</a>()</pre>
 <div class="block">Render the component.
  See the <a href="https://reactjs.org/docs/react-component.html#render">React Component documentation</a> for more details.</div>
 <dl>
@@ -293,13 +311,23 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 </dl>
 </li>
 </ul>
+<a name="performRender--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>performRender</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+public final&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.92">performRender</a>()</pre>
+</li>
+</ul>
 <a name="performPostConstruct--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>performPostConstruct</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.94">performPostConstruct</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.101">performPostConstruct</a>()</pre>
 <div class="block">Wrapper method that delegates to the <a href="../react4j/Component.html#postConstruct--"><code>postConstruct()</code></a> method.
  This method exists to give middleware a mechanism to hook into component lifecycle step.</div>
 </li>
@@ -310,7 +338,7 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 <ul class="blockList">
 <li class="blockList">
 <h4>postConstruct</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.112">postConstruct</a>()</pre>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.119">postConstruct</a>()</pre>
 <div class="block">This method is invoked after the component is constructed and bound to a native react component.
  This is a good place to perform initialization. It is called before <a href="../react4j/Component.html#render--"><code>render()</code></a>, therefore
  setting state in this method will not trigger a re-rendering. This replaces the
@@ -325,7 +353,7 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 <ul class="blockList">
 <li class="blockList">
 <h4>componentDidCatch</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.129">componentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.136">componentDidCatch</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  elemental2.core.JsError&nbsp;error,
                                  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  <a href="../react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a>&nbsp;info)</pre>
@@ -350,7 +378,7 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 <ul class="blockList">
 <li class="blockList">
 <h4>validatePropValues</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.138">validatePropValues</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.145">validatePropValues</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                   jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</pre>
 <div class="block">Perform validation on props supplied to the component.</div>
 <dl>
@@ -365,9 +393,9 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 <ul class="blockList">
 <li class="blockList">
 <h4>storeDebugDataAsState</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.147">storeDebugDataAsState</a>()</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.154">storeDebugDataAsState</a>()</pre>
 <div class="block">Store debug data on the state object of the native component.
- This is only done if <a href="../react4j/ReactConfig.html#shouldStoreDebugDataAsState--"><code>ReactConfig.shouldStoreDebugDataAsState()</code></a> returns true and is primarily
+ This is only done if <a href="../react4j/React.html#shouldStoreDebugDataAsState--"><code>React.shouldStoreDebugDataAsState()</code></a> returns true and is primarily
  done to make it easy to debug the component from within React DevTools.</div>
 </li>
 </ul>
@@ -377,7 +405,7 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 <ul class="blockListLast">
 <li class="blockList">
 <h4>populateDebugData</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.201">populateDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.215">populateDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                  jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;state)</pre>
 <div class="block">Populate the state parameter with any data that is useful when debugging the component.</div>
 <dl>
@@ -414,7 +442,7 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../react4j/ComponentConstructorFunction.html" title="interface in react4j"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../react4j/Context.html" title="class in react4j"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../index.html?react4j/Component.html" target="_top">Frames</a></li>
