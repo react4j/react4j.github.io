@@ -2,12 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://react4j.github.io/blog</id>
     <title>React4j Blog</title>
-    <updated>2019-01-17T06:00:00Z</updated>
+    <updated>2019-01-18T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://react4j.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest React4j news and events.</subtitle>
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2019 the React4j Project</rights>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.112 released]]></title>
+        <id>https://react4j.github.io/blog/2019/01/18/version-0.112-release.html</id>
+        <link href="https://react4j.github.io/blog/2019/01/18/version-0.112-release.html">
+        </link>
+        <updated>2019-01-18T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.111...v0.112)
+
+Changes in this release:
+
+* **\[processor\]** Extract the definition of the lifecycle methods from out of each of the generated
+  component subclasses into interfaces such ]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React4j 0.111 released]]></title>
         <id>https://react4j.github.io/blog/2019/01/17/version-0.111-release.html</id>
