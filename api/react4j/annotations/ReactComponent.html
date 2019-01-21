@@ -114,18 +114,24 @@ public @interface <a href="../../src-html/react4j/annotations/ReactComponent.htm
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.html#allowNoArezDeps--">allowNoArezDeps</a></span></code>
+<div class="block">React components that are arez enabled will generate an error if they observe no arez dependencies and this parameter is false.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.html#dagger--">dagger</a></span></code>
 <div class="block">Indicate whether a dagger sub-component and module is created for component.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.html#inject--">inject</a></span></code>
 <div class="block">Indicate whether an @Inject annotation should be added to constructor of generated class.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.html#name--">name</a></span></code>
 <div class="block">Return the name of the component.</div>
@@ -200,7 +206,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList"><a name="dagger--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>dagger</h4>
 <pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.45">dagger</a></pre>
@@ -214,6 +220,27 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <dl>
 <dt>Default:</dt>
 <dd>react4j.annotations.Feature.AUTODETECT</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="allowNoArezDeps--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>allowNoArezDeps</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.52">allowNoArezDeps</a></pre>
+<div class="block">React components that are arez enabled will generate an error if they observe no arez dependencies and this parameter is false.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true to avoid arez components generating invariant failures if they observe no reactive components.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>false</dd>
 </dl>
 </li>
 </ul>
