@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Fri, 18 Jan 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 21 Jan 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.113 released]]></title>
+            <link>https://react4j.github.io/blog/2019/01/21/version-0.113-release.html</link>
+            <guid>https://react4j.github.io/blog/2019/01/21/version-0.113-release.html</guid>
+            <pubDate>Mon, 21 Jan 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.112...v0.113)
+
+Changes in this release:
+
+* **\[core\]** Add the parameter `allowNoArezDeps` to the `ReactComponent` component to support scenario
+  where an Arez/React4j component may ren]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.112 released]]></title>
             <link>https://react4j.github.io/blog/2019/01/18/version-0.112-release.html</link>
