@@ -158,7 +158,7 @@ public @interface <a href="../../src-html/react4j/annotations/Prop.html#line.29"
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#shouldUpdateOnChange--">shouldUpdateOnChange</a></span></code>
-<div class="block">Return an enum indicating whether prop should trigger a change if it updated.</div>
+<div class="block">Indicate whether changing the value of the prop should schedule a re-render.</div>
 </td>
 </tr>
 </table>
@@ -234,12 +234,10 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>shouldUpdateOnChange</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.64">shouldUpdateOnChange</a></pre>
-<div class="block">Return an enum indicating whether prop should trigger a change if it updated.
- If set to <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then the code will check the prop when implementing
- <code>shouldComponentUpdate</code> while setting the value to <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> will result in
- the value of the prop being ignored when determining whether a prop change should cause a re-render.
- If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will treat it as <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a>.</div>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.62">shouldUpdateOnChange</a></pre>
+<div class="block">Indicate whether changing the value of the prop should schedule a re-render.
+ If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will treat it as
+ <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> unless <a href="../../react4j/annotations/Prop.html#immutable--"><code>immutable()</code></a> is set to <code>true</code>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the enum indicating whether prop should trigger a render if it is modified.</dd>
@@ -259,7 +257,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>observable</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.77">observable</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.75">observable</a></pre>
 <div class="block">Indicate whether the prop should be annotated by <a href="https://arez.github.io/api/arez/annotations/Observable.html?is-external=true" title="class or interface in arez.annotations"><code>Observable</code></a>.
 
  <p>If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the prop will be observable if and only if:</p>
@@ -286,7 +284,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>disposable</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.88">disposable</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.86">disposable</a></pre>
 <div class="block">Return an enum indicating whether the component should check whether the value of the prop is disposed
  prior to rendering. If the value is disposed then the render method will exit early and return null.
  If this parameter is set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will inspect the
@@ -311,7 +309,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>immutable</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.111">immutable</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.109">immutable</a></pre>
 <div class="block">True if the prop is not expected to change after initial value is set. If the value of the prop does change
  then it is expected that the react component will be unmounted and a new component created. This is implemented
  by synthesizing a key for the component every time the component that is derived from this prop. To enable this
