@@ -120,7 +120,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public static enum <a href="../../src-html/react4j/annotations/ReactComponent.html#line.19">ReactComponent.Type</a>
+<pre>public static enum <a href="../../src-html/react4j/annotations/ReactComponent.html#line.20">ReactComponent.Type</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang">Enum</a>&lt;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a>&gt;</pre>
 <div class="block">Enum indicating type of component.</div>
 </li>
@@ -142,7 +142,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?i
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.Type.html#MAYBE_TRACKING">MAYBE_TRACKING</a></span></code>
-<div class="block">The component can use the capabilities of a <a href="../../react4j/annotations/ReactComponent.Type.html#TRACKING"><code>TRACKING</code></a> component but it will not generate an invariant failure if a render results in zero dependencies.</div>
+<div class="block">The component is a <a href="../../react4j/annotations/ReactComponent.Type.html#TRACKING"><code>TRACKING</code></a> component but it will not generate an invariant failure if a
+ render results in zero Arez dependencies.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -152,7 +153,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?i
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.Type.html#TRACKING">TRACKING</a></span></code>
-<div class="block">The component can use the capabilities of a <a href="../../react4j/annotations/ReactComponent.Type.html#STATEFUL"><code>STATEFUL</code></a> component and will re-render the component if any dependencies change.</div>
+<div class="block">The component is a <a href="../../react4j/annotations/ReactComponent.Type.html#STATEFUL"><code>STATEFUL</code></a> component <b>and</b> will re-render the component if any Arez
+ dependencies change.</div>
 </td>
 </tr>
 </table>
@@ -218,8 +220,13 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <h4>STATEFUL</h4>
-<pre>public static final&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a> <a href="../../src-html/react4j/annotations/ReactComponent.Type.html#line.24">STATEFUL</a></pre>
-<div class="block">The component can store state in fields, can declared lifecycle methods and may invoke scheduleRender() method.</div>
+<pre>public static final&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a> <a href="../../src-html/react4j/annotations/ReactComponent.Type.html#line.30">STATEFUL</a></pre>
+<div class="block">The component can store state in fields, can declared lifecycle methods and may invoke scheduleRender() method.
+ The component will be scheduled to re-render if the components container re-renders and any props with
+ <a href="../../react4j/annotations/Prop.html#shouldUpdateOnChange--"><code>Prop.shouldUpdateOnChange()</code></a> set to <code>true</code> has changed value from last render. A prop
+ is considered changed if when the new value and the old value are passed to
+ <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Objects.html?is-external=true#equals-java.lang.Object-java.lang.Object-" title="class or interface in java.util"><code>Objects.equals(Object, Object)</code></a> and that method returns <code>false</code>. A component will also
+ be scheduled to re-render if the component invokes <code>Component.scheduleRender()</code>.</div>
 </li>
 </ul>
 <a name="TRACKING">
@@ -228,9 +235,9 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <h4>TRACKING</h4>
-<pre>public static final&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a> <a href="../../src-html/react4j/annotations/ReactComponent.Type.html#line.29">TRACKING</a></pre>
-<div class="block">The component can use the capabilities of a <a href="../../react4j/annotations/ReactComponent.Type.html#STATEFUL"><code>STATEFUL</code></a> component and will re-render the component if any dependencies change.
- The framework uses the <a href="https://arez.github.io/api/arez/annotations/Observe.html?is-external=true" title="class or interface in arez.annotations"><code>Observe</code></a> annotation to track Arez dependencies.</div>
+<pre>public static final&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a> <a href="../../src-html/react4j/annotations/ReactComponent.Type.html#line.35">TRACKING</a></pre>
+<div class="block">The component is a <a href="../../react4j/annotations/ReactComponent.Type.html#STATEFUL"><code>STATEFUL</code></a> component <b>and</b> will re-render the component if any Arez
+ dependencies change. The framework uses the <a href="https://arez.github.io/api/arez/annotations/Observe.html?is-external=true" title="class or interface in arez.annotations"><code>Observe</code></a> annotation to track Arez dependencies.</div>
 </li>
 </ul>
 <a name="MAYBE_TRACKING">
@@ -239,8 +246,9 @@ the order they are declared.</div>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>MAYBE_TRACKING</h4>
-<pre>public static final&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a> <a href="../../src-html/react4j/annotations/ReactComponent.Type.html#line.33">MAYBE_TRACKING</a></pre>
-<div class="block">The component can use the capabilities of a <a href="../../react4j/annotations/ReactComponent.Type.html#TRACKING"><code>TRACKING</code></a> component but it will not generate an invariant failure if a render results in zero dependencies.</div>
+<pre>public static final&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a> <a href="../../src-html/react4j/annotations/ReactComponent.Type.html#line.40">MAYBE_TRACKING</a></pre>
+<div class="block">The component is a <a href="../../react4j/annotations/ReactComponent.Type.html#TRACKING"><code>TRACKING</code></a> component but it will not generate an invariant failure if a
+ render results in zero Arez dependencies.</div>
 </li>
 </ul>
 </li>
@@ -257,7 +265,7 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <h4>values</h4>
-<pre>public static&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a>[]&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.Type.html#line.19">values</a>()</pre>
+<pre>public static&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a>[]&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.Type.html#line.20">values</a>()</pre>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.  This method may be used to iterate
 over the constants as follows:
@@ -277,7 +285,7 @@ for (ReactComponent.Type c : ReactComponent.Type.values())
 <ul class="blockListLast">
 <li class="blockList">
 <h4>valueOf</h4>
-<pre>public static&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.Type.html#line.19">valueOf</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<pre>public static&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.Type.html#line.20">valueOf</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Returns the enum constant of this type with the specified name.
 The string must match <i>exactly</i> an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
