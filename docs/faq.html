@@ -27,13 +27,16 @@
 <h2><a class="anchor" aria-hidden="true" name="design"></a><a href="#design" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design</h2>
 <h3><a class="anchor" aria-hidden="true" name="will-react4j-work-on-future-versions-of-gwt"></a><a href="#will-react4j-work-on-future-versions-of-gwt" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Will React4j work on future versions of GWT?</h3>
 <p>React4j was designed from the ground up to be as forward compatible as possible with future
-versions of GWT. Google is currently working on J2CL (Java 2 Closure Compiler) which is a
-modern take on a java-to-javascript transpiler that emits Closure Compiler annotated javascript
-as output. This promises a modern take on the story with an even more advanced optimizing
-compiler working in the background.</p>
+versions of GWT. Google is currently working on <a href="https://github.com/google/j2cl">J2CL</a> (Java 2
+Closure Compiler) which is a modern take on a java-to-javascript transpiler that emits Closure
+Compiler annotated javascript as output. This promises a modern take on the story with an even
+more advanced optimizing compiler working in the background.</p>
 <p>React4j aims to target J2CL as early as possible while maintaining compatibility with GWT2.x for
 as long as possible and likely targeting GWT 3.x into the future. The library does this by using
 jsinterop and <a href="https://github.com/google/elemental2">elemental2</a> to interact with the browser.</p>
+<p>React4j has had J2CL builds integrated into the continuous integration builds to ensure that it
+builds basic applications using J2CL. As J2CL matures, it is expected that J2CL will be integrated
+into the main build process and will become a supported build target.</p>
 <h3><a class="anchor" aria-hidden="true" name="where-is-the-equivalent-of-react-s-stateless-function-components"></a><a href="#where-is-the-equivalent-of-react-s-stateless-function-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Where is the equivalent of React's stateless function components?</h3>
 <p>The project originally supported stateless functional components defined by an interface that had
 a single render method. You could define the rendering of the method using a simple lambda method
@@ -109,6 +112,7 @@ this should not impact the correctness of the React4j &lt;=&gt; react integratio
 exported to Javascript has been minimized and is mostly restricted to the equivalent of static class properties
 in ES6 and a constructor function.</p>
 <h2><a class="anchor" aria-hidden="true" name="arez-integration"></a><a href="#arez-integration" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Arez Integration</h2>
+<p><strong>WARNING</strong>: This section is no longer up to date. We hope to fix this in the medium term.</p>
 <h3><a class="anchor" aria-hidden="true" name="which-components-should-extend-reactarezcomponent"></a><a href="#which-components-should-extend-reactarezcomponent" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Which components should extend ReactArezComponent?</h3>
 <p>Any component that uses arez observable properties or computed properties within the <code>render()</code> method should
 extend <code>ReactArezComponent</code>. This ensures that the component is scheduled for re-render when the data changes.</p>

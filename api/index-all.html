@@ -311,7 +311,9 @@
 <div class="block">Batch all state updates within the action.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/Component.html#bindComponent-react4j.internal.NativeComponent-">bindComponent(NativeComponent)</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Bind the native react component to this component.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/CssProps.html#border-java.lang.String-">border(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
 <dd>
 <div class="block">Shorthand property that defines the different properties of all four sides of an element's
@@ -548,6 +550,14 @@
 <dd>
 <div class="block">Perform action on render complete.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactRoot.PostRenderCallbackFn.html#call--">call()</a></span> - Method in interface react4j.dom.<a href="react4j/dom/ReactRoot.PostRenderCallbackFn.html" title="interface in react4j.dom">ReactRoot.PostRenderCallbackFn</a></dt>
+<dd>
+<div class="block">Perform an action.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactRoot.PostUnmountCallbackFn.html#call--">call()</a></span> - Method in interface react4j.dom.<a href="react4j/dom/ReactRoot.PostUnmountCallbackFn.html" title="interface in react4j.dom">ReactRoot.PostUnmountCallbackFn</a></dt>
+<dd>
+<div class="block">Perform an action.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#canvas-react4j.dom.proptypes.html.HtmlProps-react4j.ReactNode...-">canvas(HtmlProps, ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#canvas-react4j.ReactNode...-">canvas(ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
@@ -627,8 +637,6 @@
 <div class="block">The clear CSS property specifies if an element can be positioned next to or must be
  positioned below the floating elements that precede it in the markup.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#clearRenderDepsChanged--">clearRenderDepsChanged()</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="react4j/dom/events/ClipboardEvent.html" title="class in react4j.dom.events"><span class="typeNameLink">ClipboardEvent</span></a> - Class in <a href="react4j/dom/events/package-summary.html">react4j.dom.events</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/events/ClipboardEvent.html#ClipboardEvent--">ClipboardEvent()</a></span> - Constructor for class react4j.dom.events.<a href="react4j/dom/events/ClipboardEvent.html" title="class in react4j.dom.events">ClipboardEvent</a></dt>
@@ -703,6 +711,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#colgroup-java.util.stream.Stream-">colgroup(Stream&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/internal/arez/IntrospectUtil.html#collectDependencyDebugData-arez.Observer-jsinterop.base.JsPropertyMap-">collectDependencyDebugData(Observer, JsPropertyMap&lt;Object&gt;)</a></span> - Static method in class react4j.internal.arez.<a href="react4j/internal/arez/IntrospectUtil.html" title="class in react4j.internal.arez">IntrospectUtil</a></dt>
+<dd>
+<div class="block">For the specified observer, collect all dependencies and record them in data to be emitted as debug data.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/CssProps.html#color-java.lang.String-">color(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
 <dd>
 <div class="block">The color property sets the color of an element's foreground content (usually text),
@@ -766,17 +778,9 @@
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/Component.html#Component--">Component()</a></span> - Constructor for class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/internal/NativeAdapterComponent.html#component--">component()</a></span> - Method in class react4j.internal.<a href="react4j/internal/NativeAdapterComponent.html" title="class in react4j.internal">NativeAdapterComponent</a></dt>
-<dd>
-<div class="block">Return the non-native component associated with this component.</div>
-</dd>
 <dt><a href="react4j/internal/ComponentConstructorFunction.html" title="interface in react4j.internal"><span class="typeNameLink">ComponentConstructorFunction</span></a> - Interface in <a href="react4j/internal/package-summary.html">react4j.internal</a></dt>
 <dd>
 <div class="block">A function interface to create component instances.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/Component.html#componentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">componentDidCatch(JsError, ReactErrorInfo)</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
-<dd>
-<div class="block">The componentDidCatch() method works like a JavaScript catch {} block, but for components.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/internal/OnComponentDidCatch.html#componentDidCatch-elemental2.core.JsError-react4j.ReactErrorInfo-">componentDidCatch(JsError, ReactErrorInfo)</a></span> - Method in interface react4j.internal.<a href="react4j/internal/OnComponentDidCatch.html" title="interface in react4j.internal">OnComponentDidCatch</a></dt>
 <dd>&nbsp;</dd>
@@ -786,6 +790,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/ReactErrorInfo.html#componentStack">componentStack</a></span> - Variable in class react4j.<a href="react4j/ReactErrorInfo.html" title="class in react4j">ReactErrorInfo</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="react4j/internal/arez/ComponentState.html" title="class in react4j.internal.arez"><span class="typeNameLink">ComponentState</span></a> - Class in <a href="react4j/internal/arez/package-summary.html">react4j.internal.arez</a></dt>
+<dd>
+<div class="block">Constants representing the state of a react component.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/internal/OnComponentWillUnmount.html#componentWillUnmount--">componentWillUnmount()</a></span> - Method in interface react4j.internal.<a href="react4j/internal/OnComponentWillUnmount.html" title="interface in react4j.internal">OnComponentWillUnmount</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="react4j/dom/events/CompositionEvent.html" title="class in react4j.dom.events"><span class="typeNameLink">CompositionEvent</span></a> - Class in <a href="react4j/dom/events/package-summary.html">react4j.dom.events</a></dt>
@@ -849,49 +857,13 @@
  given element is invoked, the counters specified by the property are set to the given
  integer.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/internal/NativeAdapterComponent.html#createComponent--">createComponent()</a></span> - Method in class react4j.internal.<a href="react4j/internal/NativeAdapterComponent.html" title="class in react4j.internal">NativeAdapterComponent</a></dt>
-<dd>
-<div class="block">Template method that actually creates the target component.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/ReactElement.html#createComponentElement-react4j.internal.ComponentConstructorFunction-">createComponentElement(ComponentConstructorFunction)</a></span> - Static method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/React.html#createContext-T-">createContext(T)</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
 <dd>
 <div class="block">Creates a context with specified default value.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#createElement-java.lang.String-java.lang.Object-">createElement(String, Object)</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
-<dd>
-<div class="block">Create and return a new ReactElement of the given type with specified children.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#createElement-java.lang.String-jsinterop.base.JsPropertyMap-">createElement(String, JsPropertyMap&lt;Object&gt;)</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
-<dd>
-<div class="block">Create and return a new ReactElement of the given type with no children.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#createElement-java.lang.String-java.lang.Object-react4j.ReactNode...-">createElement(String, Object, ReactNode...)</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
-<dd>
-<div class="block">Create and return a new ReactElement of the given type with specified children.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#createElement-java.lang.String-jsinterop.base.JsPropertyMap-react4j.ReactNode...-">createElement(String, JsPropertyMap&lt;Object&gt;, ReactNode...)</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
-<dd>
-<div class="block">Create and return a new ReactElement of the given type with specified children.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#createElement-java.lang.String-jsinterop.base.JsPropertyMap-elemental2.core.JsArray-">createElement(String, JsPropertyMap&lt;Object&gt;, JsArray&lt;ReactNode&gt;)</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
-<dd>
-<div class="block">Create and return a new ReactElement of the given type with specified children.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#createFragment-react4j.ReactNode...-">createFragment(ReactNode...)</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
-<dd>
-<div class="block">Create a Fragment with the specified children.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#createFragment-java.util.List-">createFragment(List&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
-<dd>
-<div class="block">Create a Fragment with the specified children.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#createFragment-java.util.stream.Stream-">createFragment(Stream&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
-<dd>
-<div class="block">Create a Fragment with the specified children.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/ReactElement.html#createFragment-react4j.ReactNode...-">createFragment(ReactNode...)</a></span> - Static method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/ReactElement.html#createFragment-java.lang.String-react4j.ReactNode...-">createFragment(String, ReactNode...)</a></span> - Static method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/ReactElement.html#createHostElement-java.lang.String-java.lang.String-java.lang.Object-jsinterop.base.JsPropertyMap-">createHostElement(String, String, Object, JsPropertyMap&lt;Object&gt;)</a></span> - Static method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
 <dd>&nbsp;</dd>
@@ -902,10 +874,14 @@
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/ReactElement.html#createRawElement-java.lang.Object-java.lang.String-java.lang.Object-jsinterop.base.JsPropertyMap-">createRawElement(Object, String, Object, JsPropertyMap&lt;Object&gt;)</a></span> - Static method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#createStrictMode-react4j.ReactNode...-">createStrictMode(ReactNode...)</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactDOM.html#createRoot-elemental2.dom.Element-">createRoot(Element)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/ReactDOM.html" title="class in react4j.dom">ReactDOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/ReactElement.html#createStrictMode-react4j.ReactNode...-">createStrictMode(ReactNode...)</a></span> - Static method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
 <dd>
 <div class="block">Create a StrictMode component with the specified children.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="react4j/ReactElement.html#createSuspense-java.lang.String-react4j.ReactNode-int-react4j.ReactNode...-">createSuspense(String, ReactNode, int, ReactNode...)</a></span> - Static method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/ImgProps.html#crossOrigin-java.lang.String-">crossOrigin(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/ImgProps.html" title="class in react4j.dom.proptypes.html">ImgProps</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/CssProps.html#cssFloat-java.lang.String-">cssFloat(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
@@ -1264,6 +1240,12 @@
 <dd>
 <div class="block">The Symbol type for ForwardRef.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#fragment-java.lang.String-react4j.ReactNode...-">fragment(String, ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#fragment-java.lang.String-java.util.List-">fragment(String, List&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#fragment-java.lang.String-java.util.stream.Stream-">fragment(String, Stream&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#fragment-react4j.ReactNode...-">fragment(ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#fragment-java.util.List-">fragment(List&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
@@ -1318,14 +1300,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/CssProps.html#getAppearance--">getAppearance()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#getArezComponentId--">getArezComponentId()</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>
-<div class="block">Return the unique identifier of component according to Arez.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#getArezComponentName--">getArezComponentName()</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>
-<div class="block">Return the name of the component according to Arez.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#getAutoCapitalize--">getAutoCapitalize()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#getAutoComplete--">getAutoComplete()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
@@ -1478,12 +1452,16 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/CssProps.html#getColumnWidth--">getColumnWidth()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/Component.html#getComponentId--">getComponentId()</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
+<dd>
+<div class="block">Return the unique identifier of component according to Arez.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="react4j/Component.html#getComponentName--">getComponentName()</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
+<dd>
+<div class="block">Return the name of the component according to Arez.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#getContent--">getContent()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#getContext--">getContext()</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>
-<div class="block">Return the arez context that this component is associated with.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#getContextMenu--">getContextMenu()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#getCoords--">getCoords()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
@@ -1668,6 +1646,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/events/KeyboardEvent.html#getKey--">getKey()</a></span> - Method in class react4j.dom.events.<a href="react4j/dom/events/KeyboardEvent.html" title="class in react4j.dom.events">KeyboardEvent</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/Keyed.html#getKey--">getKey()</a></span> - Method in interface react4j.<a href="react4j/Keyed.html" title="interface in react4j">Keyed</a></dt>
+<dd>
+<div class="block">Return a string that will be the key or contribute to the key of a react component.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/events/KeyboardEvent.html#getKeyCode--">getKeyCode()</a></span> - Method in class react4j.dom.events.<a href="react4j/dom/events/KeyboardEvent.html" title="class in react4j.dom.events">KeyboardEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#getKeyParams--">getKeyParams()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
@@ -1986,10 +1968,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/events/MouseEvent.html#getRelatedTarget--">getRelatedTarget()</a></span> - Method in class react4j.dom.events.<a href="react4j/dom/events/MouseEvent.html" title="class in react4j.dom.events">MouseEvent</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#getRenderObserver--">getRenderObserver()</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>
-<div class="block">Return the Observer associated with the render tracker method.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#getResource--">getResource()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/CssProps.html#getRestAfter--">getRestAfter()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
@@ -2187,6 +2165,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#getValue--">getValue()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/internal/arez/IntrospectUtil.html#getValue-arez.spy.ObservableValueInfo-">getValue(ObservableValueInfo)</a></span> - Static method in class react4j.internal.arez.<a href="react4j/internal/arez/IntrospectUtil.html" title="class in react4j.internal.arez">IntrospectUtil</a></dt>
+<dd>
+<div class="block">Return the value for specified observable.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/CssProps.html#getVerticalAlign--">getVerticalAlign()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/events/UIEvent.html#getView--">getView()</a></span> - Method in class react4j.dom.events.<a href="react4j/dom/events/UIEvent.html" title="class in react4j.dom.events">UIEvent</a></dt>
@@ -2488,10 +2470,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#h6-java.util.stream.Stream-">h6(Stream&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#hasRenderDepsChanged--">hasRenderDepsChanged()</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>
-<div class="block">Return true if the render dependencies have been marked as changed and component has yet to be re-rendered.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#header-react4j.dom.proptypes.html.HtmlProps-react4j.ReactNode...-">header(HtmlProps, ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#header-react4j.ReactNode...-">header(ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
@@ -2615,6 +2593,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#id-java.lang.String-">id(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/internal/arez/ComponentState.html#IDLE">IDLE</a></span> - Static variable in class react4j.internal.arez.<a href="react4j/internal/arez/ComponentState.html" title="class in react4j.internal.arez">ComponentState</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#iframe-react4j.dom.proptypes.html.IFrameProps-react4j.ReactNode...-">iframe(IFrameProps, ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#iframe-react4j.ReactNode...-">iframe(ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
@@ -2733,6 +2713,10 @@
 <dd>&nbsp;</dd>
 <dt><a href="react4j/dom/proptypes/html/attributeTypes/InputType.html" title="enum in react4j.dom.proptypes.html.attributeTypes"><span class="typeNameLink">InputType</span></a> - Enum in <a href="react4j/dom/proptypes/html/attributeTypes/package-summary.html">react4j.dom.proptypes.html.attributeTypes</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="react4j/internal/arez/IntrospectUtil.html" title="class in react4j.internal.arez"><span class="typeNameLink">IntrospectUtil</span></a> - Class in <a href="react4j/internal/arez/package-summary.html">react4j.internal.arez</a></dt>
+<dd>
+<div class="block">Utilities for introspecting the Arez components and runtime.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#isAllowFullScreen--">isAllowFullScreen()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#isAllowTransparency--">isAllowTransparency()</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
@@ -2855,6 +2839,10 @@
 <dd>&nbsp;</dd>
 <dt><a href="react4j/dom/events/KeyboardEventHandler.html" title="interface in react4j.dom.events"><span class="typeNameLink">KeyboardEventHandler</span></a> - Interface in <a href="react4j/dom/events/package-summary.html">react4j.dom.events</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="react4j/Keyed.html" title="interface in react4j"><span class="typeNameLink">Keyed</span></a> - Interface in <a href="react4j/package-summary.html">react4j</a></dt>
+<dd>
+<div class="block">Interface implemented by objects so that they can be marked as <a href="react4j/annotations/Prop.html#immutable--"><code>Prop.immutable()</code></a></div>
+</dd>
 </dl>
 <a name="I:L">
 <!--   -->
@@ -3117,18 +3105,12 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/TextAreaProps.html#name-java.lang.String-">name(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/TextAreaProps.html" title="class in react4j.dom.proptypes.html">TextAreaProps</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="react4j/internal/NativeAdapterComponent.html" title="class in react4j.internal"><span class="typeNameLink">NativeAdapterComponent</span></a>&lt;<a href="react4j/internal/NativeAdapterComponent.html" title="type parameter in NativeAdapterComponent">I</a> extends <a href="react4j/Component.html" title="class in react4j">Component</a>&gt; - Class in <a href="react4j/internal/package-summary.html">react4j.internal</a></dt>
-<dd>
-<div class="block">This class provides a base class that designed to forward all lifecycle methods to a target component.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/internal/NativeAdapterComponent.html#NativeAdapterComponent-jsinterop.base.JsPropertyMap-">NativeAdapterComponent(JsPropertyMap&lt;Object&gt;)</a></span> - Constructor for class react4j.internal.<a href="react4j/internal/NativeAdapterComponent.html" title="class in react4j.internal">NativeAdapterComponent</a></dt>
-<dd>
-<div class="block">Create a component that designed to delegate to a target component.</div>
-</dd>
 <dt><a href="react4j/internal/NativeComponent.html" title="class in react4j.internal"><span class="typeNameLink">NativeComponent</span></a> - Class in <a href="react4j/internal/package-summary.html">react4j.internal</a></dt>
 <dd>
 <div class="block">The react native component.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="react4j/internal/NativeComponent.html#NativeComponent-jsinterop.base.JsPropertyMap-">NativeComponent(JsPropertyMap&lt;Object&gt;)</a></span> - Constructor for class react4j.internal.<a href="react4j/internal/NativeComponent.html" title="class in react4j.internal">NativeComponent</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a name="I:O">
 <!--   -->
@@ -3565,6 +3547,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/ImgProps.html#onEnded-react4j.dom.events.ReactEventHandler-">onEnded(ReactEventHandler)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/ImgProps.html" title="class in react4j.dom.proptypes.html">ImgProps</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="react4j/annotations/OnError.html" title="annotation in react4j.annotations"><span class="typeNameLink">OnError</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Identifies the method that is called when a child component generates an error during rendering.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/ImgProps.html#onError-react4j.dom.events.ReactEventHandler-">onError(ReactEventHandler)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/ImgProps.html" title="class in react4j.dom.proptypes.html">ImgProps</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/AnchorProps.html#onFocus-react4j.dom.events.FocusEventHandler-">onFocus(FocusEventHandler)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/AnchorProps.html" title="class in react4j.dom.proptypes.html">AnchorProps</a></dt>
@@ -3919,10 +3905,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/events/ReactEventHandler.html#onReactEvent-react4j.dom.events.SyntheticEvent-">onReactEvent(SyntheticEvent)</a></span> - Method in interface react4j.dom.events.<a href="react4j/dom/events/ReactEventHandler.html" title="interface in react4j.dom.events">ReactEventHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#onRenderDepsChange-boolean-">onRenderDepsChange(boolean)</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>
-<div class="block">Helper method invoked when it has detected a dependency of the render method has changed.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlProps.html#onScroll-react4j.dom.events.UIEventHandler-">onScroll(UIEventHandler)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlProps.html" title="class in react4j.dom.proptypes.html">HtmlProps</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/SelectProps.html#onScroll-react4j.dom.events.UIEventHandler-">onScroll(UIEventHandler)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/SelectProps.html" title="class in react4j.dom.proptypes.html">SelectProps</a></dt>
@@ -4265,26 +4247,16 @@
 <div class="block">The pause-after property determines how long a speech media agent should pause after
  presenting an element.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#pauseArezSchedulerUntilRenderLoopComplete--">pauseArezSchedulerUntilRenderLoopComplete()</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>
-<div class="block">The first time an arez component is rendered it will lock the Arez scheduler and release
- the lock in the micro-task immediately following the task that prompted the render.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/CssProps.html#pauseBefore-java.lang.String-">pauseBefore(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
 <dd>
 <div class="block">The pause-before property determines how long a speech media agent should pause before
  presenting an element.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#performPostConstruct--">performPostConstruct()</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/internal/arez/SchedulerUtil.html#pauseUntilRenderLoopComplete--">pauseUntilRenderLoopComplete()</a></span> - Static method in class react4j.internal.arez.<a href="react4j/internal/arez/SchedulerUtil.html" title="class in react4j.internal.arez">SchedulerUtil</a></dt>
 <dd>
-<div class="block">After construction of the object.</div>
+<div class="block">The first time an arez component is rendered it will lock the Arez scheduler and release
+ the lock in the micro-task immediately following the task that prompted the render.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/Component.html#performPostConstruct--">performPostConstruct()</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
-<dd>
-<div class="block">Wrapper method that delegates to the <a href="react4j/Component.html#postConstruct--"><code>Component.postConstruct()</code></a> method.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/Component.html#performRender--">performRender()</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/events/SyntheticEvent.html#persist--">persist()</a></span> - Method in class react4j.dom.events.<a href="react4j/dom/events/SyntheticEvent.html" title="class in react4j.dom.events">SyntheticEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/CssProps.html#perspective-java.lang.String-">perspective(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
@@ -4305,10 +4277,6 @@
 <div class="block">The pointer-events property allows you to control whether an element can be the target
  for the pointing device (e.g, mouse, pen) events.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#populateDebugData-jsinterop.base.JsPropertyMap-">populateDebugData(JsPropertyMap&lt;Object&gt;)</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>
-<div class="block">Populate the state parameter with any data that is useful when debugging the component.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/Component.html#populateDebugData-jsinterop.base.JsPropertyMap-">populateDebugData(JsPropertyMap&lt;Object&gt;)</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
 <dd>
 <div class="block">Populate the state parameter with any data that is useful when debugging the component.</div>
@@ -4322,10 +4290,6 @@
 <div class="block">The position property controls the type of positioning used by an element within its
  parent elements.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/Component.html#postConstruct--">postConstruct()</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
-<dd>
-<div class="block">This method is invoked after the component is constructed and bound to a native react component.</div>
-</dd>
 <dt><a href="react4j/annotations/PostMount.html" title="annotation in react4j.annotations"><span class="typeNameLink">PostMount</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
 <dd>
 <div class="block">Identifies a method that is called after a component is mounted or attatched to the DOM.</div>
@@ -4338,14 +4302,8 @@
 <dd>
 <div class="block">Identifies a method that is called after a component is updated or re-rendered.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#preDispose--">preDispose()</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/AudioProps.html#preLoad-react4j.dom.proptypes.html.attributeTypes.AudioPreload-">preLoad(AudioPreload)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/AudioProps.html" title="class in react4j.dom.proptypes.html">AudioProps</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="react4j/annotations/PreUnmount.html" title="annotation in react4j.annotations"><span class="typeNameLink">PreUnmount</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
-<dd>
-<div class="block">Identifies a method that is called before a component is unmounted or dettatched from the DOM.</div>
-</dd>
 <dt><a href="react4j/annotations/PreUpdate.html" title="annotation in react4j.annotations"><span class="typeNameLink">PreUpdate</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
 <dd>
 <div class="block">Identifies a method that is called before a component is updated or re-rendered.</div>
@@ -4417,10 +4375,6 @@
 <dd>
 <div class="block">This package contains annotations used by the annotation processor.</div>
 </dd>
-<dt><a href="react4j/arez/package-summary.html">react4j.arez</a> - package react4j.arez</dt>
-<dd>
-<div class="block">This package contains the code to integrate with <a href="https://arez.github.io">Arez</a> reactive state library.</div>
-</dd>
 <dt><a href="react4j/dom/package-summary.html">react4j.dom</a> - package react4j.dom</dt>
 <dd>
 <div class="block">This package contains browser based DOM render.</div>
@@ -4439,19 +4393,21 @@
 <dd>
 <div class="block">React4j internal support code.</div>
 </dd>
+<dt><a href="react4j/internal/arez/package-summary.html">react4j.internal.arez</a> - package react4j.internal.arez</dt>
+<dd>
+<div class="block">React4j internal support code for Arez aspect.</div>
+</dd>
 <dt><a href="react4j/processor/package-summary.html">react4j.processor</a> - package react4j.processor</dt>
 <dd>
 <div class="block">This package contains the processor for the react4j.annotations.ReactComponent annotation.</div>
 </dd>
-<dt><a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez"><span class="typeNameLink">ReactArezComponent</span></a> - Class in <a href="react4j/arez/package-summary.html">react4j.arez</a></dt>
-<dd>
-<div class="block">A base class for all Arez enabled components.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#ReactArezComponent--">ReactArezComponent()</a></span> - Constructor for class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><span class="typeNameLink">ReactComponent</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
 <dd>
 <div class="block">Annotation used to specify a React component.</div>
+</dd>
+<dt><a href="react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations"><span class="typeNameLink">ReactComponent.Type</span></a> - Enum in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Enum indicating type of component.</div>
 </dd>
 <dt><a href="react4j/dom/ReactDOM.html" title="class in react4j.dom"><span class="typeNameLink">ReactDOM</span></a> - Class in <a href="react4j/dom/package-summary.html">react4j.dom</a></dt>
 <dd>
@@ -4492,6 +4448,14 @@
 <div class="block">Annotation processor that analyzes React annotated source and generates models from the annotations.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/processor/ReactProcessor.html#ReactProcessor--">ReactProcessor()</a></span> - Constructor for class react4j.processor.<a href="react4j/processor/ReactProcessor.html" title="class in react4j.processor">ReactProcessor</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="react4j/dom/ReactRoot.html" title="interface in react4j.dom"><span class="typeNameLink">ReactRoot</span></a> - Interface in <a href="react4j/dom/package-summary.html">react4j.dom</a></dt>
+<dd>
+<div class="block">A React root represents the top level DOM element that react binds to.</div>
+</dd>
+<dt><a href="react4j/dom/ReactRoot.PostRenderCallbackFn.html" title="interface in react4j.dom"><span class="typeNameLink">ReactRoot.PostRenderCallbackFn</span></a> - Interface in <a href="react4j/dom/package-summary.html">react4j.dom</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="react4j/dom/ReactRoot.PostUnmountCallbackFn.html" title="interface in react4j.dom"><span class="typeNameLink">ReactRoot.PostUnmountCallbackFn</span></a> - Interface in <a href="react4j/dom/package-summary.html">react4j.dom</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/InputProps.html#readonly-boolean-">readonly(boolean)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/InputProps.html" title="class in react4j.dom.proptypes.html">InputProps</a></dt>
 <dd>&nbsp;</dd>
@@ -4535,10 +4499,10 @@
 <dd>
 <div class="block">Render a React element into the DOM in the supplied container.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/internal/NativeAdapterComponent.html#render--">render()</a></span> - Method in class react4j.internal.<a href="react4j/internal/NativeAdapterComponent.html" title="class in react4j.internal">NativeAdapterComponent</a></dt>
-<dd>
-<div class="block">Call render on the target component.</div>
-</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactRoot.html#render-react4j.ReactNode-">render(ReactNode)</a></span> - Method in interface react4j.dom.<a href="react4j/dom/ReactRoot.html" title="interface in react4j.dom">ReactRoot</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactRoot.html#render-react4j.ReactNode-react4j.dom.ReactRoot.PostRenderCallbackFn-">render(ReactNode, ReactRoot.PostRenderCallbackFn)</a></span> - Method in interface react4j.dom.<a href="react4j/dom/ReactRoot.html" title="interface in react4j.dom">ReactRoot</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/internal/NativeComponent.html#render--">render()</a></span> - Method in class react4j.internal.<a href="react4j/internal/NativeComponent.html" title="class in react4j.internal">NativeComponent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/InputProps.html#required-boolean-">required(boolean)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/InputProps.html" title="class in react4j.dom.proptypes.html">InputProps</a></dt>
@@ -4580,9 +4544,21 @@
 <dl>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/IFrameProps.html#sandbox-java.lang.String-">sandbox(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/IFrameProps.html" title="class in react4j.dom.proptypes.html">IFrameProps</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/internal/arez/ComponentState.html#SCHEDULED">SCHEDULED</a></span> - Static variable in class react4j.internal.arez.<a href="react4j/internal/arez/ComponentState.html" title="class in react4j.internal.arez">ComponentState</a></dt>
+<dd>
+<div class="block">The component needs to be re-rendered, a dependency has updated.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="react4j/Component.html#scheduleRender--">scheduleRender()</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
+<dd>
+<div class="block">Schedule this component for re-rendering skipping the <code>shouldComponentUpdate()</code> lifecycle method.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/Component.html#scheduleRender-boolean-">scheduleRender(boolean)</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
 <dd>
 <div class="block">Schedule this component for re-rendering.</div>
+</dd>
+<dt><a href="react4j/internal/arez/SchedulerUtil.html" title="class in react4j.internal.arez"><span class="typeNameLink">SchedulerUtil</span></a> - Class in <a href="react4j/internal/arez/package-summary.html">react4j.internal.arez</a></dt>
+<dd>
+<div class="block">Utilities for interacting with the Arez scheduler.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/ThProps.html#scope-react4j.dom.proptypes.html.attributeTypes.HeaderScope-">scope(HeaderScope)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/ThProps.html" title="class in react4j.dom.proptypes.html">ThProps</a></dt>
 <dd>&nbsp;</dd>
@@ -5781,6 +5757,30 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/events/StyleMedia.html#StyleMedia--">StyleMedia()</a></span> - Constructor for class react4j.dom.events.<a href="react4j/dom/events/StyleMedia.html" title="class in react4j.dom.events">StyleMedia</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-java.lang.String-react4j.ReactNode-int-react4j.ReactNode...-">suspense(String, ReactNode, int, ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-java.lang.String-react4j.ReactNode-int-java.util.List-">suspense(String, ReactNode, int, List&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-java.lang.String-react4j.ReactNode-int-java.util.stream.Stream-">suspense(String, ReactNode, int, Stream&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-react4j.ReactNode-int-react4j.ReactNode...-">suspense(ReactNode, int, ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-react4j.ReactNode-int-java.util.List-">suspense(ReactNode, int, List&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-react4j.ReactNode-int-java.util.stream.Stream-">suspense(ReactNode, int, Stream&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-java.lang.String-react4j.ReactNode-react4j.ReactNode...-">suspense(String, ReactNode, ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-java.lang.String-react4j.ReactNode-java.util.List-">suspense(String, ReactNode, List&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-java.lang.String-react4j.ReactNode-java.util.stream.Stream-">suspense(String, ReactNode, Stream&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-react4j.ReactNode-react4j.ReactNode...-">suspense(ReactNode, ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-react4j.ReactNode-java.util.List-">suspense(ReactNode, List&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#suspense-react4j.ReactNode-java.util.stream.Stream-">suspense(ReactNode, Stream&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/React.html#Suspense">Suspense</a></span> - Static variable in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
 <dd>
 <div class="block">The Symbol type for Suspense.</div>
@@ -6228,10 +6228,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#translate-react4j.dom.proptypes.html.attributeTypes.YesNo-">translate(YesNo)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/arez/ReactArezComponent.html#triggerScheduler--">triggerScheduler()</a></span> - Method in class react4j.arez.<a href="react4j/arez/ReactArezComponent.html" title="class in react4j.arez">ReactArezComponent</a></dt>
-<dd>
-<div class="block">Template method overridden by annotation processor if there are autoruns to schedule.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/AnchorProps.html#type-java.lang.String-">type(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/AnchorProps.html" title="class in react4j.dom.proptypes.html">AnchorProps</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/BtnProps.html#type-react4j.dom.proptypes.html.attributeTypes.ButtonType-">type(ButtonType)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/BtnProps.html" title="class in react4j.dom.proptypes.html">BtnProps</a></dt>
@@ -6291,9 +6287,17 @@
 <div class="block">unicode-range allows you to set a specific range of characters to be downloaded from a
  font (embedded using @font-face) and made available for use on the current page.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactRoot.html#unmount--">unmount()</a></span> - Method in interface react4j.dom.<a href="react4j/dom/ReactRoot.html" title="interface in react4j.dom">ReactRoot</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/dom/ReactRoot.html#unmount-react4j.dom.ReactRoot.PostUnmountCallbackFn-">unmount(ReactRoot.PostUnmountCallbackFn)</a></span> - Method in interface react4j.dom.<a href="react4j/dom/ReactRoot.html" title="interface in react4j.dom">ReactRoot</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/ReactDOM.html#unmountComponentAtNode-elemental2.dom.Element-">unmountComponentAtNode(Element)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/ReactDOM.html" title="class in react4j.dom">ReactDOM</a></dt>
 <dd>
 <div class="block">Remove a mounted React component from the DOM and clean up its event handlers and state.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="react4j/internal/arez/ComponentState.html#UNMOUNTED">UNMOUNTED</a></span> - Static variable in class react4j.internal.arez.<a href="react4j/internal/arez/ComponentState.html" title="class in react4j.internal.arez">ComponentState</a></dt>
+<dd>
+<div class="block">The component has been unmounted and should not be re-rendered.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/ImgProps.html#useMap-java.lang.String-">useMap(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/ImgProps.html" title="class in react4j.dom.proptypes.html">ImgProps</a></dt>
 <dd>&nbsp;</dd>
@@ -6311,10 +6315,6 @@
 </a>
 <h2 class="title">V</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="react4j/Component.html#validatePropValues-jsinterop.base.JsPropertyMap-">validatePropValues(JsPropertyMap&lt;Object&gt;)</a></span> - Method in class react4j.<a href="react4j/Component.html" title="class in react4j">Component</a></dt>
-<dd>
-<div class="block">Perform validation on props supplied to the component.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/Context.ProviderBuilder.html#value-ST-">value(ST)</a></span> - Method in class react4j.<a href="react4j/Context.ProviderBuilder.html" title="class in react4j">Context.ProviderBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/BtnProps.html#value-java.lang.String-">value(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/BtnProps.html" title="class in react4j.dom.proptypes.html">BtnProps</a></dt>
@@ -6332,6 +6332,10 @@
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/annotations/OnPropChange.Phase.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/OnPropChange.Phase.html" title="enum in react4j.annotations">OnPropChange.Phase</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this type with the specified name.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="react4j/annotations/ReactComponent.Type.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
@@ -6381,6 +6385,11 @@
 the order they are declared.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/annotations/OnPropChange.Phase.html#values--">values()</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/OnPropChange.Phase.html" title="enum in react4j.annotations">OnPropChange.Phase</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum type, in
+the order they are declared.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="react4j/annotations/ReactComponent.Type.html#values--">values()</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
