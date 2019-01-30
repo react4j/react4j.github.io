@@ -114,18 +114,12 @@ public @interface <a href="../../src-html/react4j/annotations/ReactComponent.htm
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.html#inject--">inject</a></span></code>
-<div class="block">Indicate whether the generated component class is expected to be created and injected by the injection framework.</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.html#name--">name</a></span></code>
 <div class="block">Return the name of the component.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ReactComponent.html#type--">type</a></span></code>
 <div class="block">Enum indicating the capabilities of the component.</div>
@@ -173,31 +167,6 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="inject--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>inject</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.65">inject</a></pre>
-<div class="block">Indicate whether the generated component class is expected to be created and injected by the injection framework.
- <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> will force injection framework integration, <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
- will force no injection framework integration and <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> will enable injection framework
- integration  if any fields or methods in the component or any parent type has an javax.inject.Inject
- annotation.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>enum controlling injection framework integration.</dd>
-</dl>
-<dl>
-<dt>Default:</dt>
-<dd>react4j.annotations.Feature.AUTODETECT</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="blockList">
 <li class="blockList"><a name="type--">
 <!--   -->
 </a>
@@ -205,7 +174,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <li class="blockList">
 <h4>type</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.75">type</a></pre>
+public abstract&nbsp;<a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations">ReactComponent.Type</a>&nbsp;<a href="../../src-html/react4j/annotations/ReactComponent.html#line.64">type</a></pre>
 <div class="block">Enum indicating the capabilities of the component.
  See the <a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations"><code>ReactComponent.Type</code></a> enum for further details.</div>
 <dl>
