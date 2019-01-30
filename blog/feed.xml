@@ -14,6 +14,19 @@
         </image>
         <copyright>Copyright © 2019 the React4j Project</copyright>
         <item>
+            <title><![CDATA[React4j 0.115 released]]></title>
+            <link>https://react4j.github.io/blog/2019/01/30/version-0.115-release.html</link>
+            <guid>https://react4j.github.io/blog/2019/01/30/version-0.115-release.html</guid>
+            <pubDate>Wed, 30 Jan 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.114...v0.115)
+
+Changes in this release:
+
+* **\[core\]** Improve the javadocs on the `ReactComponent.Type` enums to clarify when a component will be
+  re-rendered.
+* **\[processor\]** Gene]]></description>
+        </item>
+        <item>
             <title><![CDATA[React4j 0.114 released]]></title>
             <link>https://react4j.github.io/blog/2019/01/30/version-0.114-release.html</link>
             <guid>https://react4j.github.io/blog/2019/01/30/version-0.114-release.html</guid>
