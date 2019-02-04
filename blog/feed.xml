@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Thu, 31 Jan 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 04 Feb 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.117 released]]></title>
+            <link>https://react4j.github.io/blog/2019/02/04/version-0.117-release.html</link>
+            <guid>https://react4j.github.io/blog/2019/02/04/version-0.117-release.html</guid>
+            <pubDate>Mon, 04 Feb 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.116...v0.117)
+
+Changes in this release:
+
+* **\[core\]** Upgrade the `com.google.elemental2:*` libraries to version `1.0.0-b15-7a28038`
+  released under groupId `org.realityforge.com.googl]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.116 released]]></title>
             <link>https://react4j.github.io/blog/2019/01/31/version-0.116-release.html</link>
