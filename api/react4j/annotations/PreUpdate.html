@@ -93,11 +93,17 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/react4j/annotations/PreUpdate.html#line.28">PreUpdate</a></pre>
+public @interface <a href="../../src-html/react4j/annotations/PreUpdate.html#line.34">PreUpdate</a></pre>
 <div class="block">Identifies a method that is called before a component is updated or re-rendered.
  There must only be one method annotated with this annotation in a single component.
  This method is invoked in the "commit" phase using reacts <code>getSnapshotBeforeUpdate()</code>
  lifecycle method.
+
+ <p>This method is used to get access to the DOM prior to it being updated. This is useful if there is
+ state stored on the DOM that is not present in the VirtualDOM. The method annotated with <a href="../../react4j/annotations/PreUpdate.html" title="annotation in react4j.annotations"><code>PreUpdate</code></a>
+ can query the DOM and then apply the necessary changes in <a href="../../react4j/annotations/PostRender.html" title="annotation in react4j.annotations"><code>PostRender</code></a>. Scroll position is an example
+ of data stored on the DOM but not present in the VirtualDOM and implementing auto-scrolling to new content
+ would require use of this lifecycle method to calculate the new offset.</p>
 
  <p>The method must also conform to the following constraints:</p>
  <ul>
