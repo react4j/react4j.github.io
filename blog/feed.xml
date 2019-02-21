@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Thu, 14 Feb 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 21 Feb 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.120 released]]></title>
+            <link>https://react4j.github.io/blog/2019/02/21/version-0.120-release.html</link>
+            <guid>https://react4j.github.io/blog/2019/02/21/version-0.120-release.html</guid>
+            <pubDate>Thu, 21 Feb 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.119...v0.120)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.com.google.elemental2` artifacts to version `1.0.0-b17-6897368`.
+* **\[processor\]** Fix the error message when a ]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.119 released]]></title>
             <link>https://react4j.github.io/blog/2019/02/14/version-0.119-release.html</link>
