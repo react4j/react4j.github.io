@@ -2,12 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://react4j.github.io/blog</id>
     <title>React4j Blog</title>
-    <updated>2019-02-21T06:00:00Z</updated>
+    <updated>2019-02-24T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://react4j.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest React4j news and events.</subtitle>
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2019 the React4j Project</rights>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.121 released]]></title>
+        <id>https://react4j.github.io/blog/2019/02/24/version-0.121-release.html</id>
+        <link href="https://react4j.github.io/blog/2019/02/24/version-0.121-release.html">
+        </link>
+        <updated>2019-02-24T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.120...v0.121)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.com.google.elemental2` artifacts to version `1.0.0-b18-f3472e7`.
+* **\[core\]** Upgrade the `com.google.jsinterop:]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React4j 0.120 released]]></title>
         <id>https://react4j.github.io/blog/2019/02/21/version-0.120-release.html</id>
