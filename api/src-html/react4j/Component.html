@@ -167,8 +167,8 @@
 <span class="sourceLineNo">159</span>          boolean newStateHasChanges = false;<a name="line.159"></a>
 <span class="sourceLineNo">160</span>          for ( final String key : JsObject.keys( Js.uncheckedCast( newState ) ) )<a name="line.160"></a>
 <span class="sourceLineNo">161</span>          {<a name="line.161"></a>
-<span class="sourceLineNo">162</span>            final Any newValue = currentState.getAny( key );<a name="line.162"></a>
-<span class="sourceLineNo">163</span>            final Any existingValue = newState.getAny( key );<a name="line.163"></a>
+<span class="sourceLineNo">162</span>            final Any newValue = currentState.getAsAny( key );<a name="line.162"></a>
+<span class="sourceLineNo">163</span>            final Any existingValue = newState.getAsAny( key );<a name="line.163"></a>
 <span class="sourceLineNo">164</span>            if ( !Objects.equals( newValue, existingValue ) )<a name="line.164"></a>
 <span class="sourceLineNo">165</span>            {<a name="line.165"></a>
 <span class="sourceLineNo">166</span>              newStateHasChanges = true;<a name="line.166"></a>
