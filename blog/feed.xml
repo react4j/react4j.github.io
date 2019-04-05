@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Thu, 21 Mar 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 05 Apr 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.123 released]]></title>
+            <link>https://react4j.github.io/blog/2019/04/05/version-0.123-release.html</link>
+            <guid>https://react4j.github.io/blog/2019/04/05/version-0.123-release.html</guid>
+            <pubDate>Fri, 05 Apr 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.122...v0.123)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.gir` artifact to version `0.08`.
+* **\[core\]** Use `const` rather than `let` for module import to avoid closure c]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.122 released]]></title>
             <link>https://react4j.github.io/blog/2019/03/21/version-0.122-release.html</link>
