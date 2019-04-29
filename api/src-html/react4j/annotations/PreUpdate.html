@@ -20,7 +20,7 @@
 <span class="sourceLineNo">012</span> *<a name="line.12"></a>
 <span class="sourceLineNo">013</span> * &lt;p&gt;This method is used to get access to the DOM prior to it being updated. This is useful if there is<a name="line.13"></a>
 <span class="sourceLineNo">014</span> * state stored on the DOM that is not present in the VirtualDOM. The method annotated with {@link PreUpdate}<a name="line.14"></a>
-<span class="sourceLineNo">015</span> * can query the DOM and then apply the necessary changes in {@link PostRender}. Scroll position is an example<a name="line.15"></a>
+<span class="sourceLineNo">015</span> * can query the DOM and then apply the necessary changes in {@link PostMountOrUpdate}. Scroll position is an example<a name="line.15"></a>
 <span class="sourceLineNo">016</span> * of data stored on the DOM but not present in the VirtualDOM and implementing auto-scrolling to new content<a name="line.16"></a>
 <span class="sourceLineNo">017</span> * would require use of this lifecycle method to calculate the new offset.&lt;/p&gt;<a name="line.17"></a>
 <span class="sourceLineNo">018</span> *<a name="line.18"></a>

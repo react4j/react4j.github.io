@@ -101,7 +101,7 @@ public @interface <a href="../../src-html/react4j/annotations/PreUpdate.html#lin
 
  <p>This method is used to get access to the DOM prior to it being updated. This is useful if there is
  state stored on the DOM that is not present in the VirtualDOM. The method annotated with <a href="../../react4j/annotations/PreUpdate.html" title="annotation in react4j.annotations"><code>PreUpdate</code></a>
- can query the DOM and then apply the necessary changes in <a href="../../react4j/annotations/PostRender.html" title="annotation in react4j.annotations"><code>PostRender</code></a>. Scroll position is an example
+ can query the DOM and then apply the necessary changes in <a href="../../react4j/annotations/PostMountOrUpdate.html" title="annotation in react4j.annotations"><code>PostMountOrUpdate</code></a>. Scroll position is an example
  of data stored on the DOM but not present in the VirtualDOM and implementing auto-scrolling to new content
  would require use of this lifecycle method to calculate the new offset.</p>
 
