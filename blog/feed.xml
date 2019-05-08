@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Fri, 03 May 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 08 May 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.128 released]]></title>
+            <link>https://react4j.github.io/blog/2019/05/08/version-0.128-release.html</link>
+            <guid>https://react4j.github.io/blog/2019/05/08/version-0.128-release.html</guid>
+            <pubDate>Wed, 08 May 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.127...v0.128)
+
+Changes in this release:
+
+* Explicitly specify the name of the `CssProps.zIndex` property as jsinterop was incorrectly identifying the
+  native property as `ZIndex`.]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.127 released]]></title>
             <link>https://react4j.github.io/blog/2019/05/03/version-0.127-release.html</link>
