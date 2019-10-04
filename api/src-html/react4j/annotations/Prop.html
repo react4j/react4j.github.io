@@ -104,18 +104,19 @@
 <span class="sourceLineNo">096</span>   * &lt;li&gt;primitive types (i.e. boolean, short etc) and their corresponding boxed types (i.e. {@link java.lang.Boolean}, {@link java.lang.Short} etc).&lt;/li&gt;<a name="line.96"></a>
 <span class="sourceLineNo">097</span>   * &lt;li&gt;the {@link java.lang.String} type&lt;/li&gt;<a name="line.97"></a>
 <span class="sourceLineNo">098</span>   * &lt;li&gt;any class that is annotated with {@link ArezComponent} where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;<a name="line.98"></a>
-<span class="sourceLineNo">099</span>   * &lt;li&gt;any class that implements {@link Keyed}&lt;/li&gt;<a name="line.99"></a>
-<span class="sourceLineNo">100</span>   * &lt;/ul&gt;<a name="line.100"></a>
-<span class="sourceLineNo">101</span>   *<a name="line.101"></a>
-<span class="sourceLineNo">102</span>   * &lt;p&gt;In the future, the annotation processor may include additional allowable types such as those that implement<a name="line.102"></a>
-<span class="sourceLineNo">103</span>   * {@link arez.component.Identifiable} directly or other primitive types within the runtime library. These other<a name="line.103"></a>
-<span class="sourceLineNo">104</span>   * types will be added if demand is established, othewise an additional hook will be added to allow users to<a name="line.104"></a>
-<span class="sourceLineNo">105</span>   * customize key generation using a static method on the component. &lt;/p&gt;<a name="line.105"></a>
-<span class="sourceLineNo">106</span>   *<a name="line.106"></a>
-<span class="sourceLineNo">107</span>   * @return true if changing the prop recreates the component.<a name="line.107"></a>
-<span class="sourceLineNo">108</span>   */<a name="line.108"></a>
-<span class="sourceLineNo">109</span>  boolean immutable() default false;<a name="line.109"></a>
-<span class="sourceLineNo">110</span>}<a name="line.110"></a>
+<span class="sourceLineNo">099</span>   * &lt;li&gt;any class or interface that is annotated with {@link arez.annotations.ActAsComponent}. It is assumed that every implementation is an Arez component where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;<a name="line.99"></a>
+<span class="sourceLineNo">100</span>   * &lt;li&gt;any class that implements {@link Keyed}&lt;/li&gt;<a name="line.100"></a>
+<span class="sourceLineNo">101</span>   * &lt;/ul&gt;<a name="line.101"></a>
+<span class="sourceLineNo">102</span>   *<a name="line.102"></a>
+<span class="sourceLineNo">103</span>   * &lt;p&gt;In the future, the annotation processor may include additional allowable types such as those that implement<a name="line.103"></a>
+<span class="sourceLineNo">104</span>   * {@link arez.component.Identifiable} directly or other primitive types within the runtime library. These other<a name="line.104"></a>
+<span class="sourceLineNo">105</span>   * types will be added if demand is established, othewise an additional hook will be added to allow users to<a name="line.105"></a>
+<span class="sourceLineNo">106</span>   * customize key generation using a static method on the component. &lt;/p&gt;<a name="line.106"></a>
+<span class="sourceLineNo">107</span>   *<a name="line.107"></a>
+<span class="sourceLineNo">108</span>   * @return true if changing the prop recreates the component.<a name="line.108"></a>
+<span class="sourceLineNo">109</span>   */<a name="line.109"></a>
+<span class="sourceLineNo">110</span>  boolean immutable() default false;<a name="line.110"></a>
+<span class="sourceLineNo">111</span>}<a name="line.111"></a>
 
 
 
