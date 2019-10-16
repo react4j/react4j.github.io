@@ -107,7 +107,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public final class <a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.16">IntrospectUtil</a>
+<pre>@OmitType(unless="react4j.store_debug_data_as_state")
+public final class <a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.18">IntrospectUtil</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Utilities for introspecting the Arez components and runtime.</div>
 </li>
@@ -170,7 +171,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>getValue</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.31">getValue</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.33">getValue</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                         <a href="https://arez.github.io/api/arez/spy/ObservableValueInfo.html?is-external=true" title="class or interface in arez.spy">ObservableValueInfo</a>&nbsp;observableInfo)</pre>
 <div class="block">Return the value for specified observable.
  Exceptions are caught and types are converted to strings using <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang"><code>Object.toString()</code></a></div>
@@ -188,7 +189,7 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 <ul class="blockListLast">
 <li class="blockList">
 <h4>collectDependencyDebugData</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.102">collectDependencyDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public static&nbsp;void&nbsp;<a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.104">collectDependencyDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               <a href="https://arez.github.io/api/arez/Observer.html?is-external=true" title="class or interface in arez">Observer</a>&nbsp;observer,
                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;data)</pre>

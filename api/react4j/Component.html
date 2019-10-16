@@ -325,7 +325,8 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 <ul class="blockList">
 <li class="blockList">
 <h4>storeDebugDataAsState</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.123">storeDebugDataAsState</a>()</pre>
+<pre>@OmitSymbol(unless="react4j.store_debug_data_as_state")
+protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.124">storeDebugDataAsState</a>()</pre>
 <div class="block">Store debug data on the state object of the native component.
  This is only done if <a href="../react4j/React.html#shouldStoreDebugDataAsState--"><code>React.shouldStoreDebugDataAsState()</code></a> returns true and is primarily
  done to make it easy to debug the component from within React DevTools.</div>
@@ -338,7 +339,7 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 <li class="blockList">
 <h4>getComponentId</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/ComponentIdRef.html?is-external=true" title="class or interface in arez.annotations">@ComponentIdRef</a>
-protected abstract&nbsp;int&nbsp;<a href="../src-html/react4j/Component.html#line.191">getComponentId</a>()</pre>
+protected abstract&nbsp;int&nbsp;<a href="../src-html/react4j/Component.html#line.192">getComponentId</a>()</pre>
 <div class="block">Return the unique identifier of component according to Arez.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -353,7 +354,7 @@ protected abstract&nbsp;int&nbsp;<a href="../src-html/react4j/Component.html#lin
 <li class="blockList">
 <h4>getComponentName</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/ComponentNameRef.html?is-external=true" title="class or interface in arez.annotations">@ComponentNameRef</a>
-protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/react4j/Component.html#line.199">getComponentName</a>()</pre>
+protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/react4j/Component.html#line.200">getComponentName</a>()</pre>
 <div class="block">Return the name of the component according to Arez.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -367,8 +368,9 @@ protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/
 <ul class="blockListLast">
 <li class="blockList">
 <h4>populateDebugData</h4>
-<pre>protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.206">populateDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                 jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;data)</pre>
+<pre>@OmitSymbol(unless="react4j.store_debug_data_as_state")
+protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.208">populateDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;data)</pre>
 <div class="block">Populate the state parameter with any data that is useful when debugging the component.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
