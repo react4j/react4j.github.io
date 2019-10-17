@@ -68,7 +68,8 @@
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
 <div class="header">
-<p>@OmitPattern(type="^react4j\\.[^\\.]+$",
+<p>@OmitPattern(type="^react4j\\.[^\\.]+$",symbol="^\\$clinit$") @OmitPattern(type="^.*\\.React4j_[^\\.]+$",symbol="^\\$clinit$")
+ @KeepPattern(type="^.*\\.React4j_[^\\.]+\\$Factory$",
              symbol="^\\$clinit$")
 </p>
 <h1 title="Package" class="title">Package&nbsp;react4j</h1>
