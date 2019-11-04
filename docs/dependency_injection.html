@@ -59,8 +59,8 @@ The infrastructure looks like:</p>
     }
   }
 
-  <span class="hljs-meta">@Subcomponent</span>( modules = DaggerModule.class )
-  <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">DaggerSubcomponent</span>
+  <span class="hljs-meta">@Subcomponent</span>( modules = DaggerModule<span class="hljs-class">.<span class="hljs-keyword">class</span> )
+  <span class="hljs-title">interface</span> <span class="hljs-title">DaggerSubcomponent</span>
   </span>{
     <span class="hljs-function">Provider&lt;Component&gt; <span class="hljs-title">createProvider</span><span class="hljs-params">()</span></span>;
 
@@ -73,8 +73,8 @@ The infrastructure looks like:</p>
 <p>Integration into a dagger component is as simple as extending the <code>[ComponentName]DaggerFactory</code>. This results
 in a dagger component like:</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@Singleton</span>
-<span class="hljs-meta">@Component</span>( modules = { SomeDaggerModule.class } )
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ExampleDaggerComponent</span>
+<span class="hljs-meta">@Component</span>( modules = { SomeDaggerModule<span class="hljs-class">.<span class="hljs-keyword">class</span> } )
+<span class="hljs-title">public</span> <span class="hljs-title">interface</span> <span class="hljs-title">ExampleDaggerComponent</span>
   <span class="hljs-keyword">extends</span> <span class="hljs-title">MyComponentDaggerFactory</span>
 </span>{
 }</code></pre></p>
