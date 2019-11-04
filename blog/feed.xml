@@ -14,6 +14,18 @@
         </image>
         <copyright>Copyright © 2019 the React4j Project</copyright>
         <item>
+            <title><![CDATA[React4j 0.137 released]]></title>
+            <link>https://react4j.github.io/blog/2019/11/04/version-0.137-release.html</link>
+            <guid>https://react4j.github.io/blog/2019/11/04/version-0.137-release.html</guid>
+            <pubDate>Mon, 04 Nov 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.136...v0.137)
+[API Differences](https://react4j.github.io/api-diff?key=react4j&old=0.136&new=0.137)
+
+Changes in this release:
+
+* Update the `ReactDOM.render(...)` method so that it always]]></description>
+        </item>
+        <item>
             <title><![CDATA[React4j 0.136 released]]></title>
             <link>https://react4j.github.io/blog/2019/11/04/version-0.136-release.html</link>
             <guid>https://react4j.github.io/blog/2019/11/04/version-0.136-release.html</guid>
