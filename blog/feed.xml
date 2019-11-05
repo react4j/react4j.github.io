@@ -14,6 +14,19 @@
         </image>
         <copyright>Copyright © 2019 the React4j Project</copyright>
         <item>
+            <title><![CDATA[React4j 0.139 released]]></title>
+            <link>https://react4j.github.io/blog/2019/11/05/version-0.139-release.html</link>
+            <guid>https://react4j.github.io/blog/2019/11/05/version-0.139-release.html</guid>
+            <pubDate>Tue, 05 Nov 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.138...v0.139)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.arez` artifacts to version `0.153`.
+* Upgrade the `org.realityforge.gir` artifact to version `0.11`.
+* Add some ad]]></description>
+        </item>
+        <item>
             <title><![CDATA[React4j 0.138 released]]></title>
             <link>https://react4j.github.io/blog/2019/11/05/version-0.138-release.html</link>
             <guid>https://react4j.github.io/blog/2019/11/05/version-0.138-release.html</guid>
