@@ -1357,84 +1357,83 @@
 <span class="sourceLineNo">1349</span>                                              @Nonnull final String name )<a name="line.1349"></a>
 <span class="sourceLineNo">1350</span>  {<a name="line.1350"></a>
 <span class="sourceLineNo">1351</span>    return methods.stream()<a name="line.1351"></a>
-<span class="sourceLineNo">1352</span>      .noneMatch( m -&gt; null != ProcessorUtil.findAnnotationByType( m,<a name="line.1352"></a>
-<span class="sourceLineNo">1353</span>                                                                   Constants.PRIORITY_OVERRIDE_ANNOTATION_CLASSNAME ) &amp;&amp;<a name="line.1353"></a>
-<span class="sourceLineNo">1354</span>                       name.equals( derivePriorityOverrideName( m ) ) );<a name="line.1354"></a>
-<span class="sourceLineNo">1355</span>  }<a name="line.1355"></a>
-<span class="sourceLineNo">1356</span><a name="line.1356"></a>
-<span class="sourceLineNo">1357</span>  @Nonnull<a name="line.1357"></a>
-<span class="sourceLineNo">1358</span>  private String deriveMemoizeName( @Nonnull final ExecutableElement method )<a name="line.1358"></a>
-<span class="sourceLineNo">1359</span>    throws ReactProcessorException<a name="line.1359"></a>
-<span class="sourceLineNo">1360</span>  {<a name="line.1360"></a>
-<span class="sourceLineNo">1361</span>    final String name =<a name="line.1361"></a>
-<span class="sourceLineNo">1362</span>      (String) ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1362"></a>
-<span class="sourceLineNo">1363</span>                                                 method,<a name="line.1363"></a>
-<span class="sourceLineNo">1364</span>                                                 Constants.MEMOIZE_ANNOTATION_CLASSNAME,<a name="line.1364"></a>
-<span class="sourceLineNo">1365</span>                                                 "name" ).getValue();<a name="line.1365"></a>
-<span class="sourceLineNo">1366</span>    return ProcessorUtil.isSentinelName( name ) ? ProcessorUtil.getPropertyAccessorName( method, name ) : name;<a name="line.1366"></a>
-<span class="sourceLineNo">1367</span>  }<a name="line.1367"></a>
-<span class="sourceLineNo">1368</span><a name="line.1368"></a>
-<span class="sourceLineNo">1369</span>  @Nonnull<a name="line.1369"></a>
-<span class="sourceLineNo">1370</span>  private String derivePriorityOverrideName( @Nonnull final ExecutableElement method )<a name="line.1370"></a>
-<span class="sourceLineNo">1371</span>  {<a name="line.1371"></a>
-<span class="sourceLineNo">1372</span>    final String declaredName =<a name="line.1372"></a>
-<span class="sourceLineNo">1373</span>      (String) ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1373"></a>
-<span class="sourceLineNo">1374</span>                                                 method,<a name="line.1374"></a>
-<span class="sourceLineNo">1375</span>                                                 Constants.PRIORITY_OVERRIDE_ANNOTATION_CLASSNAME,<a name="line.1375"></a>
-<span class="sourceLineNo">1376</span>                                                 "name" ).getValue();<a name="line.1376"></a>
-<span class="sourceLineNo">1377</span>    if ( ProcessorUtil.isSentinelName( declaredName ) )<a name="line.1377"></a>
-<span class="sourceLineNo">1378</span>    {<a name="line.1378"></a>
-<span class="sourceLineNo">1379</span>      final String name = ProcessorUtil.deriveName( method, ProcessorUtil.PRIORITY_OVERRIDE_PATTERN, declaredName );<a name="line.1379"></a>
-<span class="sourceLineNo">1380</span>      assert null != name;<a name="line.1380"></a>
-<span class="sourceLineNo">1381</span>      return name;<a name="line.1381"></a>
-<span class="sourceLineNo">1382</span>    }<a name="line.1382"></a>
-<span class="sourceLineNo">1383</span>    else<a name="line.1383"></a>
-<span class="sourceLineNo">1384</span>    {<a name="line.1384"></a>
-<span class="sourceLineNo">1385</span>      return declaredName;<a name="line.1385"></a>
-<span class="sourceLineNo">1386</span>    }<a name="line.1386"></a>
-<span class="sourceLineNo">1387</span>  }<a name="line.1387"></a>
-<span class="sourceLineNo">1388</span><a name="line.1388"></a>
-<span class="sourceLineNo">1389</span>  private void verifyNoDuplicateAnnotations( @Nonnull final ExecutableElement method )<a name="line.1389"></a>
-<span class="sourceLineNo">1390</span>    throws ReactProcessorException<a name="line.1390"></a>
-<span class="sourceLineNo">1391</span>  {<a name="line.1391"></a>
-<span class="sourceLineNo">1392</span>    final String[] annotationTypes =<a name="line.1392"></a>
-<span class="sourceLineNo">1393</span>      new String[]{ Constants.PROP_DEFAULT_ANNOTATION_CLASSNAME,<a name="line.1393"></a>
-<span class="sourceLineNo">1394</span>                    Constants.PROP_VALIDATE_ANNOTATION_CLASSNAME,<a name="line.1394"></a>
-<span class="sourceLineNo">1395</span>                    Constants.ON_PROP_CHANGE_ANNOTATION_CLASSNAME,<a name="line.1395"></a>
-<span class="sourceLineNo">1396</span>                    Constants.PROP_ANNOTATION_CLASSNAME };<a name="line.1396"></a>
-<span class="sourceLineNo">1397</span>    for ( int i = 0; i &lt; annotationTypes.length; i++ )<a name="line.1397"></a>
-<span class="sourceLineNo">1398</span>    {<a name="line.1398"></a>
-<span class="sourceLineNo">1399</span>      final String type1 = annotationTypes[ i ];<a name="line.1399"></a>
-<span class="sourceLineNo">1400</span>      final Object annotation1 = ProcessorUtil.findAnnotationByType( method, type1 );<a name="line.1400"></a>
-<span class="sourceLineNo">1401</span>      if ( null != annotation1 )<a name="line.1401"></a>
-<span class="sourceLineNo">1402</span>      {<a name="line.1402"></a>
-<span class="sourceLineNo">1403</span>        for ( int j = i + 1; j &lt; annotationTypes.length; j++ )<a name="line.1403"></a>
-<span class="sourceLineNo">1404</span>        {<a name="line.1404"></a>
-<span class="sourceLineNo">1405</span>          final String type2 = annotationTypes[ j ];<a name="line.1405"></a>
-<span class="sourceLineNo">1406</span>          final Object annotation2 = ProcessorUtil.findAnnotationByType( method, type2 );<a name="line.1406"></a>
-<span class="sourceLineNo">1407</span>          if ( null != annotation2 )<a name="line.1407"></a>
-<span class="sourceLineNo">1408</span>          {<a name="line.1408"></a>
-<span class="sourceLineNo">1409</span>            final String message =<a name="line.1409"></a>
-<span class="sourceLineNo">1410</span>              "Method can not be annotated with both @" + ProcessorUtil.toSimpleName( type1 ) +<a name="line.1410"></a>
-<span class="sourceLineNo">1411</span>              " and @" + ProcessorUtil.toSimpleName( type2 );<a name="line.1411"></a>
-<span class="sourceLineNo">1412</span>            throw new ReactProcessorException( message, method );<a name="line.1412"></a>
-<span class="sourceLineNo">1413</span>          }<a name="line.1413"></a>
-<span class="sourceLineNo">1414</span>        }<a name="line.1414"></a>
-<span class="sourceLineNo">1415</span>      }<a name="line.1415"></a>
-<span class="sourceLineNo">1416</span>    }<a name="line.1416"></a>
-<span class="sourceLineNo">1417</span>  }<a name="line.1417"></a>
-<span class="sourceLineNo">1418</span><a name="line.1418"></a>
-<span class="sourceLineNo">1419</span>  @Nonnull<a name="line.1419"></a>
-<span class="sourceLineNo">1420</span>  private List&lt;ExecutableElement&gt; getMethods( @Nonnull final TypeElement typeElement )<a name="line.1420"></a>
-<span class="sourceLineNo">1421</span>  {<a name="line.1421"></a>
-<span class="sourceLineNo">1422</span>    return ProcessorUtil.getMethods( typeElement, processingEnv.getTypeUtils() );<a name="line.1422"></a>
-<span class="sourceLineNo">1423</span>  }<a name="line.1423"></a>
-<span class="sourceLineNo">1424</span><a name="line.1424"></a>
-<span class="sourceLineNo">1425</span>  private boolean isArezAnnotation( @Nonnull final String classname )<a name="line.1425"></a>
-<span class="sourceLineNo">1426</span>  {<a name="line.1426"></a>
-<span class="sourceLineNo">1427</span>    return classname.startsWith( "arez.annotations." );<a name="line.1427"></a>
-<span class="sourceLineNo">1428</span>  }<a name="line.1428"></a>
-<span class="sourceLineNo">1429</span>}<a name="line.1429"></a>
+<span class="sourceLineNo">1352</span>      .noneMatch( m -&gt; ProcessorUtil.hasAnnotationOfType( m, Constants.PRIORITY_OVERRIDE_ANNOTATION_CLASSNAME ) &amp;&amp;<a name="line.1352"></a>
+<span class="sourceLineNo">1353</span>                       name.equals( derivePriorityOverrideName( m ) ) );<a name="line.1353"></a>
+<span class="sourceLineNo">1354</span>  }<a name="line.1354"></a>
+<span class="sourceLineNo">1355</span><a name="line.1355"></a>
+<span class="sourceLineNo">1356</span>  @Nonnull<a name="line.1356"></a>
+<span class="sourceLineNo">1357</span>  private String deriveMemoizeName( @Nonnull final ExecutableElement method )<a name="line.1357"></a>
+<span class="sourceLineNo">1358</span>    throws ReactProcessorException<a name="line.1358"></a>
+<span class="sourceLineNo">1359</span>  {<a name="line.1359"></a>
+<span class="sourceLineNo">1360</span>    final String name =<a name="line.1360"></a>
+<span class="sourceLineNo">1361</span>      (String) ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1361"></a>
+<span class="sourceLineNo">1362</span>                                                 method,<a name="line.1362"></a>
+<span class="sourceLineNo">1363</span>                                                 Constants.MEMOIZE_ANNOTATION_CLASSNAME,<a name="line.1363"></a>
+<span class="sourceLineNo">1364</span>                                                 "name" ).getValue();<a name="line.1364"></a>
+<span class="sourceLineNo">1365</span>    return ProcessorUtil.isSentinelName( name ) ? ProcessorUtil.getPropertyAccessorName( method, name ) : name;<a name="line.1365"></a>
+<span class="sourceLineNo">1366</span>  }<a name="line.1366"></a>
+<span class="sourceLineNo">1367</span><a name="line.1367"></a>
+<span class="sourceLineNo">1368</span>  @Nonnull<a name="line.1368"></a>
+<span class="sourceLineNo">1369</span>  private String derivePriorityOverrideName( @Nonnull final ExecutableElement method )<a name="line.1369"></a>
+<span class="sourceLineNo">1370</span>  {<a name="line.1370"></a>
+<span class="sourceLineNo">1371</span>    final String declaredName =<a name="line.1371"></a>
+<span class="sourceLineNo">1372</span>      (String) ProcessorUtil.getAnnotationValue( processingEnv.getElementUtils(),<a name="line.1372"></a>
+<span class="sourceLineNo">1373</span>                                                 method,<a name="line.1373"></a>
+<span class="sourceLineNo">1374</span>                                                 Constants.PRIORITY_OVERRIDE_ANNOTATION_CLASSNAME,<a name="line.1374"></a>
+<span class="sourceLineNo">1375</span>                                                 "name" ).getValue();<a name="line.1375"></a>
+<span class="sourceLineNo">1376</span>    if ( ProcessorUtil.isSentinelName( declaredName ) )<a name="line.1376"></a>
+<span class="sourceLineNo">1377</span>    {<a name="line.1377"></a>
+<span class="sourceLineNo">1378</span>      final String name = ProcessorUtil.deriveName( method, ProcessorUtil.PRIORITY_OVERRIDE_PATTERN, declaredName );<a name="line.1378"></a>
+<span class="sourceLineNo">1379</span>      assert null != name;<a name="line.1379"></a>
+<span class="sourceLineNo">1380</span>      return name;<a name="line.1380"></a>
+<span class="sourceLineNo">1381</span>    }<a name="line.1381"></a>
+<span class="sourceLineNo">1382</span>    else<a name="line.1382"></a>
+<span class="sourceLineNo">1383</span>    {<a name="line.1383"></a>
+<span class="sourceLineNo">1384</span>      return declaredName;<a name="line.1384"></a>
+<span class="sourceLineNo">1385</span>    }<a name="line.1385"></a>
+<span class="sourceLineNo">1386</span>  }<a name="line.1386"></a>
+<span class="sourceLineNo">1387</span><a name="line.1387"></a>
+<span class="sourceLineNo">1388</span>  private void verifyNoDuplicateAnnotations( @Nonnull final ExecutableElement method )<a name="line.1388"></a>
+<span class="sourceLineNo">1389</span>    throws ReactProcessorException<a name="line.1389"></a>
+<span class="sourceLineNo">1390</span>  {<a name="line.1390"></a>
+<span class="sourceLineNo">1391</span>    final String[] annotationTypes =<a name="line.1391"></a>
+<span class="sourceLineNo">1392</span>      new String[]{ Constants.PROP_DEFAULT_ANNOTATION_CLASSNAME,<a name="line.1392"></a>
+<span class="sourceLineNo">1393</span>                    Constants.PROP_VALIDATE_ANNOTATION_CLASSNAME,<a name="line.1393"></a>
+<span class="sourceLineNo">1394</span>                    Constants.ON_PROP_CHANGE_ANNOTATION_CLASSNAME,<a name="line.1394"></a>
+<span class="sourceLineNo">1395</span>                    Constants.PROP_ANNOTATION_CLASSNAME };<a name="line.1395"></a>
+<span class="sourceLineNo">1396</span>    for ( int i = 0; i &lt; annotationTypes.length; i++ )<a name="line.1396"></a>
+<span class="sourceLineNo">1397</span>    {<a name="line.1397"></a>
+<span class="sourceLineNo">1398</span>      final String type1 = annotationTypes[ i ];<a name="line.1398"></a>
+<span class="sourceLineNo">1399</span>      final Object annotation1 = ProcessorUtil.findAnnotationByType( method, type1 );<a name="line.1399"></a>
+<span class="sourceLineNo">1400</span>      if ( null != annotation1 )<a name="line.1400"></a>
+<span class="sourceLineNo">1401</span>      {<a name="line.1401"></a>
+<span class="sourceLineNo">1402</span>        for ( int j = i + 1; j &lt; annotationTypes.length; j++ )<a name="line.1402"></a>
+<span class="sourceLineNo">1403</span>        {<a name="line.1403"></a>
+<span class="sourceLineNo">1404</span>          final String type2 = annotationTypes[ j ];<a name="line.1404"></a>
+<span class="sourceLineNo">1405</span>          final Object annotation2 = ProcessorUtil.findAnnotationByType( method, type2 );<a name="line.1405"></a>
+<span class="sourceLineNo">1406</span>          if ( null != annotation2 )<a name="line.1406"></a>
+<span class="sourceLineNo">1407</span>          {<a name="line.1407"></a>
+<span class="sourceLineNo">1408</span>            final String message =<a name="line.1408"></a>
+<span class="sourceLineNo">1409</span>              "Method can not be annotated with both @" + ProcessorUtil.toSimpleName( type1 ) +<a name="line.1409"></a>
+<span class="sourceLineNo">1410</span>              " and @" + ProcessorUtil.toSimpleName( type2 );<a name="line.1410"></a>
+<span class="sourceLineNo">1411</span>            throw new ReactProcessorException( message, method );<a name="line.1411"></a>
+<span class="sourceLineNo">1412</span>          }<a name="line.1412"></a>
+<span class="sourceLineNo">1413</span>        }<a name="line.1413"></a>
+<span class="sourceLineNo">1414</span>      }<a name="line.1414"></a>
+<span class="sourceLineNo">1415</span>    }<a name="line.1415"></a>
+<span class="sourceLineNo">1416</span>  }<a name="line.1416"></a>
+<span class="sourceLineNo">1417</span><a name="line.1417"></a>
+<span class="sourceLineNo">1418</span>  @Nonnull<a name="line.1418"></a>
+<span class="sourceLineNo">1419</span>  private List&lt;ExecutableElement&gt; getMethods( @Nonnull final TypeElement typeElement )<a name="line.1419"></a>
+<span class="sourceLineNo">1420</span>  {<a name="line.1420"></a>
+<span class="sourceLineNo">1421</span>    return ProcessorUtil.getMethods( typeElement, processingEnv.getTypeUtils() );<a name="line.1421"></a>
+<span class="sourceLineNo">1422</span>  }<a name="line.1422"></a>
+<span class="sourceLineNo">1423</span><a name="line.1423"></a>
+<span class="sourceLineNo">1424</span>  private boolean isArezAnnotation( @Nonnull final String classname )<a name="line.1424"></a>
+<span class="sourceLineNo">1425</span>  {<a name="line.1425"></a>
+<span class="sourceLineNo">1426</span>    return classname.startsWith( "arez.annotations." );<a name="line.1426"></a>
+<span class="sourceLineNo">1427</span>  }<a name="line.1427"></a>
+<span class="sourceLineNo">1428</span>}<a name="line.1428"></a>
 
 
 
