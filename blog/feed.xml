@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Tue, 05 Nov 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 11 Nov 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2019 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.140 released]]></title>
+            <link>https://react4j.github.io/blog/2019/11/11/version-0.140-release.html</link>
+            <guid>https://react4j.github.io/blog/2019/11/11/version-0.140-release.html</guid>
+            <pubDate>Mon, 11 Nov 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.139...v0.140)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.arez` artifacts to version `0.154`.
+* Declare the originating types for generated `*Builder` class to make it easi]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.139 released]]></title>
             <link>https://react4j.github.io/blog/2019/11/05/version-0.139-release.html</link>
