@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public abstract class <a href="../src-html/react4j/Component.html#line.20">Component</a>
+<pre>public abstract class <a href="../src-html/react4j/Component.html#line.21">Component</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">The base java class that mirrors the react component.</div>
 </li>
@@ -227,7 +227,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Component</h4>
-<pre>public&nbsp;<a href="../src-html/react4j/Component.html#line.20">Component</a>()</pre>
+<pre>public&nbsp;<a href="../src-html/react4j/Component.html#line.21">Component</a>()</pre>
 </li>
 </ul>
 </li>
@@ -244,7 +244,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>bindComponent</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.38">bindComponent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.39">bindComponent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                    <a href="../react4j/internal/NativeComponent.html" title="class in react4j.internal">NativeComponent</a>&nbsp;nativeComponent)</pre>
 <div class="block">Bind the native react component to this component.
  This should not be called by user code and is instead invoked by the generated component class.</div>
@@ -260,7 +260,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>props</h4>
-<pre>protected final&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;<a href="../src-html/react4j/Component.html#line.71">props</a>()</pre>
+<pre>protected final&nbsp;jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;<a href="../src-html/react4j/Component.html#line.72">props</a>()</pre>
 <div class="block">Return the component props from the native component.
  This may be null if no props were supplied.</div>
 <dl>
@@ -275,7 +275,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>scheduleRender</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.82">scheduleRender</a>()</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.83">scheduleRender</a>()</pre>
 <div class="block">Schedule this component for re-rendering skipping the <code>shouldComponentUpdate()</code> lifecycle method.
  This is equivalent to calling <a href="../react4j/Component.html#scheduleRender-boolean-"><code>scheduleRender(boolean)</code></a> passing a <code>true</code> value.</div>
 <dl>
@@ -290,7 +290,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>scheduleRender</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.97">scheduleRender</a>(boolean&nbsp;force)</pre>
+<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.98">scheduleRender</a>(boolean&nbsp;force)</pre>
 <div class="block">Schedule this component for re-rendering.
  The component re-renders when props change but calling this method is another way to schedule the
  component to be re-rendered. When this method is called the <code>shouldComponentUpdate()</code>
@@ -310,7 +310,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.116">render</a>()</pre>
+protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.117">render</a>()</pre>
 <div class="block">Render the component.
  See the <a href="https://reactjs.org/docs/react-component.html#render">React Component documentation</a> for more details.</div>
 <dl>
@@ -326,7 +326,7 @@ protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in 
 <li class="blockList">
 <h4>storeDebugDataAsState</h4>
 <pre>@OmitSymbol(unless="react4j.store_debug_data_as_state")
-protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.124">storeDebugDataAsState</a>()</pre>
+protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.125">storeDebugDataAsState</a>()</pre>
 <div class="block">Store debug data on the state object of the native component.
  This is only done if <a href="../react4j/React.html#shouldStoreDebugDataAsState--"><code>React.shouldStoreDebugDataAsState()</code></a> returns true and is primarily
  done to make it easy to debug the component from within React DevTools.</div>
@@ -339,7 +339,7 @@ protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.
 <li class="blockList">
 <h4>getComponentId</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/ComponentIdRef.html?is-external=true" title="class or interface in arez.annotations">@ComponentIdRef</a>
-protected abstract&nbsp;int&nbsp;<a href="../src-html/react4j/Component.html#line.192">getComponentId</a>()</pre>
+protected abstract&nbsp;int&nbsp;<a href="../src-html/react4j/Component.html#line.195">getComponentId</a>()</pre>
 <div class="block">Return the unique identifier of component according to Arez.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -354,7 +354,7 @@ protected abstract&nbsp;int&nbsp;<a href="../src-html/react4j/Component.html#lin
 <li class="blockList">
 <h4>getComponentName</h4>
 <pre><a href="https://arez.github.io/api/arez/annotations/ComponentNameRef.html?is-external=true" title="class or interface in arez.annotations">@ComponentNameRef</a>
-protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/react4j/Component.html#line.200">getComponentName</a>()</pre>
+protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../src-html/react4j/Component.html#line.203">getComponentName</a>()</pre>
 <div class="block">Return the name of the component according to Arez.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -369,7 +369,7 @@ protected abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/
 <li class="blockList">
 <h4>populateDebugData</h4>
 <pre>@OmitSymbol(unless="react4j.store_debug_data_as_state")
-protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.208">populateDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+protected&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.211">populateDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                                                          jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;data)</pre>
 <div class="block">Populate the state parameter with any data that is useful when debugging the component.</div>
 <dl>
