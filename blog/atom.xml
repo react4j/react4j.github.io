@@ -2,12 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://react4j.github.io/blog</id>
     <title>React4j Blog</title>
-    <updated>2019-11-12T06:00:00Z</updated>
+    <updated>2019-11-20T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://react4j.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest React4j news and events.</subtitle>
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2019 the React4j Project</rights>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.142 released]]></title>
+        <id>https://react4j.github.io/blog/2019/11/20/version-0.142-release.html</id>
+        <link href="https://react4j.github.io/blog/2019/11/20/version-0.142-release.html">
+        </link>
+        <updated>2019-11-20T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.141...v0.142)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.arez` artifacts to version `0.155`.
+* If a React4j component has a `@Memoize` or `@Observe` annotated method other]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React4j 0.141 released]]></title>
         <id>https://react4j.github.io/blog/2019/11/12/version-0.141-release.html</id>
