@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/react4j/annotations/PropValidate.html#line.26">PropValidate</a></pre>
+public @interface <a href="../../src-html/react4j/annotations/PropValidate.html#line.37">PropValidate</a></pre>
 <div class="block">Identifies method that is called when the prop value is specified or changes.
 
  <p>The method must also conform to the following constraints:</p>
@@ -107,6 +107,17 @@ public @interface <a href="../../src-html/react4j/annotations/PropValidate.html#
  <li>Must not be abstract</li>
  <li>Must not throw exceptions</li>
  <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a></li>
+ <li>
+   Should not be public as not expected to be invoked outside the component. A warning will be generated but can
+   be suppressed by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../react4j/annotations/SuppressReact4jWarnings.html" title="annotation in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key
+   "React4j:PublicMethod". This warning is also suppressed by the annotation processor if it is implementing
+   an interface method.
+ </li>
+ <li>
+   Should not be protected if in the class annotated with the <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a> annotation as the method is not
+   expected to be invoked outside the component. A warning will be generated but can be suppressed by the
+   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../react4j/annotations/SuppressReact4jWarnings.html" title="annotation in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key "React4j:ProtectedMethod".
+ </li>
  </ul></div>
 </li>
 </ul>
@@ -154,7 +165,7 @@ public @interface <a href="../../src-html/react4j/annotations/PropValidate.html#
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/PropValidate.html#line.35">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/PropValidate.html#line.46">name</a></pre>
 <div class="block">Return the name of the associated prop. If the value is not specified then the name
  will be derived assuming that the method name matches the pattern "validate[Name]"</div>
 <dl>
