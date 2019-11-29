@@ -93,7 +93,7 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/react4j/annotations/PostMount.html#line.27">PostMount</a></pre>
+public @interface <a href="../../src-html/react4j/annotations/PostMount.html#line.38">PostMount</a></pre>
 <div class="block">Identifies a method that is called after a component is mounted or attatched to the DOM.
  There must only be one method annotated with this annotation in a single component.
  This method is invoked in the "commit" phase using reacts <code>componentDidMount()</code> lifecycle method.
@@ -109,6 +109,17 @@ public @interface <a href="../../src-html/react4j/annotations/PostMount.html#lin
  <li>Must not be abstract</li>
  <li>Must not throw exceptions</li>
  <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a></li>
+ <li>
+   Should not be public as not expected to be invoked outside the component. A warning will be generated but can
+   be suppressed by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../react4j/annotations/SuppressReact4jWarnings.html" title="annotation in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key
+   "React4j:PublicMethod". This warning is also suppressed by the annotation processor if it is implementing
+   an interface method.
+ </li>
+ <li>
+   Should not be protected if in the class annotated with the <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a> annotation as the method is not
+   expected to be invoked outside the component. A warning will be generated but can be suppressed by the
+   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../react4j/annotations/SuppressReact4jWarnings.html" title="annotation in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key "React4j:ProtectedMethod".
+ </li>
  </ul></div>
 </li>
 </ul>
