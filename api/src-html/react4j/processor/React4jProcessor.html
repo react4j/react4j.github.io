@@ -90,12 +90,12 @@
 <span class="sourceLineNo">082</span>    final ComponentDescriptor descriptor = parse( element );<a name="line.82"></a>
 <span class="sourceLineNo">083</span>    final String packageName = descriptor.getPackageName();<a name="line.83"></a>
 <span class="sourceLineNo">084</span>    final Filer filer = processingEnv.getFiler();<a name="line.84"></a>
-<span class="sourceLineNo">085</span>    GeneratorUtil.emitJavaType( packageName, Generator.buildEnhancedComponent( processingEnv, descriptor ), filer );<a name="line.85"></a>
-<span class="sourceLineNo">086</span>    GeneratorUtil.emitJavaType( packageName, Generator.buildComponentBuilder( processingEnv, descriptor ), filer );<a name="line.86"></a>
+<span class="sourceLineNo">085</span>    GeneratorUtil.emitJavaType( packageName, ComponentGenerator.buildType( processingEnv, descriptor ), filer );<a name="line.85"></a>
+<span class="sourceLineNo">086</span>    GeneratorUtil.emitJavaType( packageName, BuilderGenerator.buildType( processingEnv, descriptor ), filer );<a name="line.86"></a>
 <span class="sourceLineNo">087</span>    if ( descriptor.needsInjection() )<a name="line.87"></a>
 <span class="sourceLineNo">088</span>    {<a name="line.88"></a>
 <span class="sourceLineNo">089</span>      GeneratorUtil.emitJavaType( packageName,<a name="line.89"></a>
-<span class="sourceLineNo">090</span>                                  Generator.buildDaggerComponentExtension( processingEnv, descriptor ),<a name="line.90"></a>
+<span class="sourceLineNo">090</span>                                  DaggerComponentExtensionGenerator.buildType( processingEnv, descriptor ),<a name="line.90"></a>
 <span class="sourceLineNo">091</span>                                  filer );<a name="line.91"></a>
 <span class="sourceLineNo">092</span>    }<a name="line.92"></a>
 <span class="sourceLineNo">093</span>  }<a name="line.93"></a>
