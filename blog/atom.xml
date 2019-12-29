@@ -2,12 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://react4j.github.io/blog</id>
     <title>React4j Blog</title>
-    <updated>2019-12-17T06:00:00Z</updated>
+    <updated>2019-12-29T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://react4j.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest React4j news and events.</subtitle>
     <logo>https://react4j.github.ioimg/logo.svg</logo>
     <rights>Copyright © 2019 the React4j Project</rights>
+    <entry>
+        <title type="html"><![CDATA[React4j 0.146 released]]></title>
+        <id>https://react4j.github.io/blog/2019/12/29/version-0.146-release.html</id>
+        <link href="https://react4j.github.io/blog/2019/12/29/version-0.146-release.html">
+        </link>
+        <updated>2019-12-29T06:00:00Z</updated>
+        <summary type="html"><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.145...v0.146)
+
+Changes in this release:
+
+* Rework the internals of the generated builder class to reduce code size in some limited scenarios.
+* Improve the code generation so that rather ]]></summary>
+        <author>
+            <name>React4j Project</name>
+            <uri>https://github.com/react4j</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React4j 0.145 released]]></title>
         <id>https://react4j.github.io/blog/2019/12/17/version-0.145-release.html</id>
