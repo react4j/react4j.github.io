@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Sun, 29 Dec 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Jan 2020 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2020 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.147 released]]></title>
+            <link>https://react4j.github.io/blog/2020/01/06/version-0.147-release.html</link>
+            <guid>https://react4j.github.io/blog/2020/01/06/version-0.147-release.html</guid>
+            <pubDate>Mon, 06 Jan 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.146...v0.147)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.proton` artifact to version `0.11`.
+* Upgrade the `org.realityforge.arez` artifacts to version `0.163`.]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.146 released]]></title>
             <link>https://react4j.github.io/blog/2019/12/29/version-0.146-release.html</link>
