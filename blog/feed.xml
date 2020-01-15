@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Mon, 06 Jan 2020 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 Jan 2020 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,19 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2020 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.148 released]]></title>
+            <link>https://react4j.github.io/blog/2020/01/15/version-0.148-release.html</link>
+            <guid>https://react4j.github.io/blog/2020/01/15/version-0.148-release.html</guid>
+            <pubDate>Wed, 15 Jan 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.147...v0.148)
+
+Changes in this release:
+
+* Upgrade the `com.squareup:javapoet` artifact to version `1.12.0`.
+* Upgrade the `org.realityforge.proton` artifacts to version `0.16`.
+* Upgrade]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.147 released]]></title>
             <link>https://react4j.github.io/blog/2020/01/06/version-0.147-release.html</link>
