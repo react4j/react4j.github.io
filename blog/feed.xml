@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Wed, 15 Jan 2020 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 03 Feb 2020 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,16 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2020 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.149 released]]></title>
+            <link>https://react4j.github.io/blog/2020/02/03/version-0.149-release.html</link>
+            <guid>https://react4j.github.io/blog/2020/02/03/version-0.149-release.html</guid>
+            <pubDate>Mon, 03 Feb 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.148...v0.149)
+[API Differences](https://react4j.github.io/api-diff?key=react4j&old=0.148&new=0.149)
+
+The release includes 2 non breaking API changes and 1 potentially breaking API change.]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.148 released]]></title>
             <link>https://react4j.github.io/blog/2020/01/15/version-0.148-release.html</link>
