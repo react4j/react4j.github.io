@@ -4,7 +4,7 @@
         <title>React4j Blog</title>
         <link>https://react4j.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest React4j news and events.</description>
-        <lastBuildDate>Mon, 17 Feb 2020 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 12 Mar 2020 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://react4j.github.io/blog</link>
         </image>
         <copyright>Copyright © 2020 the React4j Project</copyright>
+        <item>
+            <title><![CDATA[React4j 0.152 released]]></title>
+            <link>https://react4j.github.io/blog/2020/03/12/version-0.152-release.html</link>
+            <guid>https://react4j.github.io/blog/2020/03/12/version-0.152-release.html</guid>
+            <pubDate>Thu, 12 Mar 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[[Full Changelog](https://github.com/react4j/react4j/compare/v0.151...v0.152)
+[API Differences](https://react4j.github.io/api-diff?key=react4j&old=0.151&new=0.152)
+
+Changes in this release:
+
+* Upgrade the `org.realityforge.braincheck` artifact to vers]]></description>
+        </item>
         <item>
             <title><![CDATA[React4j 0.151 released]]></title>
             <link>https://react4j.github.io/blog/2020/02/17/version-0.151-release.html</link>
