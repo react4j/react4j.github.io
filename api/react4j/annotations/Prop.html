@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../react4j/annotations/PreUpdate.html" title="annotation in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../react4j/annotations/PropDefault.html" title="annotation in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../react4j/annotations/Prop.Source.html" title="enum in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?react4j/annotations/Prop.html" target="_top">Frames</a></li>
@@ -93,9 +93,10 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/react4j/annotations/Prop.html#line.41">Prop</a></pre>
+public @interface <a href="../../src-html/react4j/annotations/Prop.html#line.42">Prop</a></pre>
 <div class="block">Annotation used to specify an abstract method that returns a prop.
- The property is extracted from Reacts underlying props object.
+ The property is extracted from Reacts underlying props object. By default the prop is passed as
+ a value in when creating the component but it can also be retrieved from the react context.
 
  <p>The method that is annotated with this annotation must also comply with the following constraints:</p>
  <ul>
@@ -163,13 +164,19 @@ public @interface <a href="../../src-html/react4j/annotations/Prop.html#line.41"
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#require--">require</a></span></code>
-<div class="block">Return enum indicating whether prop should be when component is constructed.</div>
+<div class="block">Setting indicating whether the prop should be supplied when the component is constructed.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#shouldUpdateOnChange--">shouldUpdateOnChange</a></span></code>
 <div class="block">Indicate whether changing the value of the prop should schedule a re-render.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../react4j/annotations/Prop.Source.html" title="enum in react4j.annotations">Prop.Source</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Prop.html#source--">source</a></span></code>
+<div class="block">The setting controlling where the prop value is source from.</div>
 </td>
 </tr>
 </table>
@@ -194,7 +201,7 @@ public @interface <a href="../../src-html/react4j/annotations/Prop.html#line.41"
 <li class="blockList">
 <h4>name</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.52">name</a></pre>
+public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.53">name</a></pre>
 <div class="block">Return the name of the prop.
  If the underlying method conforms to java beans accessor conventions (i.e. starts with "is" and is a boolean
  or starts with "get") then the name is the same as the java bean convention dictates, otherwise the name of
@@ -212,20 +219,42 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </li>
 </ul>
 <ul class="blockList">
+<li class="blockList"><a name="source--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>source</h4>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Prop.Source.html" title="enum in react4j.annotations">Prop.Source</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.60">source</a></pre>
+<div class="block">The setting controlling where the prop value is source from.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the setting controlling where the prop value is source from.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>react4j.annotations.Prop.Source.DEFAULT</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a name="require--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>require</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.65">require</a></pre>
-<div class="block">Return enum indicating whether prop should be when component is constructed.
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.74">require</a></pre>
+<div class="block">Setting indicating whether the prop should be supplied when the component is constructed.
  This influences validation when enabled and how the Builder class is created.
  If set to <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then the user MUST supply the prop and the builder will require the user
  to specify the value. If set to <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a> then the user can optionally supply the prop.
  If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will treat it as <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>
- if there is a corresponding <a href="../../react4j/annotations/PropDefault.html" title="annotation in react4j.annotations"><code>PropDefault</code></a> for the prop, otherwise it will be treated as
- <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a>.</div>
+ if there is a corresponding <a href="../../react4j/annotations/PropDefault.html" title="annotation in react4j.annotations"><code>PropDefault</code></a> for the prop or the <a href="../../react4j/annotations/Prop.html#source--"><code>source()</code></a> parameter is set to
+ <a href="../../react4j/annotations/Prop.Source.html#CONTEXT"><code>Prop.Source.CONTEXT</code></a>, otherwise it will be treated as <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a>. The value of this setting
+ must not be <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> when <a href="../../react4j/annotations/Prop.html#source--"><code>source()</code></a> is set to <a href="../../react4j/annotations/Prop.Source.html#CONTEXT"><code>Prop.Source.CONTEXT</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the flag indicating whether the prop needs to be supplied.</dd>
@@ -245,7 +274,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>shouldUpdateOnChange</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.74">shouldUpdateOnChange</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.83">shouldUpdateOnChange</a></pre>
 <div class="block">Indicate whether changing the value of the prop should schedule a re-render.
  If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will treat it as
  <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> unless <a href="../../react4j/annotations/Prop.html#immutable--"><code>immutable()</code></a> is set to <code>true</code>.</div>
@@ -268,7 +297,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>observable</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.87">observable</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.96">observable</a></pre>
 <div class="block">Indicate whether the prop should be annotated by <a href="https://arez.github.io/api/arez/annotations/Observable.html?is-external=true" title="class or interface in arez.annotations"><code>Observable</code></a>.
 
  <p>If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the prop will be observable if and only if:</p>
@@ -295,7 +324,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>disposable</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.98">disposable</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.107">disposable</a></pre>
 <div class="block">Return an enum indicating whether the component should check whether the value of the prop is disposed
  prior to rendering. If the value is disposed then the render method will exit early and return null.
  If this parameter is set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will inspect the
@@ -320,7 +349,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>immutable</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.126">immutable</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.135">immutable</a></pre>
 <div class="block">True if the prop is not expected to change after initial value is set. If the value of the prop does change
  then it is expected that the react component will be unmounted and a new component created. This is implemented
  by synthesizing a key for the component every time the component that is derived from this prop. To enable this
@@ -381,7 +410,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../react4j/annotations/PreUpdate.html" title="annotation in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../react4j/annotations/PropDefault.html" title="annotation in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../react4j/annotations/Prop.Source.html" title="enum in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?react4j/annotations/Prop.html" target="_top">Frames</a></li>
