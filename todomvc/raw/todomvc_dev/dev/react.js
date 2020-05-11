@@ -2945,7 +2945,6 @@ var React = {
 
   Fragment: REACT_FRAGMENT_TYPE,
   Element: REACT_ELEMENT_TYPE,
-  Provider: REACT_PROVIDER_TYPE,
   StrictMode: REACT_STRICT_MODE_TYPE,
   unstable_ConcurrentMode: REACT_CONCURRENT_MODE_TYPE,
   Suspense: REACT_SUSPENSE_TYPE,
