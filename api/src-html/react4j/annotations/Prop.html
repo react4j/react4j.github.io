@@ -70,101 +70,104 @@
 <span class="sourceLineNo">062</span><a name="line.62"></a>
 <span class="sourceLineNo">063</span>  /**<a name="line.63"></a>
 <span class="sourceLineNo">064</span>   * The setting controlling where the prop value is source from.<a name="line.64"></a>
-<span class="sourceLineNo">065</span>   *<a name="line.65"></a>
-<span class="sourceLineNo">066</span>   * @return the setting controlling where the prop value is source from.<a name="line.66"></a>
-<span class="sourceLineNo">067</span>   */<a name="line.67"></a>
-<span class="sourceLineNo">068</span>  Source source() default Source.DEFAULT;<a name="line.68"></a>
-<span class="sourceLineNo">069</span><a name="line.69"></a>
-<span class="sourceLineNo">070</span>  /**<a name="line.70"></a>
-<span class="sourceLineNo">071</span>   * Setting indicating whether the prop should be supplied when the component is constructed.<a name="line.71"></a>
-<span class="sourceLineNo">072</span>   * This influences validation when enabled and how the Builder class is created.<a name="line.72"></a>
-<span class="sourceLineNo">073</span>   * If set to {@link Feature#ENABLE} then the user MUST supply the prop and the builder will require the user<a name="line.73"></a>
-<span class="sourceLineNo">074</span>   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the prop.<a name="line.74"></a>
-<span class="sourceLineNo">075</span>   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#DISABLE}<a name="line.75"></a>
-<span class="sourceLineNo">076</span>   * if there is a corresponding {@link PropDefault} for the prop or the {@link #source()} parameter is set to<a name="line.76"></a>
-<span class="sourceLineNo">077</span>   * {@link Source#CONTEXT}, otherwise it will be treated as {@link Feature#ENABLE}. The value of this setting<a name="line.77"></a>
-<span class="sourceLineNo">078</span>   * must not be {@link Feature#ENABLE} when {@link #source()} is set to {@link Source#CONTEXT}.<a name="line.78"></a>
-<span class="sourceLineNo">079</span>   *<a name="line.79"></a>
-<span class="sourceLineNo">080</span>   * @return the flag indicating whether the prop needs to be supplied.<a name="line.80"></a>
-<span class="sourceLineNo">081</span>   */<a name="line.81"></a>
-<span class="sourceLineNo">082</span>  Feature require() default Feature.AUTODETECT;<a name="line.82"></a>
-<span class="sourceLineNo">083</span><a name="line.83"></a>
-<span class="sourceLineNo">084</span>  /**<a name="line.84"></a>
-<span class="sourceLineNo">085</span>   * Indicate whether changing the value of the prop should schedule a re-render.<a name="line.85"></a>
-<span class="sourceLineNo">086</span>   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as<a name="line.86"></a>
-<span class="sourceLineNo">087</span>   * {@link Feature#ENABLE} unless {@link #immutable()} is set to &lt;code&gt;true&lt;/code&gt;.<a name="line.87"></a>
-<span class="sourceLineNo">088</span>   *<a name="line.88"></a>
-<span class="sourceLineNo">089</span>   * @return the enum indicating whether prop should trigger a render if it is modified.<a name="line.89"></a>
-<span class="sourceLineNo">090</span>   */<a name="line.90"></a>
-<span class="sourceLineNo">091</span>  Feature shouldUpdateOnChange() default Feature.AUTODETECT;<a name="line.91"></a>
-<span class="sourceLineNo">092</span><a name="line.92"></a>
-<span class="sourceLineNo">093</span>  /**<a name="line.93"></a>
-<span class="sourceLineNo">094</span>   * Indicate whether the prop should be annotated by {@link Observable}.<a name="line.94"></a>
-<span class="sourceLineNo">095</span>   *<a name="line.95"></a>
-<span class="sourceLineNo">096</span>   * &lt;p&gt;If set to {@link Feature#AUTODETECT} then the prop will be observable if and only if:&lt;/p&gt;<a name="line.96"></a>
-<span class="sourceLineNo">097</span>   * &lt;ul&gt;<a name="line.97"></a>
-<span class="sourceLineNo">098</span>   * &lt;li&gt;{@link #shouldUpdateOnChange()} is not set to {@link Feature#DISABLE}.&lt;/li&gt;<a name="line.98"></a>
-<span class="sourceLineNo">099</span>   * &lt;li&gt;the component has at least one method annotated with {@link Memoize} or {@link Observe}.&lt;/li&gt;<a name="line.99"></a>
-<span class="sourceLineNo">100</span>   * &lt;/ul&gt;<a name="line.100"></a>
-<span class="sourceLineNo">101</span>   *<a name="line.101"></a>
-<span class="sourceLineNo">102</span>   * @return the enum indicating whether prop is observable.<a name="line.102"></a>
-<span class="sourceLineNo">103</span>   */<a name="line.103"></a>
-<span class="sourceLineNo">104</span>  Feature observable() default Feature.AUTODETECT;<a name="line.104"></a>
-<span class="sourceLineNo">105</span><a name="line.105"></a>
-<span class="sourceLineNo">106</span>  /**<a name="line.106"></a>
-<span class="sourceLineNo">107</span>   * Return an enum indicating whether the component should check whether the value of the prop is disposed<a name="line.107"></a>
-<span class="sourceLineNo">108</span>   * prior to rendering. If the value is disposed then the render method will exit early and return null.<a name="line.108"></a>
-<span class="sourceLineNo">109</span>   * If this parameter is set to {@link Feature#AUTODETECT} then the annotation processor will inspect the<a name="line.109"></a>
-<span class="sourceLineNo">110</span>   * type of the prop and treat it as {@link Feature#ENABLE} if the type is annotated with the {@link ArezComponent}<a name="line.110"></a>
-<span class="sourceLineNo">111</span>   * annotation or the {@link ActAsComponent} annotation.<a name="line.111"></a>
-<span class="sourceLineNo">112</span>   *<a name="line.112"></a>
-<span class="sourceLineNo">113</span>   * @return an enum indicating whether the component should check whether the value of the prop is disposed prior to rendering.<a name="line.113"></a>
-<span class="sourceLineNo">114</span>   */<a name="line.114"></a>
-<span class="sourceLineNo">115</span>  Feature disposable() default Feature.AUTODETECT;<a name="line.115"></a>
-<span class="sourceLineNo">116</span><a name="line.116"></a>
-<span class="sourceLineNo">117</span>  /**<a name="line.117"></a>
-<span class="sourceLineNo">118</span>   * True if the prop is not expected to change after initial value is set. If the value of the prop does change<a name="line.118"></a>
-<span class="sourceLineNo">119</span>   * then it is expected that the react component will be unmounted and a new component created. This is implemented<a name="line.119"></a>
-<span class="sourceLineNo">120</span>   * by synthesizing a key for the component every time the component that is derived from this prop. To enable this<a name="line.120"></a>
-<span class="sourceLineNo">121</span>   * the annotation processor must be able to identify the type of the prop so that a key can be synthesized. The<a name="line.121"></a>
-<span class="sourceLineNo">122</span>   * following types are supported by the annotation processor;<a name="line.122"></a>
-<span class="sourceLineNo">123</span>   *<a name="line.123"></a>
-<span class="sourceLineNo">124</span>   * &lt;ul&gt;<a name="line.124"></a>
-<span class="sourceLineNo">125</span>   * &lt;li&gt;primitive types (i.e. boolean, short etc) and their corresponding boxed types (i.e. {@link java.lang.Boolean}, {@link java.lang.Short} etc).&lt;/li&gt;<a name="line.125"></a>
-<span class="sourceLineNo">126</span>   * &lt;li&gt;the {@link java.lang.String} type&lt;/li&gt;<a name="line.126"></a>
-<span class="sourceLineNo">127</span>   * &lt;li&gt;any class that implements {@link Keyed}&lt;/li&gt;<a name="line.127"></a>
-<span class="sourceLineNo">128</span>   * &lt;li&gt;any class that is annotated with {@link ArezComponent} where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;<a name="line.128"></a>
-<span class="sourceLineNo">129</span>   * &lt;li&gt;any class or interface that is annotated with {@link ActAsComponent}. It is assumed that every implementation is an Arez component where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;<a name="line.129"></a>
-<span class="sourceLineNo">130</span>   * &lt;/ul&gt;<a name="line.130"></a>
-<span class="sourceLineNo">131</span>   *<a name="line.131"></a>
-<span class="sourceLineNo">132</span>   * &lt;p&gt;It should be noted that if a type implements {@link Keyed} and is annotated with either {@link ArezComponent}<a name="line.132"></a>
-<span class="sourceLineNo">133</span>   * or {@link ActAsComponent} then the annotation processor will assume the {@link Keyed} interface is to used in<a name="line.133"></a>
-<span class="sourceLineNo">134</span>   * preference to other alternative strategies.&lt;/p&gt;<a name="line.134"></a>
-<span class="sourceLineNo">135</span>   *<a name="line.135"></a>
-<span class="sourceLineNo">136</span>   * &lt;p&gt;In the future, the annotation processor may include additional allowable types such as those that implement<a name="line.136"></a>
-<span class="sourceLineNo">137</span>   * {@link arez.component.Identifiable} directly or other primitive types within the runtime library. These other<a name="line.137"></a>
-<span class="sourceLineNo">138</span>   * types will be added if demand is established, othewise an additional hook will be added to allow users to<a name="line.138"></a>
-<span class="sourceLineNo">139</span>   * customize key generation using a static method on the component. &lt;/p&gt;<a name="line.139"></a>
-<span class="sourceLineNo">140</span>   *<a name="line.140"></a>
-<span class="sourceLineNo">141</span>   * @return true if changing the prop recreates the component.<a name="line.141"></a>
-<span class="sourceLineNo">142</span>   */<a name="line.142"></a>
-<span class="sourceLineNo">143</span>  boolean immutable() default false;<a name="line.143"></a>
-<span class="sourceLineNo">144</span><a name="line.144"></a>
-<span class="sourceLineNo">145</span>  /**<a name="line.145"></a>
-<span class="sourceLineNo">146</span>   * Enum where the prop is sourced from.<a name="line.146"></a>
-<span class="sourceLineNo">147</span>   */<a name="line.147"></a>
-<span class="sourceLineNo">148</span>  enum Source<a name="line.148"></a>
-<span class="sourceLineNo">149</span>  {<a name="line.149"></a>
-<span class="sourceLineNo">150</span>    /**<a name="line.150"></a>
-<span class="sourceLineNo">151</span>     * The prop value is passed to the component during construction.<a name="line.151"></a>
-<span class="sourceLineNo">152</span>     */<a name="line.152"></a>
-<span class="sourceLineNo">153</span>    DEFAULT,<a name="line.153"></a>
-<span class="sourceLineNo">154</span>    /**<a name="line.154"></a>
-<span class="sourceLineNo">155</span>     * The prop value is retrieved from the react context.<a name="line.155"></a>
-<span class="sourceLineNo">156</span>     */<a name="line.156"></a>
-<span class="sourceLineNo">157</span>    CONTEXT<a name="line.157"></a>
-<span class="sourceLineNo">158</span>  }<a name="line.158"></a>
-<span class="sourceLineNo">159</span>}<a name="line.159"></a>
+<span class="sourceLineNo">065</span>   * If the source is set to {@link Source#CONTEXT} then the prop is sometimes described as a "TreeProp"<a name="line.65"></a>
+<span class="sourceLineNo">066</span>   * as it is transparently passed from a parent component to all child components. A "TreeProp" does not<a name="line.66"></a>
+<span class="sourceLineNo">067</span>   * have to be specified by the user when creating the component.<a name="line.67"></a>
+<span class="sourceLineNo">068</span>   *<a name="line.68"></a>
+<span class="sourceLineNo">069</span>   * @return the setting controlling where the prop value is source from.<a name="line.69"></a>
+<span class="sourceLineNo">070</span>   */<a name="line.70"></a>
+<span class="sourceLineNo">071</span>  Source source() default Source.DEFAULT;<a name="line.71"></a>
+<span class="sourceLineNo">072</span><a name="line.72"></a>
+<span class="sourceLineNo">073</span>  /**<a name="line.73"></a>
+<span class="sourceLineNo">074</span>   * Setting indicating whether the prop should be supplied when the component is constructed.<a name="line.74"></a>
+<span class="sourceLineNo">075</span>   * This influences validation when enabled and how the Builder class is created.<a name="line.75"></a>
+<span class="sourceLineNo">076</span>   * If set to {@link Feature#ENABLE} then the user MUST supply the prop and the builder will require the user<a name="line.76"></a>
+<span class="sourceLineNo">077</span>   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the prop.<a name="line.77"></a>
+<span class="sourceLineNo">078</span>   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#DISABLE}<a name="line.78"></a>
+<span class="sourceLineNo">079</span>   * if there is a corresponding {@link PropDefault} for the prop or the {@link #source()} parameter is set to<a name="line.79"></a>
+<span class="sourceLineNo">080</span>   * {@link Source#CONTEXT}, otherwise it will be treated as {@link Feature#ENABLE}. The value of this setting<a name="line.80"></a>
+<span class="sourceLineNo">081</span>   * must not be {@link Feature#ENABLE} when {@link #source()} is set to {@link Source#CONTEXT}.<a name="line.81"></a>
+<span class="sourceLineNo">082</span>   *<a name="line.82"></a>
+<span class="sourceLineNo">083</span>   * @return the flag indicating whether the prop needs to be supplied.<a name="line.83"></a>
+<span class="sourceLineNo">084</span>   */<a name="line.84"></a>
+<span class="sourceLineNo">085</span>  Feature require() default Feature.AUTODETECT;<a name="line.85"></a>
+<span class="sourceLineNo">086</span><a name="line.86"></a>
+<span class="sourceLineNo">087</span>  /**<a name="line.87"></a>
+<span class="sourceLineNo">088</span>   * Indicate whether changing the value of the prop should schedule a re-render.<a name="line.88"></a>
+<span class="sourceLineNo">089</span>   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as<a name="line.89"></a>
+<span class="sourceLineNo">090</span>   * {@link Feature#ENABLE} unless {@link #immutable()} is set to &lt;code&gt;true&lt;/code&gt;.<a name="line.90"></a>
+<span class="sourceLineNo">091</span>   *<a name="line.91"></a>
+<span class="sourceLineNo">092</span>   * @return the enum indicating whether prop should trigger a render if it is modified.<a name="line.92"></a>
+<span class="sourceLineNo">093</span>   */<a name="line.93"></a>
+<span class="sourceLineNo">094</span>  Feature shouldUpdateOnChange() default Feature.AUTODETECT;<a name="line.94"></a>
+<span class="sourceLineNo">095</span><a name="line.95"></a>
+<span class="sourceLineNo">096</span>  /**<a name="line.96"></a>
+<span class="sourceLineNo">097</span>   * Indicate whether the prop should be annotated by {@link Observable}.<a name="line.97"></a>
+<span class="sourceLineNo">098</span>   *<a name="line.98"></a>
+<span class="sourceLineNo">099</span>   * &lt;p&gt;If set to {@link Feature#AUTODETECT} then the prop will be observable if and only if:&lt;/p&gt;<a name="line.99"></a>
+<span class="sourceLineNo">100</span>   * &lt;ul&gt;<a name="line.100"></a>
+<span class="sourceLineNo">101</span>   * &lt;li&gt;{@link #shouldUpdateOnChange()} is not set to {@link Feature#DISABLE}.&lt;/li&gt;<a name="line.101"></a>
+<span class="sourceLineNo">102</span>   * &lt;li&gt;the component has at least one method annotated with {@link Memoize} or {@link Observe}.&lt;/li&gt;<a name="line.102"></a>
+<span class="sourceLineNo">103</span>   * &lt;/ul&gt;<a name="line.103"></a>
+<span class="sourceLineNo">104</span>   *<a name="line.104"></a>
+<span class="sourceLineNo">105</span>   * @return the enum indicating whether prop is observable.<a name="line.105"></a>
+<span class="sourceLineNo">106</span>   */<a name="line.106"></a>
+<span class="sourceLineNo">107</span>  Feature observable() default Feature.AUTODETECT;<a name="line.107"></a>
+<span class="sourceLineNo">108</span><a name="line.108"></a>
+<span class="sourceLineNo">109</span>  /**<a name="line.109"></a>
+<span class="sourceLineNo">110</span>   * Return an enum indicating whether the component should check whether the value of the prop is disposed<a name="line.110"></a>
+<span class="sourceLineNo">111</span>   * prior to rendering. If the value is disposed then the render method will exit early and return null.<a name="line.111"></a>
+<span class="sourceLineNo">112</span>   * If this parameter is set to {@link Feature#AUTODETECT} then the annotation processor will inspect the<a name="line.112"></a>
+<span class="sourceLineNo">113</span>   * type of the prop and treat it as {@link Feature#ENABLE} if the type is annotated with the {@link ArezComponent}<a name="line.113"></a>
+<span class="sourceLineNo">114</span>   * annotation or the {@link ActAsComponent} annotation.<a name="line.114"></a>
+<span class="sourceLineNo">115</span>   *<a name="line.115"></a>
+<span class="sourceLineNo">116</span>   * @return an enum indicating whether the component should check whether the value of the prop is disposed prior to rendering.<a name="line.116"></a>
+<span class="sourceLineNo">117</span>   */<a name="line.117"></a>
+<span class="sourceLineNo">118</span>  Feature disposable() default Feature.AUTODETECT;<a name="line.118"></a>
+<span class="sourceLineNo">119</span><a name="line.119"></a>
+<span class="sourceLineNo">120</span>  /**<a name="line.120"></a>
+<span class="sourceLineNo">121</span>   * True if the prop is not expected to change after initial value is set. If the value of the prop does change<a name="line.121"></a>
+<span class="sourceLineNo">122</span>   * then it is expected that the react component will be unmounted and a new component created. This is implemented<a name="line.122"></a>
+<span class="sourceLineNo">123</span>   * by synthesizing a key for the component every time the component that is derived from this prop. To enable this<a name="line.123"></a>
+<span class="sourceLineNo">124</span>   * the annotation processor must be able to identify the type of the prop so that a key can be synthesized. The<a name="line.124"></a>
+<span class="sourceLineNo">125</span>   * following types are supported by the annotation processor;<a name="line.125"></a>
+<span class="sourceLineNo">126</span>   *<a name="line.126"></a>
+<span class="sourceLineNo">127</span>   * &lt;ul&gt;<a name="line.127"></a>
+<span class="sourceLineNo">128</span>   * &lt;li&gt;primitive types (i.e. boolean, short etc) and their corresponding boxed types (i.e. {@link java.lang.Boolean}, {@link java.lang.Short} etc).&lt;/li&gt;<a name="line.128"></a>
+<span class="sourceLineNo">129</span>   * &lt;li&gt;the {@link java.lang.String} type&lt;/li&gt;<a name="line.129"></a>
+<span class="sourceLineNo">130</span>   * &lt;li&gt;any class that implements {@link Keyed}&lt;/li&gt;<a name="line.130"></a>
+<span class="sourceLineNo">131</span>   * &lt;li&gt;any class that is annotated with {@link ArezComponent} where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;<a name="line.131"></a>
+<span class="sourceLineNo">132</span>   * &lt;li&gt;any class or interface that is annotated with {@link ActAsComponent}. It is assumed that every implementation is an Arez component where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;<a name="line.132"></a>
+<span class="sourceLineNo">133</span>   * &lt;/ul&gt;<a name="line.133"></a>
+<span class="sourceLineNo">134</span>   *<a name="line.134"></a>
+<span class="sourceLineNo">135</span>   * &lt;p&gt;It should be noted that if a type implements {@link Keyed} and is annotated with either {@link ArezComponent}<a name="line.135"></a>
+<span class="sourceLineNo">136</span>   * or {@link ActAsComponent} then the annotation processor will assume the {@link Keyed} interface is to used in<a name="line.136"></a>
+<span class="sourceLineNo">137</span>   * preference to other alternative strategies.&lt;/p&gt;<a name="line.137"></a>
+<span class="sourceLineNo">138</span>   *<a name="line.138"></a>
+<span class="sourceLineNo">139</span>   * &lt;p&gt;In the future, the annotation processor may include additional allowable types such as those that implement<a name="line.139"></a>
+<span class="sourceLineNo">140</span>   * {@link arez.component.Identifiable} directly or other primitive types within the runtime library. These other<a name="line.140"></a>
+<span class="sourceLineNo">141</span>   * types will be added if demand is established, othewise an additional hook will be added to allow users to<a name="line.141"></a>
+<span class="sourceLineNo">142</span>   * customize key generation using a static method on the component. &lt;/p&gt;<a name="line.142"></a>
+<span class="sourceLineNo">143</span>   *<a name="line.143"></a>
+<span class="sourceLineNo">144</span>   * @return true if changing the prop recreates the component.<a name="line.144"></a>
+<span class="sourceLineNo">145</span>   */<a name="line.145"></a>
+<span class="sourceLineNo">146</span>  boolean immutable() default false;<a name="line.146"></a>
+<span class="sourceLineNo">147</span><a name="line.147"></a>
+<span class="sourceLineNo">148</span>  /**<a name="line.148"></a>
+<span class="sourceLineNo">149</span>   * Enum where the prop is sourced from.<a name="line.149"></a>
+<span class="sourceLineNo">150</span>   */<a name="line.150"></a>
+<span class="sourceLineNo">151</span>  enum Source<a name="line.151"></a>
+<span class="sourceLineNo">152</span>  {<a name="line.152"></a>
+<span class="sourceLineNo">153</span>    /**<a name="line.153"></a>
+<span class="sourceLineNo">154</span>     * The prop value is passed to the component during construction.<a name="line.154"></a>
+<span class="sourceLineNo">155</span>     */<a name="line.155"></a>
+<span class="sourceLineNo">156</span>    DEFAULT,<a name="line.156"></a>
+<span class="sourceLineNo">157</span>    /**<a name="line.157"></a>
+<span class="sourceLineNo">158</span>     * The prop value is retrieved from the react context.<a name="line.158"></a>
+<span class="sourceLineNo">159</span>     */<a name="line.159"></a>
+<span class="sourceLineNo">160</span>    CONTEXT<a name="line.160"></a>
+<span class="sourceLineNo">161</span>  }<a name="line.161"></a>
+<span class="sourceLineNo">162</span>}<a name="line.162"></a>
 
 
 
