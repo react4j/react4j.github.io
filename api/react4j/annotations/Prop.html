@@ -380,7 +380,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>immutable</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.146">immutable</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/Prop.html#line.142">immutable</a></pre>
 <div class="block">True if the prop is not expected to change after initial value is set. If the value of the prop does change
  then it is expected that the react component will be unmounted and a new component created. This is implemented
  by synthesizing a key for the component every time the component that is derived from this prop. To enable this
@@ -393,16 +393,12 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
  <li>any class that implements <a href="../../react4j/Keyed.html" title="interface in react4j"><code>Keyed</code></a></li>
  <li>any class that is annotated with <a href="https://arez.github.io/api/arez/annotations/ArezComponent.html?is-external=true" title="class or interface in arez.annotations"><code>ArezComponent</code></a> where the <a href="https://arez.github.io/api/arez/annotations/ArezComponent.html?is-external=true#requireId--" title="class or interface in arez.annotations"><code>ArezComponent.requireId()</code></a> parameter does not resolve to <a href="https://arez.github.io/api/arez/annotations/Feature.html?is-external=true#DISABLE" title="class or interface in arez.annotations"><code>Feature.DISABLE</code></a></li>
  <li>any class or interface that is annotated with <a href="https://arez.github.io/api/arez/annotations/ActAsComponent.html?is-external=true" title="class or interface in arez.annotations"><code>ActAsComponent</code></a>. It is assumed that every implementation is an Arez component where the <a href="https://arez.github.io/api/arez/annotations/ArezComponent.html?is-external=true#requireId--" title="class or interface in arez.annotations"><code>ArezComponent.requireId()</code></a> parameter does not resolve to <a href="https://arez.github.io/api/arez/annotations/Feature.html?is-external=true#DISABLE" title="class or interface in arez.annotations"><code>Feature.DISABLE</code></a></li>
+ <li>any class or interface that is compatible with @link arez.component.Identifiable}.</li>
  </ul>
 
  <p>It should be noted that if a type implements <a href="../../react4j/Keyed.html" title="interface in react4j"><code>Keyed</code></a> and is annotated with either <a href="https://arez.github.io/api/arez/annotations/ArezComponent.html?is-external=true" title="class or interface in arez.annotations"><code>ArezComponent</code></a>
  or <a href="https://arez.github.io/api/arez/annotations/ActAsComponent.html?is-external=true" title="class or interface in arez.annotations"><code>ActAsComponent</code></a> then the annotation processor will assume the <a href="../../react4j/Keyed.html" title="interface in react4j"><code>Keyed</code></a> interface is to used in
- preference to other alternative strategies.</p>
-
- <p>In the future, the annotation processor may include additional allowable types such as those that implement
- <a href="https://arez.github.io/api/arez/component/Identifiable.html?is-external=true" title="class or interface in arez.component"><code>Identifiable</code></a> directly or other primitive types within the runtime library. These other
- types will be added if demand is established, othewise an additional hook will be added to allow users to
- customize key generation using a static method on the component. </p></div>
+ preference to other alternative strategies.</p></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if changing the prop recreates the component.</dd>
