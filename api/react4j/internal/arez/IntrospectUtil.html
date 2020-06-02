@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9};
+var methods = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>@OmitType(unless="react4j.store_debug_data_as_state")
-public final class <a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.18">IntrospectUtil</a>
+public final class <a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.22">IntrospectUtil</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Utilities for introspecting the Arez components and runtime.</div>
 </li>
@@ -142,6 +142,13 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block">Return the value for specified observable.</div>
 </td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../react4j/internal/arez/IntrospectUtil.html#prepareStateUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">prepareStateUpdate</a></span>(jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;newState,
+                  jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;currentState)</code>
+<div class="block">Prepare the newState value to be updated given specified current state.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -171,7 +178,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>getValue</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.33">getValue</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.37">getValue</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                         <a href="https://arez.github.io/api/arez/spy/ObservableValueInfo.html?is-external=true" title="class or interface in arez.spy">ObservableValueInfo</a>&nbsp;observableInfo)</pre>
 <div class="block">Return the value for specified observable.
  Exceptions are caught and types are converted to strings using <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang"><code>Object.toString()</code></a></div>
@@ -186,10 +193,10 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 <a name="collectDependencyDebugData-arez.Observer-jsinterop.base.JsPropertyMap-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>collectDependencyDebugData</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.104">collectDependencyDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public static&nbsp;void&nbsp;<a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.108">collectDependencyDebugData</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               <a href="https://arez.github.io/api/arez/Observer.html?is-external=true" title="class or interface in arez">Observer</a>&nbsp;observer,
                                               <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                               jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;data)</pre>
@@ -198,6 +205,27 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>observer</code> - the observer.</dd>
 <dd><code>data</code> - the target in which to place debug data.</dd>
+</dl>
+</li>
+</ul>
+<a name="prepareStateUpdate-jsinterop.base.JsPropertyMap-jsinterop.base.JsPropertyMap-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>prepareStateUpdate</h4>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../../src-html/react4j/internal/arez/IntrospectUtil.html#line.123">prepareStateUpdate</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;newState,
+                                         <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
+                                         jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;currentState)</pre>
+<div class="block">Prepare the newState value to be updated given specified current state.
+ If no changes are required then return false.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newState</code> - the new "state" of the component.</dd>
+<dd><code>currentState</code> - the current "state" of the component.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if newState needs to be saved to native component, false otherwise.</dd>
 </dl>
 </li>
 </ul>
