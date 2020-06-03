@@ -1,0 +1,49 @@
+[
+  {
+    "code": "java.class.added",
+    "description": "Class was added.",
+    "newElement": "@interface react4j.annotations.Render",
+    "classification": {
+      "SOURCE": "NON_BREAKING",
+      "BINARY": "NON_BREAKING"
+    },
+    "attachments": {
+      "classQualifiedName": "react4j.annotations.Render",
+      "classSimpleName": "Render",
+      "elementKind": "@interface",
+      "package": "react4j.annotations"
+    }
+  },
+  {
+    "code": "java.method.removed",
+    "description": "Method was removed.",
+    "oldElement": "method react4j.internal.NativeComponent react4j.Component::component()",
+    "classification": {
+      "SOURCE": "BREAKING",
+      "BINARY": "BREAKING"
+    },
+    "attachments": {
+      "classQualifiedName": "react4j.Component",
+      "classSimpleName": "Component",
+      "elementKind": "method",
+      "methodName": "component",
+      "package": "react4j"
+    }
+  },
+  {
+    "code": "java.method.removed",
+    "description": "Method was removed.",
+    "oldElement": "method void react4j.Component::bindComponent(react4j.internal.NativeComponent)",
+    "classification": {
+      "SOURCE": "BREAKING",
+      "BINARY": "BREAKING"
+    },
+    "attachments": {
+      "classQualifiedName": "react4j.Component",
+      "classSimpleName": "Component",
+      "elementKind": "method",
+      "methodName": "bindComponent",
+      "package": "react4j"
+    }
+  }
+]

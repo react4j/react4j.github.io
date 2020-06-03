@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public abstract class <a href="../src-html/react4j/Component.html#line.12">Component</a>
+<pre>public abstract class <a href="../src-html/react4j/Component.html#line.8">Component</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">The base java class that mirrors the react component.</div>
 </li>
@@ -140,24 +140,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#bindComponent-react4j.internal.NativeComponent-">bindComponent</a></span>(<a href="../react4j/internal/NativeComponent.html" title="class in react4j.internal">NativeComponent</a>&nbsp;nativeComponent)</code>
-<div class="block">Bind the native react component to this component.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected <a href="../react4j/internal/NativeComponent.html" title="class in react4j.internal">NativeComponent</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#component--">component</a></span>()</code>
-<div class="block">Return the native react component.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/Component.html#render--">render</a></span>()</code>
 <div class="block">Render the component.</div>
@@ -191,7 +179,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Component</h4>
-<pre>public&nbsp;<a href="../src-html/react4j/Component.html#line.12">Component</a>()</pre>
+<pre>public&nbsp;<a href="../src-html/react4j/Component.html#line.8">Component</a>()</pre>
 </li>
 </ul>
 </li>
@@ -202,37 +190,6 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="bindComponent-react4j.internal.NativeComponent-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>bindComponent</h4>
-<pre>protected final&nbsp;void&nbsp;<a href="../src-html/react4j/Component.html#line.23">bindComponent</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                   <a href="../react4j/internal/NativeComponent.html" title="class in react4j.internal">NativeComponent</a>&nbsp;nativeComponent)</pre>
-<div class="block">Bind the native react component to this component.
- This should not be called by user code and is instead invoked by the generated component class.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>nativeComponent</code> - the native react component.</dd>
-</dl>
-</li>
-</ul>
-<a name="component--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>component</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-protected&nbsp;<a href="../react4j/internal/NativeComponent.html" title="class in react4j.internal">NativeComponent</a>&nbsp;<a href="../src-html/react4j/Component.html#line.39">component</a>()</pre>
-<div class="block">Return the native react component.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the native react component.</dd>
-</dl>
-</li>
-</ul>
 <a name="render--">
 <!--   -->
 </a>
@@ -240,7 +197,7 @@ protected&nbsp;<a href="../react4j/internal/NativeComponent.html" title="class i
 <li class="blockList">
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
-protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.57">render</a>()</pre>
+protected abstract&nbsp;<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;<a href="../src-html/react4j/Component.html#line.17">render</a>()</pre>
 <div class="block">Render the component.
  See the <a href="https://reactjs.org/docs/react-component.html#render">React Component documentation</a> for more details.</div>
 <dl>
