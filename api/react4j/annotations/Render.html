@@ -41,7 +41,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../react4j/annotations/PropValidate.html" title="annotation in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../react4j/annotations/ScheduleRender.html" title="annotation in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -93,9 +93,9 @@
 <br>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
-public @interface <a href="../../src-html/react4j/annotations/Render.html#line.37">Render</a></pre>
-<div class="block">Identifies the method that is invoked to render the component.
- There must be exactly one method annotated with this annotation within the component.
+public @interface <a href="../../src-html/react4j/annotations/Render.html#line.35">Render</a></pre>
+<div class="block">Identifies the method that is invoked to render the view.
+ There must be exactly one method annotated with this annotation within the view.
  The method must return a value of type <a href="../../react4j/ReactNode.html" title="interface in react4j"><code>ReactNode</code></a>.
 
  <p>The method must also conform to the following constraints:</p>
@@ -105,16 +105,16 @@ public @interface <a href="../../src-html/react4j/annotations/Render.html#line.3
  <li>Must not be static</li>
  <li>Must not be abstract</li>
  <li>Must not throw exceptions</li>
- <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a></li>
+ <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/View.html" title="annotation in react4j.annotations"><code>View</code></a></li>
  <li>
-   Should not be public as not expected to be invoked outside the component. A warning will be generated but can
+   Should not be public as not expected to be invoked outside the view. A warning will be generated but can
    be suppressed by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../react4j/annotations/SuppressReact4jWarnings.html" title="annotation in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key
    "React4j:PublicMethod". This warning is also suppressed by the annotation processor if it is implementing
    an interface method.
  </li>
  <li>
-   Should not be protected if in the class annotated with the <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a> annotation as the method is not
-   expected to be invoked outside the component. A warning will be generated but can be suppressed by the
+   Should not be protected if in the class annotated with the <a href="../../react4j/annotations/View.html" title="annotation in react4j.annotations"><code>View</code></a> annotation as the method is not
+   expected to be invoked outside the view. A warning will be generated but can be suppressed by the
    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../react4j/annotations/SuppressReact4jWarnings.html" title="annotation in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key "React4j:ProtectedMethod".
  </li>
  </ul></div>
@@ -143,7 +143,7 @@ public @interface <a href="../../src-html/react4j/annotations/Render.html#line.3
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../react4j/annotations/ReactComponent.Type.html" title="enum in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../react4j/annotations/PropValidate.html" title="annotation in react4j.annotations"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../react4j/annotations/ScheduleRender.html" title="annotation in react4j.annotations"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

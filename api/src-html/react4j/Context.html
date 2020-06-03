@@ -19,11 +19,11 @@
 <span class="sourceLineNo">011</span>import jsinterop.base.JsPropertyMap;<a name="line.11"></a>
 <span class="sourceLineNo">012</span><a name="line.12"></a>
 <span class="sourceLineNo">013</span>/**<a name="line.13"></a>
-<span class="sourceLineNo">014</span> * Context is designed to share data that can be considered "global" for a tree of React components.<a name="line.14"></a>
+<span class="sourceLineNo">014</span> * Context is designed to share data that can be considered "global" for a tree of views.<a name="line.14"></a>
 <span class="sourceLineNo">015</span> * In a typical React application, data is passed top-down (parent to child) via props, but this can<a name="line.15"></a>
 <span class="sourceLineNo">016</span> * be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by<a name="line.16"></a>
-<span class="sourceLineNo">017</span> * \many components within an application. Context provides a way to share values like this between<a name="line.17"></a>
-<span class="sourceLineNo">018</span> * components without having to explicitly pass a prop through every level of the tree.<a name="line.18"></a>
+<span class="sourceLineNo">017</span> * many views within an application. Context provides a way to share values like this between<a name="line.17"></a>
+<span class="sourceLineNo">018</span> * views without having to explicitly pass a prop through every level of the tree.<a name="line.18"></a>
 <span class="sourceLineNo">019</span> */<a name="line.19"></a>
 <span class="sourceLineNo">020</span>@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )<a name="line.20"></a>
 <span class="sourceLineNo">021</span>public class Context&lt;T&gt;<a name="line.21"></a>

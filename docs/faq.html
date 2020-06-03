@@ -42,14 +42,14 @@ that accepted a <code>props</code> object. This resulted in code that looked lik
     <span class="hljs-keyword">int</span> param;
   }
 
-  <span class="hljs-meta">@ReactComponent</span>
+  <span class="hljs-meta">@View</span>
   <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> StatelessComponent&lt;Props&gt; COMPONENT = (props) -&gt; {
     <span class="hljs-keyword">return</span> span(<span class="hljs-keyword">new</span> HtmlProps().className(<span class="hljs-string">"myclass"</span>), String.valueOf( props.param ));
   };
 }
 </code></pre>
 <p>Contrast this with code that uses normal components:</p>
-<pre><code class="hljs css java"><span class="hljs-meta">@ReactComponent</span>
+<pre><code class="hljs css java"><span class="hljs-meta">@View</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span>&lt;<span class="hljs-title">MyComponent</span>.<span class="hljs-title">Props</span>, <span class="hljs-title">BaseState</span>&gt; </span>{
   <span class="hljs-meta">@JsType</span>(isNative = <span class="hljs-keyword">true</span>, namespace = JsPackage.GLOBAL, name = <span class="hljs-string">"Object"</span>)
   <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Props</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseProps</span> </span>{

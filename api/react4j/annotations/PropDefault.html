@@ -95,8 +95,8 @@
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>={<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>,<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#FIELD" title="class or interface in java.lang.annotation">FIELD</a>})
 public @interface <a href="../../src-html/react4j/annotations/PropDefault.html#line.33">PropDefault</a></pre>
 <div class="block">Annotation used to specify the default value for a prop.
- The annotation can be applied to a static field or static method on the component.
- The field or method is then accessed when initializing the default props for the component.
+ The annotation can be applied to a static field or static method on the view.
+ The field or method is then accessed when initializing the default props for the view.
 
  <p>If a method is annotated with this annotation then it must also comply with the following constraints:</p>
  <ul>
@@ -113,7 +113,7 @@ public @interface <a href="../../src-html/react4j/annotations/PropDefault.html#l
  <li>Must be a static field</li>
  <li>Must be a final field</li>
  <li>Must not be private</li>
- <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a></li>
+ <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/View.html" title="annotation in react4j.annotations"><code>View</code></a></li>
  </ul></div>
 </li>
 </ul>

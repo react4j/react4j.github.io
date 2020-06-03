@@ -94,7 +94,7 @@
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
 public @interface <a href="../../src-html/react4j/annotations/ScheduleRender.html#line.38">ScheduleRender</a></pre>
-<div class="block">Identify a method that can be invoked to schedule the component for re-rendering.
+<div class="block">Identify a method that can be invoked to schedule the view for re-rendering.
  This annotation is rarely required as the underlying arez reactivity infrastructure
  should be used in preference to this method. The method primarily exists for backwards
  compatibility with earlier versions of the framework.
@@ -107,16 +107,16 @@ public @interface <a href="../../src-html/react4j/annotations/ScheduleRender.htm
  <li>Must not return a value</li>
  <li>Must not be static</li>
  <li>Must not throw exceptions</li>
- <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a></li>
+ <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/View.html" title="annotation in react4j.annotations"><code>View</code></a></li>
  <li>
-   Should not be public as not expected to be invoked outside the component. A warning will be generated but can
+   Should not be public as not expected to be invoked outside the view. A warning will be generated but can
    be suppressed by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../react4j/annotations/SuppressReact4jWarnings.html" title="annotation in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key
    "React4j:PublicMethod". This warning is also suppressed by the annotation processor if it is implementing
    an interface method.
  </li>
  <li>
-   Should not be protected if enclosed in the class annotated with the <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a> annotation as the
-   method is not expected to be invoked outside the component. A warning will be generated but can be suppressed
+   Should not be protected if enclosed in the class annotated with the <a href="../../react4j/annotations/View.html" title="annotation in react4j.annotations"><code>View</code></a> annotation as the
+   method is not expected to be invoked outside the view. A warning will be generated but can be suppressed
    by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../react4j/annotations/SuppressReact4jWarnings.html" title="annotation in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a
    key "React4j:ProtectedMethod".
  </li>
@@ -141,8 +141,8 @@ public @interface <a href="../../src-html/react4j/annotations/ScheduleRender.htm
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ScheduleRender.html#skipShouldComponentUpdate--">skipShouldComponentUpdate</a></span></code>
-<div class="block">Determines whether the component will invoke the <code>shouldComponentUpdate()</code> before invoking the render method.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/ScheduleRender.html#skipShouldViewUpdate--">skipShouldViewUpdate</a></span></code>
+<div class="block">Determines whether the view will invoke the <code>shouldComponentUpdate()</code> before invoking the render method.</div>
 </td>
 </tr>
 </table>
@@ -160,17 +160,17 @@ public @interface <a href="../../src-html/react4j/annotations/ScheduleRender.htm
 <!--   -->
 </a>
 <h3>Element Detail</h3>
-<a name="skipShouldComponentUpdate--">
+<a name="skipShouldViewUpdate--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>skipShouldComponentUpdate</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/ScheduleRender.html#line.45">skipShouldComponentUpdate</a></pre>
-<div class="block">Determines whether the component will invoke the <code>shouldComponentUpdate()</code> before invoking the render method.</div>
+<h4>skipShouldViewUpdate</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/ScheduleRender.html#line.45">skipShouldViewUpdate</a></pre>
+<div class="block">Determines whether the view will invoke the <code>shouldComponentUpdate()</code> before invoking the render method.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true to skip "shouldComponentUpdate" phase, false otherwise.</dd>
+<dd>true to skip "shouldViewUpdate" phase, false otherwise.</dd>
 </dl>
 <dl>
 <dt>Default:</dt>

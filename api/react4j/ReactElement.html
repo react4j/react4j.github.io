@@ -117,7 +117,7 @@ var activeTableTab = "activeTableTab";
 public class <a href="../src-html/react4j/ReactElement.html#line.22">ReactElement</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></pre>
-<div class="block">Element represents either a component or a host component.</div>
+<div class="block">Element represents either a view or a host component.</div>
 </li>
 </ul>
 </div>
@@ -161,32 +161,32 @@ implements <a href="../react4j/ReactNode.html" title="interface in react4j">Reac
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../react4j/ReactElement.html" title="class in react4j">ReactElement</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/ReactElement.html#createComponentElement-react4j.internal.ComponentConstructorFunction-">createComponentElement</a></span>(<a href="../react4j/internal/ComponentConstructorFunction.html" title="interface in react4j.internal">ComponentConstructorFunction</a>&nbsp;type)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>static <a href="../react4j/ReactElement.html" title="class in react4j">ReactElement</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/ReactElement.html#createFragment-java.lang.String-react4j.ReactNode...-">createFragment</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
               <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../react4j/ReactElement.html" title="class in react4j">ReactElement</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/ReactElement.html#createHostElement-java.lang.String-java.lang.String-java.lang.Object-jsinterop.base.JsPropertyMap-">createHostElement</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;ref,
                  jsinterop.base.JsPropertyMap&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;props)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/ReactElement.html#createStrictMode-react4j.ReactNode...-">createStrictMode</a></span>(<a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</code>
 <div class="block">Create a StrictMode component with the specified children.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static <a href="../react4j/ReactElement.html" title="class in react4j">ReactElement</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../react4j/ReactElement.html#createSuspense-java.lang.String-react4j.ReactNode-int-react4j.ReactNode...-">createSuspense</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
               <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;fallback,
               int&nbsp;maxTimeToFallback,
               <a href="../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>...&nbsp;children)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static <a href="../react4j/ReactElement.html" title="class in react4j">ReactElement</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../react4j/ReactElement.html#createViewElement-react4j.internal.ViewConstructorFunction-">createViewElement</a></span>(<a href="../react4j/internal/ViewConstructorFunction.html" title="interface in react4j.internal">ViewConstructorFunction</a>&nbsp;type)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../react4j/ReactElement.html" title="class in react4j">ReactElement</a></code></td>
@@ -283,16 +283,16 @@ public final&nbsp;void&nbsp;<a href="../src-html/react4j/ReactElement.html#line.
 public final&nbsp;<a href="../react4j/ReactElement.html" title="class in react4j">ReactElement</a>&nbsp;<a href="../src-html/react4j/ReactElement.html#line.53">dup</a>()</pre>
 </li>
 </ul>
-<a name="createComponentElement-react4j.internal.ComponentConstructorFunction-">
+<a name="createViewElement-react4j.internal.ViewConstructorFunction-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>createComponentElement</h4>
+<h4>createViewElement</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../react4j/ReactElement.html" title="class in react4j">ReactElement</a>&nbsp;<a href="../src-html/react4j/ReactElement.html#line.66">createComponentElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-                                                                       <a href="../react4j/internal/ComponentConstructorFunction.html" title="interface in react4j.internal">ComponentConstructorFunction</a>&nbsp;type)</pre>
+public static&nbsp;<a href="../react4j/ReactElement.html" title="class in react4j">ReactElement</a>&nbsp;<a href="../src-html/react4j/ReactElement.html#line.66">createViewElement</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                  <a href="../react4j/internal/ViewConstructorFunction.html" title="interface in react4j.internal">ViewConstructorFunction</a>&nbsp;type)</pre>
 </li>
 </ul>
 <a name="createFragment-java.lang.String-react4j.ReactNode...-">

@@ -94,13 +94,13 @@
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html?is-external=true" title="class or interface in java.lang.annotation">@Documented</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>)
 public @interface <a href="../../src-html/react4j/annotations/OnError.html#line.43">OnError</a></pre>
-<div class="block">Identifies the method that is called when a child component generates an error during rendering.
- The method works like a catch block, but for components. If this method generates an error, then this
+<div class="block">Identifies the method that is called when a child view generates an error during rendering.
+ The method works like a catch block, but for views. If this method generates an error, then this
  error will propagate to the closest OnError annotated method above it.
 
  <p>The method can have up to two optional parameters. One is of type <code>JsError</code> and indicates
  the error that was thrown. The other parameter is of type <a href="../../react4j/ReactErrorInfo.html" title="class in react4j"><code>ReactErrorInfo</code></a> and it contains
- information about the component stack during thrown error.</p>
+ information about the view stack when the error was thrown.</p>
 
  <p>The method must also conform to the following constraints:</p>
  <ul>
@@ -111,16 +111,16 @@ public @interface <a href="../../src-html/react4j/annotations/OnError.html#line.
  <li>Must not be static</li>
  <li>Must not be abstract</li>
  <li>Must not throw exceptions</li>
- <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a></li>
+ <li>Must be accessible from the same package as the class annotated by <a href="../../react4j/annotations/View.html" title="annotation in react4j.annotations"><code>View</code></a></li>
  <li>
-   Should not be public as not expected to be invoked outside the component. A warning will be generated but can
+   Should not be public as not expected to be invoked outside the view. A warning will be generated but can
    be suppressed by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../react4j/annotations/SuppressReact4jWarnings.html" title="annotation in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key
    "React4j:PublicMethod". This warning is also suppressed by the annotation processor if it is implementing
    an interface method.
  </li>
  <li>
-   Should not be protected if in the class annotated with the <a href="../../react4j/annotations/ReactComponent.html" title="annotation in react4j.annotations"><code>ReactComponent</code></a> annotation as the method is not
-   expected to be invoked outside the component. A warning will be generated but can be suppressed by the
+   Should not be protected if in the class annotated with the <a href="../../react4j/annotations/View.html" title="annotation in react4j.annotations"><code>View</code></a> annotation as the method is not
+   expected to be invoked outside the view. A warning will be generated but can be suppressed by the
    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><code>SuppressWarnings</code></a> or <a href="../../react4j/annotations/SuppressReact4jWarnings.html" title="annotation in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key "React4j:ProtectedMethod".
  </li>
  </ul></div>

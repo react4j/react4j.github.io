@@ -24,7 +24,7 @@ scope of the <code>render()</code> will schedule the component for re-rendering.
 <p>Below is a <code>Footer</code> component extracted from a <a href="http://todomvc.com/">TodoMVC</a> implementation. It accesses the
 observable state <code>AppData.model.totalCount()</code>, <code>AppData.viewService.getFilterMode()</code> and
 <code>AppData.model.completedCount()</code> and will re-render each time any of these values change.</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>( type = ReactComponent.Type.TRACKING )
+<p><pre><code class="hljs"><span class="hljs-meta">@View</span>( type = View.Type.TRACKING )
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
 </span>{
   <span class="hljs-meta">@Render</span>
@@ -92,7 +92,7 @@ component is re-rendered any time a Todo is added or removed as the value for th
 <code>AppData.model.totalCount()</code> changes. Unfortunately <code>@Memoize</code> will not help us here as the html output changes
 every time a re-render occurs. However we can decide to limit the scope of the rendering by extracting a component
 that encapsulates the html that changes.</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>( type = ReactComponent.Type.TRACKING )
+<p><pre><code class="hljs"><span class="hljs-meta">@View</span>( type = View.Type.TRACKING )
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooterTodoCount</span>
 </span>{
   <span class="hljs-meta">@Render</span>
@@ -113,7 +113,7 @@ of the re-render is much smaller and thus the amount of work that React4j has to
 <p>We could also extract another component to manage the links and only re-render this new component when the
 <code>filterMode</code> observable property changes but we have decided against this as it is a relatively infrequent event.
 The final <code>Footer</code> component looks something like:</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@ReactComponent</span>( type = ReactComponent.Type.TRACKING )
+<p><pre><code class="hljs"><span class="hljs-meta">@View</span>( type = View.Type.TRACKING )
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
 </span>{
   <span class="hljs-meta">@Nullable</span>

@@ -13,8 +13,8 @@
 <span class="sourceLineNo">005</span>import java.lang.annotation.Target;<a name="line.5"></a>
 <span class="sourceLineNo">006</span><a name="line.6"></a>
 <span class="sourceLineNo">007</span>/**<a name="line.7"></a>
-<span class="sourceLineNo">008</span> * Identifies a method that is called before a component is updated or re-rendered.<a name="line.8"></a>
-<span class="sourceLineNo">009</span> * There must only be one method annotated with this annotation in a single component.<a name="line.9"></a>
+<span class="sourceLineNo">008</span> * Identifies a method that is called before a view is updated or re-rendered.<a name="line.8"></a>
+<span class="sourceLineNo">009</span> * There must only be one method annotated with this annotation in a view.<a name="line.9"></a>
 <span class="sourceLineNo">010</span> * This method is invoked in the "commit" phase using reacts &lt;code&gt;getSnapshotBeforeUpdate()&lt;/code&gt;<a name="line.10"></a>
 <span class="sourceLineNo">011</span> * lifecycle method.<a name="line.11"></a>
 <span class="sourceLineNo">012</span> *<a name="line.12"></a>
@@ -34,16 +34,16 @@
 <span class="sourceLineNo">026</span> * &lt;li&gt;Must not be static&lt;/li&gt;<a name="line.26"></a>
 <span class="sourceLineNo">027</span> * &lt;li&gt;Must not be abstract&lt;/li&gt;<a name="line.27"></a>
 <span class="sourceLineNo">028</span> * &lt;li&gt;Must not throw exceptions&lt;/li&gt;<a name="line.28"></a>
-<span class="sourceLineNo">029</span> * &lt;li&gt;Must be accessible from the same package as the class annotated by {@link ReactComponent}&lt;/li&gt;<a name="line.29"></a>
+<span class="sourceLineNo">029</span> * &lt;li&gt;Must be accessible from the same package as the class annotated by {@link View}&lt;/li&gt;<a name="line.29"></a>
 <span class="sourceLineNo">030</span> * &lt;li&gt;<a name="line.30"></a>
-<span class="sourceLineNo">031</span> *   Should not be public as not expected to be invoked outside the component. A warning will be generated but can<a name="line.31"></a>
+<span class="sourceLineNo">031</span> *   Should not be public as not expected to be invoked outside the view. A warning will be generated but can<a name="line.31"></a>
 <span class="sourceLineNo">032</span> *   be suppressed by the {@link SuppressWarnings} or {@link SuppressReact4jWarnings} annotations with a key<a name="line.32"></a>
 <span class="sourceLineNo">033</span> *   "React4j:PublicMethod". This warning is also suppressed by the annotation processor if it is implementing<a name="line.33"></a>
 <span class="sourceLineNo">034</span> *   an interface method.<a name="line.34"></a>
 <span class="sourceLineNo">035</span> * &lt;/li&gt;<a name="line.35"></a>
 <span class="sourceLineNo">036</span> * &lt;li&gt;<a name="line.36"></a>
-<span class="sourceLineNo">037</span> *   Should not be protected if in the class annotated with the {@link ReactComponent} annotation as the method is not<a name="line.37"></a>
-<span class="sourceLineNo">038</span> *   expected to be invoked outside the component. A warning will be generated but can be suppressed by the<a name="line.38"></a>
+<span class="sourceLineNo">037</span> *   Should not be protected if in the class annotated with the {@link View} annotation as the method is not<a name="line.37"></a>
+<span class="sourceLineNo">038</span> *   expected to be invoked outside the view. A warning will be generated but can be suppressed by the<a name="line.38"></a>
 <span class="sourceLineNo">039</span> *   {@link SuppressWarnings} or {@link SuppressReact4jWarnings} annotations with a key "React4j:ProtectedMethod".<a name="line.39"></a>
 <span class="sourceLineNo">040</span> * &lt;/li&gt;<a name="line.40"></a>
 <span class="sourceLineNo">041</span> * &lt;/ul&gt;<a name="line.41"></a>

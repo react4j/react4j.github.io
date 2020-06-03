@@ -16,7 +16,7 @@
 <span class="sourceLineNo">008</span>import jsinterop.annotations.JsType;<a name="line.8"></a>
 <span class="sourceLineNo">009</span><a name="line.9"></a>
 <span class="sourceLineNo">010</span>/**<a name="line.10"></a>
-<span class="sourceLineNo">011</span> * Native interface to native runtime for creating component.<a name="line.11"></a>
+<span class="sourceLineNo">011</span> * Native interface to native runtime for creating views.<a name="line.11"></a>
 <span class="sourceLineNo">012</span> */<a name="line.12"></a>
 <span class="sourceLineNo">013</span>@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "React" )<a name="line.13"></a>
 <span class="sourceLineNo">014</span>public final class React<a name="line.14"></a>
@@ -26,15 +26,15 @@
 <span class="sourceLineNo">018</span>  }<a name="line.18"></a>
 <span class="sourceLineNo">019</span><a name="line.19"></a>
 <span class="sourceLineNo">020</span>  /**<a name="line.20"></a>
-<span class="sourceLineNo">021</span>   * Return true if components should have human readable names specified.<a name="line.21"></a>
+<span class="sourceLineNo">021</span>   * Return true if views should have human readable names specified.<a name="line.21"></a>
 <span class="sourceLineNo">022</span>   * Useful if you want to interact via DevTools or other tool chains.<a name="line.22"></a>
 <span class="sourceLineNo">023</span>   *<a name="line.23"></a>
-<span class="sourceLineNo">024</span>   * @return true to enable human readable names for components.<a name="line.24"></a>
+<span class="sourceLineNo">024</span>   * @return true to enable human readable names for views.<a name="line.24"></a>
 <span class="sourceLineNo">025</span>   */<a name="line.25"></a>
 <span class="sourceLineNo">026</span>  @JsOverlay<a name="line.26"></a>
-<span class="sourceLineNo">027</span>  public static boolean enableComponentNames()<a name="line.27"></a>
+<span class="sourceLineNo">027</span>  public static boolean enableViewNames()<a name="line.27"></a>
 <span class="sourceLineNo">028</span>  {<a name="line.28"></a>
-<span class="sourceLineNo">029</span>    return ReactConfig.enableComponentNames();<a name="line.29"></a>
+<span class="sourceLineNo">029</span>    return ReactConfig.enableViewNames();<a name="line.29"></a>
 <span class="sourceLineNo">030</span>  }<a name="line.30"></a>
 <span class="sourceLineNo">031</span><a name="line.31"></a>
 <span class="sourceLineNo">032</span>  /**<a name="line.32"></a>

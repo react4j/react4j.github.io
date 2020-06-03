@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <title>Source code</title>
-<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <div class="sourceContainer">
-<pre><span class="sourceLineNo">001</span>package react4j.internal.arez;<a name="line.1"></a>
+<pre><span class="sourceLineNo">001</span>package react4j.internal;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
 <span class="sourceLineNo">003</span>import arez.Arez;<a name="line.3"></a>
 <span class="sourceLineNo">004</span>import arez.Observer;<a name="line.4"></a>
@@ -24,7 +24,7 @@
 <span class="sourceLineNo">016</span>import jsinterop.base.JsPropertyMap;<a name="line.16"></a>
 <span class="sourceLineNo">017</span><a name="line.17"></a>
 <span class="sourceLineNo">018</span>/**<a name="line.18"></a>
-<span class="sourceLineNo">019</span> * Utilities for introspecting the Arez components and runtime.<a name="line.19"></a>
+<span class="sourceLineNo">019</span> * Utilities for introspecting the React4j views and runtime.<a name="line.19"></a>
 <span class="sourceLineNo">020</span> */<a name="line.20"></a>
 <span class="sourceLineNo">021</span>@OmitType( unless = "react4j.store_debug_data_as_state" )<a name="line.21"></a>
 <span class="sourceLineNo">022</span>public final class IntrospectUtil<a name="line.22"></a>
@@ -124,9 +124,9 @@
 <span class="sourceLineNo">116</span>   * Prepare the newState value to be updated given specified current state.<a name="line.116"></a>
 <span class="sourceLineNo">117</span>   * If no changes are required then return false.<a name="line.117"></a>
 <span class="sourceLineNo">118</span>   *<a name="line.118"></a>
-<span class="sourceLineNo">119</span>   * @param newState     the new "state" of the component.<a name="line.119"></a>
-<span class="sourceLineNo">120</span>   * @param currentState the current "state" of the component.<a name="line.120"></a>
-<span class="sourceLineNo">121</span>   * @return true if newState needs to be saved to native component, false otherwise.<a name="line.121"></a>
+<span class="sourceLineNo">119</span>   * @param newState     the new "state" of the view.<a name="line.119"></a>
+<span class="sourceLineNo">120</span>   * @param currentState the current "state" of the view.<a name="line.120"></a>
+<span class="sourceLineNo">121</span>   * @return true if newState needs to be saved to native view, false otherwise.<a name="line.121"></a>
 <span class="sourceLineNo">122</span>   */<a name="line.122"></a>
 <span class="sourceLineNo">123</span>  public static boolean prepareStateUpdate( @Nonnull final JsPropertyMap&lt;Object&gt; newState,<a name="line.123"></a>
 <span class="sourceLineNo">124</span>                                            @Nullable final JsPropertyMap&lt;Object&gt; currentState )<a name="line.124"></a>
