@@ -38,27 +38,27 @@
 <span class="sourceLineNo">030</span>  }<a name="line.30"></a>
 <span class="sourceLineNo">031</span><a name="line.31"></a>
 <span class="sourceLineNo">032</span>  /**<a name="line.32"></a>
-<span class="sourceLineNo">033</span>   * Return true if the prop keys should be minimized.<a name="line.33"></a>
-<span class="sourceLineNo">034</span>   * This will significantly reduce the size of the compiled output but will make inspecting the props<a name="line.34"></a>
+<span class="sourceLineNo">033</span>   * Return true if the input keys should be minimized.<a name="line.33"></a>
+<span class="sourceLineNo">034</span>   * This will significantly reduce the size of the compiled output but will make inspecting the inputs<a name="line.34"></a>
 <span class="sourceLineNo">035</span>   * in DevTools difficult if not impossible.<a name="line.35"></a>
 <span class="sourceLineNo">036</span>   *<a name="line.36"></a>
-<span class="sourceLineNo">037</span>   * @return true to minimize prop keys.<a name="line.37"></a>
+<span class="sourceLineNo">037</span>   * @return true to minimize input keys.<a name="line.37"></a>
 <span class="sourceLineNo">038</span>   */<a name="line.38"></a>
 <span class="sourceLineNo">039</span>  @JsOverlay<a name="line.39"></a>
-<span class="sourceLineNo">040</span>  public static boolean shouldMinimizePropKeys()<a name="line.40"></a>
+<span class="sourceLineNo">040</span>  public static boolean shouldMinimizeInputKeys()<a name="line.40"></a>
 <span class="sourceLineNo">041</span>  {<a name="line.41"></a>
-<span class="sourceLineNo">042</span>    return ReactConfig.shouldMinimizePropKeys();<a name="line.42"></a>
+<span class="sourceLineNo">042</span>    return ReactConfig.shouldMinimizeInputKeys();<a name="line.42"></a>
 <span class="sourceLineNo">043</span>  }<a name="line.43"></a>
 <span class="sourceLineNo">044</span><a name="line.44"></a>
 <span class="sourceLineNo">045</span>  /**<a name="line.45"></a>
-<span class="sourceLineNo">046</span>   * Return true if the prop value should be validated when initially set or when changed.<a name="line.46"></a>
+<span class="sourceLineNo">046</span>   * Return true if the input value should be validated when initially set or when changed.<a name="line.46"></a>
 <span class="sourceLineNo">047</span>   *<a name="line.47"></a>
-<span class="sourceLineNo">048</span>   * @return true to validate prop values.<a name="line.48"></a>
+<span class="sourceLineNo">048</span>   * @return true to validate input values.<a name="line.48"></a>
 <span class="sourceLineNo">049</span>   */<a name="line.49"></a>
 <span class="sourceLineNo">050</span>  @JsOverlay<a name="line.50"></a>
-<span class="sourceLineNo">051</span>  public static boolean shouldValidatePropValues()<a name="line.51"></a>
+<span class="sourceLineNo">051</span>  public static boolean shouldValidateInputValues()<a name="line.51"></a>
 <span class="sourceLineNo">052</span>  {<a name="line.52"></a>
-<span class="sourceLineNo">053</span>    return ReactConfig.shouldValidatePropValues();<a name="line.53"></a>
+<span class="sourceLineNo">053</span>    return ReactConfig.shouldValidateInputValues();<a name="line.53"></a>
 <span class="sourceLineNo">054</span>  }<a name="line.54"></a>
 <span class="sourceLineNo">055</span><a name="line.55"></a>
 <span class="sourceLineNo">056</span>  /**<a name="line.56"></a>
@@ -86,14 +86,14 @@
 <span class="sourceLineNo">078</span>  }<a name="line.78"></a>
 <span class="sourceLineNo">079</span><a name="line.79"></a>
 <span class="sourceLineNo">080</span>  /**<a name="line.80"></a>
-<span class="sourceLineNo">081</span>   * Return true if props should be frozen before being passed to react.<a name="line.81"></a>
+<span class="sourceLineNo">081</span>   * Return true if inputs should be frozen before being passed to react.<a name="line.81"></a>
 <span class="sourceLineNo">082</span>   *<a name="line.82"></a>
-<span class="sourceLineNo">083</span>   * @return true if props should be frozen before being passed to react.<a name="line.83"></a>
+<span class="sourceLineNo">083</span>   * @return true if inputs should be frozen before being passed to react.<a name="line.83"></a>
 <span class="sourceLineNo">084</span>   */<a name="line.84"></a>
 <span class="sourceLineNo">085</span>  @JsOverlay<a name="line.85"></a>
-<span class="sourceLineNo">086</span>  public static boolean shouldFreezeProps()<a name="line.86"></a>
+<span class="sourceLineNo">086</span>  public static boolean shouldFreezeInputs()<a name="line.86"></a>
 <span class="sourceLineNo">087</span>  {<a name="line.87"></a>
-<span class="sourceLineNo">088</span>    return ReactConfig.shouldFreezeProps();<a name="line.88"></a>
+<span class="sourceLineNo">088</span>    return ReactConfig.shouldFreezeInputs();<a name="line.88"></a>
 <span class="sourceLineNo">089</span>  }<a name="line.89"></a>
 <span class="sourceLineNo">090</span><a name="line.90"></a>
 <span class="sourceLineNo">091</span>  /*<a name="line.91"></a>

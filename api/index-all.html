@@ -756,7 +756,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/internal/ViewConstructorFunction.html#construct-jsinterop.base.JsPropertyMap-">construct(JsPropertyMap&lt;Object&gt;)</a></span> - Method in interface react4j.internal.<a href="react4j/internal/ViewConstructorFunction.html" title="interface in react4j.internal">ViewConstructorFunction</a></dt>
 <dd>
-<div class="block">Construct a component based on specified properties.</div>
+<div class="block">Construct a component based on specified inputs.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/Context.html#consumer--">consumer()</a></span> - Method in class react4j.<a href="react4j/Context.html" title="class in react4j">Context</a></dt>
 <dd>
@@ -778,7 +778,7 @@
 </dd>
 <dt><a href="react4j/Context.ConsumerRenderFunction.html" title="interface in react4j"><span class="typeNameLink">Context.ConsumerRenderFunction</span></a>&lt;<a href="react4j/Context.ConsumerRenderFunction.html" title="type parameter in Context.ConsumerRenderFunction">T</a>&gt; - Interface in <a href="react4j/package-summary.html">react4j</a></dt>
 <dd>
-<div class="block">Interface used to type the render function prop.</div>
+<div class="block">Interface used to type the render function input.</div>
 </dd>
 <dt><a href="react4j/Context.ProviderBuilder.html" title="class in react4j"><span class="typeNameLink">Context.ProviderBuilder</span></a>&lt;<a href="react4j/Context.ProviderBuilder.html" title="type parameter in Context.ProviderBuilder">ST</a>&gt; - Class in <a href="react4j/package-summary.html">react4j</a></dt>
 <dd>
@@ -1182,9 +1182,9 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#fragment-java.util.stream.Stream-">fragment(Stream&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#freezeProps--">freezeProps()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#freezeInputs--">freezeInputs()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
 <dd>
-<div class="block">Set the `react4j.freeze_props` setting to <code>true</code>.</div>
+<div class="block">Set the `react4j.freeze_inputs` setting to <code>true</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/BtnProps.html#from-java.lang.String-">from(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/BtnProps.html" title="class in react4j.dom.proptypes.html">BtnProps</a></dt>
 <dd>&nbsp;</dd>
@@ -2571,6 +2571,10 @@
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/ImgProps.html#ImgProps--">ImgProps()</a></span> - Constructor for class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/ImgProps.html" title="class in react4j.dom.proptypes.html">ImgProps</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="react4j/annotations/Input.html" title="annotation in react4j.annotations"><span class="typeNameLink">Input</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Annotation used to specify an abstract method that returns a prop.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#input-react4j.dom.proptypes.html.InputProps-react4j.ReactNode...-">input(InputProps, ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#input-react4j.ReactNode...-">input(ReactNode...)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
@@ -2599,14 +2603,36 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/DOM.html#input-java.util.stream.Stream-">input(Stream&lt;? extends ReactNode&gt;)</a></span> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/ReactElement.html#input-java.lang.String-java.lang.Object-">input(String, Object)</a></span> - Method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="react4j/annotations/Input.Source.html" title="enum in react4j.annotations"><span class="typeNameLink">Input.Source</span></a> - Enum in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Enum where the input is sourced from.</div>
+</dd>
+<dt><a href="react4j/annotations/InputDefault.html" title="annotation in react4j.annotations"><span class="typeNameLink">InputDefault</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Annotation used to specify the default value for a input.</div>
+</dd>
 <dt><a href="react4j/dom/proptypes/html/InputProps.html" title="class in react4j.dom.proptypes.html"><span class="typeNameLink">InputProps</span></a> - Class in <a href="react4j/dom/proptypes/html/package-summary.html">react4j.dom.proptypes.html</a></dt>
 <dd>
 <div class="block">Props for input elements.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/InputProps.html#InputProps--">InputProps()</a></span> - Constructor for class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/InputProps.html" title="class in react4j.dom.proptypes.html">InputProps</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="react4j/annotations/InputRef.html" title="annotation in react4j.annotations"><span class="typeNameLink">InputRef</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Annotation used to associate a parameter with a input on a method annotated with <a href="react4j/annotations/OnInputChange.html" title="annotation in react4j.annotations"><code>OnInputChange</code></a> .</div>
+</dd>
+<dt><span class="memberNameLink"><a href="react4j/internal/NativeView.html#inputs--">inputs()</a></span> - Method in class react4j.internal.<a href="react4j/internal/NativeView.html" title="class in react4j.internal">NativeView</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/ReactElement.html#inputs--">inputs()</a></span> - Method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="react4j/dom/proptypes/html/attributeTypes/InputType.html" title="enum in react4j.dom.proptypes.html.attributeTypes"><span class="typeNameLink">InputType</span></a> - Enum in <a href="react4j/dom/proptypes/html/attributeTypes/package-summary.html">react4j.dom.proptypes.html.attributeTypes</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="react4j/annotations/InputValidate.html" title="annotation in react4j.annotations"><span class="typeNameLink">InputValidate</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Identifies method that is called when the input value is specified or changes.</div>
+</dd>
 <dt><a href="react4j/internal/IntrospectUtil.html" title="class in react4j.internal"><span class="typeNameLink">IntrospectUtil</span></a> - Class in <a href="react4j/internal/package-summary.html">react4j.internal</a></dt>
 <dd>
 <div class="block">Utilities for introspecting the React4j views and runtime.</div>
@@ -2735,7 +2761,7 @@
 <dd>&nbsp;</dd>
 <dt><a href="react4j/Keyed.html" title="interface in react4j"><span class="typeNameLink">Keyed</span></a> - Interface in <a href="react4j/package-summary.html">react4j</a></dt>
 <dd>
-<div class="block">Interface implemented by objects so that they can be marked as <a href="react4j/annotations/Prop.html#immutable--"><code>Prop.immutable()</code></a></div>
+<div class="block">Interface implemented by objects so that they can be marked as <a href="react4j/annotations/Input.html#immutable--"><code>Input.immutable()</code></a></div>
 </dd>
 </dl>
 <a name="I:L">
@@ -2947,9 +2973,9 @@
 <dd>
 <div class="block">Sets the minimum height for an element.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#minimizePropKeys--">minimizePropKeys()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#minimizeInputKeys--">minimizeInputKeys()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
 <dd>
-<div class="block">Set the `react4j.minimize_prop_keys` setting to <code>true</code>.</div>
+<div class="block">Set the `react4j.minimize_input_keys` setting to <code>true</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/TextAreaProps.html#minLength-int-">minLength(int)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/TextAreaProps.html" title="class in react4j.dom.proptypes.html">TextAreaProps</a></dt>
 <dd>&nbsp;</dd>
@@ -2997,21 +3023,21 @@
 <dd>
 <div class="block">Set the `react4j.check_invariants` setting to <code>false</code>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#noFreezeProps--">noFreezeProps()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#noFreezeInputs--">noFreezeInputs()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
 <dd>
-<div class="block">Set the `react4j.freeze_props` setting to <code>false</code>.</div>
+<div class="block">Set the `react4j.freeze_inputs` setting to <code>false</code>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#noMinimizePropKeys--">noMinimizePropKeys()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#noMinimizeInputKeys--">noMinimizeInputKeys()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
 <dd>
-<div class="block">Set the `react4j.minimize_prop_keys` setting to <code>false</code>.</div>
+<div class="block">Set the `react4j.minimize_input_keys` setting to <code>false</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#noStoreDebugDataAsState--">noStoreDebugDataAsState()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
 <dd>
 <div class="block">Set the `react4j.store_debug_data_as_state` setting to <code>false</code>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#noValidatePropValues--">noValidatePropValues()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#noValidateInputValues--">noValidateInputValues()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
 <dd>
-<div class="block">Set the `react4j.validate_prop_values` setting to <code>false</code>.</div>
+<div class="block">Set the `react4j.validate_input_values` setting to <code>false</code>.</div>
 </dd>
 </dl>
 <a name="I:O">
@@ -3489,6 +3515,14 @@
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/FormProps.html#onInput-react4j.dom.events.FormEventHandler-">onInput(FormEventHandler)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/FormProps.html" title="class in react4j.dom.proptypes.html">FormProps</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="react4j/annotations/OnInputChange.html" title="annotation in react4j.annotations"><span class="typeNameLink">OnInputChange</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Identifies a method that is called when the value of one of the specified inputs is changed.</div>
+</dd>
+<dt><a href="react4j/annotations/OnInputChange.Phase.html" title="enum in react4j.annotations"><span class="typeNameLink">OnInputChange.Phase</span></a> - Enum in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Phase in which method should be invoked.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/events/KeyboardEventHandler.html#onKeyboardEvent-react4j.dom.events.KeyboardEvent-">onKeyboardEvent(KeyboardEvent)</a></span> - Method in interface react4j.dom.events.<a href="react4j/dom/events/KeyboardEventHandler.html" title="interface in react4j.dom.events">KeyboardEventHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/AnchorProps.html#onKeyDown-react4j.dom.events.KeyboardEventHandler-">onKeyDown(KeyboardEventHandler)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/AnchorProps.html" title="class in react4j.dom.proptypes.html">AnchorProps</a></dt>
@@ -3791,14 +3825,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/ImgProps.html#onProgress-react4j.dom.events.ReactEventHandler-">onProgress(ReactEventHandler)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/ImgProps.html" title="class in react4j.dom.proptypes.html">ImgProps</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="react4j/annotations/OnPropChange.html" title="annotation in react4j.annotations"><span class="typeNameLink">OnPropChange</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
-<dd>
-<div class="block">Identifies a method that is called when the value of one of the specified props is changed.</div>
-</dd>
-<dt><a href="react4j/annotations/OnPropChange.Phase.html" title="enum in react4j.annotations"><span class="typeNameLink">OnPropChange.Phase</span></a> - Enum in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
-<dd>
-<div class="block">Phase in which method should be invoked.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/ImgProps.html#onRateChange-react4j.dom.events.ReactEventHandler-">onRateChange(ReactEventHandler)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/ImgProps.html" title="class in react4j.dom.proptypes.html">ImgProps</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/events/ReactEventHandler.html#onReactEvent-react4j.dom.events.SyntheticEvent-">onReactEvent(SyntheticEvent&lt;?&gt;)</a></span> - Method in interface react4j.dom.events.<a href="react4j/dom/events/ReactEventHandler.html" title="interface in react4j.dom.events">ReactEventHandler</a></dt>
@@ -4194,34 +4220,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/processor/React4jProcessor.html#process-java.util.Set-javax.annotation.processing.RoundEnvironment-">process(Set&lt;? extends TypeElement&gt;, RoundEnvironment)</a></span> - Method in class react4j.processor.<a href="react4j/processor/React4jProcessor.html" title="class in react4j.processor">React4jProcessor</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="react4j/annotations/Prop.html" title="annotation in react4j.annotations"><span class="typeNameLink">Prop</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
-<dd>
-<div class="block">Annotation used to specify an abstract method that returns a prop.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#prop-java.lang.String-jsinterop.base.Any-">prop(String, Any)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/ReactElement.html#prop-java.lang.String-java.lang.Object-">prop(String, Object)</a></span> - Method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="react4j/annotations/Prop.Source.html" title="enum in react4j.annotations"><span class="typeNameLink">Prop.Source</span></a> - Enum in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
-<dd>
-<div class="block">Enum where the prop is sourced from.</div>
-</dd>
-<dt><a href="react4j/annotations/PropDefault.html" title="annotation in react4j.annotations"><span class="typeNameLink">PropDefault</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
-<dd>
-<div class="block">Annotation used to specify the default value for a prop.</div>
-</dd>
-<dt><a href="react4j/annotations/PropRef.html" title="annotation in react4j.annotations"><span class="typeNameLink">PropRef</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
-<dd>
-<div class="block">Annotation used to associate a parameter with a prop on a method annotated with <a href="react4j/annotations/OnPropChange.html" title="annotation in react4j.annotations"><code>OnPropChange</code></a> .</div>
-</dd>
-<dt><span class="memberNameLink"><a href="react4j/internal/NativeView.html#props--">props()</a></span> - Method in class react4j.internal.<a href="react4j/internal/NativeView.html" title="class in react4j.internal">NativeView</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/ReactElement.html#props--">props()</a></span> - Method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="react4j/annotations/PropValidate.html" title="annotation in react4j.annotations"><span class="typeNameLink">PropValidate</span></a> - Annotation Type in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
-<dd>
-<div class="block">Identifies method that is called when the prop value is specified or changes.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="react4j/Context.html#provide-T-react4j.ReactNode...-">provide(T, ReactNode...)</a></span> - Method in class react4j.<a href="react4j/Context.html" title="class in react4j">Context</a></dt>
 <dd>
 <div class="block">Create a provider component that provides specified value to specified children.</div>
@@ -4881,6 +4881,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#setInputMode-java.lang.String-">setInputMode(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="react4j/ReactElement.html#setInputs-jsinterop.base.JsPropertyMap-">setInputs(JsPropertyMap&lt;Object&gt;)</a></span> - Method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#setIntegrity-java.lang.String-">setIntegrity(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#setIs-java.lang.String-">setIs(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
@@ -5193,8 +5195,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#setProperty-java.lang.String-">setProperty(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/ReactElement.html#setProps-jsinterop.base.JsPropertyMap-">setProps(JsPropertyMap&lt;Object&gt;)</a></span> - Method in class react4j.<a href="react4j/ReactElement.html" title="class in react4j">ReactElement</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/CssProps.html#setQuotes-java.lang.String-">setQuotes(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/HtmlGlobalFields.html#setRadioGroup-java.lang.String-">setRadioGroup(String)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/HtmlGlobalFields.html" title="class in react4j.dom.proptypes.html">HtmlGlobalFields</a></dt>
@@ -5477,21 +5477,21 @@
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/internal/OnShouldComponentUpdate.html#shouldComponentUpdate-jsinterop.base.JsPropertyMap-">shouldComponentUpdate(JsPropertyMap&lt;Object&gt;)</a></span> - Method in interface react4j.internal.<a href="react4j/internal/OnShouldComponentUpdate.html" title="interface in react4j.internal">OnShouldComponentUpdate</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#shouldFreezeProps--">shouldFreezeProps()</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/React.html#shouldFreezeInputs--">shouldFreezeInputs()</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
 <dd>
-<div class="block">Return true if props should be frozen before being passed to react.</div>
+<div class="block">Return true if inputs should be frozen before being passed to react.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#shouldMinimizePropKeys--">shouldMinimizePropKeys()</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/React.html#shouldMinimizeInputKeys--">shouldMinimizeInputKeys()</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
 <dd>
-<div class="block">Return true if the prop keys should be minimized.</div>
+<div class="block">Return true if the input keys should be minimized.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/React.html#shouldStoreDebugDataAsState--">shouldStoreDebugDataAsState()</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
 <dd>
 <div class="block">Return true if react state should be used to store debug data.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/React.html#shouldValidatePropValues--">shouldValidatePropValues()</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/React.html#shouldValidateInputValues--">shouldValidateInputValues()</a></span> - Static method in class react4j.<a href="react4j/React.html" title="class in react4j">React</a></dt>
 <dd>
-<div class="block">Return true if the prop value should be validated when initially set or when changed.</div>
+<div class="block">Return true if the input value should be validated when initially set or when changed.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/dom/proptypes/html/InputProps.html#size-int-">size(int)</a></span> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/InputProps.html" title="class in react4j.dom.proptypes.html">InputProps</a></dt>
 <dd>&nbsp;</dd>
@@ -6152,9 +6152,9 @@
 </a>
 <h2 class="title">V</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#validatePropValues--">validatePropValues()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/ReactTestUtil.html#validateInputValues--">validateInputValues()</a></span> - Static method in class react4j.<a href="react4j/ReactTestUtil.html" title="class in react4j">ReactTestUtil</a></dt>
 <dd>
-<div class="block">Set the `react4j.validate_prop_values` setting to <code>true</code>.</div>
+<div class="block">Set the `react4j.validate_input_values` setting to <code>true</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="react4j/Context.ProviderBuilder.html#value-ST-">value(ST)</a></span> - Method in class react4j.<a href="react4j/Context.ProviderBuilder.html" title="class in react4j">Context.ProviderBuilder</a></dt>
 <dd>&nbsp;</dd>
@@ -6172,11 +6172,11 @@
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/annotations/OnPropChange.Phase.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/OnPropChange.Phase.html" title="enum in react4j.annotations">OnPropChange.Phase</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/annotations/Input.Source.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/Input.Source.html" title="enum in react4j.annotations">Input.Source</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/annotations/Prop.Source.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/Prop.Source.html" title="enum in react4j.annotations">Prop.Source</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/annotations/OnInputChange.Phase.html#valueOf-java.lang.String-">valueOf(String)</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/OnInputChange.Phase.html" title="enum in react4j.annotations">OnInputChange.Phase</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
@@ -6229,12 +6229,12 @@
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/annotations/OnPropChange.Phase.html#values--">values()</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/OnPropChange.Phase.html" title="enum in react4j.annotations">OnPropChange.Phase</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/annotations/Input.Source.html#values--">values()</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/Input.Source.html" title="enum in react4j.annotations">Input.Source</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="react4j/annotations/Prop.Source.html#values--">values()</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/Prop.Source.html" title="enum in react4j.annotations">Prop.Source</a></dt>
+<dt><span class="memberNameLink"><a href="react4j/annotations/OnInputChange.Phase.html#values--">values()</a></span> - Static method in enum react4j.annotations.<a href="react4j/annotations/OnInputChange.Phase.html" title="enum in react4j.annotations">OnInputChange.Phase</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>

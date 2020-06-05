@@ -224,8 +224,8 @@ the order they are declared.</div>
 <pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.32">STATEFUL</a></pre>
 <div class="block">The view can store state in fields, can declared lifecycle methods and may contain methods annotated by
  the <a href="../../react4j/annotations/ScheduleRender.html" title="annotation in react4j.annotations"><code>ScheduleRender</code></a> annotation.
- The view will be scheduled to re-render if the views container re-renders and any props with
- <a href="../../react4j/annotations/Prop.html#shouldUpdateOnChange--"><code>Prop.shouldUpdateOnChange()</code></a> set to <code>true</code> has changed value from last render. A prop
+ The view will be scheduled to re-render if the views container re-renders and any inputs with
+ <a href="../../react4j/annotations/Input.html#shouldUpdateOnChange--"><code>Input.shouldUpdateOnChange()</code></a> set to <code>true</code> has changed value from last render. A input
  is considered changed if when the new value and the old value are passed to
  <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Objects.html?is-external=true#equals-java.lang.Object-java.lang.Object-" title="class or interface in java.util"><code>Objects.equals(Object, Object)</code></a> and that method returns <code>false</code>. A view will also
  be scheduled to re-render if the view invokes a method annotated by the <a href="../../react4j/annotations/ScheduleRender.html" title="annotation in react4j.annotations"><code>ScheduleRender</code></a> annotation.</div>

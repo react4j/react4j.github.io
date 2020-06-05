@@ -47,14 +47,14 @@
 <span class="sourceLineNo">039</span> */<a name="line.39"></a>
 <span class="sourceLineNo">040</span>@Documented<a name="line.40"></a>
 <span class="sourceLineNo">041</span>@Target( ElementType.METHOD )<a name="line.41"></a>
-<span class="sourceLineNo">042</span>public @interface Prop<a name="line.42"></a>
+<span class="sourceLineNo">042</span>public @interface Input<a name="line.42"></a>
 <span class="sourceLineNo">043</span>{<a name="line.43"></a>
 <span class="sourceLineNo">044</span>  /**<a name="line.44"></a>
-<span class="sourceLineNo">045</span>   * Return the name of the prop.<a name="line.45"></a>
-<span class="sourceLineNo">046</span>   * The name is the key used when accessing the prop from the props object. It is also used when creating<a name="line.46"></a>
-<span class="sourceLineNo">047</span>   * the builder steps associated with the props that set {@link #source()} to {@link Source#DEFAULT}.<a name="line.47"></a>
+<span class="sourceLineNo">045</span>   * Return the name of the input.<a name="line.45"></a>
+<span class="sourceLineNo">046</span>   * The name is the key used when accessing the input from the inputs object. It is also used when creating<a name="line.46"></a>
+<span class="sourceLineNo">047</span>   * the builder steps associated with the inputs that set {@link #source()} to {@link Source#DEFAULT}.<a name="line.47"></a>
 <span class="sourceLineNo">048</span>   *<a name="line.48"></a>
-<span class="sourceLineNo">049</span>   * @return the name of the prop.<a name="line.49"></a>
+<span class="sourceLineNo">049</span>   * @return the name of the input.<a name="line.49"></a>
 <span class="sourceLineNo">050</span>   */<a name="line.50"></a>
 <span class="sourceLineNo">051</span>  @Nonnull<a name="line.51"></a>
 <span class="sourceLineNo">052</span>  String name() default "&lt;default&gt;";<a name="line.52"></a>
@@ -69,67 +69,67 @@
 <span class="sourceLineNo">061</span>  String qualifier() default "";<a name="line.61"></a>
 <span class="sourceLineNo">062</span><a name="line.62"></a>
 <span class="sourceLineNo">063</span>  /**<a name="line.63"></a>
-<span class="sourceLineNo">064</span>   * The setting controlling where the prop value is source from.<a name="line.64"></a>
-<span class="sourceLineNo">065</span>   * If the source is set to {@link Source#CONTEXT} then the prop is sometimes described as a "TreeProp"<a name="line.65"></a>
-<span class="sourceLineNo">066</span>   * as it is transparently passed from a parent view to all child views. A "TreeProp" does not<a name="line.66"></a>
+<span class="sourceLineNo">064</span>   * The setting controlling where the input value is source from.<a name="line.64"></a>
+<span class="sourceLineNo">065</span>   * If the source is set to {@link Source#CONTEXT} then the input is sometimes described as a "TreeInput"<a name="line.65"></a>
+<span class="sourceLineNo">066</span>   * as it is transparently passed from a parent view to all child views. A "TreeInput" does not<a name="line.66"></a>
 <span class="sourceLineNo">067</span>   * have to be specified by the user when creating the view.<a name="line.67"></a>
 <span class="sourceLineNo">068</span>   *<a name="line.68"></a>
-<span class="sourceLineNo">069</span>   * @return the setting controlling where the prop value is source from.<a name="line.69"></a>
+<span class="sourceLineNo">069</span>   * @return the setting controlling where the input value is source from.<a name="line.69"></a>
 <span class="sourceLineNo">070</span>   */<a name="line.70"></a>
 <span class="sourceLineNo">071</span>  Source source() default Source.DEFAULT;<a name="line.71"></a>
 <span class="sourceLineNo">072</span><a name="line.72"></a>
 <span class="sourceLineNo">073</span>  /**<a name="line.73"></a>
-<span class="sourceLineNo">074</span>   * Setting indicating whether the prop should be supplied when the view is constructed.<a name="line.74"></a>
+<span class="sourceLineNo">074</span>   * Setting indicating whether the input should be supplied when the view is constructed.<a name="line.74"></a>
 <span class="sourceLineNo">075</span>   * This influences validation when enabled and how the Builder class is created.<a name="line.75"></a>
-<span class="sourceLineNo">076</span>   * If set to {@link Feature#ENABLE} then the user MUST supply the prop and the builder will require the user<a name="line.76"></a>
-<span class="sourceLineNo">077</span>   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the prop.<a name="line.77"></a>
+<span class="sourceLineNo">076</span>   * If set to {@link Feature#ENABLE} then the user MUST supply the input and the builder will require the user<a name="line.76"></a>
+<span class="sourceLineNo">077</span>   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the input.<a name="line.77"></a>
 <span class="sourceLineNo">078</span>   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#DISABLE}<a name="line.78"></a>
-<span class="sourceLineNo">079</span>   * if there is a corresponding {@link PropDefault} for the prop or the {@link #source()} parameter is set to<a name="line.79"></a>
+<span class="sourceLineNo">079</span>   * if there is a corresponding {@link InputDefault} for the input or the {@link #source()} parameter is set to<a name="line.79"></a>
 <span class="sourceLineNo">080</span>   * {@link Source#CONTEXT}, otherwise it will be treated as {@link Feature#ENABLE}. The value of this setting<a name="line.80"></a>
 <span class="sourceLineNo">081</span>   * must not be {@link Feature#ENABLE} when {@link #source()} is set to {@link Source#CONTEXT}.<a name="line.81"></a>
 <span class="sourceLineNo">082</span>   *<a name="line.82"></a>
-<span class="sourceLineNo">083</span>   * @return the flag indicating whether the prop needs to be supplied.<a name="line.83"></a>
+<span class="sourceLineNo">083</span>   * @return the flag indicating whether the input needs to be supplied.<a name="line.83"></a>
 <span class="sourceLineNo">084</span>   */<a name="line.84"></a>
 <span class="sourceLineNo">085</span>  Feature require() default Feature.AUTODETECT;<a name="line.85"></a>
 <span class="sourceLineNo">086</span><a name="line.86"></a>
 <span class="sourceLineNo">087</span>  /**<a name="line.87"></a>
-<span class="sourceLineNo">088</span>   * Indicate whether changing the value of the prop should schedule a re-render.<a name="line.88"></a>
+<span class="sourceLineNo">088</span>   * Indicate whether changing the value of the input should schedule a re-render.<a name="line.88"></a>
 <span class="sourceLineNo">089</span>   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as<a name="line.89"></a>
 <span class="sourceLineNo">090</span>   * {@link Feature#ENABLE} unless {@link #immutable()} is set to &lt;code&gt;true&lt;/code&gt;.<a name="line.90"></a>
 <span class="sourceLineNo">091</span>   *<a name="line.91"></a>
-<span class="sourceLineNo">092</span>   * @return the enum indicating whether prop should trigger a render if it is modified.<a name="line.92"></a>
+<span class="sourceLineNo">092</span>   * @return the enum indicating whether input should trigger a render if it is modified.<a name="line.92"></a>
 <span class="sourceLineNo">093</span>   */<a name="line.93"></a>
 <span class="sourceLineNo">094</span>  Feature shouldUpdateOnChange() default Feature.AUTODETECT;<a name="line.94"></a>
 <span class="sourceLineNo">095</span><a name="line.95"></a>
 <span class="sourceLineNo">096</span>  /**<a name="line.96"></a>
-<span class="sourceLineNo">097</span>   * Indicate whether the prop should be annotated by {@link Observable}.<a name="line.97"></a>
+<span class="sourceLineNo">097</span>   * Indicate whether the input should be annotated by {@link Observable}.<a name="line.97"></a>
 <span class="sourceLineNo">098</span>   *<a name="line.98"></a>
-<span class="sourceLineNo">099</span>   * &lt;p&gt;If set to {@link Feature#AUTODETECT} then the prop will be observable if and only if:&lt;/p&gt;<a name="line.99"></a>
+<span class="sourceLineNo">099</span>   * &lt;p&gt;If set to {@link Feature#AUTODETECT} then the input will be observable if and only if:&lt;/p&gt;<a name="line.99"></a>
 <span class="sourceLineNo">100</span>   * &lt;ul&gt;<a name="line.100"></a>
 <span class="sourceLineNo">101</span>   * &lt;li&gt;{@link #shouldUpdateOnChange()} is not set to {@link Feature#DISABLE}.&lt;/li&gt;<a name="line.101"></a>
 <span class="sourceLineNo">102</span>   * &lt;li&gt;the view has at least one method annotated with {@link Memoize} or {@link Observe}.&lt;/li&gt;<a name="line.102"></a>
 <span class="sourceLineNo">103</span>   * &lt;/ul&gt;<a name="line.103"></a>
 <span class="sourceLineNo">104</span>   *<a name="line.104"></a>
-<span class="sourceLineNo">105</span>   * @return the enum indicating whether prop is observable.<a name="line.105"></a>
+<span class="sourceLineNo">105</span>   * @return the enum indicating whether input is observable.<a name="line.105"></a>
 <span class="sourceLineNo">106</span>   */<a name="line.106"></a>
 <span class="sourceLineNo">107</span>  Feature observable() default Feature.AUTODETECT;<a name="line.107"></a>
 <span class="sourceLineNo">108</span><a name="line.108"></a>
 <span class="sourceLineNo">109</span>  /**<a name="line.109"></a>
-<span class="sourceLineNo">110</span>   * Return an enum indicating whether the view should check whether the value of the prop is disposed<a name="line.110"></a>
+<span class="sourceLineNo">110</span>   * Return an enum indicating whether the view should check whether the value of the input is disposed<a name="line.110"></a>
 <span class="sourceLineNo">111</span>   * prior to rendering. If the value is disposed then the render method will exit early and return null.<a name="line.111"></a>
 <span class="sourceLineNo">112</span>   * If this parameter is set to {@link Feature#AUTODETECT} then the annotation processor will inspect the<a name="line.112"></a>
-<span class="sourceLineNo">113</span>   * type of the prop and treat it as {@link Feature#ENABLE} if the type is annotated with the {@link ArezComponent}<a name="line.113"></a>
+<span class="sourceLineNo">113</span>   * type of the input and treat it as {@link Feature#ENABLE} if the type is annotated with the {@link ArezComponent}<a name="line.113"></a>
 <span class="sourceLineNo">114</span>   * annotation or the {@link ActAsComponent} annotation.<a name="line.114"></a>
 <span class="sourceLineNo">115</span>   *<a name="line.115"></a>
-<span class="sourceLineNo">116</span>   * @return an enum indicating whether the view should check whether the value of the prop is disposed prior to rendering.<a name="line.116"></a>
+<span class="sourceLineNo">116</span>   * @return an enum indicating whether the view should check whether the value of the input is disposed prior to rendering.<a name="line.116"></a>
 <span class="sourceLineNo">117</span>   */<a name="line.117"></a>
 <span class="sourceLineNo">118</span>  Feature disposable() default Feature.AUTODETECT;<a name="line.118"></a>
 <span class="sourceLineNo">119</span><a name="line.119"></a>
 <span class="sourceLineNo">120</span>  /**<a name="line.120"></a>
-<span class="sourceLineNo">121</span>   * True if the prop is not expected to change after initial value is set. If the value of the prop does change<a name="line.121"></a>
+<span class="sourceLineNo">121</span>   * True if the input is not expected to change after initial value is set. If the value of the input does change<a name="line.121"></a>
 <span class="sourceLineNo">122</span>   * then it is expected that the react view will be unmounted and a new view created. This is implemented<a name="line.122"></a>
-<span class="sourceLineNo">123</span>   * by synthesizing a key for the view every time the view that is derived from this prop. To enable this<a name="line.123"></a>
-<span class="sourceLineNo">124</span>   * the annotation processor must be able to identify the type of the prop so that a key can be synthesized. The<a name="line.124"></a>
+<span class="sourceLineNo">123</span>   * by synthesizing a key for the view every time the view that is derived from this input. To enable this<a name="line.123"></a>
+<span class="sourceLineNo">124</span>   * the annotation processor must be able to identify the type of the input so that a key can be synthesized. The<a name="line.124"></a>
 <span class="sourceLineNo">125</span>   * following types are supported by the annotation processor;<a name="line.125"></a>
 <span class="sourceLineNo">126</span>   *<a name="line.126"></a>
 <span class="sourceLineNo">127</span>   * &lt;ul&gt;<a name="line.127"></a>
@@ -145,21 +145,21 @@
 <span class="sourceLineNo">137</span>   * or {@link ActAsComponent} then the annotation processor will assume the {@link Keyed} interface is to used in<a name="line.137"></a>
 <span class="sourceLineNo">138</span>   * preference to other alternative strategies.&lt;/p&gt;<a name="line.138"></a>
 <span class="sourceLineNo">139</span>   *<a name="line.139"></a>
-<span class="sourceLineNo">140</span>   * @return true if changing the prop recreates the view.<a name="line.140"></a>
+<span class="sourceLineNo">140</span>   * @return true if changing the input recreates the view.<a name="line.140"></a>
 <span class="sourceLineNo">141</span>   */<a name="line.141"></a>
 <span class="sourceLineNo">142</span>  boolean immutable() default false;<a name="line.142"></a>
 <span class="sourceLineNo">143</span><a name="line.143"></a>
 <span class="sourceLineNo">144</span>  /**<a name="line.144"></a>
-<span class="sourceLineNo">145</span>   * Enum where the prop is sourced from.<a name="line.145"></a>
+<span class="sourceLineNo">145</span>   * Enum where the input is sourced from.<a name="line.145"></a>
 <span class="sourceLineNo">146</span>   */<a name="line.146"></a>
 <span class="sourceLineNo">147</span>  enum Source<a name="line.147"></a>
 <span class="sourceLineNo">148</span>  {<a name="line.148"></a>
 <span class="sourceLineNo">149</span>    /**<a name="line.149"></a>
-<span class="sourceLineNo">150</span>     * The prop value is passed to the view during construction.<a name="line.150"></a>
+<span class="sourceLineNo">150</span>     * The input value is passed to the view during construction.<a name="line.150"></a>
 <span class="sourceLineNo">151</span>     */<a name="line.151"></a>
 <span class="sourceLineNo">152</span>    DEFAULT,<a name="line.152"></a>
 <span class="sourceLineNo">153</span>    /**<a name="line.153"></a>
-<span class="sourceLineNo">154</span>     * The prop value is retrieved from the react context.<a name="line.154"></a>
+<span class="sourceLineNo">154</span>     * The input value is retrieved from the react context.<a name="line.154"></a>
 <span class="sourceLineNo">155</span>     */<a name="line.155"></a>
 <span class="sourceLineNo">156</span>    CONTEXT<a name="line.156"></a>
 <span class="sourceLineNo">157</span>  }<a name="line.157"></a>

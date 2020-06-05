@@ -20,10 +20,10 @@
 <span class="sourceLineNo">012</span><a name="line.12"></a>
 <span class="sourceLineNo">013</span>/**<a name="line.13"></a>
 <span class="sourceLineNo">014</span> * Context is designed to share data that can be considered "global" for a tree of views.<a name="line.14"></a>
-<span class="sourceLineNo">015</span> * In a typical React application, data is passed top-down (parent to child) via props, but this can<a name="line.15"></a>
-<span class="sourceLineNo">016</span> * be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by<a name="line.16"></a>
+<span class="sourceLineNo">015</span> * In a typical React application, data is passed top-down (parent to child) via inputs, but this can<a name="line.15"></a>
+<span class="sourceLineNo">016</span> * be cumbersome for certain types of inputs (e.g. locale preference, UI theme) that are required by<a name="line.16"></a>
 <span class="sourceLineNo">017</span> * many views within an application. Context provides a way to share values like this between<a name="line.17"></a>
-<span class="sourceLineNo">018</span> * views without having to explicitly pass a prop through every level of the tree.<a name="line.18"></a>
+<span class="sourceLineNo">018</span> * views without having to explicitly pass a input through every level of the tree.<a name="line.18"></a>
 <span class="sourceLineNo">019</span> */<a name="line.19"></a>
 <span class="sourceLineNo">020</span>@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )<a name="line.20"></a>
 <span class="sourceLineNo">021</span>public class Context&lt;T&gt;<a name="line.21"></a>
@@ -96,14 +96,14 @@
 <span class="sourceLineNo">088</span>    @Nonnull<a name="line.88"></a>
 <span class="sourceLineNo">089</span>    public final ProviderBuilder&lt;ST&gt; value( @Nullable final ST value )<a name="line.89"></a>
 <span class="sourceLineNo">090</span>    {<a name="line.90"></a>
-<span class="sourceLineNo">091</span>      _element.props().set( "value", value );<a name="line.91"></a>
+<span class="sourceLineNo">091</span>      _element.input( "value", value );<a name="line.91"></a>
 <span class="sourceLineNo">092</span>      return this;<a name="line.92"></a>
 <span class="sourceLineNo">093</span>    }<a name="line.93"></a>
 <span class="sourceLineNo">094</span><a name="line.94"></a>
 <span class="sourceLineNo">095</span>    @Nonnull<a name="line.95"></a>
 <span class="sourceLineNo">096</span>    public final ReactNode children( final ReactNode... children )<a name="line.96"></a>
 <span class="sourceLineNo">097</span>    {<a name="line.97"></a>
-<span class="sourceLineNo">098</span>      _element.props().set( "children", children );<a name="line.98"></a>
+<span class="sourceLineNo">098</span>      _element.input( "children", children );<a name="line.98"></a>
 <span class="sourceLineNo">099</span>      return build();<a name="line.99"></a>
 <span class="sourceLineNo">100</span>    }<a name="line.100"></a>
 <span class="sourceLineNo">101</span><a name="line.101"></a>
@@ -116,7 +116,7 @@
 <span class="sourceLineNo">108</span>  }<a name="line.108"></a>
 <span class="sourceLineNo">109</span><a name="line.109"></a>
 <span class="sourceLineNo">110</span>  /**<a name="line.110"></a>
-<span class="sourceLineNo">111</span>   * Interface used to type the render function prop.<a name="line.111"></a>
+<span class="sourceLineNo">111</span>   * Interface used to type the render function input.<a name="line.111"></a>
 <span class="sourceLineNo">112</span>   */<a name="line.112"></a>
 <span class="sourceLineNo">113</span>  @JsFunction<a name="line.113"></a>
 <span class="sourceLineNo">114</span>  @FunctionalInterface<a name="line.114"></a>
@@ -167,7 +167,7 @@
 <span class="sourceLineNo">159</span>    @Nonnull<a name="line.159"></a>
 <span class="sourceLineNo">160</span>    public final ReactNode render( @Nonnull final ConsumerRenderFunction&lt;ST&gt; render )<a name="line.160"></a>
 <span class="sourceLineNo">161</span>    {<a name="line.161"></a>
-<span class="sourceLineNo">162</span>      _element.props().set( "children", render );<a name="line.162"></a>
+<span class="sourceLineNo">162</span>      _element.input( "children", render );<a name="line.162"></a>
 <span class="sourceLineNo">163</span>      _element.complete();<a name="line.163"></a>
 <span class="sourceLineNo">164</span>      return _element;<a name="line.164"></a>
 <span class="sourceLineNo">165</span>    }<a name="line.165"></a>
