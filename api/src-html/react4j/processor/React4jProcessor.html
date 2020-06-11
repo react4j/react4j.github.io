@@ -522,7 +522,7 @@
 <span class="sourceLineNo">514</span>          ) ||<a name="line.514"></a>
 <span class="sourceLineNo">515</span>          (<a name="line.515"></a>
 <span class="sourceLineNo">516</span>            AnnotationsUtil.hasNullableAnnotation( parameter ) &amp;&amp;<a name="line.516"></a>
-<span class="sourceLineNo">517</span>            AnnotationsUtil.hasNonnullAnnotation( input.getMethod() ) );<a name="line.517"></a>
+<span class="sourceLineNo">517</span>            input.isNonNull() );<a name="line.517"></a>
 <span class="sourceLineNo">518</span><a name="line.518"></a>
 <span class="sourceLineNo">519</span>        if ( mismatchedNullability )<a name="line.519"></a>
 <span class="sourceLineNo">520</span>        {<a name="line.520"></a>
@@ -618,7 +618,7 @@
 <span class="sourceLineNo">610</span>        ) ||<a name="line.610"></a>
 <span class="sourceLineNo">611</span>        (<a name="line.611"></a>
 <span class="sourceLineNo">612</span>          AnnotationsUtil.hasNullableAnnotation( param ) &amp;&amp;<a name="line.612"></a>
-<span class="sourceLineNo">613</span>          AnnotationsUtil.hasNonnullAnnotation( input.getMethod() ) );<a name="line.613"></a>
+<span class="sourceLineNo">613</span>          input.isNonNull() );<a name="line.613"></a>
 <span class="sourceLineNo">614</span><a name="line.614"></a>
 <span class="sourceLineNo">615</span>      if ( mismatchedNullability )<a name="line.615"></a>
 <span class="sourceLineNo">616</span>      {<a name="line.616"></a>
