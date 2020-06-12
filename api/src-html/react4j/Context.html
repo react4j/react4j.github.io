@@ -26,7 +26,7 @@
 <span class="sourceLineNo">018</span> * views without having to explicitly pass a input through every level of the tree.<a name="line.18"></a>
 <span class="sourceLineNo">019</span> */<a name="line.19"></a>
 <span class="sourceLineNo">020</span>@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )<a name="line.20"></a>
-<span class="sourceLineNo">021</span>public class Context&lt;T&gt;<a name="line.21"></a>
+<span class="sourceLineNo">021</span>public final class Context&lt;T&gt;<a name="line.21"></a>
 <span class="sourceLineNo">022</span>{<a name="line.22"></a>
 <span class="sourceLineNo">023</span>  /**<a name="line.23"></a>
 <span class="sourceLineNo">024</span>   * Create a builder for the Provider component.<a name="line.24"></a>
@@ -35,7 +35,7 @@
 <span class="sourceLineNo">027</span>   */<a name="line.27"></a>
 <span class="sourceLineNo">028</span>  @JsOverlay<a name="line.28"></a>
 <span class="sourceLineNo">029</span>  @Nonnull<a name="line.29"></a>
-<span class="sourceLineNo">030</span>  public final ProviderBuilder&lt;T&gt; provider()<a name="line.30"></a>
+<span class="sourceLineNo">030</span>  public ProviderBuilder&lt;T&gt; provider()<a name="line.30"></a>
 <span class="sourceLineNo">031</span>  {<a name="line.31"></a>
 <span class="sourceLineNo">032</span>    return new ProviderBuilder&lt;&gt;( this );<a name="line.32"></a>
 <span class="sourceLineNo">033</span>  }<a name="line.33"></a>
@@ -49,7 +49,7 @@
 <span class="sourceLineNo">041</span>   */<a name="line.41"></a>
 <span class="sourceLineNo">042</span>  @JsOverlay<a name="line.42"></a>
 <span class="sourceLineNo">043</span>  @Nonnull<a name="line.43"></a>
-<span class="sourceLineNo">044</span>  public final ReactNode provide( @Nullable final T value, final ReactNode... children )<a name="line.44"></a>
+<span class="sourceLineNo">044</span>  public ReactNode provide( @Nullable final T value, final ReactNode... children )<a name="line.44"></a>
 <span class="sourceLineNo">045</span>  {<a name="line.45"></a>
 <span class="sourceLineNo">046</span>    return provider().value( value ).children( children );<a name="line.46"></a>
 <span class="sourceLineNo">047</span>  }<a name="line.47"></a>
@@ -61,7 +61,7 @@
 <span class="sourceLineNo">053</span>   */<a name="line.53"></a>
 <span class="sourceLineNo">054</span>  @JsOverlay<a name="line.54"></a>
 <span class="sourceLineNo">055</span>  @Nonnull<a name="line.55"></a>
-<span class="sourceLineNo">056</span>  public final ConsumerBuilder&lt;T&gt; consumer()<a name="line.56"></a>
+<span class="sourceLineNo">056</span>  public ConsumerBuilder&lt;T&gt; consumer()<a name="line.56"></a>
 <span class="sourceLineNo">057</span>  {<a name="line.57"></a>
 <span class="sourceLineNo">058</span>    return new ConsumerBuilder&lt;&gt;( this );<a name="line.58"></a>
 <span class="sourceLineNo">059</span>  }<a name="line.59"></a>
@@ -87,28 +87,28 @@
 <span class="sourceLineNo">079</span>     * @return the builder.<a name="line.79"></a>
 <span class="sourceLineNo">080</span>     */<a name="line.80"></a>
 <span class="sourceLineNo">081</span>    @Nonnull<a name="line.81"></a>
-<span class="sourceLineNo">082</span>    public final ProviderBuilder&lt;ST&gt; key( @Nonnull final String key )<a name="line.82"></a>
+<span class="sourceLineNo">082</span>    public ProviderBuilder&lt;ST&gt; key( @Nonnull final String key )<a name="line.82"></a>
 <span class="sourceLineNo">083</span>    {<a name="line.83"></a>
 <span class="sourceLineNo">084</span>      _element.setKey( Objects.requireNonNull( key ) );<a name="line.84"></a>
 <span class="sourceLineNo">085</span>      return this;<a name="line.85"></a>
 <span class="sourceLineNo">086</span>    }<a name="line.86"></a>
 <span class="sourceLineNo">087</span><a name="line.87"></a>
 <span class="sourceLineNo">088</span>    @Nonnull<a name="line.88"></a>
-<span class="sourceLineNo">089</span>    public final ProviderBuilder&lt;ST&gt; value( @Nullable final ST value )<a name="line.89"></a>
+<span class="sourceLineNo">089</span>    public ProviderBuilder&lt;ST&gt; value( @Nullable final ST value )<a name="line.89"></a>
 <span class="sourceLineNo">090</span>    {<a name="line.90"></a>
 <span class="sourceLineNo">091</span>      _element.input( "value", value );<a name="line.91"></a>
 <span class="sourceLineNo">092</span>      return this;<a name="line.92"></a>
 <span class="sourceLineNo">093</span>    }<a name="line.93"></a>
 <span class="sourceLineNo">094</span><a name="line.94"></a>
 <span class="sourceLineNo">095</span>    @Nonnull<a name="line.95"></a>
-<span class="sourceLineNo">096</span>    public final ReactNode children( final ReactNode... children )<a name="line.96"></a>
+<span class="sourceLineNo">096</span>    public ReactNode children( final ReactNode... children )<a name="line.96"></a>
 <span class="sourceLineNo">097</span>    {<a name="line.97"></a>
 <span class="sourceLineNo">098</span>      _element.input( "children", children );<a name="line.98"></a>
 <span class="sourceLineNo">099</span>      return build();<a name="line.99"></a>
 <span class="sourceLineNo">100</span>    }<a name="line.100"></a>
 <span class="sourceLineNo">101</span><a name="line.101"></a>
 <span class="sourceLineNo">102</span>    @Nonnull<a name="line.102"></a>
-<span class="sourceLineNo">103</span>    public final ReactNode build()<a name="line.103"></a>
+<span class="sourceLineNo">103</span>    public ReactNode build()<a name="line.103"></a>
 <span class="sourceLineNo">104</span>    {<a name="line.104"></a>
 <span class="sourceLineNo">105</span>      _element.complete();<a name="line.105"></a>
 <span class="sourceLineNo">106</span>      return _element;<a name="line.106"></a>
@@ -152,7 +152,7 @@
 <span class="sourceLineNo">144</span>     * @return the builder.<a name="line.144"></a>
 <span class="sourceLineNo">145</span>     */<a name="line.145"></a>
 <span class="sourceLineNo">146</span>    @Nonnull<a name="line.146"></a>
-<span class="sourceLineNo">147</span>    public final ConsumerBuilder&lt;ST&gt; key( @Nonnull final String key )<a name="line.147"></a>
+<span class="sourceLineNo">147</span>    public ConsumerBuilder&lt;ST&gt; key( @Nonnull final String key )<a name="line.147"></a>
 <span class="sourceLineNo">148</span>    {<a name="line.148"></a>
 <span class="sourceLineNo">149</span>      _element.setKey( Objects.requireNonNull( key ) );<a name="line.149"></a>
 <span class="sourceLineNo">150</span>      return this;<a name="line.150"></a>
@@ -165,7 +165,7 @@
 <span class="sourceLineNo">157</span>     * @return the creates react node.<a name="line.157"></a>
 <span class="sourceLineNo">158</span>     */<a name="line.158"></a>
 <span class="sourceLineNo">159</span>    @Nonnull<a name="line.159"></a>
-<span class="sourceLineNo">160</span>    public final ReactNode render( @Nonnull final ConsumerRenderFunction&lt;ST&gt; render )<a name="line.160"></a>
+<span class="sourceLineNo">160</span>    public ReactNode render( @Nonnull final ConsumerRenderFunction&lt;ST&gt; render )<a name="line.160"></a>
 <span class="sourceLineNo">161</span>    {<a name="line.161"></a>
 <span class="sourceLineNo">162</span>      _element.input( "children", render );<a name="line.162"></a>
 <span class="sourceLineNo">163</span>      _element.complete();<a name="line.163"></a>
