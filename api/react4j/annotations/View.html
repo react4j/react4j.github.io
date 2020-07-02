@@ -126,12 +126,18 @@ public @interface <a href="../../src-html/react4j/annotations/View.html#line.16"
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/View.html#requireRender--">requireRender</a></span></code>
+<div class="block">Flag controlling whether the view requires a method annotated with <a href="../../react4j/annotations/Render.html" title="annotation in react4j.annotations"><code>Render</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/View.html#sting--">sting</a></span></code>
 <div class="block">Enum controlling whether Sting injection integration is generated for the view.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/View.html#type--">type</a></span></code>
 <div class="block">Enum indicating the capabilities of the view.</div>
@@ -234,7 +240,7 @@ public abstract&nbsp;<a href="../../react4j/annotations/View.Type.html" title="e
 <li class="blockList"><a name="sting--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>sting</h4>
 <pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/View.html#line.92">sting</a></pre>
@@ -252,6 +258,29 @@ public abstract&nbsp;<a href="../../react4j/annotations/View.Type.html" title="e
 <dl>
 <dt>Default:</dt>
 <dd>react4j.annotations.Feature.AUTODETECT</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="requireRender--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>requireRender</h4>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/View.html#line.101">requireRender</a></pre>
+<div class="block">Flag controlling whether the view requires a method annotated with <a href="../../react4j/annotations/Render.html" title="annotation in react4j.annotations"><code>Render</code></a>.
+ Sometimes it is useful to have "view" instances that provide capabilities or interact
+ with services and thus need not have a  render method.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true to require that the view contains a method annotated with <a href="../../react4j/annotations/Render.html" title="annotation in react4j.annotations"><code>Render</code></a>, false otherwise.</dd>
+</dl>
+<dl>
+<dt>Default:</dt>
+<dd>true</dd>
 </dl>
 </li>
 </ul>
