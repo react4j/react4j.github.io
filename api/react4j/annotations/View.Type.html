@@ -147,12 +147,17 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?i
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../react4j/annotations/View.Type.html#NO_RENDER">NO_RENDER</a></span></code>
+<div class="block">The view must not have a method annotated with <a href="../../react4j/annotations/Render.html" title="annotation in react4j.annotations"><code>Render</code></a>.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../react4j/annotations/View.Type.html#STATEFUL">STATEFUL</a></span></code>
 <div class="block">The view can store state in fields, can declared lifecycle methods and may contain methods annotated by
  the <a href="../../react4j/annotations/ScheduleRender.html" title="annotation in react4j.annotations"><code>ScheduleRender</code></a> annotation.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../react4j/annotations/View.Type.html#TRACKING">TRACKING</a></span></code>
 <div class="block">The view is a <a href="../../react4j/annotations/View.Type.html#STATEFUL"><code>STATEFUL</code></a> view <b>and</b> will re-render the view if any Arez
  dependencies change.</div>
@@ -245,12 +250,24 @@ the order they are declared.</div>
 <a name="MAYBE_TRACKING">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>MAYBE_TRACKING</h4>
 <pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.42">MAYBE_TRACKING</a></pre>
 <div class="block">The view is a <a href="../../react4j/annotations/View.Type.html#TRACKING"><code>TRACKING</code></a> view but it will not generate an invariant failure if a
  render results in zero Arez dependencies.</div>
+</li>
+</ul>
+<a name="NO_RENDER">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>NO_RENDER</h4>
+<pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.48">NO_RENDER</a></pre>
+<div class="block">The view must not have a method annotated with <a href="../../react4j/annotations/Render.html" title="annotation in react4j.annotations"><code>Render</code></a>.
+ This is useful for "view" instances that provide capabilities or interact
+ with services and thus need not have a render method.</div>
 </li>
 </ul>
 </li>
