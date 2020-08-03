@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -109,7 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsType.html?is-external=true" title="class or interface in jsinterop.annotations">@JsType</a>(<a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsType.html?is-external=true#isNative--" title="class or interface in jsinterop.annotations">isNative</a>=true,
         <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsType.html?is-external=true#namespace--" title="class or interface in jsinterop.annotations">namespace</a>="&lt;global&gt;")
-public class <a href="../../src-html/react4j/dom/ReactDOM.html#line.19">ReactDOM</a>
+public class <a href="../../src-html/react4j/dom/ReactDOM.html#line.21">ReactDOM</a>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Core interface into React DOM library.</div>
 </li>
@@ -176,13 +176,25 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#createRoot-elemental2.dom.Element-">createRoot</a></span>(elemental2.dom.Element&nbsp;container)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#registerBatchedArezTaskInterceptor--">registerBatchedArezTaskInterceptor</a></span>()</code>
+<div class="block">Register an task interceptor on the current Arez context that ensures any view updates are batched.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#registerBatchedArezTaskInterceptor-arez.ArezContext-">registerBatchedArezTaskInterceptor</a></span>(<a href="https://arez.github.io/api/arez/ArezContext.html?is-external=true" title="class or interface in arez">ArezContext</a>&nbsp;context)</code>
+<div class="block">Register an task interceptor that ensures any view updates are batched.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#render-react4j.ReactNode-elemental2.dom.Element-">render</a></span>(<a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;node,
       elemental2.dom.Element&nbsp;container)</code>
 <div class="block">Render a React element into the DOM in the supplied container.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#render-react4j.ReactNode-elemental2.dom.Element-react4j.dom.ReactDOM.RenderCallbackFn-">render</a></span>(<a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;node,
       elemental2.dom.Element&nbsp;container,
@@ -190,7 +202,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block">Render a React element into the DOM in the supplied container.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/dom/ReactDOM.html#unmountComponentAtNode-elemental2.dom.Element-">unmountComponentAtNode</a></span>(elemental2.dom.Element&nbsp;container)</code>
 <div class="block">Remove a mounted React component from the DOM and clean up its event handlers and state.</div>
@@ -226,7 +238,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>createRoot</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
  <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
-public static&nbsp;<a href="../../react4j/dom/ReactRoot.html" title="interface in react4j.dom">ReactRoot</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.56">createRoot</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="../../react4j/dom/ReactRoot.html" title="interface in react4j.dom">ReactRoot</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.58">createRoot</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                         elemental2.dom.Element&nbsp;container)</pre>
 </li>
 </ul>
@@ -236,7 +248,7 @@ public static&nbsp;<a href="../../react4j/dom/ReactRoot.html" title="interface i
 <ul class="blockList">
 <li class="blockList">
 <h4>createPortal</h4>
-<pre>public static&nbsp;<a href="../../react4j/dom/ReactPortal.html" title="class in react4j.dom">ReactPortal</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.79">createPortal</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public static&nbsp;<a href="../../react4j/dom/ReactPortal.html" title="class in react4j.dom">ReactPortal</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.81">createPortal</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        <a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;children,
                                        <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                        elemental2.dom.Element&nbsp;container)</pre>
@@ -266,7 +278,7 @@ public static&nbsp;<a href="../../react4j/dom/ReactRoot.html" title="interface i
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
  <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.96">render</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.98">render</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   <a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;node,
                                                   <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   elemental2.dom.Element&nbsp;container,
@@ -296,7 +308,7 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 <h4>render</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nullable.html?is-external=true" title="class or interface in javax.annotation">@Nullable</a>
  <a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.122">render</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.124">render</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   <a href="../../react4j/ReactNode.html" title="interface in react4j">ReactNode</a>&nbsp;node,
                                                   <a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                                   elemental2.dom.Element&nbsp;container)</pre>
@@ -321,7 +333,7 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 <ul class="blockList">
 <li class="blockList">
 <h4>unmountComponentAtNode</h4>
-<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.134">unmountComponentAtNode</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+<pre>public static&nbsp;boolean&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.136">unmountComponentAtNode</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                              elemental2.dom.Element&nbsp;container)</pre>
 <div class="block">Remove a mounted React component from the DOM and clean up its event handlers and state. If
  no component was mounted in the container, calling this function does nothing.</div>
@@ -336,11 +348,11 @@ public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/
 <a name="batchedUpdates-react4j.dom.ReactDOM.BatchedUpdatesFn-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>batchedUpdates</h4>
 <pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
-public static&nbsp;void&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.145">batchedUpdates</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+public static&nbsp;void&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.147">batchedUpdates</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
                                              <a href="../../react4j/dom/ReactDOM.BatchedUpdatesFn.html" title="interface in react4j.dom">ReactDOM.BatchedUpdatesFn</a>&nbsp;action)</pre>
 <div class="block">Batch all state updates within the action.
  This is currently an unstable API within the React 16, mostly because it is only useful when called
@@ -349,6 +361,33 @@ public static&nbsp;void&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#l
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>action</code> - the action where all state updates are batched.</dd>
+</dl>
+</li>
+</ul>
+<a name="registerBatchedArezTaskInterceptor--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>registerBatchedArezTaskInterceptor</h4>
+<pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
+public static&nbsp;void&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.156">registerBatchedArezTaskInterceptor</a>()</pre>
+<div class="block">Register an task interceptor on the current Arez context that ensures any view updates are batched.</div>
+</li>
+</ul>
+<a name="registerBatchedArezTaskInterceptor-arez.ArezContext-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>registerBatchedArezTaskInterceptor</h4>
+<pre><a href="http://www.gwtproject.org/javadoc/latest/jsinterop/annotations/JsOverlay.html?is-external=true" title="class or interface in jsinterop.annotations">@JsOverlay</a>
+public static&nbsp;void&nbsp;<a href="../../src-html/react4j/dom/ReactDOM.html#line.167">registerBatchedArezTaskInterceptor</a>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/annotation/Nonnull.html?is-external=true" title="class or interface in javax.annotation">@Nonnull</a>
+                                                                 <a href="https://arez.github.io/api/arez/ArezContext.html?is-external=true" title="class or interface in arez">ArezContext</a>&nbsp;context)</pre>
+<div class="block">Register an task interceptor that ensures any view updates are batched.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>context</code> - the context to add interceptor to.</dd>
 </dl>
 </li>
 </ul>

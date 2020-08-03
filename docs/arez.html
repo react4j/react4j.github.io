@@ -281,8 +281,8 @@ indicates that it is required.</p>
   <span class="hljs-meta">@ComponentDependency</span>
   <span class="hljs-keyword">final</span> EmployeeService _service;
 
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EmployeeDataLoader</span><span class="hljs-params">( <span class="hljs-keyword">final</span> RemoteServiceAPI remote, <span class="hljs-keyword">final</span> EmployeeService service )</span>
-  </span>{
+  EmployeeDataLoader( <span class="hljs-keyword">final</span> RemoteServiceAPI remote, <span class="hljs-keyword">final</span> EmployeeService service )
+  {
     _remote = remote;
     _service = service;
   }
