@@ -8,10 +8,45 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package react4j.dom.proptypes.html.attributeTypes;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>public enum HeaderScope<a name="line.3"></a>
-<span class="sourceLineNo">004</span>{<a name="line.4"></a>
-<span class="sourceLineNo">005</span>  col, colgroup, row, rowgroup<a name="line.5"></a>
-<span class="sourceLineNo">006</span>}<a name="line.6"></a>
+<span class="sourceLineNo">003</span>import javax.annotation.Nonnull;<a name="line.3"></a>
+<span class="sourceLineNo">004</span><a name="line.4"></a>
+<span class="sourceLineNo">005</span>/**<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * An enumerated value to define the cells that the header element relates to.<a name="line.6"></a>
+<span class="sourceLineNo">007</span> */<a name="line.7"></a>
+<span class="sourceLineNo">008</span>public final class HeaderScope<a name="line.8"></a>
+<span class="sourceLineNo">009</span>{<a name="line.9"></a>
+<span class="sourceLineNo">010</span>  /**<a name="line.10"></a>
+<span class="sourceLineNo">011</span>   * The header relates to all cells of the row it belongs to.<a name="line.11"></a>
+<span class="sourceLineNo">012</span>   */<a name="line.12"></a>
+<span class="sourceLineNo">013</span>  @Nonnull<a name="line.13"></a>
+<span class="sourceLineNo">014</span>  public static final String row = "row";<a name="line.14"></a>
+<span class="sourceLineNo">015</span>  /**<a name="line.15"></a>
+<span class="sourceLineNo">016</span>   * The header relates to all cells of the column it belongs to.<a name="line.16"></a>
+<span class="sourceLineNo">017</span>   */<a name="line.17"></a>
+<span class="sourceLineNo">018</span>  @Nonnull<a name="line.18"></a>
+<span class="sourceLineNo">019</span>  public static final String col = "col";<a name="line.19"></a>
+<span class="sourceLineNo">020</span>  /**<a name="line.20"></a>
+<span class="sourceLineNo">021</span>   * The header belongs to a rowgroup and relates to all of its cells. These cells can be<a name="line.21"></a>
+<span class="sourceLineNo">022</span>   * placed to the right or the left of the header, depending on the value of the &lt;code&gt;dir&lt;/code&gt;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>   * attribute in the &lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt; element.<a name="line.23"></a>
+<span class="sourceLineNo">024</span>   */<a name="line.24"></a>
+<span class="sourceLineNo">025</span>  @Nonnull<a name="line.25"></a>
+<span class="sourceLineNo">026</span>  public static final String rowgroup = "rowgroup";<a name="line.26"></a>
+<span class="sourceLineNo">027</span>  /**<a name="line.27"></a>
+<span class="sourceLineNo">028</span>   * The header belongs to a colgroup and relates to all of its cells.<a name="line.28"></a>
+<span class="sourceLineNo">029</span>   */<a name="line.29"></a>
+<span class="sourceLineNo">030</span>  @Nonnull<a name="line.30"></a>
+<span class="sourceLineNo">031</span>  public static final String colgroup = "colgroup";<a name="line.31"></a>
+<span class="sourceLineNo">032</span>  /**<a name="line.32"></a>
+<span class="sourceLineNo">033</span>   * The default value.<a name="line.33"></a>
+<span class="sourceLineNo">034</span>   */<a name="line.34"></a>
+<span class="sourceLineNo">035</span>  @Nonnull<a name="line.35"></a>
+<span class="sourceLineNo">036</span>  public static final String auto = "auto";<a name="line.36"></a>
+<span class="sourceLineNo">037</span><a name="line.37"></a>
+<span class="sourceLineNo">038</span>  private HeaderScope()<a name="line.38"></a>
+<span class="sourceLineNo">039</span>  {<a name="line.39"></a>
+<span class="sourceLineNo">040</span>  }<a name="line.40"></a>
+<span class="sourceLineNo">041</span>}<a name="line.41"></a>
 
 
 

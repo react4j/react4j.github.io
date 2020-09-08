@@ -8,10 +8,33 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package react4j.dom.proptypes.html.attributeTypes;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>public enum FormMethod<a name="line.3"></a>
-<span class="sourceLineNo">004</span>{<a name="line.4"></a>
-<span class="sourceLineNo">005</span>  get, post<a name="line.5"></a>
-<span class="sourceLineNo">006</span>}<a name="line.6"></a>
+<span class="sourceLineNo">003</span>import javax.annotation.Nonnull;<a name="line.3"></a>
+<span class="sourceLineNo">004</span><a name="line.4"></a>
+<span class="sourceLineNo">005</span>/**<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * An enumeration specifying the HTTP method to submit the form with.<a name="line.6"></a>
+<span class="sourceLineNo">007</span> */<a name="line.7"></a>
+<span class="sourceLineNo">008</span>public final class FormMethod<a name="line.8"></a>
+<span class="sourceLineNo">009</span>{<a name="line.9"></a>
+<span class="sourceLineNo">010</span>  /**<a name="line.10"></a>
+<span class="sourceLineNo">011</span>   * The POST method; form data sent as the request body.<a name="line.11"></a>
+<span class="sourceLineNo">012</span>   */<a name="line.12"></a>
+<span class="sourceLineNo">013</span>  @Nonnull<a name="line.13"></a>
+<span class="sourceLineNo">014</span>  public static final String post = "post";<a name="line.14"></a>
+<span class="sourceLineNo">015</span>  /**<a name="line.15"></a>
+<span class="sourceLineNo">016</span>   * The GET method; form data appended to the action URL with a ? separator. Use this method when the form has no side-effects.<a name="line.16"></a>
+<span class="sourceLineNo">017</span>   */<a name="line.17"></a>
+<span class="sourceLineNo">018</span>  @Nonnull<a name="line.18"></a>
+<span class="sourceLineNo">019</span>  public static final String get = "get";<a name="line.19"></a>
+<span class="sourceLineNo">020</span>  /**<a name="line.20"></a>
+<span class="sourceLineNo">021</span>   * When the form is inside a &amp;lt;dialog&amp;gt;, closes the dialog on submission.<a name="line.21"></a>
+<span class="sourceLineNo">022</span>   */<a name="line.22"></a>
+<span class="sourceLineNo">023</span>  @Nonnull<a name="line.23"></a>
+<span class="sourceLineNo">024</span>  public static final String dialog = "dialog";<a name="line.24"></a>
+<span class="sourceLineNo">025</span><a name="line.25"></a>
+<span class="sourceLineNo">026</span>  private FormMethod()<a name="line.26"></a>
+<span class="sourceLineNo">027</span>  {<a name="line.27"></a>
+<span class="sourceLineNo">028</span>  }<a name="line.28"></a>
+<span class="sourceLineNo">029</span>}<a name="line.29"></a>
 
 
 
