@@ -85,61 +85,50 @@
 <span class="sourceLineNo">077</span>    return ReactConfig.shouldCheckInvariants();<a name="line.77"></a>
 <span class="sourceLineNo">078</span>  }<a name="line.78"></a>
 <span class="sourceLineNo">079</span><a name="line.79"></a>
-<span class="sourceLineNo">080</span>  /**<a name="line.80"></a>
-<span class="sourceLineNo">081</span>   * Return true if inputs should be frozen before being passed to react.<a name="line.81"></a>
-<span class="sourceLineNo">082</span>   *<a name="line.82"></a>
-<span class="sourceLineNo">083</span>   * @return true if inputs should be frozen before being passed to react.<a name="line.83"></a>
+<span class="sourceLineNo">080</span>  /*<a name="line.80"></a>
+<span class="sourceLineNo">081</span>   * WARNING: The following symbols are all imported from react which involves manually patching the js files<a name="line.81"></a>
+<span class="sourceLineNo">082</span>   * for each react release. We do this rather than trying to redefine them as Elemental2 does not correctly<a name="line.82"></a>
+<span class="sourceLineNo">083</span>   * model Symbol and we would still have to use primitive integer abstraction for IE11 anyway.<a name="line.83"></a>
 <span class="sourceLineNo">084</span>   */<a name="line.84"></a>
-<span class="sourceLineNo">085</span>  @JsOverlay<a name="line.85"></a>
-<span class="sourceLineNo">086</span>  public static boolean shouldFreezeInputs()<a name="line.86"></a>
-<span class="sourceLineNo">087</span>  {<a name="line.87"></a>
-<span class="sourceLineNo">088</span>    return ReactConfig.shouldFreezeInputs();<a name="line.88"></a>
-<span class="sourceLineNo">089</span>  }<a name="line.89"></a>
-<span class="sourceLineNo">090</span><a name="line.90"></a>
-<span class="sourceLineNo">091</span>  /*<a name="line.91"></a>
-<span class="sourceLineNo">092</span>   * WARNING: The following symbols are all imported from react which involves manually patching the js files<a name="line.92"></a>
-<span class="sourceLineNo">093</span>   * for each react release. We do this rather than trying to redefine them as Elemental2 does not correctly<a name="line.93"></a>
-<span class="sourceLineNo">094</span>   * model Symbol and we would still have to use primitive integer abstraction for IE11 anyway.<a name="line.94"></a>
-<span class="sourceLineNo">095</span>   */<a name="line.95"></a>
-<span class="sourceLineNo">096</span>  /**<a name="line.96"></a>
-<span class="sourceLineNo">097</span>   * The Symbol type for Fragments.<a name="line.97"></a>
-<span class="sourceLineNo">098</span>   */<a name="line.98"></a>
-<span class="sourceLineNo">099</span>  @JsProperty( name = "Fragment" )<a name="line.99"></a>
-<span class="sourceLineNo">100</span>  static Object Fragment;<a name="line.100"></a>
-<span class="sourceLineNo">101</span>  /**<a name="line.101"></a>
-<span class="sourceLineNo">102</span>   * The Symbol type for StrictMode.<a name="line.102"></a>
-<span class="sourceLineNo">103</span>   */<a name="line.103"></a>
-<span class="sourceLineNo">104</span>  @JsProperty( name = "StrictMode" )<a name="line.104"></a>
-<span class="sourceLineNo">105</span>  static Object StrictMode;<a name="line.105"></a>
+<span class="sourceLineNo">085</span>  /**<a name="line.85"></a>
+<span class="sourceLineNo">086</span>   * The Symbol type for Fragments.<a name="line.86"></a>
+<span class="sourceLineNo">087</span>   */<a name="line.87"></a>
+<span class="sourceLineNo">088</span>  @JsProperty( name = "Fragment" )<a name="line.88"></a>
+<span class="sourceLineNo">089</span>  static Object Fragment;<a name="line.89"></a>
+<span class="sourceLineNo">090</span>  /**<a name="line.90"></a>
+<span class="sourceLineNo">091</span>   * The Symbol type for StrictMode.<a name="line.91"></a>
+<span class="sourceLineNo">092</span>   */<a name="line.92"></a>
+<span class="sourceLineNo">093</span>  @JsProperty( name = "StrictMode" )<a name="line.93"></a>
+<span class="sourceLineNo">094</span>  static Object StrictMode;<a name="line.94"></a>
+<span class="sourceLineNo">095</span>  /**<a name="line.95"></a>
+<span class="sourceLineNo">096</span>   * The Symbol type for Suspense.<a name="line.96"></a>
+<span class="sourceLineNo">097</span>   */<a name="line.97"></a>
+<span class="sourceLineNo">098</span>  @JsProperty( name = "Suspense" )<a name="line.98"></a>
+<span class="sourceLineNo">099</span>  static Object Suspense;<a name="line.99"></a>
+<span class="sourceLineNo">100</span>  /**<a name="line.100"></a>
+<span class="sourceLineNo">101</span>   * The Symbol type for Element.<a name="line.101"></a>
+<span class="sourceLineNo">102</span>   */<a name="line.102"></a>
+<span class="sourceLineNo">103</span>  @JsProperty( name = "Element" )<a name="line.103"></a>
+<span class="sourceLineNo">104</span>  static Object Element;<a name="line.104"></a>
+<span class="sourceLineNo">105</span><a name="line.105"></a>
 <span class="sourceLineNo">106</span>  /**<a name="line.106"></a>
-<span class="sourceLineNo">107</span>   * The Symbol type for Suspense.<a name="line.107"></a>
-<span class="sourceLineNo">108</span>   */<a name="line.108"></a>
-<span class="sourceLineNo">109</span>  @JsProperty( name = "Suspense" )<a name="line.109"></a>
-<span class="sourceLineNo">110</span>  static Object Suspense;<a name="line.110"></a>
-<span class="sourceLineNo">111</span>  /**<a name="line.111"></a>
-<span class="sourceLineNo">112</span>   * The Symbol type for Element.<a name="line.112"></a>
-<span class="sourceLineNo">113</span>   */<a name="line.113"></a>
-<span class="sourceLineNo">114</span>  @JsProperty( name = "Element" )<a name="line.114"></a>
-<span class="sourceLineNo">115</span>  static Object Element;<a name="line.115"></a>
-<span class="sourceLineNo">116</span><a name="line.116"></a>
-<span class="sourceLineNo">117</span>  /**<a name="line.117"></a>
-<span class="sourceLineNo">118</span>   * Creates a context with specified default value.<a name="line.118"></a>
-<span class="sourceLineNo">119</span>   *<a name="line.119"></a>
-<span class="sourceLineNo">120</span>   * @param &lt;T&gt;          the type of the context.<a name="line.120"></a>
-<span class="sourceLineNo">121</span>   * @param defaultValue the default value.<a name="line.121"></a>
-<span class="sourceLineNo">122</span>   * @return the context.<a name="line.122"></a>
-<span class="sourceLineNo">123</span>   */<a name="line.123"></a>
-<span class="sourceLineNo">124</span>  @Nonnull<a name="line.124"></a>
-<span class="sourceLineNo">125</span>  static native &lt;T&gt; Context&lt;T&gt; createContext( T defaultValue );<a name="line.125"></a>
-<span class="sourceLineNo">126</span><a name="line.126"></a>
-<span class="sourceLineNo">127</span>  /**<a name="line.127"></a>
-<span class="sourceLineNo">128</span>   * Return the fiber for current component.<a name="line.128"></a>
-<span class="sourceLineNo">129</span>   * This can return null when not called from within the render method of a component.<a name="line.129"></a>
-<span class="sourceLineNo">130</span>   */<a name="line.130"></a>
-<span class="sourceLineNo">131</span>  @JsProperty( name = "React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner.current", namespace = JsPackage.GLOBAL )<a name="line.131"></a>
-<span class="sourceLineNo">132</span>  @Nullable<a name="line.132"></a>
-<span class="sourceLineNo">133</span>  static native Object currentOwner();<a name="line.133"></a>
-<span class="sourceLineNo">134</span>}<a name="line.134"></a>
+<span class="sourceLineNo">107</span>   * Creates a context with specified default value.<a name="line.107"></a>
+<span class="sourceLineNo">108</span>   *<a name="line.108"></a>
+<span class="sourceLineNo">109</span>   * @param &lt;T&gt;          the type of the context.<a name="line.109"></a>
+<span class="sourceLineNo">110</span>   * @param defaultValue the default value.<a name="line.110"></a>
+<span class="sourceLineNo">111</span>   * @return the context.<a name="line.111"></a>
+<span class="sourceLineNo">112</span>   */<a name="line.112"></a>
+<span class="sourceLineNo">113</span>  @Nonnull<a name="line.113"></a>
+<span class="sourceLineNo">114</span>  static native &lt;T&gt; Context&lt;T&gt; createContext( T defaultValue );<a name="line.114"></a>
+<span class="sourceLineNo">115</span><a name="line.115"></a>
+<span class="sourceLineNo">116</span>  /**<a name="line.116"></a>
+<span class="sourceLineNo">117</span>   * Return the fiber for current component.<a name="line.117"></a>
+<span class="sourceLineNo">118</span>   * This can return null when not called from within the render method of a component.<a name="line.118"></a>
+<span class="sourceLineNo">119</span>   */<a name="line.119"></a>
+<span class="sourceLineNo">120</span>  @JsProperty( name = "React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner.current", namespace = JsPackage.GLOBAL )<a name="line.120"></a>
+<span class="sourceLineNo">121</span>  @Nullable<a name="line.121"></a>
+<span class="sourceLineNo">122</span>  static native Object currentOwner();<a name="line.122"></a>
+<span class="sourceLineNo">123</span>}<a name="line.123"></a>
 
 
 
