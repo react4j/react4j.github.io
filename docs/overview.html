@@ -10,14 +10,14 @@ defines components that are passed <code>props</code> by their container, manage
 to make complex UIs.</p>
 <p>React4j uses <a href="https://github.com/gwtproject/gwt">GWT</a> or <a href="https://github.com/google/j2cl">J2CL</a> to compile the Java code to Javascript.</p>
 <p>The &quot;Hello World&quot; of React4j that just returns a header is as simple as:</p>
-<p><pre><code class="hljs">ReactDOM.render( h1( <span class="hljs-string">"Hello World"</span> ), document.getElementById( <span class="hljs-string">"app"</span> ) );</code></pre></p>
+<p><pre><code class="hljs">ReactDOM.render( h1( <span class="hljs-string">"Hello World"</span> ), Global.document().getElementById( <span class="hljs-string">"app"</span> ) );</code></pre></p>
 <p>Although there is significantly more ceremony in java. You also need an xml based build descriptor for GWT which
 serves a similar purpose as a webpack configuration.</p>
 <p><pre><code class="hljs"><span class="hljs-keyword">package</span> react4j.examples.hello_world;
 
+<span class="hljs-keyword">import</span> akasha.Global;
 <span class="hljs-keyword">import</span> com.google.gwt.core.client.EntryPoint;
 <span class="hljs-keyword">import</span> react4j.dom.ReactDOM;
-<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> elemental2.dom.DomGlobal.*;
 <span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> react4j.dom.DOM.*;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorld</span>
@@ -25,7 +25,7 @@ serves a similar purpose as a webpack configuration.</p>
 </span>{
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onModuleLoad</span><span class="hljs-params">()</span>
   </span>{
-    ReactDOM.render( h1( <span class="hljs-string">"Hello World"</span> ), document.getElementById( <span class="hljs-string">"app"</span> ) );
+    ReactDOM.render( h1( <span class="hljs-string">"Hello World"</span> ), Global.document().getElementById( <span class="hljs-string">"app"</span> ) );
   }
 }</code></pre>
 <pre><code class="hljs"><span class="hljs-tag">&lt;<span class="hljs-name">module</span> <span class="hljs-attr">rename-to</span>=<span class="hljs-string">'hello_world'</span>&gt;</span>
