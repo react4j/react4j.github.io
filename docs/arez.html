@@ -21,7 +21,7 @@ developer controls the scope of the re-render by controlling the size of the com
 <code>ReactArezComponent</code>. This will result in the <code>render()</code> method being invoked
 within the scope of a read-only, tracking (Arez) transaction. Changes to the observable state accessed within the
 scope of the <code>render()</code> will schedule the component for re-rendering.</p>
-<p>Below is a <code>Footer</code> component extracted from a <a href="http://todomvc.com/">TodoMVC</a> implementation. It accesses the
+<p>Below is a <code>Footer</code> component extracted from a <a href="https://todomvc.com/">TodoMVC</a> implementation. It accesses the
 observable state <code>AppData.model.totalCount()</code>, <code>AppData.viewService.getFilterMode()</code> and
 <code>AppData.model.completedCount()</code> and will re-render each time any of these values change.</p>
 <p><pre><code class="hljs"><span class="hljs-meta">@View</span>( type = View.Type.TRACKING )
@@ -69,7 +69,7 @@ virtual DOM and then additional time to reconcile the virtual DOM against the ac
 it will depend on how frequently the observable data changes, what other parts of the view are updated when the
 same observable data changes and how dynamic and complex the remainder of the view is. It is often the case that
 re-rendering the entire component is perfectly fine and will have no impact on the users experience, as in the
-case with a <a href="http://todomvc.com/">TodoMVC</a> implementation.</p>
+case with a <a href="https://todomvc.com/">TodoMVC</a> implementation.</p>
 <p>However let's assume that this component needs to be optimized and walk through the steps that would be required to
 optimize the component to reduce the scope and frequency of re-renders.</p>
 <h3><a class="anchor" aria-hidden="true" name="use-memoize"></a><a href="#use-memoize" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use @Memoize</h3>
