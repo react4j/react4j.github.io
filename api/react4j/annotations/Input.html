@@ -180,12 +180,6 @@ public @interface <a href="../../src-html/react4j/annotations/Input.html#line.43
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Input.html#shouldUpdateOnChange--">shouldUpdateOnChange</a></span></code>
-<div class="block">Indicate whether changing the value of the input should schedule a re-render.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code><a href="../../react4j/annotations/Input.Source.html" title="enum in react4j.annotations">Input.Source</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../react4j/annotations/Input.html#source--">source</a></span></code>
 <div class="block">The setting controlling where the input value is source from.</div>
@@ -305,41 +299,18 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 </li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="shouldUpdateOnChange--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>shouldUpdateOnChange</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Input.html#line.95">shouldUpdateOnChange</a></pre>
-<div class="block">Indicate whether changing the value of the input should schedule a re-render.
- If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will treat it as
- <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a> unless <a href="../../react4j/annotations/Input.html#immutable--"><code>immutable()</code></a> is set to <code>true</code>.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the enum indicating whether input should trigger a render if it is modified.</dd>
-</dl>
-<dl>
-<dt>Default:</dt>
-<dd>react4j.annotations.Feature.AUTODETECT</dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="blockList">
 <li class="blockList"><a name="observable--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>observable</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Input.html#line.108">observable</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Input.html#line.99">observable</a></pre>
 <div class="block">Indicate whether the input should be annotated by <a href="https://arez.github.io/api/arez/annotations/Observable.html?is-external=true" title="class or interface in arez.annotations"><code>Observable</code></a>.
 
  <p>If set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the input will be observable if and only if:</p>
  <ul>
- <li><a href="../../react4j/annotations/Input.html#shouldUpdateOnChange--"><code>shouldUpdateOnChange()</code></a> is not set to <a href="../../react4j/annotations/Feature.html#DISABLE"><code>Feature.DISABLE</code></a>.</li>
+ <li><a href="../../react4j/annotations/Input.html#immutable--"><code>immutable()</code></a> ()} is not set to <code>true</code>.</li>
  <li>the view has at least one method annotated with <a href="https://arez.github.io/api/arez/annotations/Memoize.html?is-external=true" title="class or interface in arez.annotations"><code>Memoize</code></a> or <a href="https://arez.github.io/api/arez/annotations/Observe.html?is-external=true" title="class or interface in arez.annotations"><code>Observe</code></a>.</li>
  </ul></div>
 <dl>
@@ -361,7 +332,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>disposable</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Input.html#line.119">disposable</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Input.html#line.110">disposable</a></pre>
 <div class="block">Return an enum indicating whether the view should check whether the value of the input is disposed
  prior to rendering. If the value is disposed then the render method will exit early and return null.
  If this parameter is set to <a href="../../react4j/annotations/Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will inspect the
@@ -386,7 +357,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockList">
 <li class="blockList">
 <h4>dependency</h4>
-<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Input.html#line.131">dependency</a></pre>
+<pre>public abstract&nbsp;<a href="../../react4j/annotations/Feature.html" title="enum in react4j.annotations">Feature</a>&nbsp;<a href="../../src-html/react4j/annotations/Input.html#line.122">dependency</a></pre>
 <div class="block">Return an enum indicating whether the view should be disposed if the input is disposed. To enable this feature,
  the input MUST set <a href="../../react4j/annotations/Input.html#immutable--"><code>immutable()</code></a> to <code>true</code>, <a href="../../react4j/annotations/Input.html#disposable--"><code>disposable()</code></a> MUST resolve to
  <a href="../../react4j/annotations/Feature.html#ENABLE"><code>Feature.ENABLE</code></a>. The type of the input is expected to implement the <a href="https://arez.github.io/api/arez/component/DisposeNotifier.html?is-external=true" title="class or interface in arez.component"><code>DisposeNotifier</code></a>
@@ -412,7 +383,7 @@ public abstract&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lan
 <ul class="blockListLast">
 <li class="blockList">
 <h4>immutable</h4>
-<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/Input.html#line.156">immutable</a></pre>
+<pre>public abstract&nbsp;boolean&nbsp;<a href="../../src-html/react4j/annotations/Input.html#line.147">immutable</a></pre>
 <div class="block">True if the input is not expected to change after initial value is set. If the value of the input does change
  then it is expected that the view will be unmounted and a new view created. This is implemented
  by synthesizing a key for the view every time the view that is derived from this input. To enable this

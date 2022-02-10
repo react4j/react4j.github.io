@@ -226,12 +226,11 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <h4>STATEFUL</h4>
-<pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.32">STATEFUL</a></pre>
+<pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.31">STATEFUL</a></pre>
 <div class="block">The view can store state in fields, can declared lifecycle methods and may contain methods annotated by
  the <a href="../../react4j/annotations/ScheduleRender.html" title="annotation in react4j.annotations"><code>ScheduleRender</code></a> annotation.
- The view will be scheduled to re-render if the views container re-renders and any inputs with
- <a href="../../react4j/annotations/Input.html#shouldUpdateOnChange--"><code>Input.shouldUpdateOnChange()</code></a> set to <code>true</code> has changed value from last render. A input
- is considered changed if when the new value and the old value are passed to
+ The view will be scheduled to re-render if the views container re-renders and any input has changed
+ value from last render. A input is considered changed when the new value and the old value are passed to
  <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Objects.html?is-external=true#equals-java.lang.Object-java.lang.Object-" title="class or interface in java.util"><code>Objects.equals(Object, Object)</code></a> and that method returns <code>false</code>. A view will also
  be scheduled to re-render if the view invokes a method annotated by the <a href="../../react4j/annotations/ScheduleRender.html" title="annotation in react4j.annotations"><code>ScheduleRender</code></a> annotation.</div>
 </li>
@@ -242,7 +241,7 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <h4>TRACKING</h4>
-<pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.37">TRACKING</a></pre>
+<pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.36">TRACKING</a></pre>
 <div class="block">The view is a <a href="../../react4j/annotations/View.Type.html#STATEFUL"><code>STATEFUL</code></a> view <b>and</b> will re-render the view if any Arez
  dependencies change. The framework uses the <a href="https://arez.github.io/api/arez/annotations/Observe.html?is-external=true" title="class or interface in arez.annotations"><code>Observe</code></a> annotation to track Arez dependencies.</div>
 </li>
@@ -253,7 +252,7 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <h4>MAYBE_TRACKING</h4>
-<pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.42">MAYBE_TRACKING</a></pre>
+<pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.41">MAYBE_TRACKING</a></pre>
 <div class="block">The view is a <a href="../../react4j/annotations/View.Type.html#TRACKING"><code>TRACKING</code></a> view but it will not generate an invariant failure if a
  render results in zero Arez dependencies.</div>
 </li>
@@ -264,7 +263,7 @@ the order they are declared.</div>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>NO_RENDER</h4>
-<pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.48">NO_RENDER</a></pre>
+<pre>public static final&nbsp;<a href="../../react4j/annotations/View.Type.html" title="enum in react4j.annotations">View.Type</a> <a href="../../src-html/react4j/annotations/View.Type.html#line.47">NO_RENDER</a></pre>
 <div class="block">The view must not have a method annotated with <a href="../../react4j/annotations/Render.html" title="annotation in react4j.annotations"><code>Render</code></a>.
  This is useful for "view" instances that provide capabilities or interact
  with services and thus need not have a render method.</div>
