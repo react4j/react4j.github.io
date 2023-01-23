@@ -66,8 +66,8 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
+<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
+<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
 </span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/react4j/annotations/PostMount.html#line-36">PostMount</a></span></div>
 <div class="block">Identifies a method that is called after a view is mounted or attached to the DOM.
  There must only be one method annotated with this annotation in a view.
@@ -86,14 +86,14 @@ loadScripts(document, 'script');</script>
  <li>Must be accessible from the same package as the class annotated by <a href="View.html" title="annotation interface in react4j.annotations"><code>View</code></a></li>
  <li>
    Should not be public as not expected to be invoked outside the view. A warning will be generated but can
-   be suppressed by the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressReact4jWarnings.html" title="annotation interface in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key
+   be suppressed by the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressReact4jWarnings.html" title="annotation interface in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key
    "React4j:PublicMethod". This warning is also suppressed by the annotation processor if it is implementing
    an interface method.
  </li>
  <li>
    Should not be protected if in the class annotated with the <a href="View.html" title="annotation interface in react4j.annotations"><code>View</code></a> annotation as the method is not
    expected to be invoked outside the view. A warning will be generated but can be suppressed by the
-   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressReact4jWarnings.html" title="annotation interface in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key "React4j:ProtectedMethod".
+   <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressReact4jWarnings.html" title="annotation interface in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key "React4j:ProtectedMethod".
  </li>
  </ul></div>
 </section>
