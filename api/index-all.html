@@ -159,6 +159,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Allows changing the style of any element to platform-based interface elements or vice versa.</div>
 </dd>
+<dt><a href="react4j/annotations/SortOrder.html#APPLICATION" class="member-name-link">APPLICATION</a> - Static variable in class react4j.annotations.<a href="react4j/annotations/SortOrder.html" title="class in react4j.annotations">SortOrder</a></dt>
+<dd>
+<div class="block">Start of range for methods defined by applications.</div>
+</dd>
 <dt><a href="react4j/dom/DOM.html#article()" class="member-name-link">article()</a> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="react4j/dom/DOM.html#article(byte)" class="member-name-link">article(byte)</a> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
@@ -2880,6 +2884,14 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="react4j/dom/DOM.html#li(react4j.ReactNode...)" class="member-name-link">li(ReactNode...)</a> - Static method in class react4j.dom.<a href="react4j/dom/DOM.html" title="class in react4j.dom">DOM</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="react4j/annotations/SortOrder.html#LIBRARY_AFTER" class="member-name-link">LIBRARY_AFTER</a> - Static variable in class react4j.annotations.<a href="react4j/annotations/SortOrder.html" title="class in react4j.annotations">SortOrder</a></dt>
+<dd>
+<div class="block">Start of range for late methods defined by extension libraries.</div>
+</dd>
+<dt><a href="react4j/annotations/SortOrder.html#LIBRARY_BEFORE" class="member-name-link">LIBRARY_BEFORE</a> - Static variable in class react4j.annotations.<a href="react4j/annotations/SortOrder.html" title="class in react4j.annotations">SortOrder</a></dt>
+<dd>
+<div class="block">Start of range for early methods defined by extension libraries.</div>
+</dd>
 <dt><a href="react4j/dom/proptypes/html/CssProps.html#lineClamp(double)" class="member-name-link">lineClamp(double)</a> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="react4j/dom/proptypes/html/CssProps.html#lineHeight(java.lang.String)" class="member-name-link">lineHeight(String)</a> - Method in class react4j.dom.proptypes.html.<a href="react4j/dom/proptypes/html/CssProps.html" title="class in react4j.dom.proptypes.html">CssProps</a></dt>
@@ -4308,6 +4320,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Identifies a method that is called after a view is rendered.</div>
 </dd>
+<dt><a href="react4j/annotations/PostRender.html" class="type-name-link" title="annotation interface in react4j.annotations">PostRender</a> - Annotation Interface in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Identifies a method that is called immediately after the render method.</div>
+</dd>
 <dt><a href="react4j/annotations/PostUpdate.html" class="type-name-link" title="annotation interface in react4j.annotations">PostUpdate</a> - Annotation Interface in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
 <dd>
 <div class="block">Identifies a method that is called after a view is updated or re-rendered.</div>
@@ -4321,6 +4337,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="react4j/internal/IntrospectUtil.html#prepareStateUpdate(jsinterop.base.JsPropertyMap,jsinterop.base.JsPropertyMap)" class="member-name-link">prepareStateUpdate(JsPropertyMap&lt;Object&gt;, JsPropertyMap&lt;Object&gt;)</a> - Static method in class react4j.internal.<a href="react4j/internal/IntrospectUtil.html" title="class in react4j.internal">IntrospectUtil</a></dt>
 <dd>
 <div class="block">Prepare the newState value to be updated given specified current state.</div>
+</dd>
+<dt><a href="react4j/annotations/PreRender.html" class="type-name-link" title="annotation interface in react4j.annotations">PreRender</a> - Annotation Interface in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">Identifies a method that is called immediately prior to render method.</div>
 </dd>
 <dt><a href="react4j/annotations/PreUpdate.html" class="type-name-link" title="annotation interface in react4j.annotations">PreUpdate</a> - Annotation Interface in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
 <dd>
@@ -5673,6 +5693,19 @@ loadScripts(document, 'script');</script>
 <dt><a href="react4j/annotations/ScheduleRender.html#skipShouldViewUpdate()" class="member-name-link">skipShouldViewUpdate()</a> - Element in annotation interface react4j.annotations.<a href="react4j/annotations/ScheduleRender.html" title="annotation interface in react4j.annotations">ScheduleRender</a></dt>
 <dd>
 <div class="block">Determines whether the view will invoke the <code>shouldComponentUpdate()</code> before invoking the render method.</div>
+</dd>
+<dt><a href="react4j/annotations/PostRender.html#sortOrder()" class="member-name-link">sortOrder()</a> - Element in annotation interface react4j.annotations.<a href="react4j/annotations/PostRender.html" title="annotation interface in react4j.annotations">PostRender</a></dt>
+<dd>
+<div class="block">The parameter to determine the ordering of PreRender annotated methods if multiple methods are defined.</div>
+</dd>
+<dt><a href="react4j/annotations/PreRender.html#sortOrder()" class="member-name-link">sortOrder()</a> - Element in annotation interface react4j.annotations.<a href="react4j/annotations/PreRender.html" title="annotation interface in react4j.annotations">PreRender</a></dt>
+<dd>
+<div class="block">The parameter to determine the ordering of PreRender annotated methods if multiple methods are defined.</div>
+</dd>
+<dt><a href="react4j/annotations/SortOrder.html" class="type-name-link" title="class in react4j.annotations">SortOrder</a> - Class in <a href="react4j/annotations/package-summary.html">react4j.annotations</a></dt>
+<dd>
+<div class="block">SortOrder define the orders in which methods are
+ invoked.</div>
 </dd>
 <dt><a href="react4j/annotations/Input.html#source()" class="member-name-link">source()</a> - Element in annotation interface react4j.annotations.<a href="react4j/annotations/Input.html" title="annotation interface in react4j.annotations">Input</a></dt>
 <dd>

@@ -271,9 +271,17 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab7">
 <div class="block">Identifies a method that is called after a view is rendered.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab7"><a href="react4j/annotations/PostUpdate.html" title="annotation interface in react4j.annotations">PostUpdate</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab7"><a href="react4j/annotations/PostRender.html" title="annotation interface in react4j.annotations">PostRender</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab7">
+<div class="block">Identifies a method that is called immediately after the render method.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab7"><a href="react4j/annotations/PostUpdate.html" title="annotation interface in react4j.annotations">PostUpdate</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab7">
 <div class="block">Identifies a method that is called after a view is updated or re-rendered.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab7"><a href="react4j/annotations/PreRender.html" title="annotation interface in react4j.annotations">PreRender</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab7">
+<div class="block">Identifies a method that is called immediately prior to render method.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab7"><a href="react4j/annotations/PreUpdate.html" title="annotation interface in react4j.annotations">PreUpdate</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab7">
@@ -349,66 +357,71 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Props for select elements.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/proptypes/html/SourceProps.html" title="class in react4j.dom.proptypes.html">SourceProps</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/annotations/SortOrder.html" title="class in react4j.annotations">SortOrder</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">SortOrder define the orders in which methods are
+ invoked.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/proptypes/html/SourceProps.html" title="class in react4j.dom.proptypes.html">SourceProps</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Props for source elements.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/events/StyleMedia.html" title="class in react4j.dom.events">StyleMedia</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab7"><a href="react4j/annotations/SuppressReact4jWarnings.html" title="annotation interface in react4j.annotations">SuppressReact4jWarnings</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab7">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/events/StyleMedia.html" title="class in react4j.dom.events">StyleMedia</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab7"><a href="react4j/annotations/SuppressReact4jWarnings.html" title="annotation interface in react4j.annotations">SuppressReact4jWarnings</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab7">
 <div class="block">Indicate that the named React4j compiler warnings should be suppressed in the
  annotated element (and in all program elements contained in the annotated
  element).</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/events/SyntheticEvent.html" title="class in react4j.dom.events">SyntheticEvent</a>&lt;<a href="react4j/dom/events/SyntheticEvent.html" title="type parameter in SyntheticEvent">E</a> extends akasha.Event&gt;</div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab7"><a href="react4j/dom/proptypes/html/attributeTypes/Target.html" title="annotation interface in react4j.dom.proptypes.html.attributeTypes">Target</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab7">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/proptypes/html/TdProps.html" title="class in react4j.dom.proptypes.html">TdProps</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/events/SyntheticEvent.html" title="class in react4j.dom.events">SyntheticEvent</a>&lt;<a href="react4j/dom/events/SyntheticEvent.html" title="type parameter in SyntheticEvent">E</a> extends akasha.Event&gt;</div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab7"><a href="react4j/dom/proptypes/html/attributeTypes/Target.html" title="annotation interface in react4j.dom.proptypes.html.attributeTypes">Target</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab7">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/proptypes/html/TdProps.html" title="class in react4j.dom.proptypes.html">TdProps</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Props for td elements.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/proptypes/html/TextAreaProps.html" title="class in react4j.dom.proptypes.html">TextAreaProps</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/proptypes/html/TextAreaProps.html" title="class in react4j.dom.proptypes.html">TextAreaProps</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Props for input elements.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/proptypes/html/ThProps.html" title="class in react4j.dom.proptypes.html">ThProps</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/proptypes/html/ThProps.html" title="class in react4j.dom.proptypes.html">ThProps</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Props for td elements.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/events/TouchEvent.html" title="class in react4j.dom.events">TouchEvent</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="react4j/dom/events/TouchEventHandler.html" title="interface in react4j.dom.events">TouchEventHandler</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/events/UIEvent.html" title="class in react4j.dom.events">UIEvent</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="react4j/dom/events/UIEventHandler.html" title="interface in react4j.dom.events">UIEventHandler</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab7"><a href="react4j/annotations/View.html" title="annotation interface in react4j.annotations">View</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab7">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/events/TouchEvent.html" title="class in react4j.dom.events">TouchEvent</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="react4j/dom/events/TouchEventHandler.html" title="interface in react4j.dom.events">TouchEventHandler</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/events/UIEvent.html" title="class in react4j.dom.events">UIEvent</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="react4j/dom/events/UIEventHandler.html" title="interface in react4j.dom.events">UIEventHandler</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab7"><a href="react4j/annotations/View.html" title="annotation interface in react4j.annotations">View</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab7">
 <div class="block">Annotation used to identify a React4j view.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="react4j/annotations/View.Type.html" title="enum class in react4j.annotations">View.Type</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="react4j/annotations/View.Type.html" title="enum class in react4j.annotations">View.Type</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Enum indicating type of view.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="react4j/internal/ViewConstructorFunction.html" title="interface in react4j.internal">ViewConstructorFunction</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="react4j/internal/ViewConstructorFunction.html" title="interface in react4j.internal">ViewConstructorFunction</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block">A function interface to create component instances.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="react4j/internal/ViewState.html" title="class in react4j.internal">ViewState</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/internal/ViewState.html" title="class in react4j.internal">ViewState</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Constants representing the state of a view.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab7"><a href="react4j/dom/proptypes/cssPropertyTypes/Visibility.html" title="annotation interface in react4j.dom.proptypes.cssPropertyTypes">Visibility</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab7">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/events/WheelEvent.html" title="class in react4j.dom.events">WheelEvent</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="react4j/dom/events/WheelEventHandler.html" title="interface in react4j.dom.events">WheelEventHandler</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab7"><a href="react4j/dom/proptypes/html/attributeTypes/YesNo.html" title="annotation interface in react4j.dom.proptypes.html.attributeTypes">YesNo</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab7"><a href="react4j/dom/proptypes/cssPropertyTypes/Visibility.html" title="annotation interface in react4j.dom.proptypes.cssPropertyTypes">Visibility</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab7">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="react4j/dom/events/WheelEvent.html" title="class in react4j.dom.events">WheelEvent</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="react4j/dom/events/WheelEventHandler.html" title="interface in react4j.dom.events">WheelEventHandler</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab7"><a href="react4j/dom/proptypes/html/attributeTypes/YesNo.html" title="annotation interface in react4j.dom.proptypes.html.attributeTypes">YesNo</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab7">&nbsp;</div>
 </div>
 </div>
 </div>

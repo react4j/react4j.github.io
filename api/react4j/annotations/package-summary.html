@@ -96,7 +96,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li>
 <div id="class-summary">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="class-summary-tab0" role="tab" aria-selected="true" aria-controls="class-summary.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="class-summary-tab3" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab3', 2)" class="table-tab">Enum Classes</button><button id="class-summary-tab7" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab7', 2)" class="table-tab">Annotation Interfaces</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="class-summary-tab0" role="tab" aria-selected="true" aria-controls="class-summary.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="class-summary-tab2" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab2', 2)" class="table-tab">Classes</button><button id="class-summary-tab3" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab3', 2)" class="table-tab">Enum Classes</button><button id="class-summary-tab7" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab7', 2)" class="table-tab">Annotation Interfaces</button></div>
 <div id="class-summary.tabpanel" role="tabpanel">
 <div class="summary-table two-column-summary" aria-labelledby="class-summary-tab0">
 <div class="table-header col-first">Class</div>
@@ -145,9 +145,17 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color class-summary class-summary-tab7">
 <div class="block">Identifies a method that is called after a view is rendered.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab7"><a href="PostUpdate.html" title="annotation interface in react4j.annotations">PostUpdate</a></div>
+<div class="col-first odd-row-color class-summary class-summary-tab7"><a href="PostRender.html" title="annotation interface in react4j.annotations">PostRender</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab7">
+<div class="block">Identifies a method that is called immediately after the render method.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab7"><a href="PostUpdate.html" title="annotation interface in react4j.annotations">PostUpdate</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab7">
 <div class="block">Identifies a method that is called after a view is updated or re-rendered.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab7"><a href="PreRender.html" title="annotation interface in react4j.annotations">PreRender</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab7">
+<div class="block">Identifies a method that is called immediately prior to render method.</div>
 </div>
 <div class="col-first even-row-color class-summary class-summary-tab7"><a href="PreUpdate.html" title="annotation interface in react4j.annotations">PreUpdate</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab7">
@@ -165,18 +173,23 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color class-summary class-summary-tab7">
 <div class="block">Identify a method that can be invoked to schedule the view for re-rendering.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab7"><a href="SuppressReact4jWarnings.html" title="annotation interface in react4j.annotations">SuppressReact4jWarnings</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab7">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SortOrder.html" title="class in react4j.annotations">SortOrder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">SortOrder define the orders in which methods are
+ invoked.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab7"><a href="SuppressReact4jWarnings.html" title="annotation interface in react4j.annotations">SuppressReact4jWarnings</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab7">
 <div class="block">Indicate that the named React4j compiler warnings should be suppressed in the
  annotated element (and in all program elements contained in the annotated
  element).</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab7"><a href="View.html" title="annotation interface in react4j.annotations">View</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab7">
+<div class="col-first even-row-color class-summary class-summary-tab7"><a href="View.html" title="annotation interface in react4j.annotations">View</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab7">
 <div class="block">Annotation used to identify a React4j view.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab3"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab3">
+<div class="col-first odd-row-color class-summary class-summary-tab3"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab3">
 <div class="block">Enum indicating type of view.</div>
 </div>
 </div>
