@@ -886,722 +886,750 @@
 <span class="source-line-no">873</span><span id="line-873">                                                           Constants.INPUT_CLASSNAME,</span>
 <span class="source-line-no">874</span><span id="line-874">                                                           method );</span>
 <span class="source-line-no">875</span><span id="line-875">    final TypeMirror returnType = method.getReturnType();</span>
-<span class="source-line-no">876</span><span id="line-876">    if ( "build".equals( name ) )</span>
-<span class="source-line-no">877</span><span id="line-877">    {</span>
-<span class="source-line-no">878</span><span id="line-878">      throw new ProcessorException( "@Input named 'build' is invalid as it conflicts with the method named " +</span>
-<span class="source-line-no">879</span><span id="line-879">                                    "build() that is used in the generated Builder classes",</span>
-<span class="source-line-no">880</span><span id="line-880">                                    method );</span>
-<span class="source-line-no">881</span><span id="line-881">    }</span>
-<span class="source-line-no">882</span><span id="line-882">    else if ( "child".equals( name ) &amp;&amp;</span>
-<span class="source-line-no">883</span><span id="line-883">              ( returnType.getKind() != TypeKind.DECLARED &amp;&amp; !"react4j.ReactNode".equals( returnType.toString() ) ) )</span>
-<span class="source-line-no">884</span><span id="line-884">    {</span>
-<span class="source-line-no">885</span><span id="line-885">      throw new ProcessorException( "@Input named 'child' should be of type react4j.ReactNode", method );</span>
-<span class="source-line-no">886</span><span id="line-886">    }</span>
-<span class="source-line-no">887</span><span id="line-887">    else if ( "children".equals( name ) &amp;&amp;</span>
-<span class="source-line-no">888</span><span id="line-888">              ( returnType.getKind() != TypeKind.DECLARED &amp;&amp; !"react4j.ReactNode[]".equals( returnType.toString() ) ) )</span>
-<span class="source-line-no">889</span><span id="line-889">    {</span>
-<span class="source-line-no">890</span><span id="line-890">      throw new ProcessorException( "@Input named 'children' should be of type react4j.ReactNode[]", method );</span>
-<span class="source-line-no">891</span><span id="line-891">    }</span>
-<span class="source-line-no">892</span><span id="line-892"></span>
-<span class="source-line-no">893</span><span id="line-893">    if ( returnType instanceof final TypeVariable typeVariable )</span>
-<span class="source-line-no">894</span><span id="line-894">    {</span>
-<span class="source-line-no">895</span><span id="line-895">      final String typeVariableName = typeVariable.asElement().getSimpleName().toString();</span>
-<span class="source-line-no">896</span><span id="line-896">      List&lt;? extends TypeParameterElement&gt; typeParameters = method.getTypeParameters();</span>
-<span class="source-line-no">897</span><span id="line-897">      if ( typeParameters.stream().anyMatch( p -&gt; p.getSimpleName().toString().equals( typeVariableName ) ) )</span>
-<span class="source-line-no">898</span><span id="line-898">      {</span>
-<span class="source-line-no">899</span><span id="line-899">        throw new ProcessorException( "@Input named '" + name + "' is has a type variable as a return type " +</span>
-<span class="source-line-no">900</span><span id="line-900">                                      "that is declared on the method.", method );</span>
-<span class="source-line-no">901</span><span id="line-901">      }</span>
-<span class="source-line-no">902</span><span id="line-902">    }</span>
-<span class="source-line-no">903</span><span id="line-903">    final String qualifier = (String) AnnotationsUtil</span>
-<span class="source-line-no">904</span><span id="line-904">      .getAnnotationValue( method, Constants.INPUT_CLASSNAME, "qualifier" ).getValue();</span>
-<span class="source-line-no">905</span><span id="line-905">    final boolean contextInput = isContextInput( method );</span>
-<span class="source-line-no">906</span><span id="line-906">    final Element inputType = processingEnv.getTypeUtils().asElement( returnType );</span>
-<span class="source-line-no">907</span><span id="line-907">    final boolean immutable = isInputImmutable( method );</span>
-<span class="source-line-no">908</span><span id="line-908">    final boolean observable = isInputObservable( methods, method, immutable );</span>
-<span class="source-line-no">909</span><span id="line-909">    final boolean disposable = null != inputType &amp;&amp; isInputDisposable( method, inputType );</span>
-<span class="source-line-no">910</span><span id="line-910">    final TypeName typeName = TypeName.get( returnType );</span>
-<span class="source-line-no">911</span><span id="line-911">    if ( typeName.isBoxedPrimitive() &amp;&amp; AnnotationsUtil.hasNonnullAnnotation( method ) )</span>
-<span class="source-line-no">912</span><span id="line-912">    {</span>
-<span class="source-line-no">913</span><span id="line-913">      throw new ProcessorException( "@Input named '" + name + "' is a boxed primitive annotated with a " +</span>
-<span class="source-line-no">914</span><span id="line-914">                                    "@Nonnull annotation. The return type should be the primitive type.",</span>
-<span class="source-line-no">915</span><span id="line-915">                                    method );</span>
+<span class="source-line-no">876</span><span id="line-876">    if ( !returnType.getKind().isPrimitive() &amp;&amp;</span>
+<span class="source-line-no">877</span><span id="line-877">         !AnnotationsUtil.hasNonnullAnnotation( method ) &amp;&amp;</span>
+<span class="source-line-no">878</span><span id="line-878">         !AnnotationsUtil.hasNullableAnnotation( method ) &amp;&amp;</span>
+<span class="source-line-no">879</span><span id="line-879">         ElementsUtil.isWarningNotSuppressed( method,</span>
+<span class="source-line-no">880</span><span id="line-880">                                              Constants.WARNING_MISSING_INPUT_NULLABILITY,</span>
+<span class="source-line-no">881</span><span id="line-881">                                              Constants.SUPPRESS_REACT4J_WARNINGS_CLASSNAME ) )</span>
+<span class="source-line-no">882</span><span id="line-882">    {</span>
+<span class="source-line-no">883</span><span id="line-883">      final String message =</span>
+<span class="source-line-no">884</span><span id="line-884">        MemberChecks.shouldNot( Constants.INPUT_CLASSNAME,</span>
+<span class="source-line-no">885</span><span id="line-885">                                "return a non-primitive type without a @Nonnull or @Nullable annotation. " +</span>
+<span class="source-line-no">886</span><span id="line-886">                                MemberChecks.suppressedBy( Constants.WARNING_MISSING_INPUT_NULLABILITY,</span>
+<span class="source-line-no">887</span><span id="line-887">                                                           Constants.SUPPRESS_REACT4J_WARNINGS_CLASSNAME ) );</span>
+<span class="source-line-no">888</span><span id="line-888">      processingEnv.getMessager().printMessage( Diagnostic.Kind.WARNING, message, method );</span>
+<span class="source-line-no">889</span><span id="line-889">    }</span>
+<span class="source-line-no">890</span><span id="line-890">    if ( "build".equals( name ) )</span>
+<span class="source-line-no">891</span><span id="line-891">    {</span>
+<span class="source-line-no">892</span><span id="line-892">      throw new ProcessorException( "@Input named 'build' is invalid as it conflicts with the method named " +</span>
+<span class="source-line-no">893</span><span id="line-893">                                    "build() that is used in the generated Builder classes",</span>
+<span class="source-line-no">894</span><span id="line-894">                                    method );</span>
+<span class="source-line-no">895</span><span id="line-895">    }</span>
+<span class="source-line-no">896</span><span id="line-896">    else if ( "child".equals( name ) &amp;&amp;</span>
+<span class="source-line-no">897</span><span id="line-897">              ( returnType.getKind() != TypeKind.DECLARED &amp;&amp; !"react4j.ReactNode".equals( returnType.toString() ) ) )</span>
+<span class="source-line-no">898</span><span id="line-898">    {</span>
+<span class="source-line-no">899</span><span id="line-899">      throw new ProcessorException( "@Input named 'child' should be of type react4j.ReactNode", method );</span>
+<span class="source-line-no">900</span><span id="line-900">    }</span>
+<span class="source-line-no">901</span><span id="line-901">    else if ( "children".equals( name ) &amp;&amp;</span>
+<span class="source-line-no">902</span><span id="line-902">              ( returnType.getKind() != TypeKind.DECLARED &amp;&amp; !"react4j.ReactNode[]".equals( returnType.toString() ) ) )</span>
+<span class="source-line-no">903</span><span id="line-903">    {</span>
+<span class="source-line-no">904</span><span id="line-904">      throw new ProcessorException( "@Input named 'children' should be of type react4j.ReactNode[]", method );</span>
+<span class="source-line-no">905</span><span id="line-905">    }</span>
+<span class="source-line-no">906</span><span id="line-906"></span>
+<span class="source-line-no">907</span><span id="line-907">    if ( returnType instanceof final TypeVariable typeVariable )</span>
+<span class="source-line-no">908</span><span id="line-908">    {</span>
+<span class="source-line-no">909</span><span id="line-909">      final String typeVariableName = typeVariable.asElement().getSimpleName().toString();</span>
+<span class="source-line-no">910</span><span id="line-910">      List&lt;? extends TypeParameterElement&gt; typeParameters = method.getTypeParameters();</span>
+<span class="source-line-no">911</span><span id="line-911">      if ( typeParameters.stream().anyMatch( p -&gt; p.getSimpleName().toString().equals( typeVariableName ) ) )</span>
+<span class="source-line-no">912</span><span id="line-912">      {</span>
+<span class="source-line-no">913</span><span id="line-913">        throw new ProcessorException( "@Input named '" + name + "' is has a type variable as a return type " +</span>
+<span class="source-line-no">914</span><span id="line-914">                                      "that is declared on the method.", method );</span>
+<span class="source-line-no">915</span><span id="line-915">      }</span>
 <span class="source-line-no">916</span><span id="line-916">    }</span>
-<span class="source-line-no">917</span><span id="line-917">    final ImmutableInputKeyStrategy strategy = immutable ? getImmutableInputKeyStrategy( typeName, inputType ) : null;</span>
-<span class="source-line-no">918</span><span id="line-918">    if ( !"".equals( qualifier ) &amp;&amp; !contextInput )</span>
-<span class="source-line-no">919</span><span id="line-919">    {</span>
-<span class="source-line-no">920</span><span id="line-920">      throw new ProcessorException( MemberChecks.mustNot( Constants.INPUT_CLASSNAME,</span>
-<span class="source-line-no">921</span><span id="line-921">                                                          "specify qualifier parameter unless source=CONTEXT is also specified" ),</span>
-<span class="source-line-no">922</span><span id="line-922">                                    method );</span>
-<span class="source-line-no">923</span><span id="line-923">    }</span>
-<span class="source-line-no">924</span><span id="line-924">    final String requiredValue =</span>
-<span class="source-line-no">925</span><span id="line-925">      ( (VariableElement) AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "require" )</span>
-<span class="source-line-no">926</span><span id="line-926">        .getValue() )</span>
-<span class="source-line-no">927</span><span id="line-927">        .getSimpleName().toString();</span>
-<span class="source-line-no">928</span><span id="line-928"></span>
-<span class="source-line-no">929</span><span id="line-929">    final boolean dependency = isInputDependency( method, immutable, disposable );</span>
-<span class="source-line-no">930</span><span id="line-930"></span>
-<span class="source-line-no">931</span><span id="line-931">    final InputDescriptor inputDescriptor =</span>
-<span class="source-line-no">932</span><span id="line-932">      new InputDescriptor( descriptor,</span>
-<span class="source-line-no">933</span><span id="line-933">                           name,</span>
-<span class="source-line-no">934</span><span id="line-934">                           qualifier,</span>
-<span class="source-line-no">935</span><span id="line-935">                           method,</span>
-<span class="source-line-no">936</span><span id="line-936">                           methodType,</span>
-<span class="source-line-no">937</span><span id="line-937">                           inputType,</span>
-<span class="source-line-no">938</span><span id="line-938">                           contextInput,</span>
-<span class="source-line-no">939</span><span id="line-939">                           !immutable,</span>
-<span class="source-line-no">940</span><span id="line-940">                           observable,</span>
-<span class="source-line-no">941</span><span id="line-941">                           disposable,</span>
-<span class="source-line-no">942</span><span id="line-942">                           dependency,</span>
-<span class="source-line-no">943</span><span id="line-943">                           strategy,</span>
-<span class="source-line-no">944</span><span id="line-944">                           requiredValue );</span>
-<span class="source-line-no">945</span><span id="line-945">    if ( inputDescriptor.mayNeedMutableInputAccessedInPostConstructInvariant() )</span>
-<span class="source-line-no">946</span><span id="line-946">    {</span>
-<span class="source-line-no">947</span><span id="line-947">      if ( ElementsUtil.isWarningSuppressed( method,</span>
-<span class="source-line-no">948</span><span id="line-948">                                             Constants.WARNING_MUTABLE_INPUT_ACCESSED_IN_POST_CONSTRUCT,</span>
-<span class="source-line-no">949</span><span id="line-949">                                             Constants.SUPPRESS_REACT4J_WARNINGS_CLASSNAME ) )</span>
-<span class="source-line-no">950</span><span id="line-950">      {</span>
-<span class="source-line-no">951</span><span id="line-951">        inputDescriptor.suppressMutableInputAccessedInPostConstruct();</span>
-<span class="source-line-no">952</span><span id="line-952">      }</span>
-<span class="source-line-no">953</span><span id="line-953">    }</span>
-<span class="source-line-no">954</span><span id="line-954">    return inputDescriptor;</span>
-<span class="source-line-no">955</span><span id="line-955">  }</span>
-<span class="source-line-no">956</span><span id="line-956"></span>
-<span class="source-line-no">957</span><span id="line-957">  @Nonnull</span>
-<span class="source-line-no">958</span><span id="line-958">  private ImmutableInputKeyStrategy getImmutableInputKeyStrategy( @Nonnull final TypeName typeName,</span>
-<span class="source-line-no">959</span><span id="line-959">                                                                  @Nullable final Element element )</span>
-<span class="source-line-no">960</span><span id="line-960">  {</span>
-<span class="source-line-no">961</span><span id="line-961">    if ( typeName.toString().equals( "java.lang.String" ) )</span>
-<span class="source-line-no">962</span><span id="line-962">    {</span>
-<span class="source-line-no">963</span><span id="line-963">      return ImmutableInputKeyStrategy.IS_STRING;</span>
-<span class="source-line-no">964</span><span id="line-964">    }</span>
-<span class="source-line-no">965</span><span id="line-965">    else if ( typeName.isBoxedPrimitive() || typeName.isPrimitive() )</span>
-<span class="source-line-no">966</span><span id="line-966">    {</span>
-<span class="source-line-no">967</span><span id="line-967">      return ImmutableInputKeyStrategy.TO_STRING;</span>
-<span class="source-line-no">968</span><span id="line-968">    }</span>
-<span class="source-line-no">969</span><span id="line-969">    else if ( null != element )</span>
-<span class="source-line-no">970</span><span id="line-970">    {</span>
-<span class="source-line-no">971</span><span id="line-971">      if ( ( ElementKind.CLASS == element.getKind() || ElementKind.INTERFACE == element.getKind() ) &amp;&amp;</span>
-<span class="source-line-no">972</span><span id="line-972">           isAssignableToKeyed( element ) )</span>
-<span class="source-line-no">973</span><span id="line-973">      {</span>
-<span class="source-line-no">974</span><span id="line-974">        return ImmutableInputKeyStrategy.KEYED;</span>
-<span class="source-line-no">975</span><span id="line-975">      }</span>
-<span class="source-line-no">976</span><span id="line-976">      else if ( ( ElementKind.CLASS == element.getKind() || ElementKind.INTERFACE == element.getKind() ) &amp;&amp;</span>
-<span class="source-line-no">977</span><span id="line-977">                (</span>
-<span class="source-line-no">978</span><span id="line-978">                  isAssignableToIdentifiable( element ) ||</span>
-<span class="source-line-no">979</span><span id="line-979">                  AnnotationsUtil.hasAnnotationOfType( element, Constants.ACT_AS_COMPONENT_CLASSNAME ) ||</span>
-<span class="source-line-no">980</span><span id="line-980">                  ( AnnotationsUtil.hasAnnotationOfType( element, Constants.AREZ_COMPONENT_CLASSNAME ) &amp;&amp;</span>
-<span class="source-line-no">981</span><span id="line-981">                    isIdRequired( (TypeElement) element ) )</span>
-<span class="source-line-no">982</span><span id="line-982">                ) )</span>
-<span class="source-line-no">983</span><span id="line-983">      {</span>
-<span class="source-line-no">984</span><span id="line-984">        return ImmutableInputKeyStrategy.AREZ_IDENTIFIABLE;</span>
-<span class="source-line-no">985</span><span id="line-985">      }</span>
-<span class="source-line-no">986</span><span id="line-986">      else if ( ElementKind.ENUM == element.getKind() )</span>
+<span class="source-line-no">917</span><span id="line-917">    final String qualifier = (String) AnnotationsUtil</span>
+<span class="source-line-no">918</span><span id="line-918">      .getAnnotationValue( method, Constants.INPUT_CLASSNAME, "qualifier" ).getValue();</span>
+<span class="source-line-no">919</span><span id="line-919">    final boolean contextInput = isContextInput( method );</span>
+<span class="source-line-no">920</span><span id="line-920">    final Element inputType = processingEnv.getTypeUtils().asElement( returnType );</span>
+<span class="source-line-no">921</span><span id="line-921">    final boolean immutable = isInputImmutable( method );</span>
+<span class="source-line-no">922</span><span id="line-922">    final boolean observable = isInputObservable( methods, method, immutable );</span>
+<span class="source-line-no">923</span><span id="line-923">    final boolean disposable = null != inputType &amp;&amp; isInputDisposable( method, inputType );</span>
+<span class="source-line-no">924</span><span id="line-924">    final TypeName typeName = TypeName.get( returnType );</span>
+<span class="source-line-no">925</span><span id="line-925">    if ( typeName.isBoxedPrimitive() &amp;&amp; AnnotationsUtil.hasNonnullAnnotation( method ) )</span>
+<span class="source-line-no">926</span><span id="line-926">    {</span>
+<span class="source-line-no">927</span><span id="line-927">      throw new ProcessorException( "@Input named '" + name + "' is a boxed primitive annotated with a " +</span>
+<span class="source-line-no">928</span><span id="line-928">                                    "@Nonnull annotation. The return type should be the primitive type.",</span>
+<span class="source-line-no">929</span><span id="line-929">                                    method );</span>
+<span class="source-line-no">930</span><span id="line-930">    }</span>
+<span class="source-line-no">931</span><span id="line-931">    final ImmutableInputKeyStrategy strategy = immutable ? getImmutableInputKeyStrategy( typeName, inputType ) : null;</span>
+<span class="source-line-no">932</span><span id="line-932">    if ( !"".equals( qualifier ) &amp;&amp; !contextInput )</span>
+<span class="source-line-no">933</span><span id="line-933">    {</span>
+<span class="source-line-no">934</span><span id="line-934">      throw new ProcessorException( MemberChecks.mustNot( Constants.INPUT_CLASSNAME,</span>
+<span class="source-line-no">935</span><span id="line-935">                                                          "specify qualifier parameter unless source=CONTEXT is also specified" ),</span>
+<span class="source-line-no">936</span><span id="line-936">                                    method );</span>
+<span class="source-line-no">937</span><span id="line-937">    }</span>
+<span class="source-line-no">938</span><span id="line-938">    final String requiredValue =</span>
+<span class="source-line-no">939</span><span id="line-939">      ( (VariableElement) AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "require" )</span>
+<span class="source-line-no">940</span><span id="line-940">        .getValue() )</span>
+<span class="source-line-no">941</span><span id="line-941">        .getSimpleName().toString();</span>
+<span class="source-line-no">942</span><span id="line-942"></span>
+<span class="source-line-no">943</span><span id="line-943">    final boolean dependency = isInputDependency( method, immutable, disposable );</span>
+<span class="source-line-no">944</span><span id="line-944"></span>
+<span class="source-line-no">945</span><span id="line-945">    final InputDescriptor inputDescriptor =</span>
+<span class="source-line-no">946</span><span id="line-946">      new InputDescriptor( descriptor,</span>
+<span class="source-line-no">947</span><span id="line-947">                           name,</span>
+<span class="source-line-no">948</span><span id="line-948">                           qualifier,</span>
+<span class="source-line-no">949</span><span id="line-949">                           method,</span>
+<span class="source-line-no">950</span><span id="line-950">                           methodType,</span>
+<span class="source-line-no">951</span><span id="line-951">                           inputType,</span>
+<span class="source-line-no">952</span><span id="line-952">                           contextInput,</span>
+<span class="source-line-no">953</span><span id="line-953">                           !immutable,</span>
+<span class="source-line-no">954</span><span id="line-954">                           observable,</span>
+<span class="source-line-no">955</span><span id="line-955">                           disposable,</span>
+<span class="source-line-no">956</span><span id="line-956">                           dependency,</span>
+<span class="source-line-no">957</span><span id="line-957">                           strategy,</span>
+<span class="source-line-no">958</span><span id="line-958">                           requiredValue );</span>
+<span class="source-line-no">959</span><span id="line-959">    if ( inputDescriptor.mayNeedMutableInputAccessedInPostConstructInvariant() )</span>
+<span class="source-line-no">960</span><span id="line-960">    {</span>
+<span class="source-line-no">961</span><span id="line-961">      if ( ElementsUtil.isWarningSuppressed( method,</span>
+<span class="source-line-no">962</span><span id="line-962">                                             Constants.WARNING_MUTABLE_INPUT_ACCESSED_IN_POST_CONSTRUCT,</span>
+<span class="source-line-no">963</span><span id="line-963">                                             Constants.SUPPRESS_REACT4J_WARNINGS_CLASSNAME ) )</span>
+<span class="source-line-no">964</span><span id="line-964">      {</span>
+<span class="source-line-no">965</span><span id="line-965">        inputDescriptor.suppressMutableInputAccessedInPostConstruct();</span>
+<span class="source-line-no">966</span><span id="line-966">      }</span>
+<span class="source-line-no">967</span><span id="line-967">    }</span>
+<span class="source-line-no">968</span><span id="line-968">    return inputDescriptor;</span>
+<span class="source-line-no">969</span><span id="line-969">  }</span>
+<span class="source-line-no">970</span><span id="line-970"></span>
+<span class="source-line-no">971</span><span id="line-971">  @Nonnull</span>
+<span class="source-line-no">972</span><span id="line-972">  private ImmutableInputKeyStrategy getImmutableInputKeyStrategy( @Nonnull final TypeName typeName,</span>
+<span class="source-line-no">973</span><span id="line-973">                                                                  @Nullable final Element element )</span>
+<span class="source-line-no">974</span><span id="line-974">  {</span>
+<span class="source-line-no">975</span><span id="line-975">    if ( typeName.toString().equals( "java.lang.String" ) )</span>
+<span class="source-line-no">976</span><span id="line-976">    {</span>
+<span class="source-line-no">977</span><span id="line-977">      return ImmutableInputKeyStrategy.IS_STRING;</span>
+<span class="source-line-no">978</span><span id="line-978">    }</span>
+<span class="source-line-no">979</span><span id="line-979">    else if ( typeName.isBoxedPrimitive() || typeName.isPrimitive() )</span>
+<span class="source-line-no">980</span><span id="line-980">    {</span>
+<span class="source-line-no">981</span><span id="line-981">      return ImmutableInputKeyStrategy.TO_STRING;</span>
+<span class="source-line-no">982</span><span id="line-982">    }</span>
+<span class="source-line-no">983</span><span id="line-983">    else if ( null != element )</span>
+<span class="source-line-no">984</span><span id="line-984">    {</span>
+<span class="source-line-no">985</span><span id="line-985">      if ( ( ElementKind.CLASS == element.getKind() || ElementKind.INTERFACE == element.getKind() ) &amp;&amp;</span>
+<span class="source-line-no">986</span><span id="line-986">           isAssignableToKeyed( element ) )</span>
 <span class="source-line-no">987</span><span id="line-987">      {</span>
-<span class="source-line-no">988</span><span id="line-988">        return ImmutableInputKeyStrategy.ENUM;</span>
+<span class="source-line-no">988</span><span id="line-988">        return ImmutableInputKeyStrategy.KEYED;</span>
 <span class="source-line-no">989</span><span id="line-989">      }</span>
-<span class="source-line-no">990</span><span id="line-990">    }</span>
-<span class="source-line-no">991</span><span id="line-991">    return ImmutableInputKeyStrategy.DYNAMIC;</span>
-<span class="source-line-no">992</span><span id="line-992">  }</span>
-<span class="source-line-no">993</span><span id="line-993"></span>
-<span class="source-line-no">994</span><span id="line-994">  private boolean isAssignableToKeyed( @Nonnull final Element element )</span>
-<span class="source-line-no">995</span><span id="line-995">  {</span>
-<span class="source-line-no">996</span><span id="line-996">    final TypeElement typeElement = processingEnv.getElementUtils().getTypeElement( Constants.KEYED_CLASSNAME );</span>
-<span class="source-line-no">997</span><span id="line-997">    return processingEnv.getTypeUtils().isAssignable( element.asType(), typeElement.asType() );</span>
-<span class="source-line-no">998</span><span id="line-998">  }</span>
-<span class="source-line-no">999</span><span id="line-999"></span>
-<span class="source-line-no">1000</span><span id="line-1000">  private boolean isAssignableToIdentifiable( @Nonnull final Element element )</span>
-<span class="source-line-no">1001</span><span id="line-1001">  {</span>
-<span class="source-line-no">1002</span><span id="line-1002">    final TypeElement typeElement = processingEnv.getElementUtils().getTypeElement( Constants.IDENTIFIABLE_CLASSNAME );</span>
-<span class="source-line-no">1003</span><span id="line-1003">    final TypeMirror identifiableErasure = processingEnv.getTypeUtils().erasure( typeElement.asType() );</span>
-<span class="source-line-no">1004</span><span id="line-1004">    return processingEnv.getTypeUtils().isAssignable( element.asType(), identifiableErasure );</span>
-<span class="source-line-no">1005</span><span id="line-1005">  }</span>
-<span class="source-line-no">1006</span><span id="line-1006"></span>
-<span class="source-line-no">1007</span><span id="line-1007">  /**</span>
-<span class="source-line-no">1008</span><span id="line-1008">   * The logic from this method has been cloned from Arez.</span>
-<span class="source-line-no">1009</span><span id="line-1009">   * One day we should consider improving Arez so that this is not required somehow?</span>
-<span class="source-line-no">1010</span><span id="line-1010">   */</span>
-<span class="source-line-no">1011</span><span id="line-1011">  private boolean isIdRequired( @Nonnull final TypeElement element )</span>
-<span class="source-line-no">1012</span><span id="line-1012">  {</span>
-<span class="source-line-no">1013</span><span id="line-1013">    final VariableElement requireIdParameter = (VariableElement)</span>
-<span class="source-line-no">1014</span><span id="line-1014">      AnnotationsUtil.getAnnotationValue( element, Constants.AREZ_COMPONENT_CLASSNAME, "requireId" )</span>
-<span class="source-line-no">1015</span><span id="line-1015">        .getValue();</span>
-<span class="source-line-no">1016</span><span id="line-1016">    return !"DISABLE".equals( requireIdParameter.getSimpleName().toString() );</span>
-<span class="source-line-no">1017</span><span id="line-1017">  }</span>
-<span class="source-line-no">1018</span><span id="line-1018"></span>
-<span class="source-line-no">1019</span><span id="line-1019">  @Nonnull</span>
-<span class="source-line-no">1020</span><span id="line-1020">  private String deriveInputName( @Nonnull final ExecutableElement method )</span>
-<span class="source-line-no">1021</span><span id="line-1021">    throws ProcessorException</span>
-<span class="source-line-no">1022</span><span id="line-1022">  {</span>
-<span class="source-line-no">1023</span><span id="line-1023">    final String specifiedName =</span>
-<span class="source-line-no">1024</span><span id="line-1024">      (String) AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "name" ).getValue();</span>
-<span class="source-line-no">1025</span><span id="line-1025"></span>
-<span class="source-line-no">1026</span><span id="line-1026">    final String name = getPropertyAccessorName( method, specifiedName );</span>
-<span class="source-line-no">1027</span><span id="line-1027">    if ( !SourceVersion.isIdentifier( name ) )</span>
-<span class="source-line-no">1028</span><span id="line-1028">    {</span>
-<span class="source-line-no">1029</span><span id="line-1029">      throw new ProcessorException( "@Input target specified an invalid name '" + specifiedName + "'. The " +</span>
-<span class="source-line-no">1030</span><span id="line-1030">                                    "name must be a valid java identifier.", method );</span>
-<span class="source-line-no">1031</span><span id="line-1031">    }</span>
-<span class="source-line-no">1032</span><span id="line-1032">    else if ( SourceVersion.isKeyword( name ) )</span>
-<span class="source-line-no">1033</span><span id="line-1033">    {</span>
-<span class="source-line-no">1034</span><span id="line-1034">      throw new ProcessorException( "@Input target specified an invalid name '" + specifiedName + "'. The " +</span>
-<span class="source-line-no">1035</span><span id="line-1035">                                    "name must not be a java keyword.", method );</span>
-<span class="source-line-no">1036</span><span id="line-1036">    }</span>
-<span class="source-line-no">1037</span><span id="line-1037">    else</span>
-<span class="source-line-no">1038</span><span id="line-1038">    {</span>
-<span class="source-line-no">1039</span><span id="line-1039">      return name;</span>
-<span class="source-line-no">1040</span><span id="line-1040">    }</span>
-<span class="source-line-no">1041</span><span id="line-1041">  }</span>
-<span class="source-line-no">1042</span><span id="line-1042"></span>
-<span class="source-line-no">1043</span><span id="line-1043">  private void determineOnErrorMethod( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">1044</span><span id="line-1044">                                       @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1045</span><span id="line-1045">                                       @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1046</span><span id="line-1046">  {</span>
-<span class="source-line-no">1047</span><span id="line-1047">    for ( final ExecutableElement method : methods )</span>
-<span class="source-line-no">1048</span><span id="line-1048">    {</span>
-<span class="source-line-no">1049</span><span id="line-1049">      if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.ON_ERROR_CLASSNAME ) )</span>
-<span class="source-line-no">1050</span><span id="line-1050">      {</span>
-<span class="source-line-no">1051</span><span id="line-1051">        MemberChecks.mustNotBeAbstract( Constants.ON_ERROR_CLASSNAME, method );</span>
-<span class="source-line-no">1052</span><span id="line-1052">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
-<span class="source-line-no">1053</span><span id="line-1053">                                             Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1054</span><span id="line-1054">                                             Constants.ON_ERROR_CLASSNAME,</span>
-<span class="source-line-no">1055</span><span id="line-1055">                                             method );</span>
-<span class="source-line-no">1056</span><span id="line-1056">        MemberChecks.mustNotReturnAnyValue( Constants.ON_ERROR_CLASSNAME, method );</span>
-<span class="source-line-no">1057</span><span id="line-1057">        MemberChecks.mustNotThrowAnyExceptions( Constants.ON_ERROR_CLASSNAME, method );</span>
-<span class="source-line-no">1058</span><span id="line-1058"></span>
-<span class="source-line-no">1059</span><span id="line-1059">        boolean infoFound = false;</span>
-<span class="source-line-no">1060</span><span id="line-1060">        boolean errorFound = false;</span>
-<span class="source-line-no">1061</span><span id="line-1061">        for ( final VariableElement parameter : method.getParameters() )</span>
-<span class="source-line-no">1062</span><span id="line-1062">        {</span>
-<span class="source-line-no">1063</span><span id="line-1063">          final TypeName typeName = TypeName.get( parameter.asType() );</span>
-<span class="source-line-no">1064</span><span id="line-1064">          if ( typeName.toString().equals( Constants.ERROR_INFO_CLASSNAME ) )</span>
-<span class="source-line-no">1065</span><span id="line-1065">          {</span>
-<span class="source-line-no">1066</span><span id="line-1066">            if ( infoFound )</span>
-<span class="source-line-no">1067</span><span id="line-1067">            {</span>
-<span class="source-line-no">1068</span><span id="line-1068">              throw new ProcessorException( "@OnError target has multiple parameters of type " +</span>
-<span class="source-line-no">1069</span><span id="line-1069">                                            Constants.ERROR_INFO_CLASSNAME,</span>
-<span class="source-line-no">1070</span><span id="line-1070">                                            method );</span>
-<span class="source-line-no">1071</span><span id="line-1071">            }</span>
-<span class="source-line-no">1072</span><span id="line-1072">            infoFound = true;</span>
-<span class="source-line-no">1073</span><span id="line-1073">          }</span>
-<span class="source-line-no">1074</span><span id="line-1074">          else if ( typeName.toString().equals( Constants.JS_ERROR_CLASSNAME ) )</span>
-<span class="source-line-no">1075</span><span id="line-1075">          {</span>
-<span class="source-line-no">1076</span><span id="line-1076">            if ( errorFound )</span>
-<span class="source-line-no">1077</span><span id="line-1077">            {</span>
-<span class="source-line-no">1078</span><span id="line-1078">              throw new ProcessorException( "@OnError target has multiple parameters of type " +</span>
-<span class="source-line-no">1079</span><span id="line-1079">                                            Constants.JS_ERROR_CLASSNAME,</span>
-<span class="source-line-no">1080</span><span id="line-1080">                                            method );</span>
-<span class="source-line-no">1081</span><span id="line-1081">            }</span>
-<span class="source-line-no">1082</span><span id="line-1082">            errorFound = true;</span>
-<span class="source-line-no">1083</span><span id="line-1083">          }</span>
-<span class="source-line-no">1084</span><span id="line-1084">          else</span>
-<span class="source-line-no">1085</span><span id="line-1085">          {</span>
-<span class="source-line-no">1086</span><span id="line-1086">            throw new ProcessorException( "@OnError target has parameter of invalid type named " +</span>
-<span class="source-line-no">1087</span><span id="line-1087">                                          parameter.getSimpleName().toString(),</span>
-<span class="source-line-no">1088</span><span id="line-1088">                                          parameter );</span>
-<span class="source-line-no">1089</span><span id="line-1089">          }</span>
-<span class="source-line-no">1090</span><span id="line-1090">        }</span>
-<span class="source-line-no">1091</span><span id="line-1091">        descriptor.setOnError( method );</span>
-<span class="source-line-no">1092</span><span id="line-1092">      }</span>
-<span class="source-line-no">1093</span><span id="line-1093">    }</span>
-<span class="source-line-no">1094</span><span id="line-1094">  }</span>
-<span class="source-line-no">1095</span><span id="line-1095"></span>
-<span class="source-line-no">1096</span><span id="line-1096">  private void determineScheduleRenderMethods( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">1097</span><span id="line-1097">                                               @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1098</span><span id="line-1098">                                               @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1099</span><span id="line-1099">  {</span>
-<span class="source-line-no">1100</span><span id="line-1100">    final List&lt;ScheduleRenderDescriptor&gt; scheduleRenderDescriptors = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">1101</span><span id="line-1101">    for ( final ExecutableElement method : methods )</span>
-<span class="source-line-no">1102</span><span id="line-1102">    {</span>
-<span class="source-line-no">1103</span><span id="line-1103">      final AnnotationMirror annotation =</span>
-<span class="source-line-no">1104</span><span id="line-1104">        AnnotationsUtil.findAnnotationByType( method, Constants.SCHEDULE_RENDER_CLASSNAME );</span>
-<span class="source-line-no">1105</span><span id="line-1105">      if ( null != annotation )</span>
-<span class="source-line-no">1106</span><span id="line-1106">      {</span>
-<span class="source-line-no">1107</span><span id="line-1107">        MemberChecks.mustBeAbstract( Constants.SCHEDULE_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1108</span><span id="line-1108">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
-<span class="source-line-no">1109</span><span id="line-1109">                                             Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1110</span><span id="line-1110">                                             Constants.SCHEDULE_RENDER_CLASSNAME,</span>
-<span class="source-line-no">1111</span><span id="line-1111">                                             method );</span>
-<span class="source-line-no">1112</span><span id="line-1112">        MemberChecks.mustNotReturnAnyValue( Constants.SCHEDULE_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1113</span><span id="line-1113">        MemberChecks.mustNotThrowAnyExceptions( Constants.SCHEDULE_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1114</span><span id="line-1114"></span>
-<span class="source-line-no">1115</span><span id="line-1115">        final ViewType viewType = descriptor.getType();</span>
-<span class="source-line-no">1116</span><span id="line-1116">        if ( ViewType.STATEFUL != viewType )</span>
-<span class="source-line-no">1117</span><span id="line-1117">        {</span>
-<span class="source-line-no">1118</span><span id="line-1118">          final String message =</span>
-<span class="source-line-no">1119</span><span id="line-1119">            MemberChecks.mustNot( Constants.SCHEDULE_RENDER_CLASSNAME,</span>
-<span class="source-line-no">1120</span><span id="line-1120">                                  "be enclosed in a type if it is annotated by @View(type=" + viewType +</span>
-<span class="source-line-no">1121</span><span id="line-1121">                                  "). The type must be STATEFUL" );</span>
-<span class="source-line-no">1122</span><span id="line-1122">          throw new ProcessorException( message, method );</span>
-<span class="source-line-no">1123</span><span id="line-1123">        }</span>
-<span class="source-line-no">1124</span><span id="line-1124"></span>
-<span class="source-line-no">1125</span><span id="line-1125">        final boolean skipShouldViewUpdate =</span>
-<span class="source-line-no">1126</span><span id="line-1126">          AnnotationsUtil.getAnnotationValueValue( annotation, "skipShouldViewUpdate" );</span>
-<span class="source-line-no">1127</span><span id="line-1127"></span>
-<span class="source-line-no">1128</span><span id="line-1128">        scheduleRenderDescriptors.add( new ScheduleRenderDescriptor( method, skipShouldViewUpdate ) );</span>
-<span class="source-line-no">1129</span><span id="line-1129">      }</span>
-<span class="source-line-no">1130</span><span id="line-1130">    }</span>
-<span class="source-line-no">1131</span><span id="line-1131">    descriptor.setScheduleRenderDescriptors( scheduleRenderDescriptors );</span>
-<span class="source-line-no">1132</span><span id="line-1132">  }</span>
-<span class="source-line-no">1133</span><span id="line-1133"></span>
-<span class="source-line-no">1134</span><span id="line-1134">  private void determinePublishMethods( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">1135</span><span id="line-1135">                                        @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1136</span><span id="line-1136">                                        @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1137</span><span id="line-1137">  {</span>
-<span class="source-line-no">1138</span><span id="line-1138">    final List&lt;PublishDescriptor&gt; descriptors = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">1139</span><span id="line-1139">    for ( final ExecutableElement method : methods )</span>
-<span class="source-line-no">1140</span><span id="line-1140">    {</span>
-<span class="source-line-no">1141</span><span id="line-1141">      final AnnotationMirror annotation = AnnotationsUtil.findAnnotationByType( method, Constants.PUBLISH_CLASSNAME );</span>
-<span class="source-line-no">1142</span><span id="line-1142">      if ( null != annotation )</span>
-<span class="source-line-no">1143</span><span id="line-1143">      {</span>
-<span class="source-line-no">1144</span><span id="line-1144">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
-<span class="source-line-no">1145</span><span id="line-1145">                                             Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1146</span><span id="line-1146">                                             Constants.PUBLISH_CLASSNAME,</span>
-<span class="source-line-no">1147</span><span id="line-1147">                                             method );</span>
-<span class="source-line-no">1148</span><span id="line-1148">        MemberChecks.mustNotHaveAnyParameters( Constants.PUBLISH_CLASSNAME, method );</span>
-<span class="source-line-no">1149</span><span id="line-1149">        MemberChecks.mustNotHaveAnyTypeParameters( Constants.PUBLISH_CLASSNAME, method );</span>
-<span class="source-line-no">1150</span><span id="line-1150">        MemberChecks.mustReturnAValue( Constants.PUBLISH_CLASSNAME, method );</span>
-<span class="source-line-no">1151</span><span id="line-1151">        MemberChecks.mustNotThrowAnyExceptions( Constants.PUBLISH_CLASSNAME, method );</span>
-<span class="source-line-no">1152</span><span id="line-1152"></span>
-<span class="source-line-no">1153</span><span id="line-1153">        final String qualifier = AnnotationsUtil.getAnnotationValueValue( annotation, "qualifier" );</span>
-<span class="source-line-no">1154</span><span id="line-1154">        final ExecutableType methodType = resolveMethodType( descriptor, method );</span>
-<span class="source-line-no">1155</span><span id="line-1155"></span>
-<span class="source-line-no">1156</span><span id="line-1156">        if ( TypeKind.TYPEVAR == methodType.getReturnType().getKind() )</span>
-<span class="source-line-no">1157</span><span id="line-1157">        {</span>
-<span class="source-line-no">1158</span><span id="line-1158">          throw new ProcessorException( MemberChecks.mustNot( Constants.PUBLISH_CLASSNAME, "return a type variable" ),</span>
-<span class="source-line-no">1159</span><span id="line-1159">                                        method );</span>
-<span class="source-line-no">1160</span><span id="line-1160">        }</span>
-<span class="source-line-no">1161</span><span id="line-1161"></span>
-<span class="source-line-no">1162</span><span id="line-1162">        descriptors.add( new PublishDescriptor( qualifier, method, methodType ) );</span>
-<span class="source-line-no">1163</span><span id="line-1163">      }</span>
-<span class="source-line-no">1164</span><span id="line-1164">    }</span>
-<span class="source-line-no">1165</span><span id="line-1165">    descriptor.setPublishDescriptors( descriptors );</span>
-<span class="source-line-no">1166</span><span id="line-1166">  }</span>
-<span class="source-line-no">1167</span><span id="line-1167"></span>
-<span class="source-line-no">1168</span><span id="line-1168">  private void determinePreRenderMethods( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">1169</span><span id="line-1169">                                          @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1170</span><span id="line-1170">                                          @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1171</span><span id="line-1171">  {</span>
-<span class="source-line-no">1172</span><span id="line-1172">    final List&lt;RenderHookDescriptor&gt; descriptors = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">1173</span><span id="line-1173">    for ( final ExecutableElement method : methods )</span>
-<span class="source-line-no">1174</span><span id="line-1174">    {</span>
-<span class="source-line-no">1175</span><span id="line-1175">      final AnnotationMirror annotation =</span>
-<span class="source-line-no">1176</span><span id="line-1176">        AnnotationsUtil.findAnnotationByType( method, Constants.PRE_RENDER_CLASSNAME );</span>
-<span class="source-line-no">1177</span><span id="line-1177">      if ( null != annotation )</span>
-<span class="source-line-no">1178</span><span id="line-1178">      {</span>
-<span class="source-line-no">1179</span><span id="line-1179">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
-<span class="source-line-no">1180</span><span id="line-1180">                                             Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1181</span><span id="line-1181">                                             Constants.PRE_RENDER_CLASSNAME,</span>
-<span class="source-line-no">1182</span><span id="line-1182">                                             method );</span>
-<span class="source-line-no">1183</span><span id="line-1183">        MemberChecks.mustNotBeAbstract( Constants.PRE_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1184</span><span id="line-1184">        MemberChecks.mustNotHaveAnyParameters( Constants.PRE_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1185</span><span id="line-1185">        MemberChecks.mustNotHaveAnyTypeParameters( Constants.PRE_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1186</span><span id="line-1186">        MemberChecks.mustNotReturnAnyValue( Constants.PRE_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1187</span><span id="line-1187">        MemberChecks.mustNotThrowAnyExceptions( Constants.PRE_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1188</span><span id="line-1188"></span>
-<span class="source-line-no">1189</span><span id="line-1189">        final int sortOrder = AnnotationsUtil.getAnnotationValueValue( annotation, "sortOrder" );</span>
-<span class="source-line-no">1190</span><span id="line-1190">        final ExecutableType methodType = resolveMethodType( descriptor, method );</span>
-<span class="source-line-no">1191</span><span id="line-1191"></span>
-<span class="source-line-no">1192</span><span id="line-1192">        descriptors.add( new RenderHookDescriptor( sortOrder, method, methodType ) );</span>
-<span class="source-line-no">1193</span><span id="line-1193">      }</span>
-<span class="source-line-no">1194</span><span id="line-1194">    }</span>
-<span class="source-line-no">1195</span><span id="line-1195">    descriptors.sort( Comparator.comparingInt( RenderHookDescriptor::getSortOrder ) );</span>
-<span class="source-line-no">1196</span><span id="line-1196">    descriptor.setPreRenderDescriptors( descriptors );</span>
-<span class="source-line-no">1197</span><span id="line-1197">  }</span>
-<span class="source-line-no">1198</span><span id="line-1198"></span>
-<span class="source-line-no">1199</span><span id="line-1199">  private void determinePostRenderMethods( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">1200</span><span id="line-1200">                                           @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1201</span><span id="line-1201">                                           @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1202</span><span id="line-1202">  {</span>
-<span class="source-line-no">1203</span><span id="line-1203">    final List&lt;RenderHookDescriptor&gt; descriptors = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">1204</span><span id="line-1204">    for ( final ExecutableElement method : methods )</span>
-<span class="source-line-no">1205</span><span id="line-1205">    {</span>
-<span class="source-line-no">1206</span><span id="line-1206">      final AnnotationMirror annotation =</span>
-<span class="source-line-no">1207</span><span id="line-1207">        AnnotationsUtil.findAnnotationByType( method, Constants.POST_RENDER_CLASSNAME );</span>
-<span class="source-line-no">1208</span><span id="line-1208">      if ( null != annotation )</span>
-<span class="source-line-no">1209</span><span id="line-1209">      {</span>
-<span class="source-line-no">1210</span><span id="line-1210">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
-<span class="source-line-no">1211</span><span id="line-1211">                                             Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1212</span><span id="line-1212">                                             Constants.POST_RENDER_CLASSNAME,</span>
-<span class="source-line-no">1213</span><span id="line-1213">                                             method );</span>
-<span class="source-line-no">1214</span><span id="line-1214">        MemberChecks.mustNotBeAbstract( Constants.POST_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1215</span><span id="line-1215">        MemberChecks.mustNotHaveAnyParameters( Constants.POST_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1216</span><span id="line-1216">        MemberChecks.mustNotHaveAnyTypeParameters( Constants.POST_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1217</span><span id="line-1217">        MemberChecks.mustNotReturnAnyValue( Constants.POST_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1218</span><span id="line-1218">        MemberChecks.mustNotThrowAnyExceptions( Constants.POST_RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1219</span><span id="line-1219"></span>
-<span class="source-line-no">1220</span><span id="line-1220">        final int sortOrder = AnnotationsUtil.getAnnotationValueValue( annotation, "sortOrder" );</span>
-<span class="source-line-no">1221</span><span id="line-1221">        final ExecutableType methodType = resolveMethodType( descriptor, method );</span>
-<span class="source-line-no">1222</span><span id="line-1222"></span>
-<span class="source-line-no">1223</span><span id="line-1223">        descriptors.add( new RenderHookDescriptor( sortOrder, method, methodType ) );</span>
-<span class="source-line-no">1224</span><span id="line-1224">      }</span>
-<span class="source-line-no">1225</span><span id="line-1225">    }</span>
-<span class="source-line-no">1226</span><span id="line-1226">    descriptors.sort( Comparator.comparingInt( RenderHookDescriptor::getSortOrder ) );</span>
-<span class="source-line-no">1227</span><span id="line-1227">    descriptor.setPostRenderDescriptors( descriptors );</span>
-<span class="source-line-no">1228</span><span id="line-1228">  }</span>
-<span class="source-line-no">1229</span><span id="line-1229"></span>
-<span class="source-line-no">1230</span><span id="line-1230">  private void determineRenderMethod( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">1231</span><span id="line-1231">                                      @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1232</span><span id="line-1232">                                      @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1233</span><span id="line-1233">  {</span>
-<span class="source-line-no">1234</span><span id="line-1234">    boolean foundRender = false;</span>
-<span class="source-line-no">1235</span><span id="line-1235">    for ( final ExecutableElement method : methods )</span>
-<span class="source-line-no">1236</span><span id="line-1236">    {</span>
-<span class="source-line-no">1237</span><span id="line-1237">      final AnnotationMirror annotation =</span>
-<span class="source-line-no">1238</span><span id="line-1238">        AnnotationsUtil.findAnnotationByType( method, Constants.RENDER_CLASSNAME );</span>
-<span class="source-line-no">1239</span><span id="line-1239">      if ( null != annotation )</span>
-<span class="source-line-no">1240</span><span id="line-1240">      {</span>
-<span class="source-line-no">1241</span><span id="line-1241">        MemberChecks.mustNotBeAbstract( Constants.RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1242</span><span id="line-1242">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
-<span class="source-line-no">1243</span><span id="line-1243">                                             Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1244</span><span id="line-1244">                                             Constants.RENDER_CLASSNAME,</span>
-<span class="source-line-no">1245</span><span id="line-1245">                                             method );</span>
-<span class="source-line-no">1246</span><span id="line-1246">        MemberChecks.mustNotHaveAnyParameters( Constants.RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1247</span><span id="line-1247">        MemberChecks.mustReturnAnInstanceOf( processingEnv,</span>
-<span class="source-line-no">1248</span><span id="line-1248">                                             method,</span>
-<span class="source-line-no">1249</span><span id="line-1249">                                             Constants.RENDER_CLASSNAME,</span>
-<span class="source-line-no">1250</span><span id="line-1250">                                             Constants.VNODE_CLASSNAME );</span>
-<span class="source-line-no">1251</span><span id="line-1251">        MemberChecks.mustNotThrowAnyExceptions( Constants.RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1252</span><span id="line-1252">        MemberChecks.mustNotHaveAnyTypeParameters( Constants.RENDER_CLASSNAME, method );</span>
-<span class="source-line-no">1253</span><span id="line-1253"></span>
-<span class="source-line-no">1254</span><span id="line-1254">        descriptor.setRender( method );</span>
-<span class="source-line-no">1255</span><span id="line-1255">        foundRender = true;</span>
-<span class="source-line-no">1256</span><span id="line-1256">      }</span>
-<span class="source-line-no">1257</span><span id="line-1257">    }</span>
-<span class="source-line-no">1258</span><span id="line-1258">    final boolean requireRender = descriptor.requireRender();</span>
-<span class="source-line-no">1259</span><span id="line-1259">    if ( requireRender &amp;&amp; !foundRender )</span>
-<span class="source-line-no">1260</span><span id="line-1260">    {</span>
-<span class="source-line-no">1261</span><span id="line-1261">      throw new ProcessorException( MemberChecks.must( Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1262</span><span id="line-1262">                                                       "contain a method annotated with the " +</span>
-<span class="source-line-no">1263</span><span id="line-1263">                                                       MemberChecks.toSimpleName( Constants.RENDER_CLASSNAME ) +</span>
-<span class="source-line-no">1264</span><span id="line-1264">                                                       " annotation or must specify type=NO_RENDER" ),</span>
-<span class="source-line-no">1265</span><span id="line-1265">                                    typeElement );</span>
-<span class="source-line-no">1266</span><span id="line-1266">    }</span>
-<span class="source-line-no">1267</span><span id="line-1267">    else if ( !requireRender )</span>
-<span class="source-line-no">1268</span><span id="line-1268">    {</span>
-<span class="source-line-no">1269</span><span id="line-1269">      if ( foundRender )</span>
-<span class="source-line-no">1270</span><span id="line-1270">      {</span>
-<span class="source-line-no">1271</span><span id="line-1271">        throw new ProcessorException( MemberChecks.mustNot( Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1272</span><span id="line-1272">                                                            "contain a method annotated with the " +</span>
-<span class="source-line-no">1273</span><span id="line-1273">                                                            MemberChecks.toSimpleName( Constants.RENDER_CLASSNAME ) +</span>
-<span class="source-line-no">1274</span><span id="line-1274">                                                            " annotation or must not specify type=NO_RENDER" ),</span>
-<span class="source-line-no">1275</span><span id="line-1275">                                      typeElement );</span>
-<span class="source-line-no">1276</span><span id="line-1276">      }</span>
-<span class="source-line-no">1277</span><span id="line-1277">      else if ( !descriptor.hasConstructor() &amp;&amp;</span>
-<span class="source-line-no">1278</span><span id="line-1278">                !descriptor.hasPostConstruct() &amp;&amp;</span>
-<span class="source-line-no">1279</span><span id="line-1279">                null == descriptor.getPostMount() &amp;&amp;</span>
-<span class="source-line-no">1280</span><span id="line-1280">                null == descriptor.getPostRender() &amp;&amp;</span>
-<span class="source-line-no">1281</span><span id="line-1281">                null == descriptor.getPreUpdate() &amp;&amp;</span>
-<span class="source-line-no">1282</span><span id="line-1282">                null == descriptor.getPostUpdate() &amp;&amp;</span>
-<span class="source-line-no">1283</span><span id="line-1283">                descriptor.getPreRenderDescriptors().isEmpty() &amp;&amp;</span>
-<span class="source-line-no">1284</span><span id="line-1284">                descriptor.getPostRenderDescriptors().isEmpty() &amp;&amp;</span>
-<span class="source-line-no">1285</span><span id="line-1285">                !descriptor.hasPreUpdateOnInputChange() &amp;&amp;</span>
-<span class="source-line-no">1286</span><span id="line-1286">                !descriptor.hasPostUpdateOnInputChange() )</span>
-<span class="source-line-no">1287</span><span id="line-1287">      {</span>
-<span class="source-line-no">1288</span><span id="line-1288">        throw new ProcessorException( MemberChecks.must( Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1289</span><span id="line-1289">                                                         "contain lifecycle methods if the the @View(type=NO_RENDER) parameter is specified" ),</span>
-<span class="source-line-no">1290</span><span id="line-1290">                                      typeElement );</span>
-<span class="source-line-no">1291</span><span id="line-1291">      }</span>
-<span class="source-line-no">1292</span><span id="line-1292">    }</span>
-<span class="source-line-no">1293</span><span id="line-1293">  }</span>
-<span class="source-line-no">1294</span><span id="line-1294"></span>
-<span class="source-line-no">1295</span><span id="line-1295">  private void determinePostMountMethod( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">1296</span><span id="line-1296">                                         @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1297</span><span id="line-1297">                                         @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1298</span><span id="line-1298">  {</span>
-<span class="source-line-no">1299</span><span id="line-1299">    for ( final ExecutableElement method : methods )</span>
-<span class="source-line-no">1300</span><span id="line-1300">    {</span>
-<span class="source-line-no">1301</span><span id="line-1301">      if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.POST_MOUNT_CLASSNAME ) )</span>
-<span class="source-line-no">1302</span><span id="line-1302">      {</span>
-<span class="source-line-no">1303</span><span id="line-1303">        MemberChecks.mustBeLifecycleHook( typeElement,</span>
-<span class="source-line-no">1304</span><span id="line-1304">                                          Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1305</span><span id="line-1305">                                          Constants.POST_MOUNT_CLASSNAME,</span>
-<span class="source-line-no">1306</span><span id="line-1306">                                          method );</span>
-<span class="source-line-no">1307</span><span id="line-1307">        descriptor.setPostMount( method );</span>
-<span class="source-line-no">1308</span><span id="line-1308">      }</span>
-<span class="source-line-no">1309</span><span id="line-1309">    }</span>
-<span class="source-line-no">1310</span><span id="line-1310">  }</span>
-<span class="source-line-no">1311</span><span id="line-1311"></span>
-<span class="source-line-no">1312</span><span id="line-1312">  private void determinePostMountOrUpdateMethod( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">1313</span><span id="line-1313">                                                 @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1314</span><span id="line-1314">                                                 @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1315</span><span id="line-1315">  {</span>
-<span class="source-line-no">1316</span><span id="line-1316">    for ( final ExecutableElement method : methods )</span>
-<span class="source-line-no">1317</span><span id="line-1317">    {</span>
-<span class="source-line-no">1318</span><span id="line-1318">      if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.POST_MOUNT_OR_UPDATE_CLASSNAME ) )</span>
-<span class="source-line-no">1319</span><span id="line-1319">      {</span>
-<span class="source-line-no">1320</span><span id="line-1320">        MemberChecks.mustBeLifecycleHook( typeElement,</span>
-<span class="source-line-no">1321</span><span id="line-1321">                                          Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1322</span><span id="line-1322">                                          Constants.POST_MOUNT_OR_UPDATE_CLASSNAME,</span>
-<span class="source-line-no">1323</span><span id="line-1323">                                          method );</span>
-<span class="source-line-no">1324</span><span id="line-1324">        descriptor.setPostRender( method );</span>
-<span class="source-line-no">1325</span><span id="line-1325">      }</span>
-<span class="source-line-no">1326</span><span id="line-1326">    }</span>
-<span class="source-line-no">1327</span><span id="line-1327">  }</span>
-<span class="source-line-no">1328</span><span id="line-1328"></span>
-<span class="source-line-no">1329</span><span id="line-1329">  private void determinePostUpdateMethod( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">1330</span><span id="line-1330">                                          @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1331</span><span id="line-1331">                                          @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1332</span><span id="line-1332">  {</span>
-<span class="source-line-no">1333</span><span id="line-1333">    for ( final ExecutableElement method : methods )</span>
-<span class="source-line-no">1334</span><span id="line-1334">    {</span>
-<span class="source-line-no">1335</span><span id="line-1335">      if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.POST_UPDATE_CLASSNAME ) )</span>
-<span class="source-line-no">1336</span><span id="line-1336">      {</span>
-<span class="source-line-no">1337</span><span id="line-1337">        MemberChecks.mustBeLifecycleHook( typeElement,</span>
-<span class="source-line-no">1338</span><span id="line-1338">                                          Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1339</span><span id="line-1339">                                          Constants.POST_UPDATE_CLASSNAME,</span>
-<span class="source-line-no">1340</span><span id="line-1340">                                          method );</span>
-<span class="source-line-no">1341</span><span id="line-1341">        descriptor.setPostUpdate( method );</span>
-<span class="source-line-no">1342</span><span id="line-1342">      }</span>
-<span class="source-line-no">1343</span><span id="line-1343">    }</span>
-<span class="source-line-no">1344</span><span id="line-1344">  }</span>
-<span class="source-line-no">1345</span><span id="line-1345"></span>
-<span class="source-line-no">1346</span><span id="line-1346">  private void determinePreUpdateMethod( @Nonnull final TypeElement typeElement,</span>
-<span class="source-line-no">1347</span><span id="line-1347">                                         @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1348</span><span id="line-1348">                                         @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1349</span><span id="line-1349">  {</span>
-<span class="source-line-no">1350</span><span id="line-1350">    for ( final ExecutableElement method : methods )</span>
-<span class="source-line-no">1351</span><span id="line-1351">    {</span>
-<span class="source-line-no">1352</span><span id="line-1352">      if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.PRE_UPDATE_CLASSNAME ) )</span>
-<span class="source-line-no">1353</span><span id="line-1353">      {</span>
-<span class="source-line-no">1354</span><span id="line-1354">        MemberChecks.mustBeLifecycleHook( typeElement,</span>
-<span class="source-line-no">1355</span><span id="line-1355">                                          Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1356</span><span id="line-1356">                                          Constants.PRE_UPDATE_CLASSNAME,</span>
-<span class="source-line-no">1357</span><span id="line-1357">                                          method );</span>
-<span class="source-line-no">1358</span><span id="line-1358">        descriptor.setPreUpdate( method );</span>
-<span class="source-line-no">1359</span><span id="line-1359">      }</span>
-<span class="source-line-no">1360</span><span id="line-1360">    }</span>
-<span class="source-line-no">1361</span><span id="line-1361">  }</span>
-<span class="source-line-no">1362</span><span id="line-1362"></span>
-<span class="source-line-no">1363</span><span id="line-1363">  private ExecutableType resolveMethodType( @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1364</span><span id="line-1364">                                            @Nonnull final ExecutableElement method )</span>
-<span class="source-line-no">1365</span><span id="line-1365">  {</span>
-<span class="source-line-no">1366</span><span id="line-1366">    return (ExecutableType) processingEnv.getTypeUtils().asMemberOf( descriptor.getDeclaredType(), method );</span>
-<span class="source-line-no">1367</span><span id="line-1367">  }</span>
-<span class="source-line-no">1368</span><span id="line-1368"></span>
-<span class="source-line-no">1369</span><span id="line-1369">  @Nonnull</span>
-<span class="source-line-no">1370</span><span id="line-1370">  private String deriveViewName( @Nonnull final TypeElement typeElement )</span>
-<span class="source-line-no">1371</span><span id="line-1371">  {</span>
-<span class="source-line-no">1372</span><span id="line-1372">    final String name =</span>
-<span class="source-line-no">1373</span><span id="line-1373">      (String) AnnotationsUtil.getAnnotationValue( typeElement, Constants.VIEW_CLASSNAME, "name" )</span>
-<span class="source-line-no">1374</span><span id="line-1374">        .getValue();</span>
-<span class="source-line-no">1375</span><span id="line-1375"></span>
-<span class="source-line-no">1376</span><span id="line-1376">    if ( isSentinelName( name ) )</span>
-<span class="source-line-no">1377</span><span id="line-1377">    {</span>
-<span class="source-line-no">1378</span><span id="line-1378">      return typeElement.getSimpleName().toString();</span>
-<span class="source-line-no">1379</span><span id="line-1379">    }</span>
-<span class="source-line-no">1380</span><span id="line-1380">    else</span>
-<span class="source-line-no">1381</span><span id="line-1381">    {</span>
-<span class="source-line-no">1382</span><span id="line-1382">      if ( !SourceVersion.isIdentifier( name ) )</span>
-<span class="source-line-no">1383</span><span id="line-1383">      {</span>
-<span class="source-line-no">1384</span><span id="line-1384">        throw new ProcessorException( MemberChecks.toSimpleName( Constants.VIEW_CLASSNAME ) +</span>
-<span class="source-line-no">1385</span><span id="line-1385">                                      " target specified an invalid name '" + name + "'. The " +</span>
-<span class="source-line-no">1386</span><span id="line-1386">                                      "name must be a valid java identifier.", typeElement );</span>
+<span class="source-line-no">990</span><span id="line-990">      else if ( ( ElementKind.CLASS == element.getKind() || ElementKind.INTERFACE == element.getKind() ) &amp;&amp;</span>
+<span class="source-line-no">991</span><span id="line-991">                (</span>
+<span class="source-line-no">992</span><span id="line-992">                  isAssignableToIdentifiable( element ) ||</span>
+<span class="source-line-no">993</span><span id="line-993">                  AnnotationsUtil.hasAnnotationOfType( element, Constants.ACT_AS_COMPONENT_CLASSNAME ) ||</span>
+<span class="source-line-no">994</span><span id="line-994">                  ( AnnotationsUtil.hasAnnotationOfType( element, Constants.AREZ_COMPONENT_CLASSNAME ) &amp;&amp;</span>
+<span class="source-line-no">995</span><span id="line-995">                    isIdRequired( (TypeElement) element ) )</span>
+<span class="source-line-no">996</span><span id="line-996">                ) )</span>
+<span class="source-line-no">997</span><span id="line-997">      {</span>
+<span class="source-line-no">998</span><span id="line-998">        return ImmutableInputKeyStrategy.AREZ_IDENTIFIABLE;</span>
+<span class="source-line-no">999</span><span id="line-999">      }</span>
+<span class="source-line-no">1000</span><span id="line-1000">      else if ( ElementKind.ENUM == element.getKind() )</span>
+<span class="source-line-no">1001</span><span id="line-1001">      {</span>
+<span class="source-line-no">1002</span><span id="line-1002">        return ImmutableInputKeyStrategy.ENUM;</span>
+<span class="source-line-no">1003</span><span id="line-1003">      }</span>
+<span class="source-line-no">1004</span><span id="line-1004">    }</span>
+<span class="source-line-no">1005</span><span id="line-1005">    return ImmutableInputKeyStrategy.DYNAMIC;</span>
+<span class="source-line-no">1006</span><span id="line-1006">  }</span>
+<span class="source-line-no">1007</span><span id="line-1007"></span>
+<span class="source-line-no">1008</span><span id="line-1008">  private boolean isAssignableToKeyed( @Nonnull final Element element )</span>
+<span class="source-line-no">1009</span><span id="line-1009">  {</span>
+<span class="source-line-no">1010</span><span id="line-1010">    final TypeElement typeElement = processingEnv.getElementUtils().getTypeElement( Constants.KEYED_CLASSNAME );</span>
+<span class="source-line-no">1011</span><span id="line-1011">    return processingEnv.getTypeUtils().isAssignable( element.asType(), typeElement.asType() );</span>
+<span class="source-line-no">1012</span><span id="line-1012">  }</span>
+<span class="source-line-no">1013</span><span id="line-1013"></span>
+<span class="source-line-no">1014</span><span id="line-1014">  private boolean isAssignableToIdentifiable( @Nonnull final Element element )</span>
+<span class="source-line-no">1015</span><span id="line-1015">  {</span>
+<span class="source-line-no">1016</span><span id="line-1016">    final TypeElement typeElement = processingEnv.getElementUtils().getTypeElement( Constants.IDENTIFIABLE_CLASSNAME );</span>
+<span class="source-line-no">1017</span><span id="line-1017">    final TypeMirror identifiableErasure = processingEnv.getTypeUtils().erasure( typeElement.asType() );</span>
+<span class="source-line-no">1018</span><span id="line-1018">    return processingEnv.getTypeUtils().isAssignable( element.asType(), identifiableErasure );</span>
+<span class="source-line-no">1019</span><span id="line-1019">  }</span>
+<span class="source-line-no">1020</span><span id="line-1020"></span>
+<span class="source-line-no">1021</span><span id="line-1021">  /**</span>
+<span class="source-line-no">1022</span><span id="line-1022">   * The logic from this method has been cloned from Arez.</span>
+<span class="source-line-no">1023</span><span id="line-1023">   * One day we should consider improving Arez so that this is not required somehow?</span>
+<span class="source-line-no">1024</span><span id="line-1024">   */</span>
+<span class="source-line-no">1025</span><span id="line-1025">  private boolean isIdRequired( @Nonnull final TypeElement element )</span>
+<span class="source-line-no">1026</span><span id="line-1026">  {</span>
+<span class="source-line-no">1027</span><span id="line-1027">    final VariableElement requireIdParameter = (VariableElement)</span>
+<span class="source-line-no">1028</span><span id="line-1028">      AnnotationsUtil.getAnnotationValue( element, Constants.AREZ_COMPONENT_CLASSNAME, "requireId" )</span>
+<span class="source-line-no">1029</span><span id="line-1029">        .getValue();</span>
+<span class="source-line-no">1030</span><span id="line-1030">    return !"DISABLE".equals( requireIdParameter.getSimpleName().toString() );</span>
+<span class="source-line-no">1031</span><span id="line-1031">  }</span>
+<span class="source-line-no">1032</span><span id="line-1032"></span>
+<span class="source-line-no">1033</span><span id="line-1033">  @Nonnull</span>
+<span class="source-line-no">1034</span><span id="line-1034">  private String deriveInputName( @Nonnull final ExecutableElement method )</span>
+<span class="source-line-no">1035</span><span id="line-1035">    throws ProcessorException</span>
+<span class="source-line-no">1036</span><span id="line-1036">  {</span>
+<span class="source-line-no">1037</span><span id="line-1037">    final String specifiedName =</span>
+<span class="source-line-no">1038</span><span id="line-1038">      (String) AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "name" ).getValue();</span>
+<span class="source-line-no">1039</span><span id="line-1039"></span>
+<span class="source-line-no">1040</span><span id="line-1040">    final String name = getPropertyAccessorName( method, specifiedName );</span>
+<span class="source-line-no">1041</span><span id="line-1041">    if ( !SourceVersion.isIdentifier( name ) )</span>
+<span class="source-line-no">1042</span><span id="line-1042">    {</span>
+<span class="source-line-no">1043</span><span id="line-1043">      throw new ProcessorException( "@Input target specified an invalid name '" + specifiedName + "'. The " +</span>
+<span class="source-line-no">1044</span><span id="line-1044">                                    "name must be a valid java identifier.", method );</span>
+<span class="source-line-no">1045</span><span id="line-1045">    }</span>
+<span class="source-line-no">1046</span><span id="line-1046">    else if ( SourceVersion.isKeyword( name ) )</span>
+<span class="source-line-no">1047</span><span id="line-1047">    {</span>
+<span class="source-line-no">1048</span><span id="line-1048">      throw new ProcessorException( "@Input target specified an invalid name '" + specifiedName + "'. The " +</span>
+<span class="source-line-no">1049</span><span id="line-1049">                                    "name must not be a java keyword.", method );</span>
+<span class="source-line-no">1050</span><span id="line-1050">    }</span>
+<span class="source-line-no">1051</span><span id="line-1051">    else</span>
+<span class="source-line-no">1052</span><span id="line-1052">    {</span>
+<span class="source-line-no">1053</span><span id="line-1053">      return name;</span>
+<span class="source-line-no">1054</span><span id="line-1054">    }</span>
+<span class="source-line-no">1055</span><span id="line-1055">  }</span>
+<span class="source-line-no">1056</span><span id="line-1056"></span>
+<span class="source-line-no">1057</span><span id="line-1057">  private void determineOnErrorMethod( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">1058</span><span id="line-1058">                                       @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1059</span><span id="line-1059">                                       @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1060</span><span id="line-1060">  {</span>
+<span class="source-line-no">1061</span><span id="line-1061">    for ( final ExecutableElement method : methods )</span>
+<span class="source-line-no">1062</span><span id="line-1062">    {</span>
+<span class="source-line-no">1063</span><span id="line-1063">      if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.ON_ERROR_CLASSNAME ) )</span>
+<span class="source-line-no">1064</span><span id="line-1064">      {</span>
+<span class="source-line-no">1065</span><span id="line-1065">        MemberChecks.mustNotBeAbstract( Constants.ON_ERROR_CLASSNAME, method );</span>
+<span class="source-line-no">1066</span><span id="line-1066">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
+<span class="source-line-no">1067</span><span id="line-1067">                                             Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1068</span><span id="line-1068">                                             Constants.ON_ERROR_CLASSNAME,</span>
+<span class="source-line-no">1069</span><span id="line-1069">                                             method );</span>
+<span class="source-line-no">1070</span><span id="line-1070">        MemberChecks.mustNotReturnAnyValue( Constants.ON_ERROR_CLASSNAME, method );</span>
+<span class="source-line-no">1071</span><span id="line-1071">        MemberChecks.mustNotThrowAnyExceptions( Constants.ON_ERROR_CLASSNAME, method );</span>
+<span class="source-line-no">1072</span><span id="line-1072"></span>
+<span class="source-line-no">1073</span><span id="line-1073">        boolean infoFound = false;</span>
+<span class="source-line-no">1074</span><span id="line-1074">        boolean errorFound = false;</span>
+<span class="source-line-no">1075</span><span id="line-1075">        for ( final VariableElement parameter : method.getParameters() )</span>
+<span class="source-line-no">1076</span><span id="line-1076">        {</span>
+<span class="source-line-no">1077</span><span id="line-1077">          final TypeName typeName = TypeName.get( parameter.asType() );</span>
+<span class="source-line-no">1078</span><span id="line-1078">          if ( typeName.toString().equals( Constants.ERROR_INFO_CLASSNAME ) )</span>
+<span class="source-line-no">1079</span><span id="line-1079">          {</span>
+<span class="source-line-no">1080</span><span id="line-1080">            if ( infoFound )</span>
+<span class="source-line-no">1081</span><span id="line-1081">            {</span>
+<span class="source-line-no">1082</span><span id="line-1082">              throw new ProcessorException( "@OnError target has multiple parameters of type " +</span>
+<span class="source-line-no">1083</span><span id="line-1083">                                            Constants.ERROR_INFO_CLASSNAME,</span>
+<span class="source-line-no">1084</span><span id="line-1084">                                            method );</span>
+<span class="source-line-no">1085</span><span id="line-1085">            }</span>
+<span class="source-line-no">1086</span><span id="line-1086">            infoFound = true;</span>
+<span class="source-line-no">1087</span><span id="line-1087">          }</span>
+<span class="source-line-no">1088</span><span id="line-1088">          else if ( typeName.toString().equals( Constants.JS_ERROR_CLASSNAME ) )</span>
+<span class="source-line-no">1089</span><span id="line-1089">          {</span>
+<span class="source-line-no">1090</span><span id="line-1090">            if ( errorFound )</span>
+<span class="source-line-no">1091</span><span id="line-1091">            {</span>
+<span class="source-line-no">1092</span><span id="line-1092">              throw new ProcessorException( "@OnError target has multiple parameters of type " +</span>
+<span class="source-line-no">1093</span><span id="line-1093">                                            Constants.JS_ERROR_CLASSNAME,</span>
+<span class="source-line-no">1094</span><span id="line-1094">                                            method );</span>
+<span class="source-line-no">1095</span><span id="line-1095">            }</span>
+<span class="source-line-no">1096</span><span id="line-1096">            errorFound = true;</span>
+<span class="source-line-no">1097</span><span id="line-1097">          }</span>
+<span class="source-line-no">1098</span><span id="line-1098">          else</span>
+<span class="source-line-no">1099</span><span id="line-1099">          {</span>
+<span class="source-line-no">1100</span><span id="line-1100">            throw new ProcessorException( "@OnError target has parameter of invalid type named " +</span>
+<span class="source-line-no">1101</span><span id="line-1101">                                          parameter.getSimpleName(),</span>
+<span class="source-line-no">1102</span><span id="line-1102">                                          parameter );</span>
+<span class="source-line-no">1103</span><span id="line-1103">          }</span>
+<span class="source-line-no">1104</span><span id="line-1104">        }</span>
+<span class="source-line-no">1105</span><span id="line-1105">        descriptor.setOnError( method );</span>
+<span class="source-line-no">1106</span><span id="line-1106">      }</span>
+<span class="source-line-no">1107</span><span id="line-1107">    }</span>
+<span class="source-line-no">1108</span><span id="line-1108">  }</span>
+<span class="source-line-no">1109</span><span id="line-1109"></span>
+<span class="source-line-no">1110</span><span id="line-1110">  private void determineScheduleRenderMethods( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">1111</span><span id="line-1111">                                               @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1112</span><span id="line-1112">                                               @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1113</span><span id="line-1113">  {</span>
+<span class="source-line-no">1114</span><span id="line-1114">    final List&lt;ScheduleRenderDescriptor&gt; scheduleRenderDescriptors = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">1115</span><span id="line-1115">    for ( final ExecutableElement method : methods )</span>
+<span class="source-line-no">1116</span><span id="line-1116">    {</span>
+<span class="source-line-no">1117</span><span id="line-1117">      final AnnotationMirror annotation =</span>
+<span class="source-line-no">1118</span><span id="line-1118">        AnnotationsUtil.findAnnotationByType( method, Constants.SCHEDULE_RENDER_CLASSNAME );</span>
+<span class="source-line-no">1119</span><span id="line-1119">      if ( null != annotation )</span>
+<span class="source-line-no">1120</span><span id="line-1120">      {</span>
+<span class="source-line-no">1121</span><span id="line-1121">        MemberChecks.mustBeAbstract( Constants.SCHEDULE_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1122</span><span id="line-1122">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
+<span class="source-line-no">1123</span><span id="line-1123">                                             Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1124</span><span id="line-1124">                                             Constants.SCHEDULE_RENDER_CLASSNAME,</span>
+<span class="source-line-no">1125</span><span id="line-1125">                                             method );</span>
+<span class="source-line-no">1126</span><span id="line-1126">        MemberChecks.mustNotReturnAnyValue( Constants.SCHEDULE_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1127</span><span id="line-1127">        MemberChecks.mustNotThrowAnyExceptions( Constants.SCHEDULE_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1128</span><span id="line-1128"></span>
+<span class="source-line-no">1129</span><span id="line-1129">        final ViewType viewType = descriptor.getType();</span>
+<span class="source-line-no">1130</span><span id="line-1130">        if ( ViewType.STATEFUL != viewType )</span>
+<span class="source-line-no">1131</span><span id="line-1131">        {</span>
+<span class="source-line-no">1132</span><span id="line-1132">          final String message =</span>
+<span class="source-line-no">1133</span><span id="line-1133">            MemberChecks.mustNot( Constants.SCHEDULE_RENDER_CLASSNAME,</span>
+<span class="source-line-no">1134</span><span id="line-1134">                                  "be enclosed in a type if it is annotated by @View(type=" + viewType +</span>
+<span class="source-line-no">1135</span><span id="line-1135">                                  "). The type must be STATEFUL" );</span>
+<span class="source-line-no">1136</span><span id="line-1136">          throw new ProcessorException( message, method );</span>
+<span class="source-line-no">1137</span><span id="line-1137">        }</span>
+<span class="source-line-no">1138</span><span id="line-1138"></span>
+<span class="source-line-no">1139</span><span id="line-1139">        final boolean skipShouldViewUpdate =</span>
+<span class="source-line-no">1140</span><span id="line-1140">          AnnotationsUtil.getAnnotationValueValue( annotation, "skipShouldViewUpdate" );</span>
+<span class="source-line-no">1141</span><span id="line-1141"></span>
+<span class="source-line-no">1142</span><span id="line-1142">        scheduleRenderDescriptors.add( new ScheduleRenderDescriptor( method, skipShouldViewUpdate ) );</span>
+<span class="source-line-no">1143</span><span id="line-1143">      }</span>
+<span class="source-line-no">1144</span><span id="line-1144">    }</span>
+<span class="source-line-no">1145</span><span id="line-1145">    descriptor.setScheduleRenderDescriptors( scheduleRenderDescriptors );</span>
+<span class="source-line-no">1146</span><span id="line-1146">  }</span>
+<span class="source-line-no">1147</span><span id="line-1147"></span>
+<span class="source-line-no">1148</span><span id="line-1148">  private void determinePublishMethods( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">1149</span><span id="line-1149">                                        @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1150</span><span id="line-1150">                                        @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1151</span><span id="line-1151">  {</span>
+<span class="source-line-no">1152</span><span id="line-1152">    final List&lt;PublishDescriptor&gt; descriptors = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">1153</span><span id="line-1153">    for ( final ExecutableElement method : methods )</span>
+<span class="source-line-no">1154</span><span id="line-1154">    {</span>
+<span class="source-line-no">1155</span><span id="line-1155">      final AnnotationMirror annotation = AnnotationsUtil.findAnnotationByType( method, Constants.PUBLISH_CLASSNAME );</span>
+<span class="source-line-no">1156</span><span id="line-1156">      if ( null != annotation )</span>
+<span class="source-line-no">1157</span><span id="line-1157">      {</span>
+<span class="source-line-no">1158</span><span id="line-1158">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
+<span class="source-line-no">1159</span><span id="line-1159">                                             Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1160</span><span id="line-1160">                                             Constants.PUBLISH_CLASSNAME,</span>
+<span class="source-line-no">1161</span><span id="line-1161">                                             method );</span>
+<span class="source-line-no">1162</span><span id="line-1162">        MemberChecks.mustNotHaveAnyParameters( Constants.PUBLISH_CLASSNAME, method );</span>
+<span class="source-line-no">1163</span><span id="line-1163">        MemberChecks.mustNotHaveAnyTypeParameters( Constants.PUBLISH_CLASSNAME, method );</span>
+<span class="source-line-no">1164</span><span id="line-1164">        MemberChecks.mustReturnAValue( Constants.PUBLISH_CLASSNAME, method );</span>
+<span class="source-line-no">1165</span><span id="line-1165">        MemberChecks.mustNotThrowAnyExceptions( Constants.PUBLISH_CLASSNAME, method );</span>
+<span class="source-line-no">1166</span><span id="line-1166"></span>
+<span class="source-line-no">1167</span><span id="line-1167">        final String qualifier = AnnotationsUtil.getAnnotationValueValue( annotation, "qualifier" );</span>
+<span class="source-line-no">1168</span><span id="line-1168">        final ExecutableType methodType = resolveMethodType( descriptor, method );</span>
+<span class="source-line-no">1169</span><span id="line-1169"></span>
+<span class="source-line-no">1170</span><span id="line-1170">        if ( TypeKind.TYPEVAR == methodType.getReturnType().getKind() )</span>
+<span class="source-line-no">1171</span><span id="line-1171">        {</span>
+<span class="source-line-no">1172</span><span id="line-1172">          throw new ProcessorException( MemberChecks.mustNot( Constants.PUBLISH_CLASSNAME, "return a type variable" ),</span>
+<span class="source-line-no">1173</span><span id="line-1173">                                        method );</span>
+<span class="source-line-no">1174</span><span id="line-1174">        }</span>
+<span class="source-line-no">1175</span><span id="line-1175"></span>
+<span class="source-line-no">1176</span><span id="line-1176">        descriptors.add( new PublishDescriptor( qualifier, method, methodType ) );</span>
+<span class="source-line-no">1177</span><span id="line-1177">      }</span>
+<span class="source-line-no">1178</span><span id="line-1178">    }</span>
+<span class="source-line-no">1179</span><span id="line-1179">    descriptor.setPublishDescriptors( descriptors );</span>
+<span class="source-line-no">1180</span><span id="line-1180">  }</span>
+<span class="source-line-no">1181</span><span id="line-1181"></span>
+<span class="source-line-no">1182</span><span id="line-1182">  private void determinePreRenderMethods( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">1183</span><span id="line-1183">                                          @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1184</span><span id="line-1184">                                          @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1185</span><span id="line-1185">  {</span>
+<span class="source-line-no">1186</span><span id="line-1186">    final List&lt;RenderHookDescriptor&gt; descriptors = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">1187</span><span id="line-1187">    for ( final ExecutableElement method : methods )</span>
+<span class="source-line-no">1188</span><span id="line-1188">    {</span>
+<span class="source-line-no">1189</span><span id="line-1189">      final AnnotationMirror annotation =</span>
+<span class="source-line-no">1190</span><span id="line-1190">        AnnotationsUtil.findAnnotationByType( method, Constants.PRE_RENDER_CLASSNAME );</span>
+<span class="source-line-no">1191</span><span id="line-1191">      if ( null != annotation )</span>
+<span class="source-line-no">1192</span><span id="line-1192">      {</span>
+<span class="source-line-no">1193</span><span id="line-1193">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
+<span class="source-line-no">1194</span><span id="line-1194">                                             Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1195</span><span id="line-1195">                                             Constants.PRE_RENDER_CLASSNAME,</span>
+<span class="source-line-no">1196</span><span id="line-1196">                                             method );</span>
+<span class="source-line-no">1197</span><span id="line-1197">        MemberChecks.mustNotBeAbstract( Constants.PRE_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1198</span><span id="line-1198">        MemberChecks.mustNotHaveAnyParameters( Constants.PRE_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1199</span><span id="line-1199">        MemberChecks.mustNotHaveAnyTypeParameters( Constants.PRE_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1200</span><span id="line-1200">        MemberChecks.mustNotReturnAnyValue( Constants.PRE_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1201</span><span id="line-1201">        MemberChecks.mustNotThrowAnyExceptions( Constants.PRE_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1202</span><span id="line-1202"></span>
+<span class="source-line-no">1203</span><span id="line-1203">        final int sortOrder = AnnotationsUtil.getAnnotationValueValue( annotation, "sortOrder" );</span>
+<span class="source-line-no">1204</span><span id="line-1204">        final ExecutableType methodType = resolveMethodType( descriptor, method );</span>
+<span class="source-line-no">1205</span><span id="line-1205"></span>
+<span class="source-line-no">1206</span><span id="line-1206">        descriptors.add( new RenderHookDescriptor( sortOrder, method, methodType ) );</span>
+<span class="source-line-no">1207</span><span id="line-1207">      }</span>
+<span class="source-line-no">1208</span><span id="line-1208">    }</span>
+<span class="source-line-no">1209</span><span id="line-1209">    descriptors.sort( Comparator.comparingInt( RenderHookDescriptor::getSortOrder ) );</span>
+<span class="source-line-no">1210</span><span id="line-1210">    descriptor.setPreRenderDescriptors( descriptors );</span>
+<span class="source-line-no">1211</span><span id="line-1211">  }</span>
+<span class="source-line-no">1212</span><span id="line-1212"></span>
+<span class="source-line-no">1213</span><span id="line-1213">  private void determinePostRenderMethods( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">1214</span><span id="line-1214">                                           @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1215</span><span id="line-1215">                                           @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1216</span><span id="line-1216">  {</span>
+<span class="source-line-no">1217</span><span id="line-1217">    final List&lt;RenderHookDescriptor&gt; descriptors = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">1218</span><span id="line-1218">    for ( final ExecutableElement method : methods )</span>
+<span class="source-line-no">1219</span><span id="line-1219">    {</span>
+<span class="source-line-no">1220</span><span id="line-1220">      final AnnotationMirror annotation =</span>
+<span class="source-line-no">1221</span><span id="line-1221">        AnnotationsUtil.findAnnotationByType( method, Constants.POST_RENDER_CLASSNAME );</span>
+<span class="source-line-no">1222</span><span id="line-1222">      if ( null != annotation )</span>
+<span class="source-line-no">1223</span><span id="line-1223">      {</span>
+<span class="source-line-no">1224</span><span id="line-1224">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
+<span class="source-line-no">1225</span><span id="line-1225">                                             Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1226</span><span id="line-1226">                                             Constants.POST_RENDER_CLASSNAME,</span>
+<span class="source-line-no">1227</span><span id="line-1227">                                             method );</span>
+<span class="source-line-no">1228</span><span id="line-1228">        MemberChecks.mustNotBeAbstract( Constants.POST_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1229</span><span id="line-1229">        MemberChecks.mustNotHaveAnyParameters( Constants.POST_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1230</span><span id="line-1230">        MemberChecks.mustNotHaveAnyTypeParameters( Constants.POST_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1231</span><span id="line-1231">        MemberChecks.mustNotReturnAnyValue( Constants.POST_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1232</span><span id="line-1232">        MemberChecks.mustNotThrowAnyExceptions( Constants.POST_RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1233</span><span id="line-1233"></span>
+<span class="source-line-no">1234</span><span id="line-1234">        final int sortOrder = AnnotationsUtil.getAnnotationValueValue( annotation, "sortOrder" );</span>
+<span class="source-line-no">1235</span><span id="line-1235">        final ExecutableType methodType = resolveMethodType( descriptor, method );</span>
+<span class="source-line-no">1236</span><span id="line-1236"></span>
+<span class="source-line-no">1237</span><span id="line-1237">        descriptors.add( new RenderHookDescriptor( sortOrder, method, methodType ) );</span>
+<span class="source-line-no">1238</span><span id="line-1238">      }</span>
+<span class="source-line-no">1239</span><span id="line-1239">    }</span>
+<span class="source-line-no">1240</span><span id="line-1240">    descriptors.sort( Comparator.comparingInt( RenderHookDescriptor::getSortOrder ) );</span>
+<span class="source-line-no">1241</span><span id="line-1241">    descriptor.setPostRenderDescriptors( descriptors );</span>
+<span class="source-line-no">1242</span><span id="line-1242">  }</span>
+<span class="source-line-no">1243</span><span id="line-1243"></span>
+<span class="source-line-no">1244</span><span id="line-1244">  private void determineRenderMethod( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">1245</span><span id="line-1245">                                      @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1246</span><span id="line-1246">                                      @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1247</span><span id="line-1247">  {</span>
+<span class="source-line-no">1248</span><span id="line-1248">    boolean foundRender = false;</span>
+<span class="source-line-no">1249</span><span id="line-1249">    for ( final ExecutableElement method : methods )</span>
+<span class="source-line-no">1250</span><span id="line-1250">    {</span>
+<span class="source-line-no">1251</span><span id="line-1251">      final AnnotationMirror annotation =</span>
+<span class="source-line-no">1252</span><span id="line-1252">        AnnotationsUtil.findAnnotationByType( method, Constants.RENDER_CLASSNAME );</span>
+<span class="source-line-no">1253</span><span id="line-1253">      if ( null != annotation )</span>
+<span class="source-line-no">1254</span><span id="line-1254">      {</span>
+<span class="source-line-no">1255</span><span id="line-1255">        MemberChecks.mustNotBeAbstract( Constants.RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1256</span><span id="line-1256">        MemberChecks.mustBeSubclassCallable( typeElement,</span>
+<span class="source-line-no">1257</span><span id="line-1257">                                             Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1258</span><span id="line-1258">                                             Constants.RENDER_CLASSNAME,</span>
+<span class="source-line-no">1259</span><span id="line-1259">                                             method );</span>
+<span class="source-line-no">1260</span><span id="line-1260">        MemberChecks.mustNotHaveAnyParameters( Constants.RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1261</span><span id="line-1261">        MemberChecks.mustReturnAnInstanceOf( processingEnv,</span>
+<span class="source-line-no">1262</span><span id="line-1262">                                             method,</span>
+<span class="source-line-no">1263</span><span id="line-1263">                                             Constants.RENDER_CLASSNAME,</span>
+<span class="source-line-no">1264</span><span id="line-1264">                                             Constants.VNODE_CLASSNAME );</span>
+<span class="source-line-no">1265</span><span id="line-1265">        MemberChecks.mustNotThrowAnyExceptions( Constants.RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1266</span><span id="line-1266">        MemberChecks.mustNotHaveAnyTypeParameters( Constants.RENDER_CLASSNAME, method );</span>
+<span class="source-line-no">1267</span><span id="line-1267">        if ( !method.getReturnType().getKind().isPrimitive() &amp;&amp;</span>
+<span class="source-line-no">1268</span><span id="line-1268">             !AnnotationsUtil.hasNonnullAnnotation( method ) &amp;&amp;</span>
+<span class="source-line-no">1269</span><span id="line-1269">             !AnnotationsUtil.hasNullableAnnotation( method ) &amp;&amp;</span>
+<span class="source-line-no">1270</span><span id="line-1270">             ElementsUtil.isWarningNotSuppressed( method,</span>
+<span class="source-line-no">1271</span><span id="line-1271">                                                  Constants.WARNING_MISSING_RENDER_NULLABILITY,</span>
+<span class="source-line-no">1272</span><span id="line-1272">                                                  Constants.SUPPRESS_REACT4J_WARNINGS_CLASSNAME ) )</span>
+<span class="source-line-no">1273</span><span id="line-1273">        {</span>
+<span class="source-line-no">1274</span><span id="line-1274">          final String message =</span>
+<span class="source-line-no">1275</span><span id="line-1275">            MemberChecks.should( Constants.RENDER_CLASSNAME,</span>
+<span class="source-line-no">1276</span><span id="line-1276">                                 "be annotated by a @Nonnull or a @Nullable annotation. " +</span>
+<span class="source-line-no">1277</span><span id="line-1277">                                 MemberChecks.suppressedBy( Constants.WARNING_MISSING_RENDER_NULLABILITY,</span>
+<span class="source-line-no">1278</span><span id="line-1278">                                                            Constants.SUPPRESS_REACT4J_WARNINGS_CLASSNAME ) );</span>
+<span class="source-line-no">1279</span><span id="line-1279">          processingEnv.getMessager().printMessage( Diagnostic.Kind.WARNING, message, method );</span>
+<span class="source-line-no">1280</span><span id="line-1280">        }</span>
+<span class="source-line-no">1281</span><span id="line-1281"></span>
+<span class="source-line-no">1282</span><span id="line-1282">        descriptor.setRender( method );</span>
+<span class="source-line-no">1283</span><span id="line-1283">        foundRender = true;</span>
+<span class="source-line-no">1284</span><span id="line-1284">      }</span>
+<span class="source-line-no">1285</span><span id="line-1285">    }</span>
+<span class="source-line-no">1286</span><span id="line-1286">    final boolean requireRender = descriptor.requireRender();</span>
+<span class="source-line-no">1287</span><span id="line-1287">    if ( requireRender &amp;&amp; !foundRender )</span>
+<span class="source-line-no">1288</span><span id="line-1288">    {</span>
+<span class="source-line-no">1289</span><span id="line-1289">      throw new ProcessorException( MemberChecks.must( Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1290</span><span id="line-1290">                                                       "contain a method annotated with the " +</span>
+<span class="source-line-no">1291</span><span id="line-1291">                                                       MemberChecks.toSimpleName( Constants.RENDER_CLASSNAME ) +</span>
+<span class="source-line-no">1292</span><span id="line-1292">                                                       " annotation or must specify type=NO_RENDER" ),</span>
+<span class="source-line-no">1293</span><span id="line-1293">                                    typeElement );</span>
+<span class="source-line-no">1294</span><span id="line-1294">    }</span>
+<span class="source-line-no">1295</span><span id="line-1295">    else if ( !requireRender )</span>
+<span class="source-line-no">1296</span><span id="line-1296">    {</span>
+<span class="source-line-no">1297</span><span id="line-1297">      if ( foundRender )</span>
+<span class="source-line-no">1298</span><span id="line-1298">      {</span>
+<span class="source-line-no">1299</span><span id="line-1299">        throw new ProcessorException( MemberChecks.mustNot( Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1300</span><span id="line-1300">                                                            "contain a method annotated with the " +</span>
+<span class="source-line-no">1301</span><span id="line-1301">                                                            MemberChecks.toSimpleName( Constants.RENDER_CLASSNAME ) +</span>
+<span class="source-line-no">1302</span><span id="line-1302">                                                            " annotation or must not specify type=NO_RENDER" ),</span>
+<span class="source-line-no">1303</span><span id="line-1303">                                      typeElement );</span>
+<span class="source-line-no">1304</span><span id="line-1304">      }</span>
+<span class="source-line-no">1305</span><span id="line-1305">      else if ( !descriptor.hasConstructor() &amp;&amp;</span>
+<span class="source-line-no">1306</span><span id="line-1306">                !descriptor.hasPostConstruct() &amp;&amp;</span>
+<span class="source-line-no">1307</span><span id="line-1307">                null == descriptor.getPostMount() &amp;&amp;</span>
+<span class="source-line-no">1308</span><span id="line-1308">                null == descriptor.getPostRender() &amp;&amp;</span>
+<span class="source-line-no">1309</span><span id="line-1309">                null == descriptor.getPreUpdate() &amp;&amp;</span>
+<span class="source-line-no">1310</span><span id="line-1310">                null == descriptor.getPostUpdate() &amp;&amp;</span>
+<span class="source-line-no">1311</span><span id="line-1311">                descriptor.getPreRenderDescriptors().isEmpty() &amp;&amp;</span>
+<span class="source-line-no">1312</span><span id="line-1312">                descriptor.getPostRenderDescriptors().isEmpty() &amp;&amp;</span>
+<span class="source-line-no">1313</span><span id="line-1313">                !descriptor.hasPreUpdateOnInputChange() &amp;&amp;</span>
+<span class="source-line-no">1314</span><span id="line-1314">                !descriptor.hasPostUpdateOnInputChange() )</span>
+<span class="source-line-no">1315</span><span id="line-1315">      {</span>
+<span class="source-line-no">1316</span><span id="line-1316">        throw new ProcessorException( MemberChecks.must( Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1317</span><span id="line-1317">                                                         "contain lifecycle methods if the the @View(type=NO_RENDER) parameter is specified" ),</span>
+<span class="source-line-no">1318</span><span id="line-1318">                                      typeElement );</span>
+<span class="source-line-no">1319</span><span id="line-1319">      }</span>
+<span class="source-line-no">1320</span><span id="line-1320">    }</span>
+<span class="source-line-no">1321</span><span id="line-1321">  }</span>
+<span class="source-line-no">1322</span><span id="line-1322"></span>
+<span class="source-line-no">1323</span><span id="line-1323">  private void determinePostMountMethod( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">1324</span><span id="line-1324">                                         @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1325</span><span id="line-1325">                                         @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1326</span><span id="line-1326">  {</span>
+<span class="source-line-no">1327</span><span id="line-1327">    for ( final ExecutableElement method : methods )</span>
+<span class="source-line-no">1328</span><span id="line-1328">    {</span>
+<span class="source-line-no">1329</span><span id="line-1329">      if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.POST_MOUNT_CLASSNAME ) )</span>
+<span class="source-line-no">1330</span><span id="line-1330">      {</span>
+<span class="source-line-no">1331</span><span id="line-1331">        MemberChecks.mustBeLifecycleHook( typeElement,</span>
+<span class="source-line-no">1332</span><span id="line-1332">                                          Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1333</span><span id="line-1333">                                          Constants.POST_MOUNT_CLASSNAME,</span>
+<span class="source-line-no">1334</span><span id="line-1334">                                          method );</span>
+<span class="source-line-no">1335</span><span id="line-1335">        descriptor.setPostMount( method );</span>
+<span class="source-line-no">1336</span><span id="line-1336">      }</span>
+<span class="source-line-no">1337</span><span id="line-1337">    }</span>
+<span class="source-line-no">1338</span><span id="line-1338">  }</span>
+<span class="source-line-no">1339</span><span id="line-1339"></span>
+<span class="source-line-no">1340</span><span id="line-1340">  private void determinePostMountOrUpdateMethod( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">1341</span><span id="line-1341">                                                 @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1342</span><span id="line-1342">                                                 @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1343</span><span id="line-1343">  {</span>
+<span class="source-line-no">1344</span><span id="line-1344">    for ( final ExecutableElement method : methods )</span>
+<span class="source-line-no">1345</span><span id="line-1345">    {</span>
+<span class="source-line-no">1346</span><span id="line-1346">      if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.POST_MOUNT_OR_UPDATE_CLASSNAME ) )</span>
+<span class="source-line-no">1347</span><span id="line-1347">      {</span>
+<span class="source-line-no">1348</span><span id="line-1348">        MemberChecks.mustBeLifecycleHook( typeElement,</span>
+<span class="source-line-no">1349</span><span id="line-1349">                                          Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1350</span><span id="line-1350">                                          Constants.POST_MOUNT_OR_UPDATE_CLASSNAME,</span>
+<span class="source-line-no">1351</span><span id="line-1351">                                          method );</span>
+<span class="source-line-no">1352</span><span id="line-1352">        descriptor.setPostRender( method );</span>
+<span class="source-line-no">1353</span><span id="line-1353">      }</span>
+<span class="source-line-no">1354</span><span id="line-1354">    }</span>
+<span class="source-line-no">1355</span><span id="line-1355">  }</span>
+<span class="source-line-no">1356</span><span id="line-1356"></span>
+<span class="source-line-no">1357</span><span id="line-1357">  private void determinePostUpdateMethod( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">1358</span><span id="line-1358">                                          @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1359</span><span id="line-1359">                                          @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1360</span><span id="line-1360">  {</span>
+<span class="source-line-no">1361</span><span id="line-1361">    for ( final ExecutableElement method : methods )</span>
+<span class="source-line-no">1362</span><span id="line-1362">    {</span>
+<span class="source-line-no">1363</span><span id="line-1363">      if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.POST_UPDATE_CLASSNAME ) )</span>
+<span class="source-line-no">1364</span><span id="line-1364">      {</span>
+<span class="source-line-no">1365</span><span id="line-1365">        MemberChecks.mustBeLifecycleHook( typeElement,</span>
+<span class="source-line-no">1366</span><span id="line-1366">                                          Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1367</span><span id="line-1367">                                          Constants.POST_UPDATE_CLASSNAME,</span>
+<span class="source-line-no">1368</span><span id="line-1368">                                          method );</span>
+<span class="source-line-no">1369</span><span id="line-1369">        descriptor.setPostUpdate( method );</span>
+<span class="source-line-no">1370</span><span id="line-1370">      }</span>
+<span class="source-line-no">1371</span><span id="line-1371">    }</span>
+<span class="source-line-no">1372</span><span id="line-1372">  }</span>
+<span class="source-line-no">1373</span><span id="line-1373"></span>
+<span class="source-line-no">1374</span><span id="line-1374">  private void determinePreUpdateMethod( @Nonnull final TypeElement typeElement,</span>
+<span class="source-line-no">1375</span><span id="line-1375">                                         @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1376</span><span id="line-1376">                                         @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1377</span><span id="line-1377">  {</span>
+<span class="source-line-no">1378</span><span id="line-1378">    for ( final ExecutableElement method : methods )</span>
+<span class="source-line-no">1379</span><span id="line-1379">    {</span>
+<span class="source-line-no">1380</span><span id="line-1380">      if ( AnnotationsUtil.hasAnnotationOfType( method, Constants.PRE_UPDATE_CLASSNAME ) )</span>
+<span class="source-line-no">1381</span><span id="line-1381">      {</span>
+<span class="source-line-no">1382</span><span id="line-1382">        MemberChecks.mustBeLifecycleHook( typeElement,</span>
+<span class="source-line-no">1383</span><span id="line-1383">                                          Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1384</span><span id="line-1384">                                          Constants.PRE_UPDATE_CLASSNAME,</span>
+<span class="source-line-no">1385</span><span id="line-1385">                                          method );</span>
+<span class="source-line-no">1386</span><span id="line-1386">        descriptor.setPreUpdate( method );</span>
 <span class="source-line-no">1387</span><span id="line-1387">      }</span>
-<span class="source-line-no">1388</span><span id="line-1388">      else if ( SourceVersion.isKeyword( name ) )</span>
-<span class="source-line-no">1389</span><span id="line-1389">      {</span>
-<span class="source-line-no">1390</span><span id="line-1390">        throw new ProcessorException( MemberChecks.toSimpleName( Constants.VIEW_CLASSNAME ) +</span>
-<span class="source-line-no">1391</span><span id="line-1391">                                      " target specified an invalid name '" + name + "'. The " +</span>
-<span class="source-line-no">1392</span><span id="line-1392">                                      "name must not be a java keyword.", typeElement );</span>
-<span class="source-line-no">1393</span><span id="line-1393">      }</span>
-<span class="source-line-no">1394</span><span id="line-1394">      return name;</span>
-<span class="source-line-no">1395</span><span id="line-1395">    }</span>
-<span class="source-line-no">1396</span><span id="line-1396">  }</span>
-<span class="source-line-no">1397</span><span id="line-1397"></span>
-<span class="source-line-no">1398</span><span id="line-1398">  private void determineViewCapabilities( @Nonnull final ViewDescriptor descriptor,</span>
-<span class="source-line-no">1399</span><span id="line-1399">                                          @Nonnull final TypeElement typeElement )</span>
-<span class="source-line-no">1400</span><span id="line-1400">  {</span>
-<span class="source-line-no">1401</span><span id="line-1401">    if ( AnnotationsUtil.hasAnnotationOfType( typeElement, Constants.AREZ_COMPONENT_CLASSNAME ) )</span>
-<span class="source-line-no">1402</span><span id="line-1402">    {</span>
-<span class="source-line-no">1403</span><span id="line-1403">      throw new ProcessorException( MemberChecks.mustNot( Constants.VIEW_CLASSNAME,</span>
-<span class="source-line-no">1404</span><span id="line-1404">                                                          "be annotated with the " +</span>
-<span class="source-line-no">1405</span><span id="line-1405">                                                          MemberChecks.toSimpleName( Constants.AREZ_COMPONENT_CLASSNAME ) +</span>
-<span class="source-line-no">1406</span><span id="line-1406">                                                          " as React4j will add the annotation." ),</span>
-<span class="source-line-no">1407</span><span id="line-1407">                                    typeElement );</span>
-<span class="source-line-no">1408</span><span id="line-1408">    }</span>
-<span class="source-line-no">1409</span><span id="line-1409"></span>
-<span class="source-line-no">1410</span><span id="line-1410">    if ( descriptor.needsInjection() &amp;&amp; !descriptor.getDeclaredType().getTypeArguments().isEmpty() )</span>
-<span class="source-line-no">1411</span><span id="line-1411">    {</span>
-<span class="source-line-no">1412</span><span id="line-1412">      throw new ProcessorException( MemberChecks.toSimpleName( Constants.VIEW_CLASSNAME ) +</span>
-<span class="source-line-no">1413</span><span id="line-1413">                                    " target has enabled injection integration but the class " +</span>
-<span class="source-line-no">1414</span><span id="line-1414">                                    "has type arguments which is incompatible with injection integration.",</span>
-<span class="source-line-no">1415</span><span id="line-1415">                                    typeElement );</span>
-<span class="source-line-no">1416</span><span id="line-1416">    }</span>
-<span class="source-line-no">1417</span><span id="line-1417">  }</span>
-<span class="source-line-no">1418</span><span id="line-1418"></span>
-<span class="source-line-no">1419</span><span id="line-1419">  @Nonnull</span>
-<span class="source-line-no">1420</span><span id="line-1420">  private ViewType extractViewType( @Nonnull final TypeElement typeElement )</span>
-<span class="source-line-no">1421</span><span id="line-1421">  {</span>
-<span class="source-line-no">1422</span><span id="line-1422">    final VariableElement declaredTypeEnum = (VariableElement)</span>
-<span class="source-line-no">1423</span><span id="line-1423">      AnnotationsUtil</span>
-<span class="source-line-no">1424</span><span id="line-1424">        .getAnnotationValue( typeElement, Constants.VIEW_CLASSNAME, "type" )</span>
-<span class="source-line-no">1425</span><span id="line-1425">        .getValue();</span>
-<span class="source-line-no">1426</span><span id="line-1426">    return ViewType.valueOf( declaredTypeEnum.getSimpleName().toString() );</span>
-<span class="source-line-no">1427</span><span id="line-1427">  }</span>
-<span class="source-line-no">1428</span><span id="line-1428"></span>
-<span class="source-line-no">1429</span><span id="line-1429">  private boolean isInputObservable( @Nonnull final List&lt;ExecutableElement&gt; methods,</span>
-<span class="source-line-no">1430</span><span id="line-1430">                                     @Nonnull final ExecutableElement method,</span>
-<span class="source-line-no">1431</span><span id="line-1431">                                     final boolean immutable )</span>
-<span class="source-line-no">1432</span><span id="line-1432">  {</span>
-<span class="source-line-no">1433</span><span id="line-1433">    final VariableElement parameter = (VariableElement)</span>
-<span class="source-line-no">1434</span><span id="line-1434">      AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "observable" ).getValue();</span>
-<span class="source-line-no">1435</span><span id="line-1435">    return switch ( parameter.getSimpleName().toString() )</span>
-<span class="source-line-no">1436</span><span id="line-1436">    {</span>
-<span class="source-line-no">1437</span><span id="line-1437">      case "ENABLE" -&gt;</span>
-<span class="source-line-no">1438</span><span id="line-1438">      {</span>
-<span class="source-line-no">1439</span><span id="line-1439">        if ( immutable )</span>
-<span class="source-line-no">1440</span><span id="line-1440">        {</span>
-<span class="source-line-no">1441</span><span id="line-1441">          throw new ProcessorException( "@Input target has specified both immutable=true and " +</span>
-<span class="source-line-no">1442</span><span id="line-1442">                                        "observable=ENABLE which is an invalid combination.",</span>
-<span class="source-line-no">1443</span><span id="line-1443">                                        method );</span>
-<span class="source-line-no">1444</span><span id="line-1444">        }</span>
-<span class="source-line-no">1445</span><span id="line-1445">        yield true;</span>
-<span class="source-line-no">1446</span><span id="line-1446">      }</span>
-<span class="source-line-no">1447</span><span id="line-1447">      case "DISABLE" -&gt; false;</span>
-<span class="source-line-no">1448</span><span id="line-1448">      default -&gt; hasAnyArezObserverMethods( methods );</span>
-<span class="source-line-no">1449</span><span id="line-1449">    };</span>
-<span class="source-line-no">1450</span><span id="line-1450">  }</span>
-<span class="source-line-no">1451</span><span id="line-1451"></span>
-<span class="source-line-no">1452</span><span id="line-1452">  private boolean hasAnyArezObserverMethods( @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1453</span><span id="line-1453">  {</span>
-<span class="source-line-no">1454</span><span id="line-1454">    return</span>
-<span class="source-line-no">1455</span><span id="line-1455">      methods</span>
-<span class="source-line-no">1456</span><span id="line-1456">        .stream()</span>
-<span class="source-line-no">1457</span><span id="line-1457">        .anyMatch( m -&gt; AnnotationsUtil.hasAnnotationOfType( m, Constants.MEMOIZE_CLASSNAME ) ||</span>
-<span class="source-line-no">1458</span><span id="line-1458">                        ( AnnotationsUtil.hasAnnotationOfType( m, Constants.OBSERVE_CLASSNAME ) &amp;&amp;</span>
-<span class="source-line-no">1459</span><span id="line-1459">                          ( !m.getParameters().isEmpty() || !m.getSimpleName().toString().equals( "trackRender" ) ) ) );</span>
-<span class="source-line-no">1460</span><span id="line-1460">  }</span>
-<span class="source-line-no">1461</span><span id="line-1461"></span>
-<span class="source-line-no">1462</span><span id="line-1462">  private boolean isInputImmutable( @Nonnull final ExecutableElement method )</span>
-<span class="source-line-no">1463</span><span id="line-1463">  {</span>
-<span class="source-line-no">1464</span><span id="line-1464">    return (Boolean) AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "immutable" )</span>
-<span class="source-line-no">1465</span><span id="line-1465">      .getValue();</span>
-<span class="source-line-no">1466</span><span id="line-1466">  }</span>
-<span class="source-line-no">1467</span><span id="line-1467"></span>
-<span class="source-line-no">1468</span><span id="line-1468">  private boolean isInputDependency( @Nonnull final ExecutableElement method,</span>
-<span class="source-line-no">1469</span><span id="line-1469">                                     final boolean immutable,</span>
-<span class="source-line-no">1470</span><span id="line-1470">                                     final boolean disposable )</span>
-<span class="source-line-no">1471</span><span id="line-1471">  {</span>
-<span class="source-line-no">1472</span><span id="line-1472">    final VariableElement parameter = (VariableElement)</span>
-<span class="source-line-no">1473</span><span id="line-1473">      AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "dependency" ).getValue();</span>
-<span class="source-line-no">1474</span><span id="line-1474">    return switch ( parameter.getSimpleName().toString() )</span>
-<span class="source-line-no">1475</span><span id="line-1475">    {</span>
-<span class="source-line-no">1476</span><span id="line-1476">      case "ENABLE" -&gt;</span>
-<span class="source-line-no">1477</span><span id="line-1477">      {</span>
-<span class="source-line-no">1478</span><span id="line-1478">        if ( !immutable )</span>
-<span class="source-line-no">1479</span><span id="line-1479">        {</span>
-<span class="source-line-no">1480</span><span id="line-1480">          throw new ProcessorException( "@Input target must be immutable if dependency=ENABLE is specified",</span>
-<span class="source-line-no">1481</span><span id="line-1481">                                        method );</span>
-<span class="source-line-no">1482</span><span id="line-1482">        }</span>
-<span class="source-line-no">1483</span><span id="line-1483">        else if ( !disposable )</span>
-<span class="source-line-no">1484</span><span id="line-1484">        {</span>
-<span class="source-line-no">1485</span><span id="line-1485">          throw new ProcessorException( "@Input target must be disposable if dependency=ENABLE is specified",</span>
-<span class="source-line-no">1486</span><span id="line-1486">                                        method );</span>
-<span class="source-line-no">1487</span><span id="line-1487">        }</span>
-<span class="source-line-no">1488</span><span id="line-1488">        yield true;</span>
-<span class="source-line-no">1489</span><span id="line-1489">      }</span>
-<span class="source-line-no">1490</span><span id="line-1490">      case "DISABLE" -&gt; false;</span>
-<span class="source-line-no">1491</span><span id="line-1491">      default -&gt; immutable &amp;&amp; disposable;</span>
-<span class="source-line-no">1492</span><span id="line-1492">    };</span>
-<span class="source-line-no">1493</span><span id="line-1493">  }</span>
-<span class="source-line-no">1494</span><span id="line-1494"></span>
-<span class="source-line-no">1495</span><span id="line-1495">  private boolean isInputDisposable( @Nonnull final ExecutableElement method, @Nonnull final Element inputType )</span>
-<span class="source-line-no">1496</span><span id="line-1496">  {</span>
-<span class="source-line-no">1497</span><span id="line-1497">    final VariableElement parameter = (VariableElement)</span>
-<span class="source-line-no">1498</span><span id="line-1498">      AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "disposable" ).getValue();</span>
-<span class="source-line-no">1499</span><span id="line-1499">    return switch ( parameter.getSimpleName().toString() )</span>
-<span class="source-line-no">1500</span><span id="line-1500">    {</span>
-<span class="source-line-no">1501</span><span id="line-1501">      case "ENABLE" -&gt; true;</span>
-<span class="source-line-no">1502</span><span id="line-1502">      case "DISABLE" -&gt; false;</span>
-<span class="source-line-no">1503</span><span id="line-1503">      default -&gt; (</span>
-<span class="source-line-no">1504</span><span id="line-1504">                   ElementKind.CLASS == inputType.getKind() &amp;&amp;</span>
-<span class="source-line-no">1505</span><span id="line-1505">                   AnnotationsUtil.hasAnnotationOfType( inputType, Constants.AREZ_COMPONENT_CLASSNAME )</span>
-<span class="source-line-no">1506</span><span id="line-1506">                 ) ||</span>
-<span class="source-line-no">1507</span><span id="line-1507">                 (</span>
-<span class="source-line-no">1508</span><span id="line-1508">                   ( ElementKind.CLASS == inputType.getKind() || ElementKind.INTERFACE == inputType.getKind() ) &amp;&amp;</span>
-<span class="source-line-no">1509</span><span id="line-1509">                   AnnotationsUtil.hasAnnotationOfType( inputType, Constants.ACT_AS_COMPONENT_CLASSNAME )</span>
-<span class="source-line-no">1510</span><span id="line-1510">                 );</span>
-<span class="source-line-no">1511</span><span id="line-1511">    };</span>
-<span class="source-line-no">1512</span><span id="line-1512">  }</span>
-<span class="source-line-no">1513</span><span id="line-1513"></span>
-<span class="source-line-no">1514</span><span id="line-1514">  private boolean isContextInput( @Nonnull final ExecutableElement method )</span>
-<span class="source-line-no">1515</span><span id="line-1515">  {</span>
-<span class="source-line-no">1516</span><span id="line-1516">    final VariableElement parameter = (VariableElement)</span>
-<span class="source-line-no">1517</span><span id="line-1517">      AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "source" ).getValue();</span>
-<span class="source-line-no">1518</span><span id="line-1518">    return "CONTEXT".equals( parameter.getSimpleName().toString() );</span>
-<span class="source-line-no">1519</span><span id="line-1519">  }</span>
-<span class="source-line-no">1520</span><span id="line-1520"></span>
-<span class="source-line-no">1521</span><span id="line-1521">  private boolean shouldSetDefaultPriority( @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1522</span><span id="line-1522">  {</span>
-<span class="source-line-no">1523</span><span id="line-1523">    return</span>
-<span class="source-line-no">1524</span><span id="line-1524">      methods</span>
-<span class="source-line-no">1525</span><span id="line-1525">        .stream()</span>
-<span class="source-line-no">1526</span><span id="line-1526">        .filter( method -&gt; !method.getModifiers().contains( Modifier.PRIVATE ) )</span>
-<span class="source-line-no">1527</span><span id="line-1527">        .anyMatch( method -&gt; AnnotationsUtil.hasAnnotationOfType( method, Constants.MEMOIZE_CLASSNAME ) ||</span>
-<span class="source-line-no">1528</span><span id="line-1528">                             AnnotationsUtil.hasAnnotationOfType( method, Constants.OBSERVE_CLASSNAME ) );</span>
-<span class="source-line-no">1529</span><span id="line-1529">  }</span>
-<span class="source-line-no">1530</span><span id="line-1530"></span>
-<span class="source-line-no">1531</span><span id="line-1531">  private void verifyNoDuplicateAnnotations( @Nonnull final ExecutableElement method )</span>
-<span class="source-line-no">1532</span><span id="line-1532">    throws ProcessorException</span>
-<span class="source-line-no">1533</span><span id="line-1533">  {</span>
-<span class="source-line-no">1534</span><span id="line-1534">    final List&lt;String&gt; annotations =</span>
-<span class="source-line-no">1535</span><span id="line-1535">      Arrays.asList( Constants.INPUT_DEFAULT_CLASSNAME,</span>
-<span class="source-line-no">1536</span><span id="line-1536">                     Constants.INPUT_VALIDATE_CLASSNAME,</span>
-<span class="source-line-no">1537</span><span id="line-1537">                     Constants.ON_INPUT_CHANGE_CLASSNAME,</span>
-<span class="source-line-no">1538</span><span id="line-1538">                     Constants.INPUT_CLASSNAME );</span>
-<span class="source-line-no">1539</span><span id="line-1539">    MemberChecks.verifyNoOverlappingAnnotations( method, annotations, Collections.emptyMap() );</span>
+<span class="source-line-no">1388</span><span id="line-1388">    }</span>
+<span class="source-line-no">1389</span><span id="line-1389">  }</span>
+<span class="source-line-no">1390</span><span id="line-1390"></span>
+<span class="source-line-no">1391</span><span id="line-1391">  private ExecutableType resolveMethodType( @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1392</span><span id="line-1392">                                            @Nonnull final ExecutableElement method )</span>
+<span class="source-line-no">1393</span><span id="line-1393">  {</span>
+<span class="source-line-no">1394</span><span id="line-1394">    return (ExecutableType) processingEnv.getTypeUtils().asMemberOf( descriptor.getDeclaredType(), method );</span>
+<span class="source-line-no">1395</span><span id="line-1395">  }</span>
+<span class="source-line-no">1396</span><span id="line-1396"></span>
+<span class="source-line-no">1397</span><span id="line-1397">  @Nonnull</span>
+<span class="source-line-no">1398</span><span id="line-1398">  private String deriveViewName( @Nonnull final TypeElement typeElement )</span>
+<span class="source-line-no">1399</span><span id="line-1399">  {</span>
+<span class="source-line-no">1400</span><span id="line-1400">    final String name =</span>
+<span class="source-line-no">1401</span><span id="line-1401">      (String) AnnotationsUtil.getAnnotationValue( typeElement, Constants.VIEW_CLASSNAME, "name" )</span>
+<span class="source-line-no">1402</span><span id="line-1402">        .getValue();</span>
+<span class="source-line-no">1403</span><span id="line-1403"></span>
+<span class="source-line-no">1404</span><span id="line-1404">    if ( isSentinelName( name ) )</span>
+<span class="source-line-no">1405</span><span id="line-1405">    {</span>
+<span class="source-line-no">1406</span><span id="line-1406">      return typeElement.getSimpleName().toString();</span>
+<span class="source-line-no">1407</span><span id="line-1407">    }</span>
+<span class="source-line-no">1408</span><span id="line-1408">    else</span>
+<span class="source-line-no">1409</span><span id="line-1409">    {</span>
+<span class="source-line-no">1410</span><span id="line-1410">      if ( !SourceVersion.isIdentifier( name ) )</span>
+<span class="source-line-no">1411</span><span id="line-1411">      {</span>
+<span class="source-line-no">1412</span><span id="line-1412">        throw new ProcessorException( MemberChecks.toSimpleName( Constants.VIEW_CLASSNAME ) +</span>
+<span class="source-line-no">1413</span><span id="line-1413">                                      " target specified an invalid name '" + name + "'. The " +</span>
+<span class="source-line-no">1414</span><span id="line-1414">                                      "name must be a valid java identifier.", typeElement );</span>
+<span class="source-line-no">1415</span><span id="line-1415">      }</span>
+<span class="source-line-no">1416</span><span id="line-1416">      else if ( SourceVersion.isKeyword( name ) )</span>
+<span class="source-line-no">1417</span><span id="line-1417">      {</span>
+<span class="source-line-no">1418</span><span id="line-1418">        throw new ProcessorException( MemberChecks.toSimpleName( Constants.VIEW_CLASSNAME ) +</span>
+<span class="source-line-no">1419</span><span id="line-1419">                                      " target specified an invalid name '" + name + "'. The " +</span>
+<span class="source-line-no">1420</span><span id="line-1420">                                      "name must not be a java keyword.", typeElement );</span>
+<span class="source-line-no">1421</span><span id="line-1421">      }</span>
+<span class="source-line-no">1422</span><span id="line-1422">      return name;</span>
+<span class="source-line-no">1423</span><span id="line-1423">    }</span>
+<span class="source-line-no">1424</span><span id="line-1424">  }</span>
+<span class="source-line-no">1425</span><span id="line-1425"></span>
+<span class="source-line-no">1426</span><span id="line-1426">  private void determineViewCapabilities( @Nonnull final ViewDescriptor descriptor,</span>
+<span class="source-line-no">1427</span><span id="line-1427">                                          @Nonnull final TypeElement typeElement )</span>
+<span class="source-line-no">1428</span><span id="line-1428">  {</span>
+<span class="source-line-no">1429</span><span id="line-1429">    if ( AnnotationsUtil.hasAnnotationOfType( typeElement, Constants.AREZ_COMPONENT_CLASSNAME ) )</span>
+<span class="source-line-no">1430</span><span id="line-1430">    {</span>
+<span class="source-line-no">1431</span><span id="line-1431">      throw new ProcessorException( MemberChecks.mustNot( Constants.VIEW_CLASSNAME,</span>
+<span class="source-line-no">1432</span><span id="line-1432">                                                          "be annotated with the " +</span>
+<span class="source-line-no">1433</span><span id="line-1433">                                                          MemberChecks.toSimpleName( Constants.AREZ_COMPONENT_CLASSNAME ) +</span>
+<span class="source-line-no">1434</span><span id="line-1434">                                                          " as React4j will add the annotation." ),</span>
+<span class="source-line-no">1435</span><span id="line-1435">                                    typeElement );</span>
+<span class="source-line-no">1436</span><span id="line-1436">    }</span>
+<span class="source-line-no">1437</span><span id="line-1437"></span>
+<span class="source-line-no">1438</span><span id="line-1438">    if ( descriptor.needsInjection() &amp;&amp; !descriptor.getDeclaredType().getTypeArguments().isEmpty() )</span>
+<span class="source-line-no">1439</span><span id="line-1439">    {</span>
+<span class="source-line-no">1440</span><span id="line-1440">      throw new ProcessorException( MemberChecks.toSimpleName( Constants.VIEW_CLASSNAME ) +</span>
+<span class="source-line-no">1441</span><span id="line-1441">                                    " target has enabled injection integration but the class " +</span>
+<span class="source-line-no">1442</span><span id="line-1442">                                    "has type arguments which is incompatible with injection integration.",</span>
+<span class="source-line-no">1443</span><span id="line-1443">                                    typeElement );</span>
+<span class="source-line-no">1444</span><span id="line-1444">    }</span>
+<span class="source-line-no">1445</span><span id="line-1445">  }</span>
+<span class="source-line-no">1446</span><span id="line-1446"></span>
+<span class="source-line-no">1447</span><span id="line-1447">  @Nonnull</span>
+<span class="source-line-no">1448</span><span id="line-1448">  private ViewType extractViewType( @Nonnull final TypeElement typeElement )</span>
+<span class="source-line-no">1449</span><span id="line-1449">  {</span>
+<span class="source-line-no">1450</span><span id="line-1450">    final VariableElement declaredTypeEnum = (VariableElement)</span>
+<span class="source-line-no">1451</span><span id="line-1451">      AnnotationsUtil</span>
+<span class="source-line-no">1452</span><span id="line-1452">        .getAnnotationValue( typeElement, Constants.VIEW_CLASSNAME, "type" )</span>
+<span class="source-line-no">1453</span><span id="line-1453">        .getValue();</span>
+<span class="source-line-no">1454</span><span id="line-1454">    return ViewType.valueOf( declaredTypeEnum.getSimpleName().toString() );</span>
+<span class="source-line-no">1455</span><span id="line-1455">  }</span>
+<span class="source-line-no">1456</span><span id="line-1456"></span>
+<span class="source-line-no">1457</span><span id="line-1457">  private boolean isInputObservable( @Nonnull final List&lt;ExecutableElement&gt; methods,</span>
+<span class="source-line-no">1458</span><span id="line-1458">                                     @Nonnull final ExecutableElement method,</span>
+<span class="source-line-no">1459</span><span id="line-1459">                                     final boolean immutable )</span>
+<span class="source-line-no">1460</span><span id="line-1460">  {</span>
+<span class="source-line-no">1461</span><span id="line-1461">    final VariableElement parameter = (VariableElement)</span>
+<span class="source-line-no">1462</span><span id="line-1462">      AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "observable" ).getValue();</span>
+<span class="source-line-no">1463</span><span id="line-1463">    return switch ( parameter.getSimpleName().toString() )</span>
+<span class="source-line-no">1464</span><span id="line-1464">    {</span>
+<span class="source-line-no">1465</span><span id="line-1465">      case "ENABLE" -&gt;</span>
+<span class="source-line-no">1466</span><span id="line-1466">      {</span>
+<span class="source-line-no">1467</span><span id="line-1467">        if ( immutable )</span>
+<span class="source-line-no">1468</span><span id="line-1468">        {</span>
+<span class="source-line-no">1469</span><span id="line-1469">          throw new ProcessorException( "@Input target has specified both immutable=true and " +</span>
+<span class="source-line-no">1470</span><span id="line-1470">                                        "observable=ENABLE which is an invalid combination.",</span>
+<span class="source-line-no">1471</span><span id="line-1471">                                        method );</span>
+<span class="source-line-no">1472</span><span id="line-1472">        }</span>
+<span class="source-line-no">1473</span><span id="line-1473">        yield true;</span>
+<span class="source-line-no">1474</span><span id="line-1474">      }</span>
+<span class="source-line-no">1475</span><span id="line-1475">      case "DISABLE" -&gt; false;</span>
+<span class="source-line-no">1476</span><span id="line-1476">      default -&gt; hasAnyArezObserverMethods( methods );</span>
+<span class="source-line-no">1477</span><span id="line-1477">    };</span>
+<span class="source-line-no">1478</span><span id="line-1478">  }</span>
+<span class="source-line-no">1479</span><span id="line-1479"></span>
+<span class="source-line-no">1480</span><span id="line-1480">  private boolean hasAnyArezObserverMethods( @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1481</span><span id="line-1481">  {</span>
+<span class="source-line-no">1482</span><span id="line-1482">    return</span>
+<span class="source-line-no">1483</span><span id="line-1483">      methods</span>
+<span class="source-line-no">1484</span><span id="line-1484">        .stream()</span>
+<span class="source-line-no">1485</span><span id="line-1485">        .anyMatch( m -&gt; AnnotationsUtil.hasAnnotationOfType( m, Constants.MEMOIZE_CLASSNAME ) ||</span>
+<span class="source-line-no">1486</span><span id="line-1486">                        ( AnnotationsUtil.hasAnnotationOfType( m, Constants.OBSERVE_CLASSNAME ) &amp;&amp;</span>
+<span class="source-line-no">1487</span><span id="line-1487">                          ( !m.getParameters().isEmpty() || !m.getSimpleName().toString().equals( "trackRender" ) ) ) );</span>
+<span class="source-line-no">1488</span><span id="line-1488">  }</span>
+<span class="source-line-no">1489</span><span id="line-1489"></span>
+<span class="source-line-no">1490</span><span id="line-1490">  private boolean isInputImmutable( @Nonnull final ExecutableElement method )</span>
+<span class="source-line-no">1491</span><span id="line-1491">  {</span>
+<span class="source-line-no">1492</span><span id="line-1492">    return (Boolean) AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "immutable" )</span>
+<span class="source-line-no">1493</span><span id="line-1493">      .getValue();</span>
+<span class="source-line-no">1494</span><span id="line-1494">  }</span>
+<span class="source-line-no">1495</span><span id="line-1495"></span>
+<span class="source-line-no">1496</span><span id="line-1496">  private boolean isInputDependency( @Nonnull final ExecutableElement method,</span>
+<span class="source-line-no">1497</span><span id="line-1497">                                     final boolean immutable,</span>
+<span class="source-line-no">1498</span><span id="line-1498">                                     final boolean disposable )</span>
+<span class="source-line-no">1499</span><span id="line-1499">  {</span>
+<span class="source-line-no">1500</span><span id="line-1500">    final VariableElement parameter = (VariableElement)</span>
+<span class="source-line-no">1501</span><span id="line-1501">      AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "dependency" ).getValue();</span>
+<span class="source-line-no">1502</span><span id="line-1502">    return switch ( parameter.getSimpleName().toString() )</span>
+<span class="source-line-no">1503</span><span id="line-1503">    {</span>
+<span class="source-line-no">1504</span><span id="line-1504">      case "ENABLE" -&gt;</span>
+<span class="source-line-no">1505</span><span id="line-1505">      {</span>
+<span class="source-line-no">1506</span><span id="line-1506">        if ( !immutable )</span>
+<span class="source-line-no">1507</span><span id="line-1507">        {</span>
+<span class="source-line-no">1508</span><span id="line-1508">          throw new ProcessorException( "@Input target must be immutable if dependency=ENABLE is specified",</span>
+<span class="source-line-no">1509</span><span id="line-1509">                                        method );</span>
+<span class="source-line-no">1510</span><span id="line-1510">        }</span>
+<span class="source-line-no">1511</span><span id="line-1511">        else if ( !disposable )</span>
+<span class="source-line-no">1512</span><span id="line-1512">        {</span>
+<span class="source-line-no">1513</span><span id="line-1513">          throw new ProcessorException( "@Input target must be disposable if dependency=ENABLE is specified",</span>
+<span class="source-line-no">1514</span><span id="line-1514">                                        method );</span>
+<span class="source-line-no">1515</span><span id="line-1515">        }</span>
+<span class="source-line-no">1516</span><span id="line-1516">        yield true;</span>
+<span class="source-line-no">1517</span><span id="line-1517">      }</span>
+<span class="source-line-no">1518</span><span id="line-1518">      case "DISABLE" -&gt; false;</span>
+<span class="source-line-no">1519</span><span id="line-1519">      default -&gt; immutable &amp;&amp; disposable;</span>
+<span class="source-line-no">1520</span><span id="line-1520">    };</span>
+<span class="source-line-no">1521</span><span id="line-1521">  }</span>
+<span class="source-line-no">1522</span><span id="line-1522"></span>
+<span class="source-line-no">1523</span><span id="line-1523">  private boolean isInputDisposable( @Nonnull final ExecutableElement method, @Nonnull final Element inputType )</span>
+<span class="source-line-no">1524</span><span id="line-1524">  {</span>
+<span class="source-line-no">1525</span><span id="line-1525">    final VariableElement parameter = (VariableElement)</span>
+<span class="source-line-no">1526</span><span id="line-1526">      AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "disposable" ).getValue();</span>
+<span class="source-line-no">1527</span><span id="line-1527">    return switch ( parameter.getSimpleName().toString() )</span>
+<span class="source-line-no">1528</span><span id="line-1528">    {</span>
+<span class="source-line-no">1529</span><span id="line-1529">      case "ENABLE" -&gt; true;</span>
+<span class="source-line-no">1530</span><span id="line-1530">      case "DISABLE" -&gt; false;</span>
+<span class="source-line-no">1531</span><span id="line-1531">      default -&gt; (</span>
+<span class="source-line-no">1532</span><span id="line-1532">                   ElementKind.CLASS == inputType.getKind() &amp;&amp;</span>
+<span class="source-line-no">1533</span><span id="line-1533">                   AnnotationsUtil.hasAnnotationOfType( inputType, Constants.AREZ_COMPONENT_CLASSNAME )</span>
+<span class="source-line-no">1534</span><span id="line-1534">                 ) ||</span>
+<span class="source-line-no">1535</span><span id="line-1535">                 (</span>
+<span class="source-line-no">1536</span><span id="line-1536">                   ( ElementKind.CLASS == inputType.getKind() || ElementKind.INTERFACE == inputType.getKind() ) &amp;&amp;</span>
+<span class="source-line-no">1537</span><span id="line-1537">                   AnnotationsUtil.hasAnnotationOfType( inputType, Constants.ACT_AS_COMPONENT_CLASSNAME )</span>
+<span class="source-line-no">1538</span><span id="line-1538">                 );</span>
+<span class="source-line-no">1539</span><span id="line-1539">    };</span>
 <span class="source-line-no">1540</span><span id="line-1540">  }</span>
 <span class="source-line-no">1541</span><span id="line-1541"></span>
-<span class="source-line-no">1542</span><span id="line-1542">  private boolean isSentinelName( @Nonnull final String name )</span>
+<span class="source-line-no">1542</span><span id="line-1542">  private boolean isContextInput( @Nonnull final ExecutableElement method )</span>
 <span class="source-line-no">1543</span><span id="line-1543">  {</span>
-<span class="source-line-no">1544</span><span id="line-1544">    return SENTINEL_NAME.equals( name );</span>
-<span class="source-line-no">1545</span><span id="line-1545">  }</span>
-<span class="source-line-no">1546</span><span id="line-1546"></span>
-<span class="source-line-no">1547</span><span id="line-1547">  @Nonnull</span>
-<span class="source-line-no">1548</span><span id="line-1548">  private String getPropertyAccessorName( @Nonnull final ExecutableElement method,</span>
-<span class="source-line-no">1549</span><span id="line-1549">                                          @Nonnull final String specifiedName )</span>
-<span class="source-line-no">1550</span><span id="line-1550">    throws ProcessorException</span>
-<span class="source-line-no">1551</span><span id="line-1551">  {</span>
-<span class="source-line-no">1552</span><span id="line-1552">    String name = deriveName( method, GETTER_PATTERN, specifiedName );</span>
-<span class="source-line-no">1553</span><span id="line-1553">    if ( null != name )</span>
-<span class="source-line-no">1554</span><span id="line-1554">    {</span>
-<span class="source-line-no">1555</span><span id="line-1555">      return name;</span>
-<span class="source-line-no">1556</span><span id="line-1556">    }</span>
-<span class="source-line-no">1557</span><span id="line-1557">    else if ( method.getReturnType().getKind() == TypeKind.BOOLEAN )</span>
-<span class="source-line-no">1558</span><span id="line-1558">    {</span>
-<span class="source-line-no">1559</span><span id="line-1559">      name = deriveName( method, ISSER_PATTERN, specifiedName );</span>
-<span class="source-line-no">1560</span><span id="line-1560">      if ( null != name )</span>
-<span class="source-line-no">1561</span><span id="line-1561">      {</span>
-<span class="source-line-no">1562</span><span id="line-1562">        return name;</span>
-<span class="source-line-no">1563</span><span id="line-1563">      }</span>
-<span class="source-line-no">1564</span><span id="line-1564">    }</span>
-<span class="source-line-no">1565</span><span id="line-1565">    return method.getSimpleName().toString();</span>
-<span class="source-line-no">1566</span><span id="line-1566">  }</span>
-<span class="source-line-no">1567</span><span id="line-1567"></span>
-<span class="source-line-no">1568</span><span id="line-1568">  @Nullable</span>
-<span class="source-line-no">1569</span><span id="line-1569">  private String deriveName( @Nonnull final Element method, @Nonnull final Pattern pattern, @Nonnull final String name )</span>
-<span class="source-line-no">1570</span><span id="line-1570">    throws ProcessorException</span>
+<span class="source-line-no">1544</span><span id="line-1544">    final VariableElement parameter = (VariableElement)</span>
+<span class="source-line-no">1545</span><span id="line-1545">      AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "source" ).getValue();</span>
+<span class="source-line-no">1546</span><span id="line-1546">    return "CONTEXT".equals( parameter.getSimpleName().toString() );</span>
+<span class="source-line-no">1547</span><span id="line-1547">  }</span>
+<span class="source-line-no">1548</span><span id="line-1548"></span>
+<span class="source-line-no">1549</span><span id="line-1549">  private boolean shouldSetDefaultPriority( @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1550</span><span id="line-1550">  {</span>
+<span class="source-line-no">1551</span><span id="line-1551">    return</span>
+<span class="source-line-no">1552</span><span id="line-1552">      methods</span>
+<span class="source-line-no">1553</span><span id="line-1553">        .stream()</span>
+<span class="source-line-no">1554</span><span id="line-1554">        .filter( method -&gt; !method.getModifiers().contains( Modifier.PRIVATE ) )</span>
+<span class="source-line-no">1555</span><span id="line-1555">        .anyMatch( method -&gt; AnnotationsUtil.hasAnnotationOfType( method, Constants.MEMOIZE_CLASSNAME ) ||</span>
+<span class="source-line-no">1556</span><span id="line-1556">                             AnnotationsUtil.hasAnnotationOfType( method, Constants.OBSERVE_CLASSNAME ) );</span>
+<span class="source-line-no">1557</span><span id="line-1557">  }</span>
+<span class="source-line-no">1558</span><span id="line-1558"></span>
+<span class="source-line-no">1559</span><span id="line-1559">  private void verifyNoDuplicateAnnotations( @Nonnull final ExecutableElement method )</span>
+<span class="source-line-no">1560</span><span id="line-1560">    throws ProcessorException</span>
+<span class="source-line-no">1561</span><span id="line-1561">  {</span>
+<span class="source-line-no">1562</span><span id="line-1562">    final List&lt;String&gt; annotations =</span>
+<span class="source-line-no">1563</span><span id="line-1563">      Arrays.asList( Constants.INPUT_DEFAULT_CLASSNAME,</span>
+<span class="source-line-no">1564</span><span id="line-1564">                     Constants.INPUT_VALIDATE_CLASSNAME,</span>
+<span class="source-line-no">1565</span><span id="line-1565">                     Constants.ON_INPUT_CHANGE_CLASSNAME,</span>
+<span class="source-line-no">1566</span><span id="line-1566">                     Constants.INPUT_CLASSNAME );</span>
+<span class="source-line-no">1567</span><span id="line-1567">    MemberChecks.verifyNoOverlappingAnnotations( method, annotations, Collections.emptyMap() );</span>
+<span class="source-line-no">1568</span><span id="line-1568">  }</span>
+<span class="source-line-no">1569</span><span id="line-1569"></span>
+<span class="source-line-no">1570</span><span id="line-1570">  private boolean isSentinelName( @Nonnull final String name )</span>
 <span class="source-line-no">1571</span><span id="line-1571">  {</span>
-<span class="source-line-no">1572</span><span id="line-1572">    if ( isSentinelName( name ) )</span>
-<span class="source-line-no">1573</span><span id="line-1573">    {</span>
-<span class="source-line-no">1574</span><span id="line-1574">      final String methodName = method.getSimpleName().toString();</span>
-<span class="source-line-no">1575</span><span id="line-1575">      final Matcher matcher = pattern.matcher( methodName );</span>
-<span class="source-line-no">1576</span><span id="line-1576">      if ( matcher.find() )</span>
-<span class="source-line-no">1577</span><span id="line-1577">      {</span>
-<span class="source-line-no">1578</span><span id="line-1578">        final String candidate = matcher.group( 1 );</span>
-<span class="source-line-no">1579</span><span id="line-1579">        return Character.toLowerCase( candidate.charAt( 0 ) ) + candidate.substring( 1 );</span>
-<span class="source-line-no">1580</span><span id="line-1580">      }</span>
-<span class="source-line-no">1581</span><span id="line-1581">      else</span>
-<span class="source-line-no">1582</span><span id="line-1582">      {</span>
-<span class="source-line-no">1583</span><span id="line-1583">        return null;</span>
-<span class="source-line-no">1584</span><span id="line-1584">      }</span>
-<span class="source-line-no">1585</span><span id="line-1585">    }</span>
-<span class="source-line-no">1586</span><span id="line-1586">    else</span>
-<span class="source-line-no">1587</span><span id="line-1587">    {</span>
-<span class="source-line-no">1588</span><span id="line-1588">      return name;</span>
-<span class="source-line-no">1589</span><span id="line-1589">    }</span>
-<span class="source-line-no">1590</span><span id="line-1590">  }</span>
-<span class="source-line-no">1591</span><span id="line-1591">}</span>
+<span class="source-line-no">1572</span><span id="line-1572">    return SENTINEL_NAME.equals( name );</span>
+<span class="source-line-no">1573</span><span id="line-1573">  }</span>
+<span class="source-line-no">1574</span><span id="line-1574"></span>
+<span class="source-line-no">1575</span><span id="line-1575">  @Nonnull</span>
+<span class="source-line-no">1576</span><span id="line-1576">  private String getPropertyAccessorName( @Nonnull final ExecutableElement method,</span>
+<span class="source-line-no">1577</span><span id="line-1577">                                          @Nonnull final String specifiedName )</span>
+<span class="source-line-no">1578</span><span id="line-1578">    throws ProcessorException</span>
+<span class="source-line-no">1579</span><span id="line-1579">  {</span>
+<span class="source-line-no">1580</span><span id="line-1580">    String name = deriveName( method, GETTER_PATTERN, specifiedName );</span>
+<span class="source-line-no">1581</span><span id="line-1581">    if ( null != name )</span>
+<span class="source-line-no">1582</span><span id="line-1582">    {</span>
+<span class="source-line-no">1583</span><span id="line-1583">      return name;</span>
+<span class="source-line-no">1584</span><span id="line-1584">    }</span>
+<span class="source-line-no">1585</span><span id="line-1585">    else if ( method.getReturnType().getKind() == TypeKind.BOOLEAN )</span>
+<span class="source-line-no">1586</span><span id="line-1586">    {</span>
+<span class="source-line-no">1587</span><span id="line-1587">      name = deriveName( method, ISSER_PATTERN, specifiedName );</span>
+<span class="source-line-no">1588</span><span id="line-1588">      if ( null != name )</span>
+<span class="source-line-no">1589</span><span id="line-1589">      {</span>
+<span class="source-line-no">1590</span><span id="line-1590">        return name;</span>
+<span class="source-line-no">1591</span><span id="line-1591">      }</span>
+<span class="source-line-no">1592</span><span id="line-1592">    }</span>
+<span class="source-line-no">1593</span><span id="line-1593">    return method.getSimpleName().toString();</span>
+<span class="source-line-no">1594</span><span id="line-1594">  }</span>
+<span class="source-line-no">1595</span><span id="line-1595"></span>
+<span class="source-line-no">1596</span><span id="line-1596">  @Nullable</span>
+<span class="source-line-no">1597</span><span id="line-1597">  private String deriveName( @Nonnull final Element method, @Nonnull final Pattern pattern, @Nonnull final String name )</span>
+<span class="source-line-no">1598</span><span id="line-1598">    throws ProcessorException</span>
+<span class="source-line-no">1599</span><span id="line-1599">  {</span>
+<span class="source-line-no">1600</span><span id="line-1600">    if ( isSentinelName( name ) )</span>
+<span class="source-line-no">1601</span><span id="line-1601">    {</span>
+<span class="source-line-no">1602</span><span id="line-1602">      final String methodName = method.getSimpleName().toString();</span>
+<span class="source-line-no">1603</span><span id="line-1603">      final Matcher matcher = pattern.matcher( methodName );</span>
+<span class="source-line-no">1604</span><span id="line-1604">      if ( matcher.find() )</span>
+<span class="source-line-no">1605</span><span id="line-1605">      {</span>
+<span class="source-line-no">1606</span><span id="line-1606">        final String candidate = matcher.group( 1 );</span>
+<span class="source-line-no">1607</span><span id="line-1607">        return Character.toLowerCase( candidate.charAt( 0 ) ) + candidate.substring( 1 );</span>
+<span class="source-line-no">1608</span><span id="line-1608">      }</span>
+<span class="source-line-no">1609</span><span id="line-1609">      else</span>
+<span class="source-line-no">1610</span><span id="line-1610">      {</span>
+<span class="source-line-no">1611</span><span id="line-1611">        return null;</span>
+<span class="source-line-no">1612</span><span id="line-1612">      }</span>
+<span class="source-line-no">1613</span><span id="line-1613">    }</span>
+<span class="source-line-no">1614</span><span id="line-1614">    else</span>
+<span class="source-line-no">1615</span><span id="line-1615">    {</span>
+<span class="source-line-no">1616</span><span id="line-1616">      return name;</span>
+<span class="source-line-no">1617</span><span id="line-1617">    }</span>
+<span class="source-line-no">1618</span><span id="line-1618">  }</span>
+<span class="source-line-no">1619</span><span id="line-1619">}</span>
 
 
 

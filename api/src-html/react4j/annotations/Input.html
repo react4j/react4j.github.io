@@ -49,131 +49,136 @@
 <span class="source-line-no">036</span><span id="line-36"> *   expected to be invoked outside the view. A warning will be generated but can be suppressed by the</span>
 <span class="source-line-no">037</span><span id="line-37"> *   {@link SuppressWarnings} or {@link SuppressReact4jWarnings} annotations with a key "React4j:ProtectedMethod".</span>
 <span class="source-line-no">038</span><span id="line-38"> * &lt;/li&gt;</span>
-<span class="source-line-no">039</span><span id="line-39"> * &lt;/ul&gt;</span>
-<span class="source-line-no">040</span><span id="line-40"> */</span>
-<span class="source-line-no">041</span><span id="line-41">@Documented</span>
-<span class="source-line-no">042</span><span id="line-42">@Target( ElementType.METHOD )</span>
-<span class="source-line-no">043</span><span id="line-43">public @interface Input</span>
-<span class="source-line-no">044</span><span id="line-44">{</span>
-<span class="source-line-no">045</span><span id="line-45">  /**</span>
-<span class="source-line-no">046</span><span id="line-46">   * Return the name of the input.</span>
-<span class="source-line-no">047</span><span id="line-47">   * The name is the key used when accessing the input from the inputs object. It is also used when creating</span>
-<span class="source-line-no">048</span><span id="line-48">   * the builder steps associated with the inputs that set {@link #source()} to {@link Source#DEFAULT}.</span>
-<span class="source-line-no">049</span><span id="line-49">   *</span>
-<span class="source-line-no">050</span><span id="line-50">   * @return the name of the input.</span>
-<span class="source-line-no">051</span><span id="line-51">   */</span>
-<span class="source-line-no">052</span><span id="line-52">  @Nonnull</span>
-<span class="source-line-no">053</span><span id="line-53">  String name() default "&lt;default&gt;";</span>
-<span class="source-line-no">054</span><span id="line-54"></span>
-<span class="source-line-no">055</span><span id="line-55">  /**</span>
-<span class="source-line-no">056</span><span id="line-56">   * Return the qualifier used to access value from context.</span>
-<span class="source-line-no">057</span><span id="line-57">   * It must only be specified if {@link #source()} is set to {@link Source#CONTEXT}.</span>
-<span class="source-line-no">058</span><span id="line-58">   *</span>
-<span class="source-line-no">059</span><span id="line-59">   * @return the qualifier used to access value from context.</span>
-<span class="source-line-no">060</span><span id="line-60">   */</span>
-<span class="source-line-no">061</span><span id="line-61">  @Nonnull</span>
-<span class="source-line-no">062</span><span id="line-62">  String qualifier() default "";</span>
-<span class="source-line-no">063</span><span id="line-63"></span>
-<span class="source-line-no">064</span><span id="line-64">  /**</span>
-<span class="source-line-no">065</span><span id="line-65">   * The setting controlling where the input value is source from.</span>
-<span class="source-line-no">066</span><span id="line-66">   * If the source is set to {@link Source#CONTEXT} then the input is sometimes described as a "TreeInput"</span>
-<span class="source-line-no">067</span><span id="line-67">   * as it is transparently passed from a parent view to all child views. A "TreeInput" does not</span>
-<span class="source-line-no">068</span><span id="line-68">   * have to be specified by the user when creating the view.</span>
-<span class="source-line-no">069</span><span id="line-69">   *</span>
-<span class="source-line-no">070</span><span id="line-70">   * @return the setting controlling where the input value is source from.</span>
-<span class="source-line-no">071</span><span id="line-71">   */</span>
-<span class="source-line-no">072</span><span id="line-72">  Source source() default Source.DEFAULT;</span>
-<span class="source-line-no">073</span><span id="line-73"></span>
-<span class="source-line-no">074</span><span id="line-74">  /**</span>
-<span class="source-line-no">075</span><span id="line-75">   * Setting indicating whether the input should be supplied when the view is constructed.</span>
-<span class="source-line-no">076</span><span id="line-76">   * This influences validation when enabled and how the Builder class is created.</span>
-<span class="source-line-no">077</span><span id="line-77">   * If set to {@link Feature#ENABLE} then the user MUST supply the input and the builder will require the user</span>
-<span class="source-line-no">078</span><span id="line-78">   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the input.</span>
-<span class="source-line-no">079</span><span id="line-79">   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#DISABLE}</span>
-<span class="source-line-no">080</span><span id="line-80">   * if there is a corresponding {@link InputDefault} for the input or the {@link #source()} parameter is set to</span>
-<span class="source-line-no">081</span><span id="line-81">   * {@link Source#CONTEXT}, otherwise it will be treated as {@link Feature#ENABLE}. The value of this setting</span>
-<span class="source-line-no">082</span><span id="line-82">   * must not be {@link Feature#ENABLE} when {@link #source()} is set to {@link Source#CONTEXT}.</span>
-<span class="source-line-no">083</span><span id="line-83">   *</span>
-<span class="source-line-no">084</span><span id="line-84">   * @return the flag indicating whether the input needs to be supplied.</span>
-<span class="source-line-no">085</span><span id="line-85">   */</span>
-<span class="source-line-no">086</span><span id="line-86">  Feature require() default Feature.AUTODETECT;</span>
-<span class="source-line-no">087</span><span id="line-87"></span>
-<span class="source-line-no">088</span><span id="line-88">  /**</span>
-<span class="source-line-no">089</span><span id="line-89">   * Indicate whether the input should be annotated by {@link Observable}.</span>
-<span class="source-line-no">090</span><span id="line-90">   *</span>
-<span class="source-line-no">091</span><span id="line-91">   * &lt;p&gt;If set to {@link Feature#AUTODETECT} then the input will be observable if and only if:&lt;/p&gt;</span>
-<span class="source-line-no">092</span><span id="line-92">   * &lt;ul&gt;</span>
-<span class="source-line-no">093</span><span id="line-93">   * &lt;li&gt;{@link #immutable()} ()} is not set to {@code true}.&lt;/li&gt;</span>
-<span class="source-line-no">094</span><span id="line-94">   * &lt;li&gt;the view has at least one method annotated with {@link Memoize} or {@link Observe}.&lt;/li&gt;</span>
-<span class="source-line-no">095</span><span id="line-95">   * &lt;/ul&gt;</span>
-<span class="source-line-no">096</span><span id="line-96">   *</span>
-<span class="source-line-no">097</span><span id="line-97">   * @return the enum indicating whether input is observable.</span>
-<span class="source-line-no">098</span><span id="line-98">   */</span>
-<span class="source-line-no">099</span><span id="line-99">  Feature observable() default Feature.AUTODETECT;</span>
-<span class="source-line-no">100</span><span id="line-100"></span>
-<span class="source-line-no">101</span><span id="line-101">  /**</span>
-<span class="source-line-no">102</span><span id="line-102">   * Return an enum indicating whether the view should check whether the value of the input is disposed</span>
-<span class="source-line-no">103</span><span id="line-103">   * prior to rendering. If the value is disposed then the render method will exit early and return null.</span>
-<span class="source-line-no">104</span><span id="line-104">   * If this parameter is set to {@link Feature#AUTODETECT} then the annotation processor will inspect the</span>
-<span class="source-line-no">105</span><span id="line-105">   * type of the input and treat it as {@link Feature#ENABLE} if the type is annotated with the {@link ArezComponent}</span>
-<span class="source-line-no">106</span><span id="line-106">   * annotation or the {@link ActAsComponent} annotation.</span>
-<span class="source-line-no">107</span><span id="line-107">   *</span>
-<span class="source-line-no">108</span><span id="line-108">   * @return an enum indicating whether the view should check whether the value of the input is disposed prior to rendering.</span>
-<span class="source-line-no">109</span><span id="line-109">   */</span>
-<span class="source-line-no">110</span><span id="line-110">  Feature disposable() default Feature.AUTODETECT;</span>
-<span class="source-line-no">111</span><span id="line-111"></span>
-<span class="source-line-no">112</span><span id="line-112">  /**</span>
-<span class="source-line-no">113</span><span id="line-113">   * Return an enum indicating whether the view should be disposed if the input is disposed. To enable this feature,</span>
-<span class="source-line-no">114</span><span id="line-114">   * the input MUST set {@link #immutable()} to &lt;code&gt;true&lt;/code&gt;, {@link #disposable()} MUST resolve to</span>
-<span class="source-line-no">115</span><span id="line-115">   * {@link Feature#ENABLE}. The type of the input is expected to implement the {@link arez.component.DisposeNotifier}</span>
-<span class="source-line-no">116</span><span id="line-116">   * interface either directly or indirectly. If this parameter is set to {@link Feature#AUTODETECT} then the</span>
-<span class="source-line-no">117</span><span id="line-117">   * annotation processor will treat it as {@link Feature#ENABLE} if {@link #immutable()} is &lt;code&gt;true&lt;/code&gt; and</span>
-<span class="source-line-no">118</span><span id="line-118">   * {@link #disposable()} resolves to {@link Feature#ENABLE}.</span>
-<span class="source-line-no">119</span><span id="line-119">   *</span>
-<span class="source-line-no">120</span><span id="line-120">   * @return an enum indicating whether the view should be disposed if the input is disposed.</span>
-<span class="source-line-no">121</span><span id="line-121">   */</span>
-<span class="source-line-no">122</span><span id="line-122">  Feature dependency() default Feature.AUTODETECT;</span>
-<span class="source-line-no">123</span><span id="line-123"></span>
-<span class="source-line-no">124</span><span id="line-124">  /**</span>
-<span class="source-line-no">125</span><span id="line-125">   * True if the input is not expected to change after initial value is set. If the value of the input does change</span>
-<span class="source-line-no">126</span><span id="line-126">   * then it is expected that the view will be unmounted and a new view created. This is implemented</span>
-<span class="source-line-no">127</span><span id="line-127">   * by synthesizing a key for the view every time the view that is derived from this input. To enable this</span>
-<span class="source-line-no">128</span><span id="line-128">   * the annotation processor must be able to identify the type of the input so that a key can be synthesized. The</span>
-<span class="source-line-no">129</span><span id="line-129">   * following types are supported by the annotation processor;</span>
-<span class="source-line-no">130</span><span id="line-130">   *</span>
-<span class="source-line-no">131</span><span id="line-131">   * &lt;ul&gt;</span>
-<span class="source-line-no">132</span><span id="line-132">   * &lt;li&gt;primitive types (i.e. boolean, short etc) and their corresponding boxed types (i.e. {@link java.lang.Boolean}, {@link java.lang.Short} etc).&lt;/li&gt;</span>
-<span class="source-line-no">133</span><span id="line-133">   * &lt;li&gt;the {@link java.lang.String} type&lt;/li&gt;</span>
-<span class="source-line-no">134</span><span id="line-134">   * &lt;li&gt;any class that implements {@link Keyed}&lt;/li&gt;</span>
-<span class="source-line-no">135</span><span id="line-135">   * &lt;li&gt;any class that is annotated with {@link ArezComponent} where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;</span>
-<span class="source-line-no">136</span><span id="line-136">   * &lt;li&gt;any class or interface that is annotated with {@link ActAsComponent}. It is assumed that every implementation is an Arez component where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;</span>
-<span class="source-line-no">137</span><span id="line-137">   * &lt;li&gt;any class or interface that is compatible with {@link Identifiable}&lt;/li&gt;</span>
-<span class="source-line-no">138</span><span id="line-138">   * &lt;li&gt;if none of the above scenarios is valid then the code will attempt to derive the key at runtime. First via the {@link Keyed} interface, then the {@link Identifiable} interface and if these strategies are not possible then toString() will be invoked on the input.&lt;/li&gt;</span>
-<span class="source-line-no">139</span><span id="line-139">   * &lt;/ul&gt;</span>
-<span class="source-line-no">140</span><span id="line-140">   *</span>
-<span class="source-line-no">141</span><span id="line-141">   * &lt;p&gt;It should be noted that if a type implements {@link Keyed} and is annotated with either {@link ArezComponent}</span>
-<span class="source-line-no">142</span><span id="line-142">   * or {@link ActAsComponent} then the annotation processor will assume the {@link Keyed} interface is to used in</span>
-<span class="source-line-no">143</span><span id="line-143">   * preference to other alternative strategies.&lt;/p&gt;</span>
-<span class="source-line-no">144</span><span id="line-144">   *</span>
-<span class="source-line-no">145</span><span id="line-145">   * @return true if changing the input recreates the view.</span>
-<span class="source-line-no">146</span><span id="line-146">   */</span>
-<span class="source-line-no">147</span><span id="line-147">  boolean immutable() default false;</span>
-<span class="source-line-no">148</span><span id="line-148"></span>
-<span class="source-line-no">149</span><span id="line-149">  /**</span>
-<span class="source-line-no">150</span><span id="line-150">   * Enum where the input is sourced from.</span>
+<span class="source-line-no">039</span><span id="line-39"> * &lt;li&gt;</span>
+<span class="source-line-no">040</span><span id="line-40"> *   Should be annotated with either {@link javax.annotation.Nonnull} or {@link javax.annotation.Nullable} if the</span>
+<span class="source-line-no">041</span><span id="line-41"> *   return type is not a primitive. A warning will be generated but can be suppressed by the {@link SuppressWarnings}</span>
+<span class="source-line-no">042</span><span id="line-42"> *   or {@link SuppressReact4jWarnings} annotations with a key "React4j:MissingInputNullability".</span>
+<span class="source-line-no">043</span><span id="line-43"> * &lt;/li&gt;</span>
+<span class="source-line-no">044</span><span id="line-44"> * &lt;/ul&gt;</span>
+<span class="source-line-no">045</span><span id="line-45"> */</span>
+<span class="source-line-no">046</span><span id="line-46">@Documented</span>
+<span class="source-line-no">047</span><span id="line-47">@Target( ElementType.METHOD )</span>
+<span class="source-line-no">048</span><span id="line-48">public @interface Input</span>
+<span class="source-line-no">049</span><span id="line-49">{</span>
+<span class="source-line-no">050</span><span id="line-50">  /**</span>
+<span class="source-line-no">051</span><span id="line-51">   * Return the name of the input.</span>
+<span class="source-line-no">052</span><span id="line-52">   * The name is the key used when accessing the input from the inputs object. It is also used when creating</span>
+<span class="source-line-no">053</span><span id="line-53">   * the builder steps associated with the inputs that set {@link #source()} to {@link Source#DEFAULT}.</span>
+<span class="source-line-no">054</span><span id="line-54">   *</span>
+<span class="source-line-no">055</span><span id="line-55">   * @return the name of the input.</span>
+<span class="source-line-no">056</span><span id="line-56">   */</span>
+<span class="source-line-no">057</span><span id="line-57">  @Nonnull</span>
+<span class="source-line-no">058</span><span id="line-58">  String name() default "&lt;default&gt;";</span>
+<span class="source-line-no">059</span><span id="line-59"></span>
+<span class="source-line-no">060</span><span id="line-60">  /**</span>
+<span class="source-line-no">061</span><span id="line-61">   * Return the qualifier used to access value from context.</span>
+<span class="source-line-no">062</span><span id="line-62">   * It must only be specified if {@link #source()} is set to {@link Source#CONTEXT}.</span>
+<span class="source-line-no">063</span><span id="line-63">   *</span>
+<span class="source-line-no">064</span><span id="line-64">   * @return the qualifier used to access value from context.</span>
+<span class="source-line-no">065</span><span id="line-65">   */</span>
+<span class="source-line-no">066</span><span id="line-66">  @Nonnull</span>
+<span class="source-line-no">067</span><span id="line-67">  String qualifier() default "";</span>
+<span class="source-line-no">068</span><span id="line-68"></span>
+<span class="source-line-no">069</span><span id="line-69">  /**</span>
+<span class="source-line-no">070</span><span id="line-70">   * The setting controlling where the input value is source from.</span>
+<span class="source-line-no">071</span><span id="line-71">   * If the source is set to {@link Source#CONTEXT} then the input is sometimes described as a "TreeInput"</span>
+<span class="source-line-no">072</span><span id="line-72">   * as it is transparently passed from a parent view to all child views. A "TreeInput" does not</span>
+<span class="source-line-no">073</span><span id="line-73">   * have to be specified by the user when creating the view.</span>
+<span class="source-line-no">074</span><span id="line-74">   *</span>
+<span class="source-line-no">075</span><span id="line-75">   * @return the setting controlling where the input value is source from.</span>
+<span class="source-line-no">076</span><span id="line-76">   */</span>
+<span class="source-line-no">077</span><span id="line-77">  Source source() default Source.DEFAULT;</span>
+<span class="source-line-no">078</span><span id="line-78"></span>
+<span class="source-line-no">079</span><span id="line-79">  /**</span>
+<span class="source-line-no">080</span><span id="line-80">   * Setting indicating whether the input should be supplied when the view is constructed.</span>
+<span class="source-line-no">081</span><span id="line-81">   * This influences validation when enabled and how the Builder class is created.</span>
+<span class="source-line-no">082</span><span id="line-82">   * If set to {@link Feature#ENABLE} then the user MUST supply the input and the builder will require the user</span>
+<span class="source-line-no">083</span><span id="line-83">   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the input.</span>
+<span class="source-line-no">084</span><span id="line-84">   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#DISABLE}</span>
+<span class="source-line-no">085</span><span id="line-85">   * if there is a corresponding {@link InputDefault} for the input or the {@link #source()} parameter is set to</span>
+<span class="source-line-no">086</span><span id="line-86">   * {@link Source#CONTEXT}, otherwise it will be treated as {@link Feature#ENABLE}. The value of this setting</span>
+<span class="source-line-no">087</span><span id="line-87">   * must not be {@link Feature#ENABLE} when {@link #source()} is set to {@link Source#CONTEXT}.</span>
+<span class="source-line-no">088</span><span id="line-88">   *</span>
+<span class="source-line-no">089</span><span id="line-89">   * @return the flag indicating whether the input needs to be supplied.</span>
+<span class="source-line-no">090</span><span id="line-90">   */</span>
+<span class="source-line-no">091</span><span id="line-91">  Feature require() default Feature.AUTODETECT;</span>
+<span class="source-line-no">092</span><span id="line-92"></span>
+<span class="source-line-no">093</span><span id="line-93">  /**</span>
+<span class="source-line-no">094</span><span id="line-94">   * Indicate whether the input should be annotated by {@link Observable}.</span>
+<span class="source-line-no">095</span><span id="line-95">   *</span>
+<span class="source-line-no">096</span><span id="line-96">   * &lt;p&gt;If set to {@link Feature#AUTODETECT} then the input will be observable if and only if:&lt;/p&gt;</span>
+<span class="source-line-no">097</span><span id="line-97">   * &lt;ul&gt;</span>
+<span class="source-line-no">098</span><span id="line-98">   * &lt;li&gt;{@link #immutable()} ()} is not set to {@code true}.&lt;/li&gt;</span>
+<span class="source-line-no">099</span><span id="line-99">   * &lt;li&gt;the view has at least one method annotated with {@link Memoize} or {@link Observe}.&lt;/li&gt;</span>
+<span class="source-line-no">100</span><span id="line-100">   * &lt;/ul&gt;</span>
+<span class="source-line-no">101</span><span id="line-101">   *</span>
+<span class="source-line-no">102</span><span id="line-102">   * @return the enum indicating whether input is observable.</span>
+<span class="source-line-no">103</span><span id="line-103">   */</span>
+<span class="source-line-no">104</span><span id="line-104">  Feature observable() default Feature.AUTODETECT;</span>
+<span class="source-line-no">105</span><span id="line-105"></span>
+<span class="source-line-no">106</span><span id="line-106">  /**</span>
+<span class="source-line-no">107</span><span id="line-107">   * Return an enum indicating whether the view should check whether the value of the input is disposed</span>
+<span class="source-line-no">108</span><span id="line-108">   * prior to rendering. If the value is disposed then the render method will exit early and return null.</span>
+<span class="source-line-no">109</span><span id="line-109">   * If this parameter is set to {@link Feature#AUTODETECT} then the annotation processor will inspect the</span>
+<span class="source-line-no">110</span><span id="line-110">   * type of the input and treat it as {@link Feature#ENABLE} if the type is annotated with the {@link ArezComponent}</span>
+<span class="source-line-no">111</span><span id="line-111">   * annotation or the {@link ActAsComponent} annotation.</span>
+<span class="source-line-no">112</span><span id="line-112">   *</span>
+<span class="source-line-no">113</span><span id="line-113">   * @return an enum indicating whether the view should check whether the value of the input is disposed prior to rendering.</span>
+<span class="source-line-no">114</span><span id="line-114">   */</span>
+<span class="source-line-no">115</span><span id="line-115">  Feature disposable() default Feature.AUTODETECT;</span>
+<span class="source-line-no">116</span><span id="line-116"></span>
+<span class="source-line-no">117</span><span id="line-117">  /**</span>
+<span class="source-line-no">118</span><span id="line-118">   * Return an enum indicating whether the view should be disposed if the input is disposed. To enable this feature,</span>
+<span class="source-line-no">119</span><span id="line-119">   * the input MUST set {@link #immutable()} to &lt;code&gt;true&lt;/code&gt;, {@link #disposable()} MUST resolve to</span>
+<span class="source-line-no">120</span><span id="line-120">   * {@link Feature#ENABLE}. The type of the input is expected to implement the {@link arez.component.DisposeNotifier}</span>
+<span class="source-line-no">121</span><span id="line-121">   * interface either directly or indirectly. If this parameter is set to {@link Feature#AUTODETECT} then the</span>
+<span class="source-line-no">122</span><span id="line-122">   * annotation processor will treat it as {@link Feature#ENABLE} if {@link #immutable()} is &lt;code&gt;true&lt;/code&gt; and</span>
+<span class="source-line-no">123</span><span id="line-123">   * {@link #disposable()} resolves to {@link Feature#ENABLE}.</span>
+<span class="source-line-no">124</span><span id="line-124">   *</span>
+<span class="source-line-no">125</span><span id="line-125">   * @return an enum indicating whether the view should be disposed if the input is disposed.</span>
+<span class="source-line-no">126</span><span id="line-126">   */</span>
+<span class="source-line-no">127</span><span id="line-127">  Feature dependency() default Feature.AUTODETECT;</span>
+<span class="source-line-no">128</span><span id="line-128"></span>
+<span class="source-line-no">129</span><span id="line-129">  /**</span>
+<span class="source-line-no">130</span><span id="line-130">   * True if the input is not expected to change after initial value is set. If the value of the input does change</span>
+<span class="source-line-no">131</span><span id="line-131">   * then it is expected that the view will be unmounted and a new view created. This is implemented</span>
+<span class="source-line-no">132</span><span id="line-132">   * by synthesizing a key for the view every time the view that is derived from this input. To enable this</span>
+<span class="source-line-no">133</span><span id="line-133">   * the annotation processor must be able to identify the type of the input so that a key can be synthesized. The</span>
+<span class="source-line-no">134</span><span id="line-134">   * following types are supported by the annotation processor;</span>
+<span class="source-line-no">135</span><span id="line-135">   *</span>
+<span class="source-line-no">136</span><span id="line-136">   * &lt;ul&gt;</span>
+<span class="source-line-no">137</span><span id="line-137">   * &lt;li&gt;primitive types (i.e. boolean, short etc) and their corresponding boxed types (i.e. {@link java.lang.Boolean}, {@link java.lang.Short} etc).&lt;/li&gt;</span>
+<span class="source-line-no">138</span><span id="line-138">   * &lt;li&gt;the {@link java.lang.String} type&lt;/li&gt;</span>
+<span class="source-line-no">139</span><span id="line-139">   * &lt;li&gt;any class that implements {@link Keyed}&lt;/li&gt;</span>
+<span class="source-line-no">140</span><span id="line-140">   * &lt;li&gt;any class that is annotated with {@link ArezComponent} where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;</span>
+<span class="source-line-no">141</span><span id="line-141">   * &lt;li&gt;any class or interface that is annotated with {@link ActAsComponent}. It is assumed that every implementation is an Arez component where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;</span>
+<span class="source-line-no">142</span><span id="line-142">   * &lt;li&gt;any class or interface that is compatible with {@link Identifiable}&lt;/li&gt;</span>
+<span class="source-line-no">143</span><span id="line-143">   * &lt;li&gt;if none of the above scenarios is valid then the code will attempt to derive the key at runtime. First via the {@link Keyed} interface, then the {@link Identifiable} interface and if these strategies are not possible then toString() will be invoked on the input.&lt;/li&gt;</span>
+<span class="source-line-no">144</span><span id="line-144">   * &lt;/ul&gt;</span>
+<span class="source-line-no">145</span><span id="line-145">   *</span>
+<span class="source-line-no">146</span><span id="line-146">   * &lt;p&gt;It should be noted that if a type implements {@link Keyed} and is annotated with either {@link ArezComponent}</span>
+<span class="source-line-no">147</span><span id="line-147">   * or {@link ActAsComponent} then the annotation processor will assume the {@link Keyed} interface is to used in</span>
+<span class="source-line-no">148</span><span id="line-148">   * preference to other alternative strategies.&lt;/p&gt;</span>
+<span class="source-line-no">149</span><span id="line-149">   *</span>
+<span class="source-line-no">150</span><span id="line-150">   * @return true if changing the input recreates the view.</span>
 <span class="source-line-no">151</span><span id="line-151">   */</span>
-<span class="source-line-no">152</span><span id="line-152">  enum Source</span>
-<span class="source-line-no">153</span><span id="line-153">  {</span>
-<span class="source-line-no">154</span><span id="line-154">    /**</span>
-<span class="source-line-no">155</span><span id="line-155">     * The input value is passed to the view during construction.</span>
-<span class="source-line-no">156</span><span id="line-156">     */</span>
-<span class="source-line-no">157</span><span id="line-157">    DEFAULT,</span>
-<span class="source-line-no">158</span><span id="line-158">    /**</span>
-<span class="source-line-no">159</span><span id="line-159">     * The input value is retrieved from the react context.</span>
-<span class="source-line-no">160</span><span id="line-160">     */</span>
-<span class="source-line-no">161</span><span id="line-161">    CONTEXT</span>
-<span class="source-line-no">162</span><span id="line-162">  }</span>
-<span class="source-line-no">163</span><span id="line-163">}</span>
+<span class="source-line-no">152</span><span id="line-152">  boolean immutable() default false;</span>
+<span class="source-line-no">153</span><span id="line-153"></span>
+<span class="source-line-no">154</span><span id="line-154">  /**</span>
+<span class="source-line-no">155</span><span id="line-155">   * Enum where the input is sourced from.</span>
+<span class="source-line-no">156</span><span id="line-156">   */</span>
+<span class="source-line-no">157</span><span id="line-157">  enum Source</span>
+<span class="source-line-no">158</span><span id="line-158">  {</span>
+<span class="source-line-no">159</span><span id="line-159">    /**</span>
+<span class="source-line-no">160</span><span id="line-160">     * The input value is passed to the view during construction.</span>
+<span class="source-line-no">161</span><span id="line-161">     */</span>
+<span class="source-line-no">162</span><span id="line-162">    DEFAULT,</span>
+<span class="source-line-no">163</span><span id="line-163">    /**</span>
+<span class="source-line-no">164</span><span id="line-164">     * The input value is retrieved from the react context.</span>
+<span class="source-line-no">165</span><span id="line-165">     */</span>
+<span class="source-line-no">166</span><span id="line-166">    CONTEXT</span>
+<span class="source-line-no">167</span><span id="line-167">  }</span>
+<span class="source-line-no">168</span><span id="line-168">}</span>
 
 
 

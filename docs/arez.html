@@ -27,6 +27,7 @@ observable state <code>AppData.model.totalCount()</code>, <code>AppData.viewServ
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
 </span>{
   <span class="hljs-meta">@Render</span>
+  <span class="hljs-meta">@Nonnull</span>
   <span class="hljs-function">ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> count = AppData.model.totalCount();
@@ -95,6 +96,7 @@ that encapsulates the html that changes.</p>
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooterTodoCount</span>
 </span>{
   <span class="hljs-meta">@Render</span>
+  <span class="hljs-meta">@Nonnull</span>
   <span class="hljs-function">ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
   </span>{
     <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> count = AppData.model.totalCount();

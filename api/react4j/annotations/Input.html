@@ -68,7 +68,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>)
-</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-41">Input</a></span></div>
+</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-46">Input</a></span></div>
 <div class="block">Annotation used to specify an abstract method that returns a prop.
  The property is extracted from Reacts underlying props object. By default the prop is passed as
  a value in when creating the view but it can also be retrieved from the react context.
@@ -91,6 +91,11 @@ loadScripts(document, 'script');</script>
    Should not be protected if in the class annotated with the <a href="View.html" title="annotation interface in react4j.annotations"><code>View</code></a> annotation as the method is not
    expected to be invoked outside the view. A warning will be generated but can be suppressed by the
    <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a> or <a href="SuppressReact4jWarnings.html" title="annotation interface in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key "React4j:ProtectedMethod".
+ </li>
+ <li>
+   Should be annotated with either <code>Nonnull</code> or <code>Nullable</code> if the
+   return type is not a primitive. A warning will be generated but can be suppressed by the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/SuppressWarnings.html" title="class or interface in java.lang" class="external-link"><code>SuppressWarnings</code></a>
+   or <a href="SuppressReact4jWarnings.html" title="annotation interface in react4j.annotations"><code>SuppressReact4jWarnings</code></a> annotations with a key "React4j:MissingInputNullability".
  </li>
  </ul></div>
 </section>
@@ -179,7 +184,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="name()">
 <h3>name</h3>
 <div class="member-signature"><span class="annotations">@Nonnull
-</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-52">name</a></span></div>
+</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-57">name</a></span></div>
 <div class="block">Return the name of the input.
  The name is the key used when accessing the input from the inputs object. It is also used when creating
  the builder steps associated with the inputs that set <a href="#source()"><code>source()</code></a> to <a href="Input.Source.html#DEFAULT"><code>Input.Source.DEFAULT</code></a>.</div>
@@ -197,7 +202,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="qualifier()">
 <h3>qualifier</h3>
 <div class="member-signature"><span class="annotations">@Nonnull
-</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-61">qualifier</a></span></div>
+</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-66">qualifier</a></span></div>
 <div class="block">Return the qualifier used to access value from context.
  It must only be specified if <a href="#source()"><code>source()</code></a> is set to <a href="Input.Source.html#CONTEXT"><code>Input.Source.CONTEXT</code></a>.</div>
 <dl class="notes">
@@ -213,7 +218,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="source()">
 <h3>source</h3>
-<div class="member-signature"><span class="return-type"><a href="Input.Source.html" title="enum class in react4j.annotations">Input.Source</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-72">source</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Input.Source.html" title="enum class in react4j.annotations">Input.Source</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-77">source</a></span></div>
 <div class="block">The setting controlling where the input value is source from.
  If the source is set to <a href="Input.Source.html#CONTEXT"><code>Input.Source.CONTEXT</code></a> then the input is sometimes described as a "TreeInput"
  as it is transparently passed from a parent view to all child views. A "TreeInput" does not
@@ -231,7 +236,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="require()">
 <h3>require</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-86">require</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-91">require</a></span></div>
 <div class="block">Setting indicating whether the input should be supplied when the view is constructed.
  This influences validation when enabled and how the Builder class is created.
  If set to <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then the user MUST supply the input and the builder will require the user
@@ -253,7 +258,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observable()">
 <h3>observable</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-99">observable</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-104">observable</a></span></div>
 <div class="block">Indicate whether the input should be annotated by <a href="https://arez.github.io/api/arez/annotations/Observable.html" title="class or interface in arez.annotations" class="external-link"><code>Observable</code></a>.
 
  <p>If set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the input will be observable if and only if:</p>
@@ -274,7 +279,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="disposable()">
 <h3>disposable</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-110">disposable</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-115">disposable</a></span></div>
 <div class="block">Return an enum indicating whether the view should check whether the value of the input is disposed
  prior to rendering. If the value is disposed then the render method will exit early and return null.
  If this parameter is set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will inspect the
@@ -293,7 +298,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="dependency()">
 <h3>dependency</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-122">dependency</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-127">dependency</a></span></div>
 <div class="block">Return an enum indicating whether the view should be disposed if the input is disposed. To enable this feature,
  the input MUST set <a href="#immutable()"><code>immutable()</code></a> to <code>true</code>, <a href="#disposable()"><code>disposable()</code></a> MUST resolve to
  <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a>. The type of the input is expected to implement the <a href="https://arez.github.io/api/arez/component/DisposeNotifier.html" title="class or interface in arez.component" class="external-link"><code>DisposeNotifier</code></a>
@@ -313,7 +318,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="immutable()">
 <h3>immutable</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-147">immutable</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-152">immutable</a></span></div>
 <div class="block">True if the input is not expected to change after initial value is set. If the value of the input does change
  then it is expected that the view will be unmounted and a new view created. This is implemented
  by synthesizing a key for the view every time the view that is derived from this input. To enable this

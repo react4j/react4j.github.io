@@ -18,7 +18,7 @@
 <span class="source-line-no">005</span><span id="line-5">import java.lang.annotation.Target;</span>
 <span class="source-line-no">006</span><span id="line-6"></span>
 <span class="source-line-no">007</span><span id="line-7">/**</span>
-<span class="source-line-no">008</span><span id="line-8"> * Identifies the method that is invoked to render the view.</span>
+<span class="source-line-no">008</span><span id="line-8"> * Identifies the method invoked to render the view.</span>
 <span class="source-line-no">009</span><span id="line-9"> * There must be exactly one method annotated with this annotation within the view.</span>
 <span class="source-line-no">010</span><span id="line-10"> * The method must return a value of type {@link react4j.ReactNode}.</span>
 <span class="source-line-no">011</span><span id="line-11"> *</span>
@@ -41,13 +41,18 @@
 <span class="source-line-no">028</span><span id="line-28"> *   expected to be invoked outside the view. A warning will be generated but can be suppressed by the</span>
 <span class="source-line-no">029</span><span id="line-29"> *   {@link SuppressWarnings} or {@link SuppressReact4jWarnings} annotations with a key "React4j:ProtectedMethod".</span>
 <span class="source-line-no">030</span><span id="line-30"> * &lt;/li&gt;</span>
-<span class="source-line-no">031</span><span id="line-31"> * &lt;/ul&gt;</span>
-<span class="source-line-no">032</span><span id="line-32"> */</span>
-<span class="source-line-no">033</span><span id="line-33">@Documented</span>
-<span class="source-line-no">034</span><span id="line-34">@Target( ElementType.METHOD )</span>
-<span class="source-line-no">035</span><span id="line-35">public @interface Render</span>
-<span class="source-line-no">036</span><span id="line-36">{</span>
-<span class="source-line-no">037</span><span id="line-37">}</span>
+<span class="source-line-no">031</span><span id="line-31"> * &lt;li&gt;</span>
+<span class="source-line-no">032</span><span id="line-32"> *   Should be annotated with either {@link javax.annotation.Nonnull} or {@link javax.annotation.Nullable}. If neither</span>
+<span class="source-line-no">033</span><span id="line-33"> *   annoation is present then a warning will be generated but can be suppressed by the {@link SuppressWarnings} or</span>
+<span class="source-line-no">034</span><span id="line-34"> *   {@link SuppressReact4jWarnings} annotations with a key "React4j:MissingRenderNullability".</span>
+<span class="source-line-no">035</span><span id="line-35"> * &lt;/li&gt;</span>
+<span class="source-line-no">036</span><span id="line-36"> * &lt;/ul&gt;</span>
+<span class="source-line-no">037</span><span id="line-37"> */</span>
+<span class="source-line-no">038</span><span id="line-38">@Documented</span>
+<span class="source-line-no">039</span><span id="line-39">@Target( ElementType.METHOD )</span>
+<span class="source-line-no">040</span><span id="line-40">public @interface Render</span>
+<span class="source-line-no">041</span><span id="line-41">{</span>
+<span class="source-line-no">042</span><span id="line-42">}</span>
 
 
 
