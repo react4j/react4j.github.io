@@ -279,12 +279,16 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="disposable()">
 <h3>disposable</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-115">disposable</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-119">disposable</a></span></div>
 <div class="block">Return an enum indicating whether the view should check whether the value of the input is disposed
  prior to rendering. If the value is disposed then the render method will exit early and return null.
  If this parameter is set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will inspect the
  type of the input and treat it as <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a> if the type is annotated with the <a href="https://arez.github.io/api/arez/annotations/ArezComponent.html" title="class or interface in arez.annotations" class="external-link"><code>ArezComponent</code></a>
- annotation or the <a href="https://arez.github.io/api/arez/annotations/ActAsComponent.html" title="class or interface in arez.annotations" class="external-link"><code>ActAsComponent</code></a> annotation.</div>
+ annotation or the <a href="https://arez.github.io/api/arez/annotations/ActAsComponent.html" title="class or interface in arez.annotations" class="external-link"><code>ActAsComponent</code></a> annotation.
+
+ <p>For tracked renders, disposable inputs whose declared type is annotated with <a href="https://arez.github.io/api/arez/annotations/ArezComponent.html" title="class or interface in arez.annotations" class="external-link"><code>ArezComponent</code></a> or
+ <a href="https://arez.github.io/api/arez/annotations/ActAsComponent.html" title="class or interface in arez.annotations" class="external-link"><code>ActAsComponent</code></a> will also be observed during render so that disposing the input can invalidate the
+ render and trigger a rerender.</p></div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>an enum indicating whether the view should check whether the value of the input is disposed prior to rendering.</dd>
@@ -298,7 +302,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="dependency()">
 <h3>dependency</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-127">dependency</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-131">dependency</a></span></div>
 <div class="block">Return an enum indicating whether the view should be disposed if the input is disposed. To enable this feature,
  the input MUST set <a href="#immutable()"><code>immutable()</code></a> to <code>true</code>, <a href="#disposable()"><code>disposable()</code></a> MUST resolve to
  <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a>. The type of the input is expected to implement the <a href="https://arez.github.io/api/arez/component/DisposeNotifier.html" title="class or interface in arez.component" class="external-link"><code>DisposeNotifier</code></a>
@@ -318,7 +322,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="immutable()">
 <h3>immutable</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-152">immutable</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-156">immutable</a></span></div>
 <div class="block">True if the input is not expected to change after initial value is set. If the value of the input does change
  then it is expected that the view will be unmounted and a new view created. This is implemented
  by synthesizing a key for the view every time the view that is derived from this input. To enable this

@@ -123,62 +123,66 @@
 <span class="source-line-no">110</span><span id="line-110">   * type of the input and treat it as {@link Feature#ENABLE} if the type is annotated with the {@link ArezComponent}</span>
 <span class="source-line-no">111</span><span id="line-111">   * annotation or the {@link ActAsComponent} annotation.</span>
 <span class="source-line-no">112</span><span id="line-112">   *</span>
-<span class="source-line-no">113</span><span id="line-113">   * @return an enum indicating whether the view should check whether the value of the input is disposed prior to rendering.</span>
-<span class="source-line-no">114</span><span id="line-114">   */</span>
-<span class="source-line-no">115</span><span id="line-115">  Feature disposable() default Feature.AUTODETECT;</span>
-<span class="source-line-no">116</span><span id="line-116"></span>
-<span class="source-line-no">117</span><span id="line-117">  /**</span>
-<span class="source-line-no">118</span><span id="line-118">   * Return an enum indicating whether the view should be disposed if the input is disposed. To enable this feature,</span>
-<span class="source-line-no">119</span><span id="line-119">   * the input MUST set {@link #immutable()} to &lt;code&gt;true&lt;/code&gt;, {@link #disposable()} MUST resolve to</span>
-<span class="source-line-no">120</span><span id="line-120">   * {@link Feature#ENABLE}. The type of the input is expected to implement the {@link arez.component.DisposeNotifier}</span>
-<span class="source-line-no">121</span><span id="line-121">   * interface either directly or indirectly. If this parameter is set to {@link Feature#AUTODETECT} then the</span>
-<span class="source-line-no">122</span><span id="line-122">   * annotation processor will treat it as {@link Feature#ENABLE} if {@link #immutable()} is &lt;code&gt;true&lt;/code&gt; and</span>
-<span class="source-line-no">123</span><span id="line-123">   * {@link #disposable()} resolves to {@link Feature#ENABLE}.</span>
-<span class="source-line-no">124</span><span id="line-124">   *</span>
-<span class="source-line-no">125</span><span id="line-125">   * @return an enum indicating whether the view should be disposed if the input is disposed.</span>
-<span class="source-line-no">126</span><span id="line-126">   */</span>
-<span class="source-line-no">127</span><span id="line-127">  Feature dependency() default Feature.AUTODETECT;</span>
-<span class="source-line-no">128</span><span id="line-128"></span>
-<span class="source-line-no">129</span><span id="line-129">  /**</span>
-<span class="source-line-no">130</span><span id="line-130">   * True if the input is not expected to change after initial value is set. If the value of the input does change</span>
-<span class="source-line-no">131</span><span id="line-131">   * then it is expected that the view will be unmounted and a new view created. This is implemented</span>
-<span class="source-line-no">132</span><span id="line-132">   * by synthesizing a key for the view every time the view that is derived from this input. To enable this</span>
-<span class="source-line-no">133</span><span id="line-133">   * the annotation processor must be able to identify the type of the input so that a key can be synthesized. The</span>
-<span class="source-line-no">134</span><span id="line-134">   * following types are supported by the annotation processor;</span>
-<span class="source-line-no">135</span><span id="line-135">   *</span>
-<span class="source-line-no">136</span><span id="line-136">   * &lt;ul&gt;</span>
-<span class="source-line-no">137</span><span id="line-137">   * &lt;li&gt;primitive types (i.e. boolean, short etc) and their corresponding boxed types (i.e. {@link java.lang.Boolean}, {@link java.lang.Short} etc).&lt;/li&gt;</span>
-<span class="source-line-no">138</span><span id="line-138">   * &lt;li&gt;the {@link java.lang.String} type&lt;/li&gt;</span>
-<span class="source-line-no">139</span><span id="line-139">   * &lt;li&gt;any class that implements {@link Keyed}&lt;/li&gt;</span>
-<span class="source-line-no">140</span><span id="line-140">   * &lt;li&gt;any class that is annotated with {@link ArezComponent} where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;</span>
-<span class="source-line-no">141</span><span id="line-141">   * &lt;li&gt;any class or interface that is annotated with {@link ActAsComponent}. It is assumed that every implementation is an Arez component where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;</span>
-<span class="source-line-no">142</span><span id="line-142">   * &lt;li&gt;any class or interface that is compatible with {@link Identifiable}&lt;/li&gt;</span>
-<span class="source-line-no">143</span><span id="line-143">   * &lt;li&gt;if none of the above scenarios is valid then the code will attempt to derive the key at runtime. First via the {@link Keyed} interface, then the {@link Identifiable} interface and if these strategies are not possible then toString() will be invoked on the input.&lt;/li&gt;</span>
-<span class="source-line-no">144</span><span id="line-144">   * &lt;/ul&gt;</span>
-<span class="source-line-no">145</span><span id="line-145">   *</span>
-<span class="source-line-no">146</span><span id="line-146">   * &lt;p&gt;It should be noted that if a type implements {@link Keyed} and is annotated with either {@link ArezComponent}</span>
-<span class="source-line-no">147</span><span id="line-147">   * or {@link ActAsComponent} then the annotation processor will assume the {@link Keyed} interface is to used in</span>
-<span class="source-line-no">148</span><span id="line-148">   * preference to other alternative strategies.&lt;/p&gt;</span>
+<span class="source-line-no">113</span><span id="line-113">   * &lt;p&gt;For tracked renders, disposable inputs whose declared type is annotated with {@link ArezComponent} or</span>
+<span class="source-line-no">114</span><span id="line-114">   * {@link ActAsComponent} will also be observed during render so that disposing the input can invalidate the</span>
+<span class="source-line-no">115</span><span id="line-115">   * render and trigger a rerender.&lt;/p&gt;</span>
+<span class="source-line-no">116</span><span id="line-116">   *</span>
+<span class="source-line-no">117</span><span id="line-117">   * @return an enum indicating whether the view should check whether the value of the input is disposed prior to rendering.</span>
+<span class="source-line-no">118</span><span id="line-118">   */</span>
+<span class="source-line-no">119</span><span id="line-119">  Feature disposable() default Feature.AUTODETECT;</span>
+<span class="source-line-no">120</span><span id="line-120"></span>
+<span class="source-line-no">121</span><span id="line-121">  /**</span>
+<span class="source-line-no">122</span><span id="line-122">   * Return an enum indicating whether the view should be disposed if the input is disposed. To enable this feature,</span>
+<span class="source-line-no">123</span><span id="line-123">   * the input MUST set {@link #immutable()} to &lt;code&gt;true&lt;/code&gt;, {@link #disposable()} MUST resolve to</span>
+<span class="source-line-no">124</span><span id="line-124">   * {@link Feature#ENABLE}. The type of the input is expected to implement the {@link arez.component.DisposeNotifier}</span>
+<span class="source-line-no">125</span><span id="line-125">   * interface either directly or indirectly. If this parameter is set to {@link Feature#AUTODETECT} then the</span>
+<span class="source-line-no">126</span><span id="line-126">   * annotation processor will treat it as {@link Feature#ENABLE} if {@link #immutable()} is &lt;code&gt;true&lt;/code&gt; and</span>
+<span class="source-line-no">127</span><span id="line-127">   * {@link #disposable()} resolves to {@link Feature#ENABLE}.</span>
+<span class="source-line-no">128</span><span id="line-128">   *</span>
+<span class="source-line-no">129</span><span id="line-129">   * @return an enum indicating whether the view should be disposed if the input is disposed.</span>
+<span class="source-line-no">130</span><span id="line-130">   */</span>
+<span class="source-line-no">131</span><span id="line-131">  Feature dependency() default Feature.AUTODETECT;</span>
+<span class="source-line-no">132</span><span id="line-132"></span>
+<span class="source-line-no">133</span><span id="line-133">  /**</span>
+<span class="source-line-no">134</span><span id="line-134">   * True if the input is not expected to change after initial value is set. If the value of the input does change</span>
+<span class="source-line-no">135</span><span id="line-135">   * then it is expected that the view will be unmounted and a new view created. This is implemented</span>
+<span class="source-line-no">136</span><span id="line-136">   * by synthesizing a key for the view every time the view that is derived from this input. To enable this</span>
+<span class="source-line-no">137</span><span id="line-137">   * the annotation processor must be able to identify the type of the input so that a key can be synthesized. The</span>
+<span class="source-line-no">138</span><span id="line-138">   * following types are supported by the annotation processor;</span>
+<span class="source-line-no">139</span><span id="line-139">   *</span>
+<span class="source-line-no">140</span><span id="line-140">   * &lt;ul&gt;</span>
+<span class="source-line-no">141</span><span id="line-141">   * &lt;li&gt;primitive types (i.e. boolean, short etc) and their corresponding boxed types (i.e. {@link java.lang.Boolean}, {@link java.lang.Short} etc).&lt;/li&gt;</span>
+<span class="source-line-no">142</span><span id="line-142">   * &lt;li&gt;the {@link java.lang.String} type&lt;/li&gt;</span>
+<span class="source-line-no">143</span><span id="line-143">   * &lt;li&gt;any class that implements {@link Keyed}&lt;/li&gt;</span>
+<span class="source-line-no">144</span><span id="line-144">   * &lt;li&gt;any class that is annotated with {@link ArezComponent} where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;</span>
+<span class="source-line-no">145</span><span id="line-145">   * &lt;li&gt;any class or interface that is annotated with {@link ActAsComponent}. It is assumed that every implementation is an Arez component where the {@link ArezComponent#requireId()} parameter does not resolve to {@link arez.annotations.Feature#DISABLE}&lt;/li&gt;</span>
+<span class="source-line-no">146</span><span id="line-146">   * &lt;li&gt;any class or interface that is compatible with {@link Identifiable}&lt;/li&gt;</span>
+<span class="source-line-no">147</span><span id="line-147">   * &lt;li&gt;if none of the above scenarios is valid then the code will attempt to derive the key at runtime. First via the {@link Keyed} interface, then the {@link Identifiable} interface and if these strategies are not possible then toString() will be invoked on the input.&lt;/li&gt;</span>
+<span class="source-line-no">148</span><span id="line-148">   * &lt;/ul&gt;</span>
 <span class="source-line-no">149</span><span id="line-149">   *</span>
-<span class="source-line-no">150</span><span id="line-150">   * @return true if changing the input recreates the view.</span>
-<span class="source-line-no">151</span><span id="line-151">   */</span>
-<span class="source-line-no">152</span><span id="line-152">  boolean immutable() default false;</span>
-<span class="source-line-no">153</span><span id="line-153"></span>
-<span class="source-line-no">154</span><span id="line-154">  /**</span>
-<span class="source-line-no">155</span><span id="line-155">   * Enum where the input is sourced from.</span>
-<span class="source-line-no">156</span><span id="line-156">   */</span>
-<span class="source-line-no">157</span><span id="line-157">  enum Source</span>
-<span class="source-line-no">158</span><span id="line-158">  {</span>
-<span class="source-line-no">159</span><span id="line-159">    /**</span>
-<span class="source-line-no">160</span><span id="line-160">     * The input value is passed to the view during construction.</span>
-<span class="source-line-no">161</span><span id="line-161">     */</span>
-<span class="source-line-no">162</span><span id="line-162">    DEFAULT,</span>
+<span class="source-line-no">150</span><span id="line-150">   * &lt;p&gt;It should be noted that if a type implements {@link Keyed} and is annotated with either {@link ArezComponent}</span>
+<span class="source-line-no">151</span><span id="line-151">   * or {@link ActAsComponent} then the annotation processor will assume the {@link Keyed} interface is to used in</span>
+<span class="source-line-no">152</span><span id="line-152">   * preference to other alternative strategies.&lt;/p&gt;</span>
+<span class="source-line-no">153</span><span id="line-153">   *</span>
+<span class="source-line-no">154</span><span id="line-154">   * @return true if changing the input recreates the view.</span>
+<span class="source-line-no">155</span><span id="line-155">   */</span>
+<span class="source-line-no">156</span><span id="line-156">  boolean immutable() default false;</span>
+<span class="source-line-no">157</span><span id="line-157"></span>
+<span class="source-line-no">158</span><span id="line-158">  /**</span>
+<span class="source-line-no">159</span><span id="line-159">   * Enum where the input is sourced from.</span>
+<span class="source-line-no">160</span><span id="line-160">   */</span>
+<span class="source-line-no">161</span><span id="line-161">  enum Source</span>
+<span class="source-line-no">162</span><span id="line-162">  {</span>
 <span class="source-line-no">163</span><span id="line-163">    /**</span>
-<span class="source-line-no">164</span><span id="line-164">     * The input value is retrieved from the react context.</span>
+<span class="source-line-no">164</span><span id="line-164">     * The input value is passed to the view during construction.</span>
 <span class="source-line-no">165</span><span id="line-165">     */</span>
-<span class="source-line-no">166</span><span id="line-166">    CONTEXT</span>
-<span class="source-line-no">167</span><span id="line-167">  }</span>
-<span class="source-line-no">168</span><span id="line-168">}</span>
+<span class="source-line-no">166</span><span id="line-166">    DEFAULT,</span>
+<span class="source-line-no">167</span><span id="line-167">    /**</span>
+<span class="source-line-no">168</span><span id="line-168">     * The input value is retrieved from the react context.</span>
+<span class="source-line-no">169</span><span id="line-169">     */</span>
+<span class="source-line-no">170</span><span id="line-170">    CONTEXT</span>
+<span class="source-line-no">171</span><span id="line-171">  }</span>
+<span class="source-line-no">172</span><span id="line-172">}</span>
 
 
 
