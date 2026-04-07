@@ -1571,190 +1571,202 @@
 <span class="source-line-no">1558</span><span id="line-1558">    {</span>
 <span class="source-line-no">1559</span><span id="line-1559">      return new ObserveOnRenderConfig( false, false );</span>
 <span class="source-line-no">1560</span><span id="line-1560">    }</span>
-<span class="source-line-no">1561</span><span id="line-1561"></span>
-<span class="source-line-no">1562</span><span id="line-1562">    final boolean assignableToComponentObservable = isAssignableToComponentObservable( returnType );</span>
-<span class="source-line-no">1563</span><span id="line-1563">    final TypeElement typeElement = inputType instanceof TypeElement ? (TypeElement) inputType : null;</span>
-<span class="source-line-no">1564</span><span id="line-1564">    final boolean isActAsComponentType = isActAsComponentType( inputType );</span>
-<span class="source-line-no">1565</span><span id="line-1565">    final ArezComponentObservableResolution arezObservableResolution =</span>
-<span class="source-line-no">1566</span><span id="line-1566">      null != typeElement ? resolveArezComponentObservable( typeElement ) : ArezComponentObservableResolution.NOT_AREZ_COMPONENT;</span>
-<span class="source-line-no">1567</span><span id="line-1567"></span>
-<span class="source-line-no">1568</span><span id="line-1568">    if ( "ENABLE".equals( value ) )</span>
-<span class="source-line-no">1569</span><span id="line-1569">    {</span>
-<span class="source-line-no">1570</span><span id="line-1570">      if ( ArezComponentObservableResolution.DISABLED == arezObservableResolution )</span>
-<span class="source-line-no">1571</span><span id="line-1571">      {</span>
-<span class="source-line-no">1572</span><span id="line-1572">        throw new ProcessorException( "@Input target has specified observeOnRender=ENABLE but the return type " +</span>
-<span class="source-line-no">1573</span><span id="line-1573">                                      "is annotated with @ArezComponent and resolves observable=DISABLE.",</span>
-<span class="source-line-no">1574</span><span id="line-1574">                                      method );</span>
-<span class="source-line-no">1575</span><span id="line-1575">      }</span>
-<span class="source-line-no">1576</span><span id="line-1576">      if ( assignableToComponentObservable )</span>
-<span class="source-line-no">1577</span><span id="line-1577">      {</span>
-<span class="source-line-no">1578</span><span id="line-1578">        return new ObserveOnRenderConfig( true, false );</span>
-<span class="source-line-no">1579</span><span id="line-1579">      }</span>
-<span class="source-line-no">1580</span><span id="line-1580">      if ( null == inputType || !canTypeUseRuntimeComponentObservableCheck( inputType ) )</span>
-<span class="source-line-no">1581</span><span id="line-1581">      {</span>
-<span class="source-line-no">1582</span><span id="line-1582">        throw new ProcessorException( "@Input target has specified observeOnRender=ENABLE but the return type " +</span>
-<span class="source-line-no">1583</span><span id="line-1583">                                      "can never implement arez.component.ComponentObservable.",</span>
-<span class="source-line-no">1584</span><span id="line-1584">                                      method );</span>
-<span class="source-line-no">1585</span><span id="line-1585">      }</span>
-<span class="source-line-no">1586</span><span id="line-1586">      if ( isFinalClass( inputType ) )</span>
-<span class="source-line-no">1587</span><span id="line-1587">      {</span>
-<span class="source-line-no">1588</span><span id="line-1588">        throw new ProcessorException( "@Input target has specified observeOnRender=ENABLE but the return type " +</span>
-<span class="source-line-no">1589</span><span id="line-1589">                                      "is a final class that does not implement arez.component.ComponentObservable.",</span>
-<span class="source-line-no">1590</span><span id="line-1590">                                      method );</span>
-<span class="source-line-no">1591</span><span id="line-1591">      }</span>
-<span class="source-line-no">1592</span><span id="line-1592">      return new ObserveOnRenderConfig( true, true );</span>
-<span class="source-line-no">1593</span><span id="line-1593">    }</span>
-<span class="source-line-no">1594</span><span id="line-1594"></span>
-<span class="source-line-no">1595</span><span id="line-1595">    if ( assignableToComponentObservable )</span>
-<span class="source-line-no">1596</span><span id="line-1596">    {</span>
-<span class="source-line-no">1597</span><span id="line-1597">      return new ObserveOnRenderConfig( true, false );</span>
-<span class="source-line-no">1598</span><span id="line-1598">    }</span>
-<span class="source-line-no">1599</span><span id="line-1599">    if ( ArezComponentObservableResolution.ENABLED == arezObservableResolution )</span>
-<span class="source-line-no">1600</span><span id="line-1600">    {</span>
-<span class="source-line-no">1601</span><span id="line-1601">      return new ObserveOnRenderConfig( true, false );</span>
-<span class="source-line-no">1602</span><span id="line-1602">    }</span>
-<span class="source-line-no">1603</span><span id="line-1603">    if ( isActAsComponentType )</span>
-<span class="source-line-no">1604</span><span id="line-1604">    {</span>
-<span class="source-line-no">1605</span><span id="line-1605">      return new ObserveOnRenderConfig( true, true );</span>
-<span class="source-line-no">1606</span><span id="line-1606">    }</span>
-<span class="source-line-no">1607</span><span id="line-1607">    return new ObserveOnRenderConfig( false, false );</span>
-<span class="source-line-no">1608</span><span id="line-1608">  }</span>
-<span class="source-line-no">1609</span><span id="line-1609"></span>
-<span class="source-line-no">1610</span><span id="line-1610">  private boolean canTypeUseRuntimeComponentObservableCheck( @Nonnull final Element inputType )</span>
-<span class="source-line-no">1611</span><span id="line-1611">  {</span>
-<span class="source-line-no">1612</span><span id="line-1612">    return ElementKind.CLASS == inputType.getKind() || ElementKind.INTERFACE == inputType.getKind();</span>
-<span class="source-line-no">1613</span><span id="line-1613">  }</span>
-<span class="source-line-no">1614</span><span id="line-1614"></span>
-<span class="source-line-no">1615</span><span id="line-1615">  private boolean isFinalClass( @Nonnull final Element inputType )</span>
-<span class="source-line-no">1616</span><span id="line-1616">  {</span>
-<span class="source-line-no">1617</span><span id="line-1617">    return ElementKind.CLASS == inputType.getKind() &amp;&amp; inputType.getModifiers().contains( Modifier.FINAL );</span>
-<span class="source-line-no">1618</span><span id="line-1618">  }</span>
-<span class="source-line-no">1619</span><span id="line-1619"></span>
-<span class="source-line-no">1620</span><span id="line-1620">  private boolean isAssignableToComponentObservable( @Nonnull final TypeMirror type )</span>
-<span class="source-line-no">1621</span><span id="line-1621">  {</span>
-<span class="source-line-no">1622</span><span id="line-1622">    final TypeElement typeElement =</span>
-<span class="source-line-no">1623</span><span id="line-1623">      processingEnv.getElementUtils().getTypeElement( Constants.COMPONENT_OBSERVABLE_CLASSNAME );</span>
-<span class="source-line-no">1624</span><span id="line-1624">    return null != typeElement &amp;&amp; processingEnv.getTypeUtils().isAssignable( type, typeElement.asType() );</span>
+<span class="source-line-no">1561</span><span id="line-1561">    else</span>
+<span class="source-line-no">1562</span><span id="line-1562">    {</span>
+<span class="source-line-no">1563</span><span id="line-1563">      final boolean assignableToComponentObservable = isAssignableToComponentObservable( returnType );</span>
+<span class="source-line-no">1564</span><span id="line-1564">      final ArezComponentObservableResolution arezObservableResolution =</span>
+<span class="source-line-no">1565</span><span id="line-1565">        inputType instanceof TypeElement ?</span>
+<span class="source-line-no">1566</span><span id="line-1566">        resolveArezComponentObservable( (TypeElement) inputType ) :</span>
+<span class="source-line-no">1567</span><span id="line-1567">        ArezComponentObservableResolution.NOT_AREZ_COMPONENT;</span>
+<span class="source-line-no">1568</span><span id="line-1568"></span>
+<span class="source-line-no">1569</span><span id="line-1569">      if ( "ENABLE".equals( value ) )</span>
+<span class="source-line-no">1570</span><span id="line-1570">      {</span>
+<span class="source-line-no">1571</span><span id="line-1571">        if ( ArezComponentObservableResolution.DISABLED == arezObservableResolution )</span>
+<span class="source-line-no">1572</span><span id="line-1572">        {</span>
+<span class="source-line-no">1573</span><span id="line-1573">          throw new ProcessorException( "@Input target has specified observeOnRender=ENABLE but the return type " +</span>
+<span class="source-line-no">1574</span><span id="line-1574">                                        "is annotated with @ArezComponent and resolves observable=DISABLE.",</span>
+<span class="source-line-no">1575</span><span id="line-1575">                                        method );</span>
+<span class="source-line-no">1576</span><span id="line-1576">        }</span>
+<span class="source-line-no">1577</span><span id="line-1577">        else if ( assignableToComponentObservable )</span>
+<span class="source-line-no">1578</span><span id="line-1578">        {</span>
+<span class="source-line-no">1579</span><span id="line-1579">          return new ObserveOnRenderConfig( true, false );</span>
+<span class="source-line-no">1580</span><span id="line-1580">        }</span>
+<span class="source-line-no">1581</span><span id="line-1581">        else if ( null == inputType || !canTypeUseRuntimeComponentObservableCheck( inputType ) )</span>
+<span class="source-line-no">1582</span><span id="line-1582">        {</span>
+<span class="source-line-no">1583</span><span id="line-1583">          throw new ProcessorException( "@Input target has specified observeOnRender=ENABLE but the return type " +</span>
+<span class="source-line-no">1584</span><span id="line-1584">                                        "can never implement arez.component.ComponentObservable.",</span>
+<span class="source-line-no">1585</span><span id="line-1585">                                        method );</span>
+<span class="source-line-no">1586</span><span id="line-1586">        }</span>
+<span class="source-line-no">1587</span><span id="line-1587">        else if ( isFinalClass( inputType ) )</span>
+<span class="source-line-no">1588</span><span id="line-1588">        {</span>
+<span class="source-line-no">1589</span><span id="line-1589">          throw new ProcessorException( "@Input target has specified observeOnRender=ENABLE but the return type " +</span>
+<span class="source-line-no">1590</span><span id="line-1590">                                        "is a final class that does not implement arez.component.ComponentObservable.",</span>
+<span class="source-line-no">1591</span><span id="line-1591">                                        method );</span>
+<span class="source-line-no">1592</span><span id="line-1592">        }</span>
+<span class="source-line-no">1593</span><span id="line-1593">        else</span>
+<span class="source-line-no">1594</span><span id="line-1594">        {</span>
+<span class="source-line-no">1595</span><span id="line-1595">          return new ObserveOnRenderConfig( true, true );</span>
+<span class="source-line-no">1596</span><span id="line-1596">        }</span>
+<span class="source-line-no">1597</span><span id="line-1597">      }</span>
+<span class="source-line-no">1598</span><span id="line-1598">      else</span>
+<span class="source-line-no">1599</span><span id="line-1599">      {</span>
+<span class="source-line-no">1600</span><span id="line-1600">        assert "AUTODETECT".equals( value );</span>
+<span class="source-line-no">1601</span><span id="line-1601"></span>
+<span class="source-line-no">1602</span><span id="line-1602">        if ( assignableToComponentObservable )</span>
+<span class="source-line-no">1603</span><span id="line-1603">        {</span>
+<span class="source-line-no">1604</span><span id="line-1604">          return new ObserveOnRenderConfig( true, false );</span>
+<span class="source-line-no">1605</span><span id="line-1605">        }</span>
+<span class="source-line-no">1606</span><span id="line-1606">        else if ( ArezComponentObservableResolution.ENABLED == arezObservableResolution )</span>
+<span class="source-line-no">1607</span><span id="line-1607">        {</span>
+<span class="source-line-no">1608</span><span id="line-1608">          return new ObserveOnRenderConfig( true, false );</span>
+<span class="source-line-no">1609</span><span id="line-1609">        }</span>
+<span class="source-line-no">1610</span><span id="line-1610">        else if ( isActAsComponentType( inputType ) )</span>
+<span class="source-line-no">1611</span><span id="line-1611">        {</span>
+<span class="source-line-no">1612</span><span id="line-1612">          return new ObserveOnRenderConfig( true, true );</span>
+<span class="source-line-no">1613</span><span id="line-1613">        }</span>
+<span class="source-line-no">1614</span><span id="line-1614">        else</span>
+<span class="source-line-no">1615</span><span id="line-1615">        {</span>
+<span class="source-line-no">1616</span><span id="line-1616">          return new ObserveOnRenderConfig( false, false );</span>
+<span class="source-line-no">1617</span><span id="line-1617">        }</span>
+<span class="source-line-no">1618</span><span id="line-1618">      }</span>
+<span class="source-line-no">1619</span><span id="line-1619">    }</span>
+<span class="source-line-no">1620</span><span id="line-1620">  }</span>
+<span class="source-line-no">1621</span><span id="line-1621"></span>
+<span class="source-line-no">1622</span><span id="line-1622">  private boolean canTypeUseRuntimeComponentObservableCheck( @Nonnull final Element inputType )</span>
+<span class="source-line-no">1623</span><span id="line-1623">  {</span>
+<span class="source-line-no">1624</span><span id="line-1624">    return ElementKind.CLASS == inputType.getKind() || ElementKind.INTERFACE == inputType.getKind();</span>
 <span class="source-line-no">1625</span><span id="line-1625">  }</span>
 <span class="source-line-no">1626</span><span id="line-1626"></span>
-<span class="source-line-no">1627</span><span id="line-1627">  private boolean isActAsComponentType( @Nullable final Element inputType )</span>
+<span class="source-line-no">1627</span><span id="line-1627">  private boolean isFinalClass( @Nonnull final Element inputType )</span>
 <span class="source-line-no">1628</span><span id="line-1628">  {</span>
-<span class="source-line-no">1629</span><span id="line-1629">    return null != inputType &amp;&amp;</span>
-<span class="source-line-no">1630</span><span id="line-1630">           ( ElementKind.CLASS == inputType.getKind() || ElementKind.INTERFACE == inputType.getKind() ) &amp;&amp;</span>
-<span class="source-line-no">1631</span><span id="line-1631">           AnnotationsUtil.hasAnnotationOfType( inputType, Constants.ACT_AS_COMPONENT_CLASSNAME );</span>
-<span class="source-line-no">1632</span><span id="line-1632">  }</span>
-<span class="source-line-no">1633</span><span id="line-1633"></span>
-<span class="source-line-no">1634</span><span id="line-1634">  @Nonnull</span>
-<span class="source-line-no">1635</span><span id="line-1635">  private ArezComponentObservableResolution resolveArezComponentObservable( @Nonnull final TypeElement element )</span>
-<span class="source-line-no">1636</span><span id="line-1636">  {</span>
-<span class="source-line-no">1637</span><span id="line-1637">    if ( !AnnotationsUtil.hasAnnotationOfType( element, Constants.AREZ_COMPONENT_CLASSNAME ) )</span>
-<span class="source-line-no">1638</span><span id="line-1638">    {</span>
-<span class="source-line-no">1639</span><span id="line-1639">      return ArezComponentObservableResolution.NOT_AREZ_COMPONENT;</span>
-<span class="source-line-no">1640</span><span id="line-1640">    }</span>
-<span class="source-line-no">1641</span><span id="line-1641"></span>
-<span class="source-line-no">1642</span><span id="line-1642">    final VariableElement observableParameter = (VariableElement)</span>
-<span class="source-line-no">1643</span><span id="line-1643">      AnnotationsUtil.getAnnotationValue( element, Constants.AREZ_COMPONENT_CLASSNAME, "observable" ).getValue();</span>
-<span class="source-line-no">1644</span><span id="line-1644">    return switch ( observableParameter.getSimpleName().toString() )</span>
-<span class="source-line-no">1645</span><span id="line-1645">    {</span>
-<span class="source-line-no">1646</span><span id="line-1646">      case "ENABLE" -&gt; ArezComponentObservableResolution.ENABLED;</span>
-<span class="source-line-no">1647</span><span id="line-1647">      case "DISABLE" -&gt; ArezComponentObservableResolution.DISABLED;</span>
-<span class="source-line-no">1648</span><span id="line-1648">      default -&gt;</span>
-<span class="source-line-no">1649</span><span id="line-1649">      {</span>
-<span class="source-line-no">1650</span><span id="line-1650">        final boolean disposeOnDeactivate = (Boolean)</span>
-<span class="source-line-no">1651</span><span id="line-1651">          AnnotationsUtil.getAnnotationValue( element, Constants.AREZ_COMPONENT_CLASSNAME, "disposeOnDeactivate" )</span>
-<span class="source-line-no">1652</span><span id="line-1652">            .getValue();</span>
-<span class="source-line-no">1653</span><span id="line-1653">        yield disposeOnDeactivate ?</span>
-<span class="source-line-no">1654</span><span id="line-1654">          ArezComponentObservableResolution.ENABLED :</span>
-<span class="source-line-no">1655</span><span id="line-1655">          ArezComponentObservableResolution.DISABLED;</span>
-<span class="source-line-no">1656</span><span id="line-1656">      }</span>
-<span class="source-line-no">1657</span><span id="line-1657">    };</span>
-<span class="source-line-no">1658</span><span id="line-1658">  }</span>
-<span class="source-line-no">1659</span><span id="line-1659"></span>
-<span class="source-line-no">1660</span><span id="line-1660">  private enum ArezComponentObservableResolution</span>
-<span class="source-line-no">1661</span><span id="line-1661">  {</span>
-<span class="source-line-no">1662</span><span id="line-1662">    ENABLED,</span>
-<span class="source-line-no">1663</span><span id="line-1663">    DISABLED,</span>
-<span class="source-line-no">1664</span><span id="line-1664">    NOT_AREZ_COMPONENT</span>
-<span class="source-line-no">1665</span><span id="line-1665">  }</span>
-<span class="source-line-no">1666</span><span id="line-1666"></span>
-<span class="source-line-no">1667</span><span id="line-1667">  private boolean isContextInput( @Nonnull final ExecutableElement method )</span>
-<span class="source-line-no">1668</span><span id="line-1668">  {</span>
-<span class="source-line-no">1669</span><span id="line-1669">    final VariableElement parameter = (VariableElement)</span>
-<span class="source-line-no">1670</span><span id="line-1670">      AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "source" ).getValue();</span>
-<span class="source-line-no">1671</span><span id="line-1671">    return "CONTEXT".equals( parameter.getSimpleName().toString() );</span>
-<span class="source-line-no">1672</span><span id="line-1672">  }</span>
-<span class="source-line-no">1673</span><span id="line-1673"></span>
-<span class="source-line-no">1674</span><span id="line-1674">  private boolean shouldSetDefaultPriority( @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
-<span class="source-line-no">1675</span><span id="line-1675">  {</span>
-<span class="source-line-no">1676</span><span id="line-1676">    return</span>
-<span class="source-line-no">1677</span><span id="line-1677">      methods</span>
-<span class="source-line-no">1678</span><span id="line-1678">        .stream()</span>
-<span class="source-line-no">1679</span><span id="line-1679">        .filter( method -&gt; !method.getModifiers().contains( Modifier.PRIVATE ) )</span>
-<span class="source-line-no">1680</span><span id="line-1680">        .anyMatch( method -&gt; AnnotationsUtil.hasAnnotationOfType( method, Constants.MEMOIZE_CLASSNAME ) ||</span>
-<span class="source-line-no">1681</span><span id="line-1681">                             AnnotationsUtil.hasAnnotationOfType( method, Constants.OBSERVE_CLASSNAME ) );</span>
-<span class="source-line-no">1682</span><span id="line-1682">  }</span>
-<span class="source-line-no">1683</span><span id="line-1683"></span>
-<span class="source-line-no">1684</span><span id="line-1684">  private void verifyNoDuplicateAnnotations( @Nonnull final ExecutableElement method )</span>
-<span class="source-line-no">1685</span><span id="line-1685">    throws ProcessorException</span>
-<span class="source-line-no">1686</span><span id="line-1686">  {</span>
-<span class="source-line-no">1687</span><span id="line-1687">    final List&lt;String&gt; annotations =</span>
-<span class="source-line-no">1688</span><span id="line-1688">      Arrays.asList( Constants.INPUT_DEFAULT_CLASSNAME,</span>
-<span class="source-line-no">1689</span><span id="line-1689">                     Constants.INPUT_VALIDATE_CLASSNAME,</span>
-<span class="source-line-no">1690</span><span id="line-1690">                     Constants.ON_INPUT_CHANGE_CLASSNAME,</span>
-<span class="source-line-no">1691</span><span id="line-1691">                     Constants.INPUT_CLASSNAME );</span>
-<span class="source-line-no">1692</span><span id="line-1692">    MemberChecks.verifyNoOverlappingAnnotations( method, annotations, Collections.emptyMap() );</span>
-<span class="source-line-no">1693</span><span id="line-1693">  }</span>
-<span class="source-line-no">1694</span><span id="line-1694"></span>
-<span class="source-line-no">1695</span><span id="line-1695">  private boolean isSentinelName( @Nonnull final String name )</span>
-<span class="source-line-no">1696</span><span id="line-1696">  {</span>
-<span class="source-line-no">1697</span><span id="line-1697">    return SENTINEL_NAME.equals( name );</span>
-<span class="source-line-no">1698</span><span id="line-1698">  }</span>
-<span class="source-line-no">1699</span><span id="line-1699"></span>
-<span class="source-line-no">1700</span><span id="line-1700">  @Nonnull</span>
-<span class="source-line-no">1701</span><span id="line-1701">  private String getPropertyAccessorName( @Nonnull final ExecutableElement method,</span>
-<span class="source-line-no">1702</span><span id="line-1702">                                          @Nonnull final String specifiedName )</span>
-<span class="source-line-no">1703</span><span id="line-1703">    throws ProcessorException</span>
-<span class="source-line-no">1704</span><span id="line-1704">  {</span>
-<span class="source-line-no">1705</span><span id="line-1705">    String name = deriveName( method, GETTER_PATTERN, specifiedName );</span>
-<span class="source-line-no">1706</span><span id="line-1706">    if ( null != name )</span>
-<span class="source-line-no">1707</span><span id="line-1707">    {</span>
-<span class="source-line-no">1708</span><span id="line-1708">      return name;</span>
-<span class="source-line-no">1709</span><span id="line-1709">    }</span>
-<span class="source-line-no">1710</span><span id="line-1710">    else if ( method.getReturnType().getKind() == TypeKind.BOOLEAN )</span>
-<span class="source-line-no">1711</span><span id="line-1711">    {</span>
-<span class="source-line-no">1712</span><span id="line-1712">      name = deriveName( method, ISSER_PATTERN, specifiedName );</span>
-<span class="source-line-no">1713</span><span id="line-1713">      if ( null != name )</span>
-<span class="source-line-no">1714</span><span id="line-1714">      {</span>
-<span class="source-line-no">1715</span><span id="line-1715">        return name;</span>
-<span class="source-line-no">1716</span><span id="line-1716">      }</span>
-<span class="source-line-no">1717</span><span id="line-1717">    }</span>
-<span class="source-line-no">1718</span><span id="line-1718">    return method.getSimpleName().toString();</span>
-<span class="source-line-no">1719</span><span id="line-1719">  }</span>
-<span class="source-line-no">1720</span><span id="line-1720"></span>
-<span class="source-line-no">1721</span><span id="line-1721">  @Nullable</span>
-<span class="source-line-no">1722</span><span id="line-1722">  private String deriveName( @Nonnull final Element method, @Nonnull final Pattern pattern, @Nonnull final String name )</span>
-<span class="source-line-no">1723</span><span id="line-1723">    throws ProcessorException</span>
-<span class="source-line-no">1724</span><span id="line-1724">  {</span>
-<span class="source-line-no">1725</span><span id="line-1725">    if ( isSentinelName( name ) )</span>
-<span class="source-line-no">1726</span><span id="line-1726">    {</span>
-<span class="source-line-no">1727</span><span id="line-1727">      final String methodName = method.getSimpleName().toString();</span>
-<span class="source-line-no">1728</span><span id="line-1728">      final Matcher matcher = pattern.matcher( methodName );</span>
-<span class="source-line-no">1729</span><span id="line-1729">      if ( matcher.find() )</span>
-<span class="source-line-no">1730</span><span id="line-1730">      {</span>
-<span class="source-line-no">1731</span><span id="line-1731">        final String candidate = matcher.group( 1 );</span>
-<span class="source-line-no">1732</span><span id="line-1732">        return Character.toLowerCase( candidate.charAt( 0 ) ) + candidate.substring( 1 );</span>
-<span class="source-line-no">1733</span><span id="line-1733">      }</span>
-<span class="source-line-no">1734</span><span id="line-1734">      else</span>
-<span class="source-line-no">1735</span><span id="line-1735">      {</span>
-<span class="source-line-no">1736</span><span id="line-1736">        return null;</span>
-<span class="source-line-no">1737</span><span id="line-1737">      }</span>
-<span class="source-line-no">1738</span><span id="line-1738">    }</span>
-<span class="source-line-no">1739</span><span id="line-1739">    else</span>
-<span class="source-line-no">1740</span><span id="line-1740">    {</span>
-<span class="source-line-no">1741</span><span id="line-1741">      return name;</span>
-<span class="source-line-no">1742</span><span id="line-1742">    }</span>
-<span class="source-line-no">1743</span><span id="line-1743">  }</span>
-<span class="source-line-no">1744</span><span id="line-1744">}</span>
+<span class="source-line-no">1629</span><span id="line-1629">    return ElementKind.CLASS == inputType.getKind() &amp;&amp; inputType.getModifiers().contains( Modifier.FINAL );</span>
+<span class="source-line-no">1630</span><span id="line-1630">  }</span>
+<span class="source-line-no">1631</span><span id="line-1631"></span>
+<span class="source-line-no">1632</span><span id="line-1632">  private boolean isAssignableToComponentObservable( @Nonnull final TypeMirror type )</span>
+<span class="source-line-no">1633</span><span id="line-1633">  {</span>
+<span class="source-line-no">1634</span><span id="line-1634">    final TypeElement typeElement =</span>
+<span class="source-line-no">1635</span><span id="line-1635">      processingEnv.getElementUtils().getTypeElement( Constants.COMPONENT_OBSERVABLE_CLASSNAME );</span>
+<span class="source-line-no">1636</span><span id="line-1636">    return null != typeElement &amp;&amp; processingEnv.getTypeUtils().isAssignable( type, typeElement.asType() );</span>
+<span class="source-line-no">1637</span><span id="line-1637">  }</span>
+<span class="source-line-no">1638</span><span id="line-1638"></span>
+<span class="source-line-no">1639</span><span id="line-1639">  private boolean isActAsComponentType( @Nullable final Element inputType )</span>
+<span class="source-line-no">1640</span><span id="line-1640">  {</span>
+<span class="source-line-no">1641</span><span id="line-1641">    return null != inputType &amp;&amp;</span>
+<span class="source-line-no">1642</span><span id="line-1642">           ( ElementKind.CLASS == inputType.getKind() || ElementKind.INTERFACE == inputType.getKind() ) &amp;&amp;</span>
+<span class="source-line-no">1643</span><span id="line-1643">           AnnotationsUtil.hasAnnotationOfType( inputType, Constants.ACT_AS_COMPONENT_CLASSNAME );</span>
+<span class="source-line-no">1644</span><span id="line-1644">  }</span>
+<span class="source-line-no">1645</span><span id="line-1645"></span>
+<span class="source-line-no">1646</span><span id="line-1646">  @Nonnull</span>
+<span class="source-line-no">1647</span><span id="line-1647">  private ArezComponentObservableResolution resolveArezComponentObservable( @Nonnull final TypeElement element )</span>
+<span class="source-line-no">1648</span><span id="line-1648">  {</span>
+<span class="source-line-no">1649</span><span id="line-1649">    if ( !AnnotationsUtil.hasAnnotationOfType( element, Constants.AREZ_COMPONENT_CLASSNAME ) )</span>
+<span class="source-line-no">1650</span><span id="line-1650">    {</span>
+<span class="source-line-no">1651</span><span id="line-1651">      return ArezComponentObservableResolution.NOT_AREZ_COMPONENT;</span>
+<span class="source-line-no">1652</span><span id="line-1652">    }</span>
+<span class="source-line-no">1653</span><span id="line-1653"></span>
+<span class="source-line-no">1654</span><span id="line-1654">    final VariableElement observableParameter = (VariableElement)</span>
+<span class="source-line-no">1655</span><span id="line-1655">      AnnotationsUtil.getAnnotationValue( element, Constants.AREZ_COMPONENT_CLASSNAME, "observable" ).getValue();</span>
+<span class="source-line-no">1656</span><span id="line-1656">    return switch ( observableParameter.getSimpleName().toString() )</span>
+<span class="source-line-no">1657</span><span id="line-1657">    {</span>
+<span class="source-line-no">1658</span><span id="line-1658">      case "ENABLE" -&gt; ArezComponentObservableResolution.ENABLED;</span>
+<span class="source-line-no">1659</span><span id="line-1659">      case "DISABLE" -&gt; ArezComponentObservableResolution.DISABLED;</span>
+<span class="source-line-no">1660</span><span id="line-1660">      default -&gt;</span>
+<span class="source-line-no">1661</span><span id="line-1661">      {</span>
+<span class="source-line-no">1662</span><span id="line-1662">        final boolean disposeOnDeactivate = (Boolean)</span>
+<span class="source-line-no">1663</span><span id="line-1663">          AnnotationsUtil.getAnnotationValue( element, Constants.AREZ_COMPONENT_CLASSNAME, "disposeOnDeactivate" )</span>
+<span class="source-line-no">1664</span><span id="line-1664">            .getValue();</span>
+<span class="source-line-no">1665</span><span id="line-1665">        yield disposeOnDeactivate ?</span>
+<span class="source-line-no">1666</span><span id="line-1666">              ArezComponentObservableResolution.ENABLED :</span>
+<span class="source-line-no">1667</span><span id="line-1667">              ArezComponentObservableResolution.DISABLED;</span>
+<span class="source-line-no">1668</span><span id="line-1668">      }</span>
+<span class="source-line-no">1669</span><span id="line-1669">    };</span>
+<span class="source-line-no">1670</span><span id="line-1670">  }</span>
+<span class="source-line-no">1671</span><span id="line-1671"></span>
+<span class="source-line-no">1672</span><span id="line-1672">  private enum ArezComponentObservableResolution</span>
+<span class="source-line-no">1673</span><span id="line-1673">  {</span>
+<span class="source-line-no">1674</span><span id="line-1674">    ENABLED,</span>
+<span class="source-line-no">1675</span><span id="line-1675">    DISABLED,</span>
+<span class="source-line-no">1676</span><span id="line-1676">    NOT_AREZ_COMPONENT</span>
+<span class="source-line-no">1677</span><span id="line-1677">  }</span>
+<span class="source-line-no">1678</span><span id="line-1678"></span>
+<span class="source-line-no">1679</span><span id="line-1679">  private boolean isContextInput( @Nonnull final ExecutableElement method )</span>
+<span class="source-line-no">1680</span><span id="line-1680">  {</span>
+<span class="source-line-no">1681</span><span id="line-1681">    final VariableElement parameter = (VariableElement)</span>
+<span class="source-line-no">1682</span><span id="line-1682">      AnnotationsUtil.getAnnotationValue( method, Constants.INPUT_CLASSNAME, "source" ).getValue();</span>
+<span class="source-line-no">1683</span><span id="line-1683">    return "CONTEXT".equals( parameter.getSimpleName().toString() );</span>
+<span class="source-line-no">1684</span><span id="line-1684">  }</span>
+<span class="source-line-no">1685</span><span id="line-1685"></span>
+<span class="source-line-no">1686</span><span id="line-1686">  private boolean shouldSetDefaultPriority( @Nonnull final List&lt;ExecutableElement&gt; methods )</span>
+<span class="source-line-no">1687</span><span id="line-1687">  {</span>
+<span class="source-line-no">1688</span><span id="line-1688">    return</span>
+<span class="source-line-no">1689</span><span id="line-1689">      methods</span>
+<span class="source-line-no">1690</span><span id="line-1690">        .stream()</span>
+<span class="source-line-no">1691</span><span id="line-1691">        .filter( method -&gt; !method.getModifiers().contains( Modifier.PRIVATE ) )</span>
+<span class="source-line-no">1692</span><span id="line-1692">        .anyMatch( method -&gt; AnnotationsUtil.hasAnnotationOfType( method, Constants.MEMOIZE_CLASSNAME ) ||</span>
+<span class="source-line-no">1693</span><span id="line-1693">                             AnnotationsUtil.hasAnnotationOfType( method, Constants.OBSERVE_CLASSNAME ) );</span>
+<span class="source-line-no">1694</span><span id="line-1694">  }</span>
+<span class="source-line-no">1695</span><span id="line-1695"></span>
+<span class="source-line-no">1696</span><span id="line-1696">  private void verifyNoDuplicateAnnotations( @Nonnull final ExecutableElement method )</span>
+<span class="source-line-no">1697</span><span id="line-1697">    throws ProcessorException</span>
+<span class="source-line-no">1698</span><span id="line-1698">  {</span>
+<span class="source-line-no">1699</span><span id="line-1699">    final List&lt;String&gt; annotations =</span>
+<span class="source-line-no">1700</span><span id="line-1700">      Arrays.asList( Constants.INPUT_DEFAULT_CLASSNAME,</span>
+<span class="source-line-no">1701</span><span id="line-1701">                     Constants.INPUT_VALIDATE_CLASSNAME,</span>
+<span class="source-line-no">1702</span><span id="line-1702">                     Constants.ON_INPUT_CHANGE_CLASSNAME,</span>
+<span class="source-line-no">1703</span><span id="line-1703">                     Constants.INPUT_CLASSNAME );</span>
+<span class="source-line-no">1704</span><span id="line-1704">    MemberChecks.verifyNoOverlappingAnnotations( method, annotations, Collections.emptyMap() );</span>
+<span class="source-line-no">1705</span><span id="line-1705">  }</span>
+<span class="source-line-no">1706</span><span id="line-1706"></span>
+<span class="source-line-no">1707</span><span id="line-1707">  private boolean isSentinelName( @Nonnull final String name )</span>
+<span class="source-line-no">1708</span><span id="line-1708">  {</span>
+<span class="source-line-no">1709</span><span id="line-1709">    return SENTINEL_NAME.equals( name );</span>
+<span class="source-line-no">1710</span><span id="line-1710">  }</span>
+<span class="source-line-no">1711</span><span id="line-1711"></span>
+<span class="source-line-no">1712</span><span id="line-1712">  @Nonnull</span>
+<span class="source-line-no">1713</span><span id="line-1713">  private String getPropertyAccessorName( @Nonnull final ExecutableElement method,</span>
+<span class="source-line-no">1714</span><span id="line-1714">                                          @Nonnull final String specifiedName )</span>
+<span class="source-line-no">1715</span><span id="line-1715">    throws ProcessorException</span>
+<span class="source-line-no">1716</span><span id="line-1716">  {</span>
+<span class="source-line-no">1717</span><span id="line-1717">    String name = deriveName( method, GETTER_PATTERN, specifiedName );</span>
+<span class="source-line-no">1718</span><span id="line-1718">    if ( null != name )</span>
+<span class="source-line-no">1719</span><span id="line-1719">    {</span>
+<span class="source-line-no">1720</span><span id="line-1720">      return name;</span>
+<span class="source-line-no">1721</span><span id="line-1721">    }</span>
+<span class="source-line-no">1722</span><span id="line-1722">    else if ( method.getReturnType().getKind() == TypeKind.BOOLEAN )</span>
+<span class="source-line-no">1723</span><span id="line-1723">    {</span>
+<span class="source-line-no">1724</span><span id="line-1724">      name = deriveName( method, ISSER_PATTERN, specifiedName );</span>
+<span class="source-line-no">1725</span><span id="line-1725">      if ( null != name )</span>
+<span class="source-line-no">1726</span><span id="line-1726">      {</span>
+<span class="source-line-no">1727</span><span id="line-1727">        return name;</span>
+<span class="source-line-no">1728</span><span id="line-1728">      }</span>
+<span class="source-line-no">1729</span><span id="line-1729">    }</span>
+<span class="source-line-no">1730</span><span id="line-1730">    return method.getSimpleName().toString();</span>
+<span class="source-line-no">1731</span><span id="line-1731">  }</span>
+<span class="source-line-no">1732</span><span id="line-1732"></span>
+<span class="source-line-no">1733</span><span id="line-1733">  @Nullable</span>
+<span class="source-line-no">1734</span><span id="line-1734">  private String deriveName( @Nonnull final Element method, @Nonnull final Pattern pattern, @Nonnull final String name )</span>
+<span class="source-line-no">1735</span><span id="line-1735">    throws ProcessorException</span>
+<span class="source-line-no">1736</span><span id="line-1736">  {</span>
+<span class="source-line-no">1737</span><span id="line-1737">    if ( isSentinelName( name ) )</span>
+<span class="source-line-no">1738</span><span id="line-1738">    {</span>
+<span class="source-line-no">1739</span><span id="line-1739">      final String methodName = method.getSimpleName().toString();</span>
+<span class="source-line-no">1740</span><span id="line-1740">      final Matcher matcher = pattern.matcher( methodName );</span>
+<span class="source-line-no">1741</span><span id="line-1741">      if ( matcher.find() )</span>
+<span class="source-line-no">1742</span><span id="line-1742">      {</span>
+<span class="source-line-no">1743</span><span id="line-1743">        final String candidate = matcher.group( 1 );</span>
+<span class="source-line-no">1744</span><span id="line-1744">        return Character.toLowerCase( candidate.charAt( 0 ) ) + candidate.substring( 1 );</span>
+<span class="source-line-no">1745</span><span id="line-1745">      }</span>
+<span class="source-line-no">1746</span><span id="line-1746">      else</span>
+<span class="source-line-no">1747</span><span id="line-1747">      {</span>
+<span class="source-line-no">1748</span><span id="line-1748">        return null;</span>
+<span class="source-line-no">1749</span><span id="line-1749">      }</span>
+<span class="source-line-no">1750</span><span id="line-1750">    }</span>
+<span class="source-line-no">1751</span><span id="line-1751">    else</span>
+<span class="source-line-no">1752</span><span id="line-1752">    {</span>
+<span class="source-line-no">1753</span><span id="line-1753">      return name;</span>
+<span class="source-line-no">1754</span><span id="line-1754">    }</span>
+<span class="source-line-no">1755</span><span id="line-1755">  }</span>
+<span class="source-line-no">1756</span><span id="line-1756">}</span>
 
 
 
