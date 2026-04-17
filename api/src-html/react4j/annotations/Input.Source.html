@@ -13,8 +13,8 @@
 <div class="source-container">
 <pre><span class="source-line-no">001</span><span id="line-1">package react4j.annotations;</span>
 <span class="source-line-no">002</span><span id="line-2"></span>
-<span class="source-line-no">003</span><span id="line-3">import arez.annotations.ActAsComponent;</span>
-<span class="source-line-no">004</span><span id="line-4">import arez.annotations.ArezComponent;</span>
+<span class="source-line-no">003</span><span id="line-3">import arez.annotations.AutoObserve;</span>
+<span class="source-line-no">004</span><span id="line-4">import arez.annotations.ComponentDependency;</span>
 <span class="source-line-no">005</span><span id="line-5">import arez.annotations.Memoize;</span>
 <span class="source-line-no">006</span><span id="line-6">import arez.annotations.Observable;</span>
 <span class="source-line-no">007</span><span id="line-7">import arez.annotations.Observe;</span>
@@ -118,62 +118,20 @@
 <span class="source-line-no">105</span><span id="line-105">  Feature observable() default Feature.AUTODETECT;</span>
 <span class="source-line-no">106</span><span id="line-106"></span>
 <span class="source-line-no">107</span><span id="line-107">  /**</span>
-<span class="source-line-no">108</span><span id="line-108">   * Return an enum indicating whether the view should check whether the value of the input is disposed</span>
-<span class="source-line-no">109</span><span id="line-109">   * prior to rendering. If the value is disposed then the render method will exit early and return null.</span>
-<span class="source-line-no">110</span><span id="line-110">   * If this parameter is set to {@link Feature#AUTODETECT} then the annotation processor will inspect the</span>
-<span class="source-line-no">111</span><span id="line-111">   * type of the input and treat it as {@link Feature#ENABLE} if the type is annotated with the {@link ArezComponent}</span>
-<span class="source-line-no">112</span><span id="line-112">   * annotation or the {@link ActAsComponent} annotation.</span>
-<span class="source-line-no">113</span><span id="line-113">   *</span>
-<span class="source-line-no">114</span><span id="line-114">   * @return an enum indicating whether the view should check whether the value of the input is disposed prior to rendering.</span>
-<span class="source-line-no">115</span><span id="line-115">   */</span>
-<span class="source-line-no">116</span><span id="line-116">  Feature disposable() default Feature.AUTODETECT;</span>
-<span class="source-line-no">117</span><span id="line-117"></span>
-<span class="source-line-no">118</span><span id="line-118">  /**</span>
-<span class="source-line-no">119</span><span id="line-119">   * Return an enum indicating whether tracked renders should observe the input value during the generated render</span>
-<span class="source-line-no">120</span><span id="line-120">   * prelude so that disposing the input can invalidate the render and trigger a rerender.</span>
-<span class="source-line-no">121</span><span id="line-121">   * This parameter is independent of {@link #disposable()} and is only relevant to views with render tracking enabled.</span>
-<span class="source-line-no">122</span><span id="line-122">   *</span>
-<span class="source-line-no">123</span><span id="line-123">   * &lt;p&gt;If this parameter is set to {@link Feature#AUTODETECT} then the annotation processor will inspect the</span>
-<span class="source-line-no">124</span><span id="line-124">   * type of the input and treat it as {@link Feature#ENABLE} in the following circumstances:&lt;/p&gt;</span>
-<span class="source-line-no">125</span><span id="line-125">   * &lt;ul&gt;</span>
-<span class="source-line-no">126</span><span id="line-126">   * &lt;li&gt;the type is compatible with {@code arez.component.ComponentObservable}.&lt;/li&gt;</span>
-<span class="source-line-no">127</span><span id="line-127">   * &lt;li&gt;the type is annotated with {@link ArezComponent} and the {@link ArezComponent#observable()} parameter</span>
-<span class="source-line-no">128</span><span id="line-128">   * resolves to enabled.&lt;/li&gt;</span>
-<span class="source-line-no">129</span><span id="line-129">   * &lt;li&gt;the type is annotated with {@link ActAsComponent}. In this scenario the generated code will verify</span>
-<span class="source-line-no">130</span><span id="line-130">   * compatibility with {@code arez.component.ComponentObservable} at runtime before observing the value.&lt;/li&gt;</span>
-<span class="source-line-no">131</span><span id="line-131">   * &lt;/ul&gt;</span>
-<span class="source-line-no">132</span><span id="line-132">   *</span>
-<span class="source-line-no">133</span><span id="line-133">   * @return an enum indicating whether tracked renders should observe the input value during render.</span>
-<span class="source-line-no">134</span><span id="line-134">   */</span>
-<span class="source-line-no">135</span><span id="line-135">  Feature observeOnRender() default Feature.AUTODETECT;</span>
-<span class="source-line-no">136</span><span id="line-136"></span>
-<span class="source-line-no">137</span><span id="line-137">  /**</span>
-<span class="source-line-no">138</span><span id="line-138">   * Return an enum indicating whether the view should be disposed if the input is disposed. To enable this feature,</span>
-<span class="source-line-no">139</span><span id="line-139">   * the input MUST be immutable, {@link #disposable()} MUST resolve to</span>
-<span class="source-line-no">140</span><span id="line-140">   * {@link Feature#ENABLE}. The type of the input is expected to implement the {@link arez.component.DisposeNotifier}</span>
-<span class="source-line-no">141</span><span id="line-141">   * interface either directly or indirectly. If this parameter is set to {@link Feature#AUTODETECT} then the</span>
-<span class="source-line-no">142</span><span id="line-142">   * annotation processor will treat it as {@link Feature#ENABLE} if the input is immutable and</span>
-<span class="source-line-no">143</span><span id="line-143">   * {@link #disposable()} resolves to {@link Feature#ENABLE}.</span>
-<span class="source-line-no">144</span><span id="line-144">   *</span>
-<span class="source-line-no">145</span><span id="line-145">   * @return an enum indicating whether the view should be disposed if the input is disposed.</span>
-<span class="source-line-no">146</span><span id="line-146">   */</span>
-<span class="source-line-no">147</span><span id="line-147">  Feature dependency() default Feature.AUTODETECT;</span>
-<span class="source-line-no">148</span><span id="line-148"></span>
-<span class="source-line-no">149</span><span id="line-149">  /**</span>
-<span class="source-line-no">150</span><span id="line-150">   * Enum where the input is sourced from.</span>
-<span class="source-line-no">151</span><span id="line-151">   */</span>
-<span class="source-line-no">152</span><span id="line-152">  enum Source</span>
-<span class="source-line-no">153</span><span id="line-153">  {</span>
-<span class="source-line-no">154</span><span id="line-154">    /**</span>
-<span class="source-line-no">155</span><span id="line-155">     * The input value is passed to the view during construction.</span>
-<span class="source-line-no">156</span><span id="line-156">     */</span>
-<span class="source-line-no">157</span><span id="line-157">    DEFAULT,</span>
-<span class="source-line-no">158</span><span id="line-158">    /**</span>
-<span class="source-line-no">159</span><span id="line-159">     * The input value is retrieved from the react context.</span>
-<span class="source-line-no">160</span><span id="line-160">     */</span>
-<span class="source-line-no">161</span><span id="line-161">    CONTEXT</span>
-<span class="source-line-no">162</span><span id="line-162">  }</span>
-<span class="source-line-no">163</span><span id="line-163">}</span>
+<span class="source-line-no">108</span><span id="line-108">   * Enum where the input is sourced from.</span>
+<span class="source-line-no">109</span><span id="line-109">   */</span>
+<span class="source-line-no">110</span><span id="line-110">  enum Source</span>
+<span class="source-line-no">111</span><span id="line-111">  {</span>
+<span class="source-line-no">112</span><span id="line-112">    /**</span>
+<span class="source-line-no">113</span><span id="line-113">     * The input value is passed to the view during construction.</span>
+<span class="source-line-no">114</span><span id="line-114">     */</span>
+<span class="source-line-no">115</span><span id="line-115">    DEFAULT,</span>
+<span class="source-line-no">116</span><span id="line-116">    /**</span>
+<span class="source-line-no">117</span><span id="line-117">     * The input value is retrieved from the react context.</span>
+<span class="source-line-no">118</span><span id="line-118">     */</span>
+<span class="source-line-no">119</span><span id="line-119">    CONTEXT</span>
+<span class="source-line-no">120</span><span id="line-120">  }</span>
+<span class="source-line-no">121</span><span id="line-121">}</span>
 
 
 

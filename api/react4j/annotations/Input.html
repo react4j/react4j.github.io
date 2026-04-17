@@ -130,17 +130,6 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Optional Element</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></code></div>
-<div class="col-second even-row-color"><code><a href="#dependency()" class="member-name-link">dependency</a></code></div>
-<div class="col-last even-row-color">
-<div class="block">Return an enum indicating whether the view should be disposed if the input is disposed.</div>
-</div>
-<div class="col-first odd-row-color"><code><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#disposable()" class="member-name-link">disposable</a></code></div>
-<div class="col-last odd-row-color">
-<div class="block">Return an enum indicating whether the view should check whether the value of the input is disposed
- prior to rendering.</div>
-</div>
 <div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#name()" class="member-name-link">name</a></code></div>
 <div class="col-last even-row-color">
@@ -151,25 +140,19 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Indicate whether the input should be annotated by <a href="https://arez.github.io/api/arez/annotations/Observable.html" title="class or interface in arez.annotations" class="external-link"><code>Observable</code></a>.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></code></div>
-<div class="col-second even-row-color"><code><a href="#observeOnRender()" class="member-name-link">observeOnRender</a></code></div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#qualifier()" class="member-name-link">qualifier</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Return an enum indicating whether tracked renders should observe the input value during the generated render
- prelude so that disposing the input can invalidate the render and trigger a rerender.</div>
-</div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#qualifier()" class="member-name-link">qualifier</a></code></div>
-<div class="col-last odd-row-color">
 <div class="block">Return the qualifier used to access value from context.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></code></div>
-<div class="col-second even-row-color"><code><a href="#require()" class="member-name-link">require</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#require()" class="member-name-link">require</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Setting indicating whether the input should be supplied when the view is constructed.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="Input.Source.html" title="enum class in react4j.annotations">Input.Source</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#source()" class="member-name-link">source</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="Input.Source.html" title="enum class in react4j.annotations">Input.Source</a></code></div>
+<div class="col-second even-row-color"><code><a href="#source()" class="member-name-link">source</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">The setting controlling where the input value is source from.</div>
 </div>
 </div>
@@ -273,72 +256,6 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the enum indicating whether input is observable.</dd>
-</dl>
-<dl class="notes">
-<dt>Default:</dt>
-<dd>AUTODETECT</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="disposable()">
-<h3>disposable</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-116">disposable</a></span></div>
-<div class="block">Return an enum indicating whether the view should check whether the value of the input is disposed
- prior to rendering. If the value is disposed then the render method will exit early and return null.
- If this parameter is set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will inspect the
- type of the input and treat it as <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a> if the type is annotated with the <a href="https://arez.github.io/api/arez/annotations/ArezComponent.html" title="class or interface in arez.annotations" class="external-link"><code>ArezComponent</code></a>
- annotation or the <a href="https://arez.github.io/api/arez/annotations/ActAsComponent.html" title="class or interface in arez.annotations" class="external-link"><code>ActAsComponent</code></a> annotation.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>an enum indicating whether the view should check whether the value of the input is disposed prior to rendering.</dd>
-</dl>
-<dl class="notes">
-<dt>Default:</dt>
-<dd>AUTODETECT</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="observeOnRender()">
-<h3>observeOnRender</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-135">observeOnRender</a></span></div>
-<div class="block">Return an enum indicating whether tracked renders should observe the input value during the generated render
- prelude so that disposing the input can invalidate the render and trigger a rerender.
- This parameter is independent of <a href="#disposable()"><code>disposable()</code></a> and is only relevant to views with render tracking enabled.
-
- <p>If this parameter is set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the annotation processor will inspect the
- type of the input and treat it as <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a> in the following circumstances:</p>
- <ul>
- <li>the type is compatible with <code>arez.component.ComponentObservable</code>.</li>
- <li>the type is annotated with <a href="https://arez.github.io/api/arez/annotations/ArezComponent.html" title="class or interface in arez.annotations" class="external-link"><code>ArezComponent</code></a> and the <a href="https://arez.github.io/api/arez/annotations/ArezComponent.html#observable()" title="class or interface in arez.annotations" class="external-link"><code>ArezComponent.observable()</code></a> parameter
- resolves to enabled.</li>
- <li>the type is annotated with <a href="https://arez.github.io/api/arez/annotations/ActAsComponent.html" title="class or interface in arez.annotations" class="external-link"><code>ActAsComponent</code></a>. In this scenario the generated code will verify
- compatibility with <code>arez.component.ComponentObservable</code> at runtime before observing the value.</li>
- </ul></div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>an enum indicating whether tracked renders should observe the input value during render.</dd>
-</dl>
-<dl class="notes">
-<dt>Default:</dt>
-<dd>AUTODETECT</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="dependency()">
-<h3>dependency</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-147">dependency</a></span></div>
-<div class="block">Return an enum indicating whether the view should be disposed if the input is disposed. To enable this feature,
- the input MUST be immutable, <a href="#disposable()"><code>disposable()</code></a> MUST resolve to
- <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a>. The type of the input is expected to implement the <a href="https://arez.github.io/api/arez/component/DisposeNotifier.html" title="class or interface in arez.component" class="external-link"><code>DisposeNotifier</code></a>
- interface either directly or indirectly. If this parameter is set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the
- annotation processor will treat it as <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a> if the input is immutable and
- <a href="#disposable()"><code>disposable()</code></a> resolves to <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a>.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>an enum indicating whether the view should be disposed if the input is disposed.</dd>
 </dl>
 <dl class="notes">
 <dt>Default:</dt>
