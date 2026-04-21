@@ -64,7 +64,7 @@
 <span class="source-line-no">051</span><span id="line-51">  /**</span>
 <span class="source-line-no">052</span><span id="line-52">   * Return the name of the input.</span>
 <span class="source-line-no">053</span><span id="line-53">   * The name is the key used when accessing the input from the inputs object. It is also used when creating</span>
-<span class="source-line-no">054</span><span id="line-54">   * the builder steps associated with the inputs that set {@link #source()} to {@link Source#DEFAULT}.</span>
+<span class="source-line-no">054</span><span id="line-54">   * the builder steps associated with inputs that are not sourced from tree context.</span>
 <span class="source-line-no">055</span><span id="line-55">   *</span>
 <span class="source-line-no">056</span><span id="line-56">   * @return the name of the input.</span>
 <span class="source-line-no">057</span><span id="line-57">   */</span>
@@ -73,7 +73,7 @@
 <span class="source-line-no">060</span><span id="line-60"></span>
 <span class="source-line-no">061</span><span id="line-61">  /**</span>
 <span class="source-line-no">062</span><span id="line-62">   * Return the qualifier used to access value from context.</span>
-<span class="source-line-no">063</span><span id="line-63">   * It must only be specified if {@link #source()} is set to {@link Source#CONTEXT}.</span>
+<span class="source-line-no">063</span><span id="line-63">   * It must only be specified if {@link #fromTreeContext()} is set to {@code true}.</span>
 <span class="source-line-no">064</span><span id="line-64">   *</span>
 <span class="source-line-no">065</span><span id="line-65">   * @return the qualifier used to access value from context.</span>
 <span class="source-line-no">066</span><span id="line-66">   */</span>
@@ -81,57 +81,42 @@
 <span class="source-line-no">068</span><span id="line-68">  String qualifier() default "";</span>
 <span class="source-line-no">069</span><span id="line-69"></span>
 <span class="source-line-no">070</span><span id="line-70">  /**</span>
-<span class="source-line-no">071</span><span id="line-71">   * The setting controlling where the input value is source from.</span>
-<span class="source-line-no">072</span><span id="line-72">   * If the source is set to {@link Source#CONTEXT} then the input is sometimes described as a "TreeInput"</span>
-<span class="source-line-no">073</span><span id="line-73">   * as it is transparently passed from a parent view to all child views. A "TreeInput" does not</span>
-<span class="source-line-no">074</span><span id="line-74">   * have to be specified by the user when creating the view.</span>
-<span class="source-line-no">075</span><span id="line-75">   *</span>
-<span class="source-line-no">076</span><span id="line-76">   * @return the setting controlling where the input value is source from.</span>
-<span class="source-line-no">077</span><span id="line-77">   */</span>
-<span class="source-line-no">078</span><span id="line-78">  Source source() default Source.DEFAULT;</span>
-<span class="source-line-no">079</span><span id="line-79"></span>
-<span class="source-line-no">080</span><span id="line-80">  /**</span>
-<span class="source-line-no">081</span><span id="line-81">   * Setting indicating whether the input should be supplied when the view is constructed.</span>
-<span class="source-line-no">082</span><span id="line-82">   * This influences validation when enabled and how the Builder class is created.</span>
-<span class="source-line-no">083</span><span id="line-83">   * If set to {@link Feature#ENABLE} then the user MUST supply the input and the builder will require the user</span>
-<span class="source-line-no">084</span><span id="line-84">   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the input.</span>
-<span class="source-line-no">085</span><span id="line-85">   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#DISABLE}</span>
-<span class="source-line-no">086</span><span id="line-86">   * if there is a corresponding {@link InputDefault} for the input or the {@link #source()} parameter is set to</span>
-<span class="source-line-no">087</span><span id="line-87">   * {@link Source#CONTEXT}, otherwise it will be treated as {@link Feature#ENABLE}. The value of this setting</span>
-<span class="source-line-no">088</span><span id="line-88">   * must not be {@link Feature#ENABLE} when {@link #source()} is set to {@link Source#CONTEXT}.</span>
-<span class="source-line-no">089</span><span id="line-89">   *</span>
-<span class="source-line-no">090</span><span id="line-90">   * @return the flag indicating whether the input needs to be supplied.</span>
-<span class="source-line-no">091</span><span id="line-91">   */</span>
-<span class="source-line-no">092</span><span id="line-92">  Feature require() default Feature.AUTODETECT;</span>
-<span class="source-line-no">093</span><span id="line-93"></span>
-<span class="source-line-no">094</span><span id="line-94">  /**</span>
-<span class="source-line-no">095</span><span id="line-95">   * Indicate whether the input should be annotated by {@link Observable}.</span>
-<span class="source-line-no">096</span><span id="line-96">   *</span>
-<span class="source-line-no">097</span><span id="line-97">   * &lt;p&gt;If set to {@link Feature#AUTODETECT} then the input will be observable if and only if:&lt;/p&gt;</span>
-<span class="source-line-no">098</span><span id="line-98">   * &lt;ul&gt;</span>
-<span class="source-line-no">099</span><span id="line-99">   * &lt;li&gt;the input is not immutable.&lt;/li&gt;</span>
-<span class="source-line-no">100</span><span id="line-100">   * &lt;li&gt;the view has at least one method annotated with {@link Memoize} or {@link Observe}.&lt;/li&gt;</span>
-<span class="source-line-no">101</span><span id="line-101">   * &lt;/ul&gt;</span>
-<span class="source-line-no">102</span><span id="line-102">   *</span>
-<span class="source-line-no">103</span><span id="line-103">   * @return the enum indicating whether input is observable.</span>
-<span class="source-line-no">104</span><span id="line-104">   */</span>
-<span class="source-line-no">105</span><span id="line-105">  Feature observable() default Feature.AUTODETECT;</span>
-<span class="source-line-no">106</span><span id="line-106"></span>
-<span class="source-line-no">107</span><span id="line-107">  /**</span>
-<span class="source-line-no">108</span><span id="line-108">   * Enum where the input is sourced from.</span>
-<span class="source-line-no">109</span><span id="line-109">   */</span>
-<span class="source-line-no">110</span><span id="line-110">  enum Source</span>
-<span class="source-line-no">111</span><span id="line-111">  {</span>
-<span class="source-line-no">112</span><span id="line-112">    /**</span>
-<span class="source-line-no">113</span><span id="line-113">     * The input value is passed to the view during construction.</span>
-<span class="source-line-no">114</span><span id="line-114">     */</span>
-<span class="source-line-no">115</span><span id="line-115">    DEFAULT,</span>
-<span class="source-line-no">116</span><span id="line-116">    /**</span>
-<span class="source-line-no">117</span><span id="line-117">     * The input value is retrieved from the react context.</span>
-<span class="source-line-no">118</span><span id="line-118">     */</span>
-<span class="source-line-no">119</span><span id="line-119">    CONTEXT</span>
-<span class="source-line-no">120</span><span id="line-120">  }</span>
-<span class="source-line-no">121</span><span id="line-121">}</span>
+<span class="source-line-no">071</span><span id="line-71">   * Return {@code true} if the input value should be sourced from tree context rather than supplied when</span>
+<span class="source-line-no">072</span><span id="line-72">   * creating the view. Inputs sourced from tree context are transparently passed from a parent view to</span>
+<span class="source-line-no">073</span><span id="line-73">   * descendant views and do not need to be specified by the user when creating the view.</span>
+<span class="source-line-no">074</span><span id="line-74">   *</span>
+<span class="source-line-no">075</span><span id="line-75">   * @return {@code true} if the input value should be sourced from tree context.</span>
+<span class="source-line-no">076</span><span id="line-76">   */</span>
+<span class="source-line-no">077</span><span id="line-77">  boolean fromTreeContext() default false;</span>
+<span class="source-line-no">078</span><span id="line-78"></span>
+<span class="source-line-no">079</span><span id="line-79">  /**</span>
+<span class="source-line-no">080</span><span id="line-80">   * Setting indicating whether the input should be supplied when the view is constructed.</span>
+<span class="source-line-no">081</span><span id="line-81">   * This influences validation when enabled and how the Builder class is created.</span>
+<span class="source-line-no">082</span><span id="line-82">   * If set to {@link Feature#ENABLE} then the user MUST supply the input and the builder will require the user</span>
+<span class="source-line-no">083</span><span id="line-83">   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the input.</span>
+<span class="source-line-no">084</span><span id="line-84">   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#DISABLE}</span>
+<span class="source-line-no">085</span><span id="line-85">   * if there is a corresponding {@link InputDefault} for the input or {@link #fromTreeContext()} is</span>
+<span class="source-line-no">086</span><span id="line-86">   * {@code true}, otherwise it will be treated as {@link Feature#ENABLE}. The value of this setting must not</span>
+<span class="source-line-no">087</span><span id="line-87">   * be {@link Feature#ENABLE} when {@link #fromTreeContext()} is {@code true}.</span>
+<span class="source-line-no">088</span><span id="line-88">   *</span>
+<span class="source-line-no">089</span><span id="line-89">   * @return the flag indicating whether the input needs to be supplied.</span>
+<span class="source-line-no">090</span><span id="line-90">   */</span>
+<span class="source-line-no">091</span><span id="line-91">  Feature require() default Feature.AUTODETECT;</span>
+<span class="source-line-no">092</span><span id="line-92"></span>
+<span class="source-line-no">093</span><span id="line-93">  /**</span>
+<span class="source-line-no">094</span><span id="line-94">   * Indicate whether the input should be annotated by {@link Observable}.</span>
+<span class="source-line-no">095</span><span id="line-95">   *</span>
+<span class="source-line-no">096</span><span id="line-96">   * &lt;p&gt;If set to {@link Feature#AUTODETECT} then the input will be observable if and only if:&lt;/p&gt;</span>
+<span class="source-line-no">097</span><span id="line-97">   * &lt;ul&gt;</span>
+<span class="source-line-no">098</span><span id="line-98">   * &lt;li&gt;the input is not immutable.&lt;/li&gt;</span>
+<span class="source-line-no">099</span><span id="line-99">   * &lt;li&gt;the view has at least one method annotated with {@link Memoize} or {@link Observe}.&lt;/li&gt;</span>
+<span class="source-line-no">100</span><span id="line-100">   * &lt;/ul&gt;</span>
+<span class="source-line-no">101</span><span id="line-101">   *</span>
+<span class="source-line-no">102</span><span id="line-102">   * @return the enum indicating whether input is observable.</span>
+<span class="source-line-no">103</span><span id="line-103">   */</span>
+<span class="source-line-no">104</span><span id="line-104">  Feature observable() default Feature.AUTODETECT;</span>
+<span class="source-line-no">105</span><span id="line-105"></span>
+<span class="source-line-no">106</span><span id="line-106">}</span>
 
 
 

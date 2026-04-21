@@ -104,14 +104,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Return the name of the view.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#sting()" class="member-name-link">sting</a></code></div>
+<div class="col-first odd-row-color"><code><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#type()" class="member-name-link">type</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Enum controlling whether Sting injection integration is generated for the view.</div>
-</div>
-<div class="col-first even-row-color"><code><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></code></div>
-<div class="col-second even-row-color"><code><a href="#type()" class="member-name-link">type</a></code></div>
-<div class="col-last even-row-color">
 <div class="block">Enum indicating the capabilities of the view.</div>
 </div>
 </div>
@@ -167,27 +162,6 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Default:</dt>
 <dd>STATEFUL</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="sting()">
-<h3>sting</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.html#line-85">sting</a></span></div>
-<div class="block">Enum controlling whether Sting injection integration is generated for the view.
- The generated class is the same name as the view with the "Factory" suffix.
- React4j only supports constructor injection and thus this MUST NOT be set to <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a>
- unless there are constructor parameters on the view. If the value is set to
- <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the feature will be enabled if the view has
- constructor parameters and the <code>sting.Injectable</code> class is present when compiling
- the view.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>an enum controlling whether sting integration is generated for the view.</dd>
-</dl>
-<dl class="notes">
-<dt>Default:</dt>
-<dd>AUTODETECT</dd>
 </dl>
 </section>
 </li>
