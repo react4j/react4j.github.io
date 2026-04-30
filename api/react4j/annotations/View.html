@@ -68,6 +68,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#TYPE" title="class or interface in java.lang.annotation" class="external-link">TYPE</a>)
+@StingProvider("[FlatEnclosingName]React4j_[SimpleName]Factory")
 </span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/react4j/annotations/View.html#line-13">View</a></span></div>
 <div class="block">Annotation used to identify a React4j view.</div>
 </section>
@@ -99,14 +100,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Optional Element</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#name()" class="member-name-link">name</a></code></div>
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#exportBuilder()" class="member-name-link">exportBuilder</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">Return true if the generated builder API should be public.</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#name()" class="member-name-link">name</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Return the name of the view.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#type()" class="member-name-link">type</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></code></div>
+<div class="col-second even-row-color"><code><a href="#type()" class="member-name-link">type</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Enum indicating the capabilities of the view.</div>
 </div>
 </div>
@@ -125,7 +131,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="name()">
 <h3>name</h3>
 <div class="member-signature"><span class="annotations">@Nonnull
-</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.html#line-61">name</a></span></div>
+</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.html#line-62">name</a></span></div>
 <div class="block">Return the name of the view.
  The value defaults to the simple name of the class. If the value is specified, the
  value must conform to the requirements of a java identifier. It should also be unique
@@ -143,10 +149,28 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="exportBuilder()">
+<h3>exportBuilder</h3>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.html#line-73">exportBuilder</a></span></div>
+<div class="block">Return true if the generated builder API should be public.
+ When false, the generated builder API is package access and intended for local use.
+ When true, the generated builder API is public and can be used from other packages while the
+ annotated view type itself remains package access.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if the generated builder API should be public.</dd>
+</dl>
+<dl class="notes">
+<dt>Default:</dt>
+<dd>false</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="type()">
 <h3>type</h3>
 <div class="member-signature"><span class="annotations">@Nonnull
-</span><span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.html#line-71">type</a></span></div>
+</span><span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.html#line-82">type</a></span></div>
 <div class="block">Enum indicating the capabilities of the view.
  See the <a href="View.Type.html" title="enum class in react4j.annotations"><code>View.Type</code></a> enum for further details.</div>
 <dl class="notes">

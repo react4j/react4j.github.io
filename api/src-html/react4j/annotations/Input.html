@@ -13,110 +13,108 @@
 <div class="source-container">
 <pre><span class="source-line-no">001</span><span id="line-1">package react4j.annotations;</span>
 <span class="source-line-no">002</span><span id="line-2"></span>
-<span class="source-line-no">003</span><span id="line-3">import arez.annotations.AutoObserve;</span>
-<span class="source-line-no">004</span><span id="line-4">import arez.annotations.ComponentDependency;</span>
-<span class="source-line-no">005</span><span id="line-5">import arez.annotations.Memoize;</span>
-<span class="source-line-no">006</span><span id="line-6">import arez.annotations.Observable;</span>
-<span class="source-line-no">007</span><span id="line-7">import arez.annotations.Observe;</span>
-<span class="source-line-no">008</span><span id="line-8">import java.lang.annotation.Documented;</span>
-<span class="source-line-no">009</span><span id="line-9">import java.lang.annotation.ElementType;</span>
-<span class="source-line-no">010</span><span id="line-10">import java.lang.annotation.Target;</span>
-<span class="source-line-no">011</span><span id="line-11">import javax.annotation.Nonnull;</span>
-<span class="source-line-no">012</span><span id="line-12"></span>
-<span class="source-line-no">013</span><span id="line-13">/**</span>
-<span class="source-line-no">014</span><span id="line-14"> * Annotation used to specify an input.</span>
-<span class="source-line-no">015</span><span id="line-15"> * The property is extracted from Reacts underlying props object. By default the input is passed as a</span>
-<span class="source-line-no">016</span><span id="line-16"> * value in when creating the view but it can also be retrieved from the react context.</span>
-<span class="source-line-no">017</span><span id="line-17"> * When applied to an abstract method, the input is mutable.</span>
-<span class="source-line-no">018</span><span id="line-18"> * When applied to a constructor parameter, the input is immutable.</span>
-<span class="source-line-no">019</span><span id="line-19"> *</span>
-<span class="source-line-no">020</span><span id="line-20"> * &lt;p&gt;If applied to a method, the method that is annotated with this annotation must also comply with the</span>
-<span class="source-line-no">021</span><span id="line-21"> * following constraints:&lt;/p&gt;</span>
-<span class="source-line-no">022</span><span id="line-22"> * &lt;ul&gt;</span>
-<span class="source-line-no">023</span><span id="line-23"> * &lt;li&gt;Must not be annotated with any other react annotation&lt;/li&gt;</span>
-<span class="source-line-no">024</span><span id="line-24"> * &lt;li&gt;Must have 0 parameters&lt;/li&gt;</span>
-<span class="source-line-no">025</span><span id="line-25"> * &lt;li&gt;Must return a value&lt;/li&gt;</span>
-<span class="source-line-no">026</span><span id="line-26"> * &lt;li&gt;Must be an abstract instance method&lt;/li&gt;</span>
-<span class="source-line-no">027</span><span id="line-27"> * &lt;li&gt;Must not throw exceptions&lt;/li&gt;</span>
-<span class="source-line-no">028</span><span id="line-28"> * &lt;li&gt;Must be accessible from the same package as the class annotated by {@link View}&lt;/li&gt;</span>
-<span class="source-line-no">029</span><span id="line-29"> * &lt;li&gt;</span>
-<span class="source-line-no">030</span><span id="line-30"> *   Should not be public as not expected to be invoked outside the view. A warning will be generated but can</span>
-<span class="source-line-no">031</span><span id="line-31"> *   be suppressed by the {@link SuppressWarnings} or {@link SuppressReact4jWarnings} annotations with a key</span>
-<span class="source-line-no">032</span><span id="line-32"> *   "React4j:PublicMethod". This warning is also suppressed by the annotation processor if it is implementing</span>
-<span class="source-line-no">033</span><span id="line-33"> *   an interface method.</span>
-<span class="source-line-no">034</span><span id="line-34"> * &lt;/li&gt;</span>
-<span class="source-line-no">035</span><span id="line-35"> * &lt;li&gt;</span>
-<span class="source-line-no">036</span><span id="line-36"> *   Should not be protected if in the class annotated with the {@link View} annotation as the method is not</span>
-<span class="source-line-no">037</span><span id="line-37"> *   expected to be invoked outside the view. A warning will be generated but can be suppressed by the</span>
-<span class="source-line-no">038</span><span id="line-38"> *   {@link SuppressWarnings} or {@link SuppressReact4jWarnings} annotations with a key "React4j:ProtectedMethod".</span>
-<span class="source-line-no">039</span><span id="line-39"> * &lt;/li&gt;</span>
-<span class="source-line-no">040</span><span id="line-40"> * &lt;li&gt;</span>
-<span class="source-line-no">041</span><span id="line-41"> *   Should be annotated with either {@link javax.annotation.Nonnull} or {@link javax.annotation.Nullable} if the</span>
-<span class="source-line-no">042</span><span id="line-42"> *   return type is not a primitive. A warning will be generated but can be suppressed by the {@link SuppressWarnings}</span>
-<span class="source-line-no">043</span><span id="line-43"> *   or {@link SuppressReact4jWarnings} annotations with a key "React4j:MissingInputNullability".</span>
-<span class="source-line-no">044</span><span id="line-44"> * &lt;/li&gt;</span>
-<span class="source-line-no">045</span><span id="line-45"> * &lt;/ul&gt;</span>
-<span class="source-line-no">046</span><span id="line-46"> */</span>
-<span class="source-line-no">047</span><span id="line-47">@Documented</span>
-<span class="source-line-no">048</span><span id="line-48">@Target( { ElementType.METHOD, ElementType.PARAMETER } )</span>
-<span class="source-line-no">049</span><span id="line-49">public @interface Input</span>
-<span class="source-line-no">050</span><span id="line-50">{</span>
-<span class="source-line-no">051</span><span id="line-51">  /**</span>
-<span class="source-line-no">052</span><span id="line-52">   * Return the name of the input.</span>
-<span class="source-line-no">053</span><span id="line-53">   * The name is the key used when accessing the input from the inputs object. It is also used when creating</span>
-<span class="source-line-no">054</span><span id="line-54">   * the builder steps associated with inputs that are not sourced from tree context.</span>
-<span class="source-line-no">055</span><span id="line-55">   *</span>
-<span class="source-line-no">056</span><span id="line-56">   * @return the name of the input.</span>
-<span class="source-line-no">057</span><span id="line-57">   */</span>
-<span class="source-line-no">058</span><span id="line-58">  @Nonnull</span>
-<span class="source-line-no">059</span><span id="line-59">  String name() default "&lt;default&gt;";</span>
-<span class="source-line-no">060</span><span id="line-60"></span>
-<span class="source-line-no">061</span><span id="line-61">  /**</span>
-<span class="source-line-no">062</span><span id="line-62">   * Return the qualifier used to access value from context.</span>
-<span class="source-line-no">063</span><span id="line-63">   * It must only be specified if {@link #fromTreeContext()} is set to {@code true}.</span>
-<span class="source-line-no">064</span><span id="line-64">   *</span>
-<span class="source-line-no">065</span><span id="line-65">   * @return the qualifier used to access value from context.</span>
-<span class="source-line-no">066</span><span id="line-66">   */</span>
-<span class="source-line-no">067</span><span id="line-67">  @Nonnull</span>
-<span class="source-line-no">068</span><span id="line-68">  String qualifier() default "";</span>
-<span class="source-line-no">069</span><span id="line-69"></span>
-<span class="source-line-no">070</span><span id="line-70">  /**</span>
-<span class="source-line-no">071</span><span id="line-71">   * Return {@code true} if the input value should be sourced from tree context rather than supplied when</span>
-<span class="source-line-no">072</span><span id="line-72">   * creating the view. Inputs sourced from tree context are transparently passed from a parent view to</span>
-<span class="source-line-no">073</span><span id="line-73">   * descendant views and do not need to be specified by the user when creating the view.</span>
-<span class="source-line-no">074</span><span id="line-74">   *</span>
-<span class="source-line-no">075</span><span id="line-75">   * @return {@code true} if the input value should be sourced from tree context.</span>
-<span class="source-line-no">076</span><span id="line-76">   */</span>
-<span class="source-line-no">077</span><span id="line-77">  boolean fromTreeContext() default false;</span>
-<span class="source-line-no">078</span><span id="line-78"></span>
-<span class="source-line-no">079</span><span id="line-79">  /**</span>
-<span class="source-line-no">080</span><span id="line-80">   * Setting indicating whether the input should be supplied when the view is constructed.</span>
-<span class="source-line-no">081</span><span id="line-81">   * This influences validation when enabled and how the Builder class is created.</span>
-<span class="source-line-no">082</span><span id="line-82">   * If set to {@link Feature#ENABLE} then the user MUST supply the input and the builder will require the user</span>
-<span class="source-line-no">083</span><span id="line-83">   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the input.</span>
-<span class="source-line-no">084</span><span id="line-84">   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#DISABLE}</span>
-<span class="source-line-no">085</span><span id="line-85">   * if there is a corresponding {@link InputDefault} for the input or {@link #fromTreeContext()} is</span>
-<span class="source-line-no">086</span><span id="line-86">   * {@code true}, otherwise it will be treated as {@link Feature#ENABLE}. The value of this setting must not</span>
-<span class="source-line-no">087</span><span id="line-87">   * be {@link Feature#ENABLE} when {@link #fromTreeContext()} is {@code true}.</span>
-<span class="source-line-no">088</span><span id="line-88">   *</span>
-<span class="source-line-no">089</span><span id="line-89">   * @return the flag indicating whether the input needs to be supplied.</span>
-<span class="source-line-no">090</span><span id="line-90">   */</span>
-<span class="source-line-no">091</span><span id="line-91">  Feature require() default Feature.AUTODETECT;</span>
-<span class="source-line-no">092</span><span id="line-92"></span>
-<span class="source-line-no">093</span><span id="line-93">  /**</span>
-<span class="source-line-no">094</span><span id="line-94">   * Indicate whether the input should be annotated by {@link Observable}.</span>
-<span class="source-line-no">095</span><span id="line-95">   *</span>
-<span class="source-line-no">096</span><span id="line-96">   * &lt;p&gt;If set to {@link Feature#AUTODETECT} then the input will be observable if and only if:&lt;/p&gt;</span>
-<span class="source-line-no">097</span><span id="line-97">   * &lt;ul&gt;</span>
-<span class="source-line-no">098</span><span id="line-98">   * &lt;li&gt;the input is not immutable.&lt;/li&gt;</span>
-<span class="source-line-no">099</span><span id="line-99">   * &lt;li&gt;the view has at least one method annotated with {@link Memoize} or {@link Observe}.&lt;/li&gt;</span>
-<span class="source-line-no">100</span><span id="line-100">   * &lt;/ul&gt;</span>
-<span class="source-line-no">101</span><span id="line-101">   *</span>
-<span class="source-line-no">102</span><span id="line-102">   * @return the enum indicating whether input is observable.</span>
-<span class="source-line-no">103</span><span id="line-103">   */</span>
-<span class="source-line-no">104</span><span id="line-104">  Feature observable() default Feature.AUTODETECT;</span>
-<span class="source-line-no">105</span><span id="line-105"></span>
-<span class="source-line-no">106</span><span id="line-106">}</span>
+<span class="source-line-no">003</span><span id="line-3">import arez.annotations.Memoize;</span>
+<span class="source-line-no">004</span><span id="line-4">import arez.annotations.Observable;</span>
+<span class="source-line-no">005</span><span id="line-5">import arez.annotations.Observe;</span>
+<span class="source-line-no">006</span><span id="line-6">import java.lang.annotation.Documented;</span>
+<span class="source-line-no">007</span><span id="line-7">import java.lang.annotation.ElementType;</span>
+<span class="source-line-no">008</span><span id="line-8">import java.lang.annotation.Target;</span>
+<span class="source-line-no">009</span><span id="line-9">import javax.annotation.Nonnull;</span>
+<span class="source-line-no">010</span><span id="line-10"></span>
+<span class="source-line-no">011</span><span id="line-11">/**</span>
+<span class="source-line-no">012</span><span id="line-12"> * Annotation used to specify an input.</span>
+<span class="source-line-no">013</span><span id="line-13"> * The property is extracted from Reacts underlying props object. By default the input is passed as a</span>
+<span class="source-line-no">014</span><span id="line-14"> * value in when creating the view but it can also be retrieved from the react context.</span>
+<span class="source-line-no">015</span><span id="line-15"> * When applied to an abstract method, the input is mutable.</span>
+<span class="source-line-no">016</span><span id="line-16"> * When applied to a constructor parameter, the input is immutable.</span>
+<span class="source-line-no">017</span><span id="line-17"> *</span>
+<span class="source-line-no">018</span><span id="line-18"> * &lt;p&gt;If applied to a method, the method that is annotated with this annotation must also comply with the</span>
+<span class="source-line-no">019</span><span id="line-19"> * following constraints:&lt;/p&gt;</span>
+<span class="source-line-no">020</span><span id="line-20"> * &lt;ul&gt;</span>
+<span class="source-line-no">021</span><span id="line-21"> * &lt;li&gt;Must not be annotated with any other react annotation&lt;/li&gt;</span>
+<span class="source-line-no">022</span><span id="line-22"> * &lt;li&gt;Must have 0 parameters&lt;/li&gt;</span>
+<span class="source-line-no">023</span><span id="line-23"> * &lt;li&gt;Must return a value&lt;/li&gt;</span>
+<span class="source-line-no">024</span><span id="line-24"> * &lt;li&gt;Must be an abstract instance method&lt;/li&gt;</span>
+<span class="source-line-no">025</span><span id="line-25"> * &lt;li&gt;Must not throw exceptions&lt;/li&gt;</span>
+<span class="source-line-no">026</span><span id="line-26"> * &lt;li&gt;Must be accessible from the same package as the class annotated by {@link View}&lt;/li&gt;</span>
+<span class="source-line-no">027</span><span id="line-27"> * &lt;li&gt;</span>
+<span class="source-line-no">028</span><span id="line-28"> *   Should not be public as not expected to be invoked outside the view. A warning will be generated but can</span>
+<span class="source-line-no">029</span><span id="line-29"> *   be suppressed by the {@link SuppressWarnings} or {@link SuppressReact4jWarnings} annotations with a key</span>
+<span class="source-line-no">030</span><span id="line-30"> *   "React4j:PublicMethod". This warning is also suppressed by the annotation processor if it is implementing</span>
+<span class="source-line-no">031</span><span id="line-31"> *   an interface method.</span>
+<span class="source-line-no">032</span><span id="line-32"> * &lt;/li&gt;</span>
+<span class="source-line-no">033</span><span id="line-33"> * &lt;li&gt;</span>
+<span class="source-line-no">034</span><span id="line-34"> *   Should not be protected if in the class annotated with the {@link View} annotation as the method is not</span>
+<span class="source-line-no">035</span><span id="line-35"> *   expected to be invoked outside the view. A warning will be generated but can be suppressed by the</span>
+<span class="source-line-no">036</span><span id="line-36"> *   {@link SuppressWarnings} or {@link SuppressReact4jWarnings} annotations with a key "React4j:ProtectedMethod".</span>
+<span class="source-line-no">037</span><span id="line-37"> * &lt;/li&gt;</span>
+<span class="source-line-no">038</span><span id="line-38"> * &lt;li&gt;</span>
+<span class="source-line-no">039</span><span id="line-39"> *   Should be annotated with either {@link javax.annotation.Nonnull} or {@link javax.annotation.Nullable} if the</span>
+<span class="source-line-no">040</span><span id="line-40"> *   return type is not a primitive. A warning will be generated but can be suppressed by the {@link SuppressWarnings}</span>
+<span class="source-line-no">041</span><span id="line-41"> *   or {@link SuppressReact4jWarnings} annotations with a key "React4j:MissingInputNullability".</span>
+<span class="source-line-no">042</span><span id="line-42"> * &lt;/li&gt;</span>
+<span class="source-line-no">043</span><span id="line-43"> * &lt;/ul&gt;</span>
+<span class="source-line-no">044</span><span id="line-44"> */</span>
+<span class="source-line-no">045</span><span id="line-45">@Documented</span>
+<span class="source-line-no">046</span><span id="line-46">@Target( { ElementType.METHOD, ElementType.PARAMETER } )</span>
+<span class="source-line-no">047</span><span id="line-47">public @interface Input</span>
+<span class="source-line-no">048</span><span id="line-48">{</span>
+<span class="source-line-no">049</span><span id="line-49">  /**</span>
+<span class="source-line-no">050</span><span id="line-50">   * Return the name of the input.</span>
+<span class="source-line-no">051</span><span id="line-51">   * The name is the key used when accessing the input from the inputs object. It is also used when creating</span>
+<span class="source-line-no">052</span><span id="line-52">   * the builder steps associated with inputs that are not sourced from tree context.</span>
+<span class="source-line-no">053</span><span id="line-53">   *</span>
+<span class="source-line-no">054</span><span id="line-54">   * @return the name of the input.</span>
+<span class="source-line-no">055</span><span id="line-55">   */</span>
+<span class="source-line-no">056</span><span id="line-56">  @Nonnull</span>
+<span class="source-line-no">057</span><span id="line-57">  String name() default "&lt;default&gt;";</span>
+<span class="source-line-no">058</span><span id="line-58"></span>
+<span class="source-line-no">059</span><span id="line-59">  /**</span>
+<span class="source-line-no">060</span><span id="line-60">   * Return the qualifier used to access value from context.</span>
+<span class="source-line-no">061</span><span id="line-61">   * It must only be specified if {@link #fromTreeContext()} is set to {@code true}.</span>
+<span class="source-line-no">062</span><span id="line-62">   *</span>
+<span class="source-line-no">063</span><span id="line-63">   * @return the qualifier used to access value from context.</span>
+<span class="source-line-no">064</span><span id="line-64">   */</span>
+<span class="source-line-no">065</span><span id="line-65">  @Nonnull</span>
+<span class="source-line-no">066</span><span id="line-66">  String qualifier() default "";</span>
+<span class="source-line-no">067</span><span id="line-67"></span>
+<span class="source-line-no">068</span><span id="line-68">  /**</span>
+<span class="source-line-no">069</span><span id="line-69">   * Return {@code true} if the input value should be sourced from tree context rather than supplied when</span>
+<span class="source-line-no">070</span><span id="line-70">   * creating the view. Inputs sourced from tree context are transparently passed from a parent view to</span>
+<span class="source-line-no">071</span><span id="line-71">   * descendant views and do not need to be specified by the user when creating the view.</span>
+<span class="source-line-no">072</span><span id="line-72">   *</span>
+<span class="source-line-no">073</span><span id="line-73">   * @return {@code true} if the input value should be sourced from tree context.</span>
+<span class="source-line-no">074</span><span id="line-74">   */</span>
+<span class="source-line-no">075</span><span id="line-75">  boolean fromTreeContext() default false;</span>
+<span class="source-line-no">076</span><span id="line-76"></span>
+<span class="source-line-no">077</span><span id="line-77">  /**</span>
+<span class="source-line-no">078</span><span id="line-78">   * Setting indicating whether the input should be supplied when the view is constructed.</span>
+<span class="source-line-no">079</span><span id="line-79">   * This influences validation when enabled and how the Builder class is created.</span>
+<span class="source-line-no">080</span><span id="line-80">   * If set to {@link Feature#ENABLE} then the user MUST supply the input and the builder will require the user</span>
+<span class="source-line-no">081</span><span id="line-81">   * to specify the value. If set to {@link Feature#DISABLE} then the user can optionally supply the input.</span>
+<span class="source-line-no">082</span><span id="line-82">   * If set to {@link Feature#AUTODETECT} then the annotation processor will treat it as {@link Feature#DISABLE}</span>
+<span class="source-line-no">083</span><span id="line-83">   * if there is a corresponding {@link InputDefault} for the input or {@link #fromTreeContext()} is</span>
+<span class="source-line-no">084</span><span id="line-84">   * {@code true}, otherwise it will be treated as {@link Feature#ENABLE}. The value of this setting must not</span>
+<span class="source-line-no">085</span><span id="line-85">   * be {@link Feature#ENABLE} when {@link #fromTreeContext()} is {@code true}.</span>
+<span class="source-line-no">086</span><span id="line-86">   *</span>
+<span class="source-line-no">087</span><span id="line-87">   * @return the flag indicating whether the input needs to be supplied.</span>
+<span class="source-line-no">088</span><span id="line-88">   */</span>
+<span class="source-line-no">089</span><span id="line-89">  Feature require() default Feature.AUTODETECT;</span>
+<span class="source-line-no">090</span><span id="line-90"></span>
+<span class="source-line-no">091</span><span id="line-91">  /**</span>
+<span class="source-line-no">092</span><span id="line-92">   * Indicate whether the input should be annotated by {@link Observable}.</span>
+<span class="source-line-no">093</span><span id="line-93">   *</span>
+<span class="source-line-no">094</span><span id="line-94">   * &lt;p&gt;If set to {@link Feature#AUTODETECT} then the input will be observable if and only if:&lt;/p&gt;</span>
+<span class="source-line-no">095</span><span id="line-95">   * &lt;ul&gt;</span>
+<span class="source-line-no">096</span><span id="line-96">   * &lt;li&gt;the input is not immutable.&lt;/li&gt;</span>
+<span class="source-line-no">097</span><span id="line-97">   * &lt;li&gt;the view has at least one method annotated with {@link Memoize} or {@link Observe}.&lt;/li&gt;</span>
+<span class="source-line-no">098</span><span id="line-98">   * &lt;/ul&gt;</span>
+<span class="source-line-no">099</span><span id="line-99">   *</span>
+<span class="source-line-no">100</span><span id="line-100">   * @return the enum indicating whether input is observable.</span>
+<span class="source-line-no">101</span><span id="line-101">   */</span>
+<span class="source-line-no">102</span><span id="line-102">  Feature observable() default Feature.AUTODETECT;</span>
+<span class="source-line-no">103</span><span id="line-103"></span>
+<span class="source-line-no">104</span><span id="line-104">}</span>
 
 
 

@@ -68,7 +68,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Documented.html" title="class or interface in java.lang.annotation" class="external-link">@Documented</a>
 <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>({<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>,<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/ElementType.html#PARAMETER" title="class or interface in java.lang.annotation" class="external-link">PARAMETER</a>})
-</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-47">Input</a></span></div>
+</span><span class="modifiers">public @interface </span><span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-45">Input</a></span></div>
 <div class="block">Annotation used to specify an input.
  The property is extracted from Reacts underlying props object. By default the input is passed as a
  value in when creating the view but it can also be retrieved from the react context.
@@ -155,7 +155,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="name()">
 <h3>name</h3>
 <div class="member-signature"><span class="annotations">@Nonnull
-</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-58">name</a></span></div>
+</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-56">name</a></span></div>
 <div class="block">Return the name of the input.
  The name is the key used when accessing the input from the inputs object. It is also used when creating
  the builder steps associated with inputs that are not sourced from tree context.</div>
@@ -173,7 +173,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="qualifier()">
 <h3>qualifier</h3>
 <div class="member-signature"><span class="annotations">@Nonnull
-</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-67">qualifier</a></span></div>
+</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-65">qualifier</a></span></div>
 <div class="block">Return the qualifier used to access value from context.
  It must only be specified if <a href="#fromTreeContext()"><code>fromTreeContext()</code></a> is set to <code>true</code>.</div>
 <dl class="notes">
@@ -189,7 +189,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="fromTreeContext()">
 <h3>fromTreeContext</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-77">fromTreeContext</a></span></div>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-75">fromTreeContext</a></span></div>
 <div class="block">Return <code>true</code> if the input value should be sourced from tree context rather than supplied when
  creating the view. Inputs sourced from tree context are transparently passed from a parent view to
  descendant views and do not need to be specified by the user when creating the view.</div>
@@ -206,7 +206,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="require()">
 <h3>require</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-91">require</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-89">require</a></span></div>
 <div class="block">Setting indicating whether the input should be supplied when the view is constructed.
  This influences validation when enabled and how the Builder class is created.
  If set to <a href="Feature.html#ENABLE"><code>Feature.ENABLE</code></a> then the user MUST supply the input and the builder will require the user
@@ -228,7 +228,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="observable()">
 <h3>observable</h3>
-<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-104">observable</a></span></div>
+<div class="member-signature"><span class="return-type"><a href="Feature.html" title="enum class in react4j.annotations">Feature</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/Input.html#line-102">observable</a></span></div>
 <div class="block">Indicate whether the input should be annotated by <a href="https://arez.github.io/api/arez/annotations/Observable.html" title="class or interface in arez.annotations" class="external-link"><code>Observable</code></a>.
 
  <p>If set to <a href="Feature.html#AUTODETECT"><code>Feature.AUTODETECT</code></a> then the input will be observable if and only if:</p>

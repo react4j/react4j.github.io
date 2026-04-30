@@ -85,7 +85,7 @@ loadScripts(document, 'script');</script>
 <dd><a href="View.html" title="annotation interface in react4j.annotations">View</a></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public static enum </span><span class="element-name"><a href="../../src-html/react4j/annotations/View.html#line-22">View.Type</a></span>
+<div class="type-signature"><span class="modifiers">public static enum </span><span class="element-name"><a href="../../src-html/react4j/annotations/View.html#line-23">View.Type</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html" title="class or interface in java.lang" class="external-link">Enum</a>&lt;<a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a>&gt;</span></div>
 <div class="block">Enum indicating type of view.</div>
 </section>
@@ -175,7 +175,7 @@ the order they are declared.</div>
 <li>
 <section class="detail" id="STATEFUL">
 <h3>STATEFUL</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-32">STATEFUL</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-33">STATEFUL</a></span></div>
 <div class="block">The view can store state in fields, can declared lifecycle methods and may contain methods annotated by
  the <a href="ScheduleRender.html" title="annotation interface in react4j.annotations"><code>ScheduleRender</code></a> annotation.
  The view will be scheduled to re-render if the views container re-renders and any input has changed
@@ -187,7 +187,7 @@ the order they are declared.</div>
 <li>
 <section class="detail" id="TRACKING">
 <h3>TRACKING</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-37">TRACKING</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-38">TRACKING</a></span></div>
 <div class="block">The view is a <a href="#STATEFUL"><code>STATEFUL</code></a> view <b>and</b> will re-render the view if any Arez
  dependencies change. The framework uses the <a href="https://arez.github.io/api/arez/annotations/Observe.html" title="class or interface in arez.annotations" class="external-link"><code>Observe</code></a> annotation to track Arez dependencies.</div>
 </section>
@@ -195,7 +195,7 @@ the order they are declared.</div>
 <li>
 <section class="detail" id="MAYBE_TRACKING">
 <h3>MAYBE_TRACKING</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-42">MAYBE_TRACKING</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-43">MAYBE_TRACKING</a></span></div>
 <div class="block">The view is a <a href="#TRACKING"><code>TRACKING</code></a> view but it will not generate an invariant failure if a
  render results in zero Arez dependencies.</div>
 </section>
@@ -203,7 +203,7 @@ the order they are declared.</div>
 <li>
 <section class="detail" id="NO_RENDER">
 <h3>NO_RENDER</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-48">NO_RENDER</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-49">NO_RENDER</a></span></div>
 <div class="block">The view must not have a method annotated with <a href="Render.html" title="annotation interface in react4j.annotations"><code>Render</code></a>.
  This is useful for "view" instances that provide capabilities or interact
  with services and thus need not have a render method.</div>
@@ -220,7 +220,7 @@ the order they are declared.</div>
 <li>
 <section class="detail" id="values()">
 <h3>values</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a>[]</span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-22">values</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a>[]</span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-23">values</a></span>()</div>
 <div class="block">Returns an array containing the constants of this enum class, in
 the order they are declared.</div>
 <dl class="notes">
@@ -232,7 +232,7 @@ the order they are declared.</div>
 <li>
 <section class="detail" id="valueOf(java.lang.String)">
 <h3>valueOf</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-22">valueOf</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="View.Type.html" title="enum class in react4j.annotations">View.Type</a></span>&nbsp;<span class="element-name"><a href="../../src-html/react4j/annotations/View.Type.html#line-23">valueOf</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 <div class="block">Returns the enum constant of this class with the specified name.
 The string must match <i>exactly</i> an identifier used to declare an
 enum constant in this class.  (Extraneous whitespace characters are 
