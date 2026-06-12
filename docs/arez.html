@@ -15,15 +15,14 @@ required. Data nodes are always up to date and perform the minimum amount of wor
 data that a <code>@View</code> component accesses during rendering will schedule the component for re-rendering. The
 developer controls the scope of the re-render by controlling the size of the component.</p>
 <h2><a class="anchor" aria-hidden="true" name="getting-started"></a><a href="#getting-started" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Started</h2>
-<p>To trigger re-renders of a react4j component when observable Arez state is modified then set the <code>type</code>
-parameter of the <code>@View</code> annotation to <code>TRACKING</code> (i.e. Annotate the component with
-<code>@View( type = View.Type.TRACKING )</code>). This will result in the <code>@Render</code> annotated method being invoked
+<p>To trigger re-renders of a react4j component when observable Arez state is modified then annotate the component
+with <code>@View</code>. This will result in the <code>@Render</code> annotated method being invoked
 within the scope of a read-only, tracking (Arez) transaction. Changes to the observable state accessed within the
 scope of the <code>@Render</code> annotated method will schedule the component for re-rendering.</p>
 <p>Below is a <code>Footer</code> component extracted from a <a href="https://todomvc.com/">TodoMVC</a> implementation. It accesses the
 observable state <code>AppData.model.totalCount()</code>, <code>AppData.viewService.getFilterMode()</code> and
 <code>AppData.model.completedCount()</code> and will re-render each time any of these values change.</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@View</span>( type = View.Type.TRACKING )
+<p><pre><code class="hljs"><span class="hljs-meta">@View</span>
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
 </span>{
   <span class="hljs-meta">@Render</span>
@@ -92,7 +91,7 @@ component is re-rendered any time a Todo is added or removed as the value for th
 <code>AppData.model.totalCount()</code> changes. Unfortunately <code>@Memoize</code> will not help us here as the html output changes
 every time a re-render occurs. However we can decide to limit the scope of the rendering by extracting a component
 that encapsulates the html that changes.</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@View</span>( type = View.Type.TRACKING )
+<p><pre><code class="hljs"><span class="hljs-meta">@View</span>
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooterTodoCount</span>
 </span>{
   <span class="hljs-meta">@Render</span>
@@ -114,7 +113,7 @@ of the re-render is much smaller and thus the amount of work that React4j has to
 <p>We could also extract another component to manage the links and only re-render this new component when the
 <code>filterMode</code> observable property changes but we have decided against this as it is a relatively infrequent event.
 The final <code>Footer</code> component looks something like:</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@View</span>( type = View.Type.TRACKING )
+<p><pre><code class="hljs"><span class="hljs-meta">@View</span>
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
 </span>{
   <span class="hljs-meta">@Nullable</span>
