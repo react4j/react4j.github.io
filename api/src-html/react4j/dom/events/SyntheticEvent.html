@@ -13,92 +13,89 @@
 <div class="source-container">
 <pre><span class="source-line-no">001</span><span id="line-1">package react4j.dom.events;</span>
 <span class="source-line-no">002</span><span id="line-2"></span>
-<span class="source-line-no">003</span><span id="line-3">import akasha.Element;</span>
-<span class="source-line-no">004</span><span id="line-4">import akasha.Event;</span>
-<span class="source-line-no">005</span><span id="line-5">import akasha.core.JsDate;</span>
-<span class="source-line-no">006</span><span id="line-6">import jsinterop.annotations.JsOverlay;</span>
-<span class="source-line-no">007</span><span id="line-7">import jsinterop.annotations.JsPackage;</span>
-<span class="source-line-no">008</span><span id="line-8">import jsinterop.annotations.JsType;</span>
-<span class="source-line-no">009</span><span id="line-9"></span>
-<span class="source-line-no">010</span><span id="line-10">@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )</span>
-<span class="source-line-no">011</span><span id="line-11">@SuppressWarnings( "unused" )</span>
-<span class="source-line-no">012</span><span id="line-12">public class SyntheticEvent&lt;E extends Event&gt;</span>
-<span class="source-line-no">013</span><span id="line-13">{</span>
-<span class="source-line-no">014</span><span id="line-14">  private boolean bubbles;</span>
-<span class="source-line-no">015</span><span id="line-15">  private boolean cancelable;</span>
-<span class="source-line-no">016</span><span id="line-16">  private Element currentTarget;</span>
-<span class="source-line-no">017</span><span id="line-17">  private boolean defaultPrevented;</span>
-<span class="source-line-no">018</span><span id="line-18">  private int eventPhase;</span>
-<span class="source-line-no">019</span><span id="line-19">  private boolean isTrusted;</span>
-<span class="source-line-no">020</span><span id="line-20">  private E nativeEvent;</span>
-<span class="source-line-no">021</span><span id="line-21">  private Element target;</span>
-<span class="source-line-no">022</span><span id="line-22">  private JsDate timeStamp;</span>
-<span class="source-line-no">023</span><span id="line-23">  private String type;</span>
-<span class="source-line-no">024</span><span id="line-24"></span>
-<span class="source-line-no">025</span><span id="line-25">  public native void preventDefault();</span>
-<span class="source-line-no">026</span><span id="line-26"></span>
-<span class="source-line-no">027</span><span id="line-27">  public native boolean isDefaultPrevented();</span>
-<span class="source-line-no">028</span><span id="line-28"></span>
-<span class="source-line-no">029</span><span id="line-29">  public native boolean isPropagationStopped();</span>
-<span class="source-line-no">030</span><span id="line-30"></span>
-<span class="source-line-no">031</span><span id="line-31">  public native void stopPropagation();</span>
-<span class="source-line-no">032</span><span id="line-32"></span>
-<span class="source-line-no">033</span><span id="line-33">  public native void persist();</span>
-<span class="source-line-no">034</span><span id="line-34"></span>
-<span class="source-line-no">035</span><span id="line-35">  @JsOverlay</span>
-<span class="source-line-no">036</span><span id="line-36">  public final boolean isBubbles()</span>
-<span class="source-line-no">037</span><span id="line-37">  {</span>
-<span class="source-line-no">038</span><span id="line-38">    return bubbles;</span>
-<span class="source-line-no">039</span><span id="line-39">  }</span>
-<span class="source-line-no">040</span><span id="line-40"></span>
-<span class="source-line-no">041</span><span id="line-41">  @JsOverlay</span>
-<span class="source-line-no">042</span><span id="line-42">  public final boolean isCancelable()</span>
-<span class="source-line-no">043</span><span id="line-43">  {</span>
-<span class="source-line-no">044</span><span id="line-44">    return cancelable;</span>
-<span class="source-line-no">045</span><span id="line-45">  }</span>
-<span class="source-line-no">046</span><span id="line-46"></span>
-<span class="source-line-no">047</span><span id="line-47">  @JsOverlay</span>
-<span class="source-line-no">048</span><span id="line-48">  public final Element getCurrentTarget()</span>
-<span class="source-line-no">049</span><span id="line-49">  {</span>
-<span class="source-line-no">050</span><span id="line-50">    return currentTarget;</span>
-<span class="source-line-no">051</span><span id="line-51">  }</span>
-<span class="source-line-no">052</span><span id="line-52"></span>
-<span class="source-line-no">053</span><span id="line-53">  @JsOverlay</span>
-<span class="source-line-no">054</span><span id="line-54">  public final int getEventPhase()</span>
-<span class="source-line-no">055</span><span id="line-55">  {</span>
-<span class="source-line-no">056</span><span id="line-56">    return eventPhase;</span>
-<span class="source-line-no">057</span><span id="line-57">  }</span>
-<span class="source-line-no">058</span><span id="line-58"></span>
-<span class="source-line-no">059</span><span id="line-59">  @JsOverlay</span>
-<span class="source-line-no">060</span><span id="line-60">  public final boolean isTrusted()</span>
-<span class="source-line-no">061</span><span id="line-61">  {</span>
-<span class="source-line-no">062</span><span id="line-62">    return isTrusted;</span>
-<span class="source-line-no">063</span><span id="line-63">  }</span>
-<span class="source-line-no">064</span><span id="line-64"></span>
-<span class="source-line-no">065</span><span id="line-65">  @JsOverlay</span>
-<span class="source-line-no">066</span><span id="line-66">  public final E getNativeEvent()</span>
-<span class="source-line-no">067</span><span id="line-67">  {</span>
-<span class="source-line-no">068</span><span id="line-68">    return nativeEvent;</span>
-<span class="source-line-no">069</span><span id="line-69">  }</span>
-<span class="source-line-no">070</span><span id="line-70"></span>
-<span class="source-line-no">071</span><span id="line-71">  @JsOverlay</span>
-<span class="source-line-no">072</span><span id="line-72">  public final Element getTarget()</span>
-<span class="source-line-no">073</span><span id="line-73">  {</span>
-<span class="source-line-no">074</span><span id="line-74">    return target;</span>
-<span class="source-line-no">075</span><span id="line-75">  }</span>
-<span class="source-line-no">076</span><span id="line-76"></span>
-<span class="source-line-no">077</span><span id="line-77">  @JsOverlay</span>
-<span class="source-line-no">078</span><span id="line-78">  public final JsDate getTimeStamp()</span>
-<span class="source-line-no">079</span><span id="line-79">  {</span>
-<span class="source-line-no">080</span><span id="line-80">    return timeStamp;</span>
-<span class="source-line-no">081</span><span id="line-81">  }</span>
-<span class="source-line-no">082</span><span id="line-82"></span>
-<span class="source-line-no">083</span><span id="line-83">  @JsOverlay</span>
-<span class="source-line-no">084</span><span id="line-84">  public final String getType()</span>
-<span class="source-line-no">085</span><span id="line-85">  {</span>
-<span class="source-line-no">086</span><span id="line-86">    return type;</span>
-<span class="source-line-no">087</span><span id="line-87">  }</span>
-<span class="source-line-no">088</span><span id="line-88">}</span>
+<span class="source-line-no">003</span><span id="line-3">import jsinterop.annotations.JsOverlay;</span>
+<span class="source-line-no">004</span><span id="line-4">import jsinterop.annotations.JsPackage;</span>
+<span class="source-line-no">005</span><span id="line-5">import jsinterop.annotations.JsType;</span>
+<span class="source-line-no">006</span><span id="line-6"></span>
+<span class="source-line-no">007</span><span id="line-7">@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )</span>
+<span class="source-line-no">008</span><span id="line-8">@SuppressWarnings( "unused" )</span>
+<span class="source-line-no">009</span><span id="line-9">public class SyntheticEvent&lt;E extends Event&gt;</span>
+<span class="source-line-no">010</span><span id="line-10">{</span>
+<span class="source-line-no">011</span><span id="line-11">  private boolean bubbles;</span>
+<span class="source-line-no">012</span><span id="line-12">  private boolean cancelable;</span>
+<span class="source-line-no">013</span><span id="line-13">  private Element currentTarget;</span>
+<span class="source-line-no">014</span><span id="line-14">  private boolean defaultPrevented;</span>
+<span class="source-line-no">015</span><span id="line-15">  private int eventPhase;</span>
+<span class="source-line-no">016</span><span id="line-16">  private boolean isTrusted;</span>
+<span class="source-line-no">017</span><span id="line-17">  private E nativeEvent;</span>
+<span class="source-line-no">018</span><span id="line-18">  private Element target;</span>
+<span class="source-line-no">019</span><span id="line-19">  private double timeStamp;</span>
+<span class="source-line-no">020</span><span id="line-20">  private String type;</span>
+<span class="source-line-no">021</span><span id="line-21"></span>
+<span class="source-line-no">022</span><span id="line-22">  public native void preventDefault();</span>
+<span class="source-line-no">023</span><span id="line-23"></span>
+<span class="source-line-no">024</span><span id="line-24">  public native boolean isDefaultPrevented();</span>
+<span class="source-line-no">025</span><span id="line-25"></span>
+<span class="source-line-no">026</span><span id="line-26">  public native boolean isPropagationStopped();</span>
+<span class="source-line-no">027</span><span id="line-27"></span>
+<span class="source-line-no">028</span><span id="line-28">  public native void stopPropagation();</span>
+<span class="source-line-no">029</span><span id="line-29"></span>
+<span class="source-line-no">030</span><span id="line-30">  public native void persist();</span>
+<span class="source-line-no">031</span><span id="line-31"></span>
+<span class="source-line-no">032</span><span id="line-32">  @JsOverlay</span>
+<span class="source-line-no">033</span><span id="line-33">  public final boolean isBubbles()</span>
+<span class="source-line-no">034</span><span id="line-34">  {</span>
+<span class="source-line-no">035</span><span id="line-35">    return bubbles;</span>
+<span class="source-line-no">036</span><span id="line-36">  }</span>
+<span class="source-line-no">037</span><span id="line-37"></span>
+<span class="source-line-no">038</span><span id="line-38">  @JsOverlay</span>
+<span class="source-line-no">039</span><span id="line-39">  public final boolean isCancelable()</span>
+<span class="source-line-no">040</span><span id="line-40">  {</span>
+<span class="source-line-no">041</span><span id="line-41">    return cancelable;</span>
+<span class="source-line-no">042</span><span id="line-42">  }</span>
+<span class="source-line-no">043</span><span id="line-43"></span>
+<span class="source-line-no">044</span><span id="line-44">  @JsOverlay</span>
+<span class="source-line-no">045</span><span id="line-45">  public final Element getCurrentTarget()</span>
+<span class="source-line-no">046</span><span id="line-46">  {</span>
+<span class="source-line-no">047</span><span id="line-47">    return currentTarget;</span>
+<span class="source-line-no">048</span><span id="line-48">  }</span>
+<span class="source-line-no">049</span><span id="line-49"></span>
+<span class="source-line-no">050</span><span id="line-50">  @JsOverlay</span>
+<span class="source-line-no">051</span><span id="line-51">  public final int getEventPhase()</span>
+<span class="source-line-no">052</span><span id="line-52">  {</span>
+<span class="source-line-no">053</span><span id="line-53">    return eventPhase;</span>
+<span class="source-line-no">054</span><span id="line-54">  }</span>
+<span class="source-line-no">055</span><span id="line-55"></span>
+<span class="source-line-no">056</span><span id="line-56">  @JsOverlay</span>
+<span class="source-line-no">057</span><span id="line-57">  public final boolean isTrusted()</span>
+<span class="source-line-no">058</span><span id="line-58">  {</span>
+<span class="source-line-no">059</span><span id="line-59">    return isTrusted;</span>
+<span class="source-line-no">060</span><span id="line-60">  }</span>
+<span class="source-line-no">061</span><span id="line-61"></span>
+<span class="source-line-no">062</span><span id="line-62">  @JsOverlay</span>
+<span class="source-line-no">063</span><span id="line-63">  public final E getNativeEvent()</span>
+<span class="source-line-no">064</span><span id="line-64">  {</span>
+<span class="source-line-no">065</span><span id="line-65">    return nativeEvent;</span>
+<span class="source-line-no">066</span><span id="line-66">  }</span>
+<span class="source-line-no">067</span><span id="line-67"></span>
+<span class="source-line-no">068</span><span id="line-68">  @JsOverlay</span>
+<span class="source-line-no">069</span><span id="line-69">  public final Element getTarget()</span>
+<span class="source-line-no">070</span><span id="line-70">  {</span>
+<span class="source-line-no">071</span><span id="line-71">    return target;</span>
+<span class="source-line-no">072</span><span id="line-72">  }</span>
+<span class="source-line-no">073</span><span id="line-73"></span>
+<span class="source-line-no">074</span><span id="line-74">  @JsOverlay</span>
+<span class="source-line-no">075</span><span id="line-75">  public final double getTimeStamp()</span>
+<span class="source-line-no">076</span><span id="line-76">  {</span>
+<span class="source-line-no">077</span><span id="line-77">    return timeStamp;</span>
+<span class="source-line-no">078</span><span id="line-78">  }</span>
+<span class="source-line-no">079</span><span id="line-79"></span>
+<span class="source-line-no">080</span><span id="line-80">  @JsOverlay</span>
+<span class="source-line-no">081</span><span id="line-81">  public final String getType()</span>
+<span class="source-line-no">082</span><span id="line-82">  {</span>
+<span class="source-line-no">083</span><span id="line-83">    return type;</span>
+<span class="source-line-no">084</span><span id="line-84">  }</span>
+<span class="source-line-no">085</span><span id="line-85">}</span>
 
 
 
