@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Input Identity and Equality · React4j</title><meta name="description" content="An opinionated Java binding for React">
+<link rel="icon" href="/img/favicon/favicon.ico"><link rel="stylesheet" href="/css/site.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header><a class="brand" href="/"><img src="/img/logo.svg" alt="" width="40" height="40">React4j</a>
+<nav aria-label="Main navigation"><a href="/docs/overview.html">Docs</a><a href="/api/">API</a><a href="https://github.com/react4j/react4j/releases">Releases</a><a href="https://github.com/react4j/react4j">GitHub</a></nav></header>
+<div class="docs-layout"><aside><nav aria-label="Documentation navigation"><section><h2>About</h2><ul>
+<li><a href="/docs/overview.html">Introduction</a></li>
+<li><a href="/docs/project_setup.html">Project Setup</a></li>
+</ul></section>
+<section><h2>Reference</h2><ul>
+<li><a href="/docs/arez.html">Arez</a></li>
+<li><a href="/docs/input-semantics.html" aria-current="page">Input Identity and Equality</a></li>
+<li><a href="/docs/input-step-enhancers.html">Input Step Enhancers</a></li>
+<li><a href="/docs/compared_to_react.html">Compared to React</a></li>
+</ul></section>
+<section><h2>CSS</h2><ul>
+<li><a href="/docs/native-utilities.html">Use native utilities</a></li>
+<li><a href="/docs/utility-rules.html">Author utility rules</a></li>
+<li><a href="/docs/utility-recipes.html">Utility rule recipes</a></li>
+</ul></section>
+<section><h2>Examples</h2><ul>
+<li><a href="/docs/todomvc.html">TodoMVC</a></li>
+</ul></section>
+<section><h2>Project Documentation</h2><ul>
+<li><a href="/docs/faq.html">Frequently Asked Questions</a></li>
+<li><a href="/docs/related_projects.html">Related projects</a></li>
+<li><a href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li>
+</ul></section>
+</nav></aside>
+<main id="main"><h1>Input Identity and Equality</h1><a class="edit" href="https://github.com/react4j/react4j/tree/master/docs/input-semantics.md">Edit this page</a>
+<article><p>Choose identity when a changed value should create a new view. Choose equality when a changed value should update the existing view.</p>
+<p>Constructor <code>@Input</code> parameters contribute to the view's React key. Matching keys keep the existing instance and its original constructor arguments. Method <code>@Input</code> declarations receive replacements on an existing instance; their equality policy decides whether that input triggers rendering, Arez invalidation and change callbacks.</p>
+<h2 id="immutable-arrays">Immutable arrays<a class="heading-link" href="#immutable-arrays" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>Every declared array uses ordered element keys for its default immutable identity. Fresh arrays with equal element keys reuse the view. Changes to length, order or element identity create a new view. Null arrays, empty arrays, null elements and literal <code>&quot;null&quot;</code> elements remain distinct.</p>
+<pre><code class="language-java">package react4j.examples.input_semantics;
+
+import react4j.ReactNode;
+import react4j.annotations.Input;
+import react4j.annotations.Render;
+import react4j.annotations.View;
+
+@View(type = View.Type.STATEFUL)
+abstract class ImmutableIcons {
+    private final String[] _icons;
+
+    ImmutableIcons(@Input final String[] icons) {
+        _icons = icons;
+    }
+
+    @Render
+    ReactNode render() {
+        return ReactNode.of(String.join(&quot;,&quot;, _icons));
+    }
+}</code></pre>
+<p>The declared component type selects the same key rule as a scalar input:</p>
+<table>
+<thead>
+<tr>
+<th>Component type</th>
+<th>Element identity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String, primitive or boxed primitive</td>
+<td>Scalar text</td>
+</tr>
+<tr>
+<td>Enum</td>
+<td>Enum text</td>
+</tr>
+<tr>
+<td><code>Keyed</code></td>
+<td>Its key</td>
+</tr>
+<tr>
+<td>Identifiable Arez component</td>
+<td>Its Arez ID</td>
+</tr>
+<tr>
+<td>Other object or type variable</td>
+<td>Dynamic: <code>Keyed</code>, then Arez ID, then string conversion</td>
+</tr>
+</tbody>
+</table>
+<p>Nested arrays recurse through the declared dimensions, preserving row boundaries and null or empty rows. For example, <code>String[][]</code> uses string keys within each row. <code>T[]</code> traverses one dimension and treats each <code>T</code> as a scalar; when <code>T</code> happens to be an array, that runtime value keeps its scalar identity. An input declared as <code>Object</code> also keeps scalar behavior when supplied an array.</p>
+<p>React4j retains the supplied arrays and their elements. Keep the structure, contents and elements' key-relevant state unchanged while the view can use them. Objects sharing an element key retain the original constructor value even when their other fields differ. Review existing object-array and nested-array inputs when adopting this content-based identity.</p>
+<h2 id="custom-immutable-keys">Custom immutable keys<a class="heading-link" href="#custom-immutable-keys" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>Select a reusable <code>InputKeyGenerator&lt;T&gt;</code> implementation when an input needs a different identity rule. This provider normalizes a label's case:</p>
+<pre><code class="language-java">package react4j.examples.input_semantics;
+
+import java.util.Locale;
+import react4j.InputKeyGenerator;
+
+public final class LowerCaseKeys implements InputKeyGenerator&lt;String&gt; {
+    @Override
+    public String getKey(final String value) {
+        return value.toLowerCase(Locale.ROOT);
+    }
+}</code></pre>
+<p>The view stores the normalized value too, so equal keys correspond to interchangeable constructor values:</p>
+<pre><code class="language-java">package react4j.examples.input_semantics;
+
+import java.util.Locale;
+import react4j.ReactNode;
+import react4j.annotations.Input;
+import react4j.annotations.Render;
+import react4j.annotations.View;
+
+@View(type = View.Type.STATEFUL)
+abstract class NamedPanel {
+    private final String _name;
+
+    NamedPanel(@Input(keyGenerator = LowerCaseKeys.class) final String name) {
+        _name = name.toLowerCase(Locale.ROOT);
+    }
+
+    @Render
+    ReactNode render() {
+        return ReactNode.of(_name);
+    }
+}</code></pre>
+<p>An explicit generator takes precedence over automatic array, scalar, <code>Keyed</code> and Arez identity derivation. React4j combines its result with the other immutable inputs and the component identity. A stable ID can deliberately exclude other fields; those fields will not refresh the retained constructor argument.</p>
+<p>Providers run before view construction. Use a concrete accessible class with an accessible no-argument constructor; nested providers must be static. The processor checks the effective input type and JSpecify nullness against <code>T</code>. Nullable inputs require a provider accepting null. Return a non-null string, keep results deterministic and avoid observable side effects. Instances may be shared and calls repeated.</p>
+<h2 id="mutable-input-equality">Mutable input equality<a class="heading-link" href="#mutable-input-equality" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>For mutable arrays, select Arez's deep comparator to skip updates for equal contents without changing component identity:</p>
+<pre><code class="language-java">package react4j.examples.input_semantics;
+
+import arez.ObjectsDeepEqualsComparator;
+import react4j.ReactNode;
+import react4j.annotations.Input;
+import react4j.annotations.Render;
+import react4j.annotations.View;
+
+@View(type = View.Type.STATEFUL)
+abstract class MutableIcons {
+    @Input(equalityComparator = ObjectsDeepEqualsComparator.class)
+    abstract String[] icons();
+
+    @Render
+    ReactNode render() {
+        return ReactNode.of(String.join(&quot;,&quot;, icons()));
+    }
+}</code></pre>
+<p>Supply a replacement when contents change; comparison cannot recover earlier contents after an array has been mutated in place.</p>
+<p>Mutable inputs resolve their policy as follows:</p>
+<ol>
+<li>The comparator explicitly selected by <code>@Input(equalityComparator=...)</code>.</li>
+<li><code>@DefaultEqualityComparator</code> on the exact effective declared value type, including a type resolved through inherited generic declarations.</li>
+<li>JavaScript <code>===</code> when neither provides a comparator.</li>
+</ol>
+<p>The type default is read from source or compiled metadata. Bounds, supertypes, implemented interfaces, arrays and their component types do not supply defaults. Custom comparators implement <code>arez.EqualityComparator</code> and receive ordinary Java values, including boxed primitives and permitted nulls. They follow the same construction and purity rules as key generators.</p>
+<p>The policy applies before input-driven invalidation as well as rendering, and also controls <code>@OnInputChange</code> predicates. Other inputs and independent Arez changes can still render the view. Equal replacements remain the latest props; equality does not keep the previous object or normalize the replacement.</p>
+<p>Input comparison happens after the parent has rendered and built the child element. An equality comparator on an upstream Arez observable or memoized producer can suppress propagation earlier. Use that upstream policy where the producer owns the meaning of equality.</p>
+<h2 id="floating-point-behavior-and-migration">Floating-point behavior and migration<a class="heading-link" href="#floating-point-behavior-and-migration" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>Policy</th>
+<th>NaN compared with NaN</th>
+<th>Positive and negative zero</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Automatic immutable scalar/array keys</td>
+<td>Same identity</td>
+<td>Same identity</td>
+</tr>
+<tr>
+<td>Mutable strict-equality fallback</td>
+<td>Changed</td>
+<td>Unchanged</td>
+</tr>
+<tr>
+<td>Selected <code>ObjectsEqualsComparator</code> or <code>ObjectsDeepEqualsComparator</code></td>
+<td>Equal</td>
+<td>Distinct</td>
+</tr>
+</tbody>
+</table>
+<p>J2CL retains extra precision in <code>float</code> arithmetic; comparison and key generation preserve the actual runtime values. Long-array keys preserve all 64 bits. Built-in Arez comparators generate direct equivalent calls, while custom comparators retain their own behavior.</p>
+<p>Existing mutable inputs now honor their declared type's Arez default comparator. Review types carrying <code>@DefaultEqualityComparator</code>, especially where a view previously reacted to replacement identity. An explicit per-input comparator overrides that type default. The <a href="https://github.com/react4j/react4j/blob/master/docs/specs/input-semantics.md">input contract</a> records these identity and equality guarantees.</p>
+</article><nav class="pagination" aria-label="Previous and next pages"><a class="previous" href="/docs/arez.html"><span>Previous</span>Arez</a><a class="next" href="/docs/input-step-enhancers.html"><span>Next</span>Input Step Enhancers</a></nav></main></div>
+
+<footer><a href="/docs/overview.html">Overview</a> · <a href="/api/">API Reference</a> · <a href="https://github.com/react4j/react4j">GitHub</a><p>Copyright © the React4j Project.</p></footer>
+</body></html>

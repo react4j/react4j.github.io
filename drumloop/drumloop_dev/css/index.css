@@ -1,0 +1,23 @@
+@layer shared,utilities,components;
+@layer shared{
+@font-face{font-family:jcss-react4j-drumloop-views-Fonts--font-righteous;font-style:normal;font-weight:400;font-display:swap;src:url(../assets/L_s_5cJ9fmVxIQuABEjE4jTmUbRsa0QmwbtWflNBNIo.ttf) format("truetype")}
+body{background:#333;margin:0;}
+}
+@layer components{
+.jcss-react4j-drumloop-views-BpmInput_0024_BpmStyle{box-sizing:border-box;color:#25ccf7;border:2px solid #25ccf7;font-size:18px;background:none;padding:10px;font-family:jcss-react4j-drumloop-views-Fonts--font-righteous,cursive;border-radius:2px;margin:2px 20px 2px 4px;align-self:center;}
+.jcss-react4j-drumloop-views-DrumMachineView_0024_ButtonsStyle{box-sizing:border-box;flex:1;flex-direction:row;align-items:stretch;width:100%;padding:0 20px 10px;display:flex;}
+.jcss-react4j-drumloop-views-DrumMachineView_0024_ContainerStyle{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;max-width:800px;margin:auto;background:linear-gradient(to bottom right,#222,#0a0a0a);border:2px solid black;border-radius:4px;margin-top:20px;display:flex;flex-direction:column;}
+.jcss-react4j-drumloop-views-DrumMachineView_0024_HeaderStyle{flex:0 1 auto;display:flex;justify-content:space-between;flex-direction:row;align-items:center;}
+.jcss-react4j-drumloop-views-DrumMachineView_0024_LogoStyle{font-size:28px;color:#25ccf7;font-family:jcss-react4j-drumloop-views-Fonts--font-righteous,cursive;padding:20px;margin:0;text-transform:uppercase;display:inline-block;}
+.jcss-react4j-drumloop-views-DrumMachineView_0024_SequencerStyle{box-sizing:border-box;display:flex;flex:1;flex-direction:column;border:1px solid #555;margin:0 20px 20px;position:relative;}
+.jcss-react4j-drumloop-views-FxButton_0024_FxButtonStyle{background:none;flex:1;border:2px solid #fd7272;color:#fd7272;display:inline-block;font-size:24px;border-radius:2px;padding:20px;font-family:jcss-react4j-drumloop-views-Fonts--font-righteous,cursive;margin:2px;}.jcss-react4j-drumloop-views-FxButton_0024_FxButtonStyle.jcss-react4j-drumloop-views-FxButton_0024_FxButtonStyle--held{background:#fd7272;color:black;}.jcss-react4j-drumloop-views-FxButton_0024_FxButtonStyle:active{background:#fd7272;color:black;}
+.jcss-react4j-drumloop-views-IndicatorView_0024_IndicatorStyle{position:absolute;top:0;width:38px;height:100%;background:#00ff0020;left:var(--jcss-react4j-drumloop-views-IndicatorView_0024_IndicatorStyle--indicator_002d_left);}
+.jcss-react4j-drumloop-views-IndicatorView_0024_IndicatorsStyle{box-sizing:border-box;position:absolute;width:600px;top:0;right:0;height:100%;padding:4px 2px;pointer-events:none;}
+.jcss-react4j-drumloop-views-PlayButton_0024_PlayStyle{color:#FD7272;border:2px solid #FD7272;background:none;font-family:jcss-react4j-drumloop-views-Fonts--font-righteous,cursive;padding:10px;font-size:18px;border-radius:2px;margin:2px 20px 2px 4px;align-self:center;min-width:100px;}.jcss-react4j-drumloop-views-PlayButton_0024_PlayStyle.jcss-react4j-drumloop-views-PlayButton_0024_PlayStyle--off{color:#25CCF7;border:2px solid #25CCF7;}
+@keyframes jcss-react4j-drumloop-views-StepButton_0024_StepStyle--keyframes-doubled{0%,100%{opacity:0.5;}50%{opacity:1;}}.jcss-react4j-drumloop-views-StepButton_0024_StepStyle{flex:1;background:#FD7272;opacity:0.35;border-radius:2px;margin:2px;}.jcss-react4j-drumloop-views-StepButton_0024_StepStyle.jcss-react4j-drumloop-views-StepButton_0024_StepStyle--on{opacity:1;}.jcss-react4j-drumloop-views-StepButton_0024_StepStyle.jcss-react4j-drumloop-views-StepButton_0024_StepStyle--odd{background:#25CCF7;}.jcss-react4j-drumloop-views-StepButton_0024_StepStyle.jcss-react4j-drumloop-views-StepButton_0024_StepStyle--doubled{animation:jcss-react4j-drumloop-views-StepButton_0024_StepStyle--keyframes-doubled 0.5s linear infinite;}
+.jcss-react4j-drumloop-views-TrackView_0024_StepsStyle{display:flex;flex:1;}
+.jcss-react4j-drumloop-views-TrackView_0024_TrackInfoStyle{box-sizing:border-box;flex:0 0 155px;background:linear-gradient(#292929,#111);border:1px solid #555;}
+.jcss-react4j-drumloop-views-TrackView_0024_TrackStyle{display:flex;flex:1;}
+.jcss-react4j-drumloop-views-TrackView_0024_TrackTitleStyle{color:white;font-size:14px;margin:0;vertical-align:middle;padding:0 10px;line-height:50px;}
+}
+/*# sourceMappingURL=index.css.map */

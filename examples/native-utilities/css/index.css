@@ -1,0 +1,139 @@
+@layer shared,utilities,components;
+@layer shared{
+*{box-sizing:border-box;}body{margin:0;font-family:system-ui,sans-serif;font-size:16px;line-height:1.5;background:#f7f8f5;color:#172b29;}h1,h2,h3,p{margin:0;}h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;}h2,h3{font-size:1.125rem;line-height:1.4;}button{font:inherit;}
+}
+@layer utilities{
+@layer lib7265616374346a2e6e61746976657574696c69746965732e5574696c6974696573{
+.v {
+max-inline-size:64rem;
+margin-inline:auto;
+}
+.h {
+display:flex;
+}
+.i {
+flex-direction:column;
+}
+.o {
+align-items:flex-start;
+}
+.p {
+justify-content:space-between;
+}
+.k {
+gap:0.75rem;
+}
+.l {
+gap:1rem;
+}
+.m {
+gap:1.5rem;
+}
+.t {
+padding:1.25rem;
+}
+.u {
+padding:1.5rem;
+}
+.x {
+padding-inline:1rem;
+}
+.y {
+padding-block:0.5rem;
+}
+.z {
+padding-block:1.5rem;
+}
+.b {
+background-color:#145c4b;
+}
+.c {
+background-color:#225b3f;
+}
+.d {
+background-color:#edf5f0;
+}
+.e {
+background-color:#fff;
+}
+.C {
+color:#172b29;
+}
+.D {
+color:#46635e;
+}
+.E {
+color:#fff;
+}
+.j {
+container:H / inline-size;
+inline-size:min(100%,48rem);
+}
+.q {
+inline-size:min(100%,20rem);
+}
+.g {
+border-bottom:1px solid #becfc9;
+anchor-scope:--a;
+}
+.f {
+border:1px solid transparent;
+border-radius:.75rem;
+cursor:pointer;
+font-weight:600;
+}
+.G {
+anchor-name:--a;
+white-space:nowrap;
+}
+.w:popover-open {
+display:flex;
+}
+.w {
+position:fixed;
+position-anchor:--a;
+inset:auto;
+margin:0;
+border:1px solid #becfc9;
+border-radius:.5rem;
+position-area:block-end span-inline-end;
+position-try-fallbacks:flip-block,flip-inline,flip-block flip-inline;
+inline-size:24rem;
+min-inline-size:0;
+max-inline-size:calc(100dvw - 2rem);
+max-block-size:calc(100dvh - 2rem);
+overflow:auto;
+}
+.F {
+transition:opacity 240ms linear;
+}
+.s {
+opacity:1;
+}
+@media (hover:hover) {
+.n:hover {
+background-color:#0e493b;
+}
+}
+@container H (inline-size >= 34rem) {
+.r {
+flex-direction:row;
+}
+}
+@starting-style {
+.B {
+opacity:0;
+}
+}
+@media (prefers-reduced-motion:reduce) {
+.A {
+transition:none;
+}
+}
+
+}
+}
+@layer components{
+.I{border-radius:.375rem;}.I:focus-visible{outline:3px solid #145c4b;outline-offset:3px;}
+}
+/*# sourceMappingURL=index.css.map */

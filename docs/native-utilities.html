@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use native utilities · React4j</title><meta name="description" content="An opinionated Java binding for React">
+<link rel="icon" href="/img/favicon/favicon.ico"><link rel="stylesheet" href="/css/site.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header><a class="brand" href="/"><img src="/img/logo.svg" alt="" width="40" height="40">React4j</a>
+<nav aria-label="Main navigation"><a href="/docs/overview.html">Docs</a><a href="/api/">API</a><a href="https://github.com/react4j/react4j/releases">Releases</a><a href="https://github.com/react4j/react4j">GitHub</a></nav></header>
+<div class="docs-layout"><aside><nav aria-label="Documentation navigation"><section><h2>About</h2><ul>
+<li><a href="/docs/overview.html">Introduction</a></li>
+<li><a href="/docs/project_setup.html">Project Setup</a></li>
+</ul></section>
+<section><h2>Reference</h2><ul>
+<li><a href="/docs/arez.html">Arez</a></li>
+<li><a href="/docs/input-semantics.html">Input Identity and Equality</a></li>
+<li><a href="/docs/input-step-enhancers.html">Input Step Enhancers</a></li>
+<li><a href="/docs/compared_to_react.html">Compared to React</a></li>
+</ul></section>
+<section><h2>CSS</h2><ul>
+<li><a href="/docs/native-utilities.html" aria-current="page">Use native utilities</a></li>
+<li><a href="/docs/utility-rules.html">Author utility rules</a></li>
+<li><a href="/docs/utility-recipes.html">Utility rule recipes</a></li>
+</ul></section>
+<section><h2>Examples</h2><ul>
+<li><a href="/docs/todomvc.html">TodoMVC</a></li>
+</ul></section>
+<section><h2>Project Documentation</h2><ul>
+<li><a href="/docs/faq.html">Frequently Asked Questions</a></li>
+<li><a href="/docs/related_projects.html">Related projects</a></li>
+<li><a href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li>
+</ul></section>
+</nav></aside>
+<main id="main"><h1>Use native utilities</h1><a class="edit" href="https://github.com/react4j/react4j/tree/master/docs/native-utilities.md">Edit this page</a>
+<article><p>Native utilities let you choose reusable styles through checked Java methods. A rule library defines what names such as <code>p-5</code> and <code>bg-accent</code> mean. Your style class selects them, and your view applies the returned class strings.</p>
+<p><strong>The language does not include a standard utility library.</strong> Every name comes from the provider you select. Agents can author that vocabulary using the <a href="utility-rules.html">rule language</a>; application developers use it through ordinary Java classes.</p>
+<h2 id="try-the-example">Try the example<a class="heading-link" href="#try-the-example" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p><a href="/examples/native-utilities/">Run the native utility example</a>.</p>
+<p>Change the saved state, switch between wide and narrow containers, then open each Details panel. Each panel follows its own trigger. Tab reaches its close button; Escape dismisses it and returns focus. Reduced-motion preferences disable the entry transition.</p>
+<p>To run the same application from a repository checkout:</p>
+<pre><code class="language-sh">tools/examples.sh serve native-utilities development
+</code></pre>
+<p>Open <code>http://127.0.0.1:3000</code>. Use <code>production</code> instead of <code>development</code> to try optimized output with compressed CSS names and unused styles removed. The <a href="https://github.com/react4j/react4j/tree/master/examples/native-utilities">example source</a> contains the application, rule library and browser tests. Build prerequisites are in <a href="project_setup.html">project setup</a>.</p>
+<h2 id="select-a-provider-and-use-its-methods">Select a provider and use its methods<a class="heading-link" href="#select-a-provider-and-use-its-methods" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>The example's <code>Utilities</code> class names its package-relative source file:</p>
+<pre><code class="language-java">import react4j.css.UtilityCssLibrary;
+
+@UtilityCssLibrary(file = &quot;utilities.css&quot;)
+final class Utilities {}
+</code></pre>
+<p>Here is its button style definition. Keep the generated factory inside your authored class; views call <code>Buttons.get()</code>.</p>
+<pre><code class="language-java">import react4j.css.Css;
+import react4j.css.UtilityCss;
+import react4j.css.UtilityStyles;
+
+@UtilityStyles(Utilities.class)
+@Css(&quot;&quot;&quot;
+    border-radius:.375rem;
+    &amp;:focus-visible { outline:3px solid #145c4b; outline-offset:3px; }
+    &quot;&quot;&quot;)
+abstract class Buttons {
+    static Buttons get() {
+        return Styled_Buttons.get();
+    }
+
+    @UtilityCss(&quot;button px-4 py-2&quot;)
+    abstract String style();
+
+    @UtilityCss(&quot;bg-accent text-white hover:bg-hover&quot;)
+    abstract String ready();
+
+    @UtilityCss(&quot;bg-saved text-white&quot;)
+    abstract String saved();
+}
+</code></pre>
+<p>A view combines the base getter with the chosen state:</p>
+<pre><code class="language-java">var buttons = Buttons.get();
+return DOM.button(
+        new BtnProps().className(buttons.style(), saved ? buttons.saved() : buttons.ready()),
+        saved ? &quot;Saved&quot; : &quot;Save changes&quot;);
+</code></pre>
+<p><code>ready()</code> and <code>saved()</code> supply their own utility lists. They do not inherit <code>style()</code>'s padding or button declarations. Compose getters explicitly as above, or put the complete list on a getter. Utility lists must be nonempty and cannot repeat a candidate.</p>
+<p>The example nests these style classes in <code>Workspace</code>, so their generated factory names include that enclosing class. The public usage pattern is the same.</p>
+<p>The local <code>@Css</code> radius overrides the utility's radius. Ordinary local component CSS has precedence over utility CSS. Changing class-list order does not decide which conflicting utility wins: choose one intended value, a distinct state getter or local CSS. Do not construct generated names yourself; optimized builds can shorten them.</p>
+<h2 id="understand-the-names-you-selected">Understand the names you selected<a class="heading-link" href="#understand-the-names-you-selected" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>These are definitions from the example's <code>utilities.css</code>:</p>
+<pre><code class="language-css">@utility-rules;
+@scale spacing .25rem;
+@tokens color &lt;color&gt; { accent:#145c4b; saved:#225b3f; }
+
+@utility &quot;p-{size}&quot; (size:scale(spacing)|arbitrary(&lt;length-percentage&gt;)) {
+  padding:param(size);
+}
+@utility &quot;bg-{tone}&quot; (tone:tokens(color)|arbitrary(&lt;color&gt;)) {
+  background-color:param(tone);
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Request</th>
+<th>Meaning in this library</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>p-5</code></td>
+<td>Five spacing steps: <code>1.25rem</code> padding.</td>
+</tr>
+<tr>
+<td><code>p-137</code></td>
+<td>A valid new scale value; no class inventory needs to list it first.</td>
+</tr>
+<tr>
+<td><code>p-[10%]</code></td>
+<td>An explicit percentage value.</td>
+</tr>
+<tr>
+<td><code>bg-accent</code></td>
+<td>The named accent color.</td>
+</tr>
+<tr>
+<td><code>bg-[#145c4b]</code></td>
+<td>An explicit color value.</td>
+</tr>
+<tr>
+<td><code>bg-[12px]</code></td>
+<td>An error: a length cannot supply a color.</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>family</strong> is a rule with a value argument, such as <code>p-{size}</code>. A <strong>variant</strong> wraps a utility in a selector or condition. The example declares <code>hover</code>, the named container threshold <code>note-min-wide</code>, and <code>starting</code>. These are library choices, rather than reserved utility names.</p>
+<h2 id="containers-and-popovers-need-real-elements">Containers and popovers need real elements<a class="heading-link" href="#containers-and-popovers-need-real-elements" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>The example applies <code>frame</code> to an ancestor. That utility establishes the <code>note</code> size container. Its cards request <code>note-min-wide:row</code>, which switches their layout when that ancestor is wide enough. Merely naming a query does not create or retain a container element. The width button changes the ancestor, so you can see a container query respond without resizing the browser.</p>
+<p>Each card also scopes an anchor name and contains both its trigger and panel. The browser's native popover attributes manage opening, dismissal and focus. The library supplies anchor association, placement, flip fallbacks, size limits and an explicit opacity transition. <code>starting:opacity-0</code> only supplies the starting value; it does not create a transition by itself.</p>
+<p>These are native browser features. The example is verified in the repository's pinned Chromium; compilation does not guarantee support or a successful placement in every browser/layout. Keep viewport edges, oversized content, scrolling and keyboard behavior in your application's browser checks. See the <a href="utility-recipes.html#scoped-popovers">popover recipe</a> for the role mapping and boundaries.</p>
+<h2 id="add-your-own-source-to-a-build">Add your own source to a build<a class="heading-link" href="#add-your-own-source-to-a-build" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>Put <code>utilities.css</code> beside its Java provider, then declare the file explicitly:</p>
+<pre><code class="language-starlark">load(&quot;@react4j//:defs.bzl&quot;, &quot;css_sources&quot;)
+
+css_sources(
+    name = &quot;style_inputs&quot;,
+    srcs = [&quot;utilities.css&quot;],
+)
+</code></pre>
+<p>Add <code>:style_inputs</code> and <code>@react4j//:css</code> to the owning J2CL target's dependencies, and <code>@react4j//:css_processor</code> to its plugins, as shown in the <a href="https://github.com/react4j/react4j/blob/master/examples/native-utilities/src/main/java/react4j/nativeutilities/BUILD.bazel">example BUILD file</a>. Paired JVM libraries use <code>:style_inputs_java</code>. Java annotation processing requires Java 21 or later; repository commands select the pinned toolchain.</p>
+<p>A literal Java text block can supply rules instead of a file. Choose exactly one source form. No application scanner or generator watcher is involved; compilation runs on the JVM and the application receives ordinary CSS and JavaScript.</p>
+<p>Resets and element defaults remain explicit. The example declares them with <code>@GlobalCss</code> and selects them through <code>@CssImport(Defaults.class)</code>. Selecting a utility provider alone adds no reset. The <a href="https://github.com/react4j/react4j/blob/master/css/README.md">CSS guide</a> covers shared interfaces, inherited accessors, imports and other binding options.</p>
+<h2 id="if-you-know-tailwind">If you know Tailwind<a class="heading-link" href="#if-you-know-tailwind" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>Familiar idea</th>
+<th>Native utility rules</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spacing and color classes</td>
+<td>Your provider declares scales, tokens and families; there is no built-in theme or class catalogue.</td>
+</tr>
+<tr>
+<td><code>hover:...</code> and arbitrary values</td>
+<td>Supported when the provider declares the variant and argument form. Bracket underscores encode spaces.</td>
+</tr>
+<tr>
+<td>Conflicting utility classes</td>
+<td>Class-list order does not change precedence; no conflict-merging helper runs.</td>
+</tr>
+<tr>
+<td>A base reset</td>
+<td>Select explicit global CSS.</td>
+</tr>
+<tr>
+<td><code>@apply</code></td>
+<td>Write the reusable declarations directly in a utility.</td>
+</tr>
+<tr>
+<td><code>bg-black/20</code>, group/peer or plugins</td>
+<td>No generic opacity modifier, synthesized group/peer vocabulary or executable plugin system. Named tokens, literal rules and checked selectors cover specific needs.</td>
+</tr>
+<tr>
+<td>Finding classes in application files</td>
+<td>Java annotations provide explicit, checked requests, including separately compiled consumers.</td>
+</tr>
+</tbody>
+</table>
+<p>This is a CSS-oriented JVM language, with no Tailwind compatibility promise. Continue with <a href="utility-rules.html">authoring rules</a> or the <a href="utility-recipes.html">worked recipes</a>.</p>
+</article><nav class="pagination" aria-label="Previous and next pages"><a class="previous" href="/docs/compared_to_react.html"><span>Previous</span>Compared to React</a><a class="next" href="/docs/utility-rules.html"><span>Next</span>Author utility rules</a></nav></main></div>
+
+<footer><a href="/docs/overview.html">Overview</a> · <a href="/api/">API Reference</a> · <a href="https://github.com/react4j/react4j">GitHub</a><p>Copyright © the React4j Project.</p></footer>
+</body></html>

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Input Step Enhancers · React4j</title><meta name="description" content="An opinionated Java binding for React">
+<link rel="icon" href="/img/favicon/favicon.ico"><link rel="stylesheet" href="/css/site.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header><a class="brand" href="/"><img src="/img/logo.svg" alt="" width="40" height="40">React4j</a>
+<nav aria-label="Main navigation"><a href="/docs/overview.html">Docs</a><a href="/api/">API</a><a href="https://github.com/react4j/react4j/releases">Releases</a><a href="https://github.com/react4j/react4j">GitHub</a></nav></header>
+<div class="docs-layout"><aside><nav aria-label="Documentation navigation"><section><h2>About</h2><ul>
+<li><a href="/docs/overview.html">Introduction</a></li>
+<li><a href="/docs/project_setup.html">Project Setup</a></li>
+</ul></section>
+<section><h2>Reference</h2><ul>
+<li><a href="/docs/arez.html">Arez</a></li>
+<li><a href="/docs/input-semantics.html">Input Identity and Equality</a></li>
+<li><a href="/docs/input-step-enhancers.html" aria-current="page">Input Step Enhancers</a></li>
+<li><a href="/docs/compared_to_react.html">Compared to React</a></li>
+</ul></section>
+<section><h2>CSS</h2><ul>
+<li><a href="/docs/native-utilities.html">Use native utilities</a></li>
+<li><a href="/docs/utility-rules.html">Author utility rules</a></li>
+<li><a href="/docs/utility-recipes.html">Utility rule recipes</a></li>
+</ul></section>
+<section><h2>Examples</h2><ul>
+<li><a href="/docs/todomvc.html">TodoMVC</a></li>
+</ul></section>
+<section><h2>Project Documentation</h2><ul>
+<li><a href="/docs/faq.html">Frequently Asked Questions</a></li>
+<li><a href="/docs/related_projects.html">Related projects</a></li>
+<li><a href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li>
+</ul></section>
+</nav></aside>
+<main id="main"><h1>Input Step Enhancers</h1><a class="edit" href="https://github.com/react4j/react4j/tree/master/docs/input-step-enhancers.md">Edit this page</a>
+<article><p>Use <code>@Input(enhancer=...)</code> to add presets or conversions to an input's generated builder step.
+The enhancer is an interface with one result type parameter and one abstract method matching the
+input's generated setter name and builder-facing value type. Its public default methods return the result
+parameter directly and delegate to that setter.</p>
+<pre><code class="language-java">package react4j.examples.input_enhancers;
+
+public interface ColorEnhancer&lt;R&gt; {
+    R color(String value);
+
+    default R red() {
+        return color(&quot;red&quot;);
+    }
+}</code></pre>
+<p>Select it on a method input or constructor parameter:</p>
+<pre><code class="language-java">package react4j.examples.input_enhancers;
+
+import react4j.ReactNode;
+import react4j.annotations.Input;
+import react4j.annotations.Render;
+import react4j.annotations.View;
+
+@View(type = View.Type.STATEFUL)
+abstract class Swatch {
+    @Input(enhancer = ColorEnhancer.class)
+    abstract String color();
+
+    @Render
+    ReactNode render() {
+        return ReactNode.of(color());
+    }
+}</code></pre>
+<p>Helpers on the first step also have static shortcuts:</p>
+<pre><code class="language-java">package react4j.examples.input_enhancers;
+
+import react4j.ReactNode;
+
+public final class Presets {
+    private Presets() {}
+
+    public static ReactNode redSwatch() {
+        return SwatchBuilder.red();
+    }
+}</code></pre>
+<p>The result parameter describes what setting the input returns:</p>
+<table>
+<thead>
+<tr>
+<th>Setter behavior</th>
+<th>Helper result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>More required inputs remain</td>
+<td>The next builder step</td>
+</tr>
+<tr>
+<td>Several optional inputs share the step</td>
+<td>The same builder step</td>
+</tr>
+<tr>
+<td>Setting this input finishes construction</td>
+<td><code>ReactNode</code></td>
+</tr>
+</tbody>
+</table>
+<p>A terminal helper returns the finished node; it needs no additional <code>build()</code> call. Helpers preserve
+the existing ordering, required calls, defaults and canonical setters. An optional input may itself
+be terminal, so use the generated return type to determine whether construction has finished.</p>
+<p>Enhancers may inherit their setter and default methods, including from compiled libraries. Helpers
+can declare their own method type parameters, varargs and checked exceptions; static shortcuts retain
+those contracts. Keep the interface accessible from the generated builder's package and follow the
+<a href="project_setup.html">project's JSpecify configuration</a>. Its setter must accept only values that the
+input can accept; a generated nullable setter may implement an enhancer setter that accepts non-null
+values. The abstract setter has no method type parameters or declared exceptions. The interface's result
+parameter has no Java bound beyond <code>Object</code>.</p>
+<p>Each generated builder uses one implementation for all its steps. The processor rejects incompatible
+helper signatures, erased overloads and generic parent interfaces across those steps. Use distinct
+names such as <code>compactLayout()</code> and <code>untitled()</code> when two inputs would otherwise introduce different
+<code>preset()</code> methods. Compatible shared inherited defaults and ordinary overloads are allowed.</p>
+<p>The interface has only its one abstract input setter; additional abstract capabilities are rejected.
+Private and static interface utilities remain implementation details. Tree-context inputs have no
+builder step and cannot select an enhancer.</p>
+<h2 id="composing-ready-builders">Composing ready builders<a class="heading-link" href="#composing-ready-builders" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>A step that exposes <code>build()</code> also implements <code>Buildable</code>. Both <code>Buildable</code> and <code>ReactNode</code> extend
+<code>Renderable</code>, which composition APIs accept. Supply a ready builder directly to children, DOM helpers,
+context providers, roots or portals; the receiving API calls <code>build()</code> immediately. Each occurrence
+builds separately, and exceptions propagate. There is no implicit caching or freezing.</p>
+<p>For example, supplying the required message leaves this builder ready, with an optional class name:</p>
+<pre><code class="language-java">package react4j.examples.input_enhancers;
+
+import org.jspecify.annotations.Nullable;
+import react4j.ReactNode;
+import react4j.annotations.Input;
+import react4j.annotations.Render;
+import react4j.annotations.View;
+import react4j.dom.DOM;
+import react4j.dom.proptypes.html.HtmlProps;
+
+@View(type = View.Type.STATEFUL)
+abstract class Notice {
+    @Input
+    abstract String message();
+
+    @Input
+    abstract @Nullable String className();
+
+    @Render
+    ReactNode render() {
+        return DOM.p(new HtmlProps().className(className()), message());
+    }
+}</code></pre>
+<p>Declare an <code>@Render</code> method's return type as <code>Renderable</code> when it may return a ready builder:</p>
+<pre><code class="language-java">package react4j.examples.input_enhancers;
+
+import react4j.Renderable;
+import react4j.annotations.Render;
+import react4j.annotations.View;
+
+@View(type = View.Type.STATEFUL)
+abstract class NoticeHost {
+    @Render
+    Renderable render() {
+        return NoticeBuilder.message(&quot;Saved&quot;);
+    }
+}</code></pre>
+<p>Existing <code>ReactNode</code> return types and explicit <code>build()</code> calls remain valid. A Java variable, field or
+helper declared as <code>ReactNode</code> still requires a materialized node; use <code>Renderable</code> when it should
+also hold a ready builder. Steps with required calls remaining cannot be supplied as renderables.
+Context consumer callbacks and generated render bridges build their returned value on each invocation.</p>
+<h2 id="children-inputs">Children inputs<a class="heading-link" href="#children-inputs" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>An input whose effective name is <code>children</code> automatically selects <code>react4j.ChildrenEnhancer</code>.
+It supplies <code>children(Stream&lt;? extends Renderable&gt;)</code>, which consumes the stream once in encounter
+order and delegates to the array setter. No enhancer annotation is needed:</p>
+<pre><code class="language-java">package react4j.examples.input_enhancers;
+
+import org.jspecify.annotations.Nullable;
+import react4j.ReactNode;
+import react4j.annotations.Input;
+import react4j.annotations.Render;
+import react4j.annotations.View;
+
+@View(type = View.Type.STATEFUL)
+abstract class ChildrenPanel {
+    @Input
+    abstract @Nullable String title();
+
+    @Input
+    abstract ReactNode @Nullable [] children();
+
+    @Render
+    ReactNode render() {
+        final var title = title();
+        final var children = children();
+        return ReactNode.of(
+                null == title ? null : ReactNode.of(title), null == children ? null : ReactNode.of(children));
+    }
+}</code></pre>
+<p>Both <code>child</code> and <code>children</code> always finish construction and return <code>ReactNode</code>, including when
+other optional inputs share their step. Set optional properties first, then supply the children.
+Optional children may still be omitted through <code>build()</code>. First-step stream helpers also have
+static shortcuts:</p>
+<pre><code class="language-java">package react4j.examples.input_enhancers;
+
+import java.util.stream.Stream;
+import react4j.ReactNode;
+
+public final class ChildrenPresets {
+    private ChildrenPresets() {}
+
+    public static ReactNode titledPanel() {
+        return ChildrenPanelBuilder.title(&quot;Items&quot;)
+                .children(Stream.of(NoticeBuilder.message(&quot;Saved&quot;), NoticeBuilder.message(&quot;Synchronized&quot;)));
+    }
+
+    public static ReactNode untitledPanel() {
+        return ChildrenPanelBuilder.children(Stream.of(NoticeBuilder.message(&quot;Saved&quot;)));
+    }
+
+    public static ReactNode emptyMenu() {
+        return MenuPanelBuilder.empty();
+    }
+}</code></pre>
+<p>An explicit enhancer replaces the automatic selection. Extend <code>ChildrenEnhancer</code> to keep its
+stream helper while adding presets:</p>
+<pre><code class="language-java">package react4j.examples.input_enhancers;
+
+import react4j.ChildrenEnhancer;
+
+public interface MenuChildren&lt;R&gt; extends ChildrenEnhancer&lt;R&gt; {
+    default R empty() {
+        return children();
+    }
+}</code></pre>
+<pre><code class="language-java">package react4j.examples.input_enhancers;
+
+import react4j.ReactNode;
+import react4j.annotations.Input;
+import react4j.annotations.Render;
+import react4j.annotations.View;
+
+@View(type = View.Type.STATEFUL)
+abstract class MenuPanel {
+    @Input(enhancer = MenuChildren.class)
+    abstract ReactNode[] children();
+
+    @Render
+    ReactNode render() {
+        return ReactNode.of(children());
+    }
+}</code></pre>
+<p>A standalone custom enhancer supplies only its own helpers, so it can also provide its own stream
+overload. Omitting <code>enhancer</code> or specifying <code>void.class</code> selects the standard default for <code>children</code>
+and no enhancer for other inputs. Tree-context inputs do not receive the default.</p>
+<p>Generated setters for <code>ReactNode</code> and <code>ReactNode[]</code> inputs now accept <code>Renderable</code> and <code>Renderable[]</code>,
+with the same nullness. The view's input declarations can keep their node types: builders are
+materialized before storage. Update custom node-input enhancer setters to those widened types.
+Overrides of the standard children stream helper must use <code>Stream&lt;? extends Renderable&gt;</code> as well.
+Ordinary data inputs and untyped property maps are not traversed for builders.</p>
+<p>When migrating existing chains, move setters after <code>child</code> or <code>children</code> before that call and
+remove the trailing <code>build()</code>:</p>
+<pre><code class="language-java">// Before
+BreadcrumbBuilder.label(&quot;Overview&quot;).child(menu).leaf(false).build();
+// After
+BreadcrumbBuilder.label(&quot;Overview&quot;).leaf(false).child(menu);
+</code></pre>
+</article><nav class="pagination" aria-label="Previous and next pages"><a class="previous" href="/docs/input-semantics.html"><span>Previous</span>Input Identity and Equality</a><a class="next" href="/docs/compared_to_react.html"><span>Next</span>Compared to React</a></nav></main></div>
+
+<footer><a href="/docs/overview.html">Overview</a> · <a href="/api/">API Reference</a> · <a href="https://github.com/react4j/react4j">GitHub</a><p>Copyright © the React4j Project.</p></footer>
+</body></html>

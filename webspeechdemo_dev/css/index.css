@@ -1,0 +1,20 @@
+@layer shared,utilities,components;
+@layer shared{
+body{background-color:#333;}
+}
+@layer components{
+.jcss-react4j-webspeechdemo-Application_0024_ActionStyle{background-color:#fff;border:none;border-radius:2px;height:3.25rem;width:3.25rem;padding:0;}
+.jcss-react4j-webspeechdemo-Application_0024_ActionsStyle{margin:1rem 0;display:flex;justify-content:space-between;}
+.jcss-react4j-webspeechdemo-Application_0024_ArgumentStyle{height:2rem;display:flex;justify-content:space-between;align-items:center;}
+.jcss-react4j-webspeechdemo-Application_0024_ContainerStyle{color:#fff;}
+.jcss-react4j-webspeechdemo-Application_0024_EditorStyle{width:100%;height:8rem;display:block;margin-bottom:1rem;border-radius:5px;position:relative;background-color:#fff;transition:background-color 100ms ease;}.jcss-react4j-webspeechdemo-Application_0024_EditorStyle.jcss-react4j-webspeechdemo-Application_0024_EditorStyle--speaking{background-color:#333;}
+.jcss-react4j-webspeechdemo-Application_0024_FormStyle{max-width:480px;margin:0 auto;}
+.jcss-react4j-webspeechdemo-Application_0024_LabelStyle{display:inline-block;width:20%;}
+.jcss-react4j-webspeechdemo-Application_0024_MarkerStyle{position:fixed;border:1px solid orange;display:none;margin:.5rem;padding:0;background-color:transparent;transition:all 0 ease 0;top:var(--jcss-react4j-webspeechdemo-Application_0024_MarkerStyle--marker_002d_top);left:var(--jcss-react4j-webspeechdemo-Application_0024_MarkerStyle--marker_002d_left);width:var(--jcss-react4j-webspeechdemo-Application_0024_MarkerStyle--marker_002d_width);height:var(--jcss-react4j-webspeechdemo-Application_0024_MarkerStyle--marker_002d_height);}.jcss-react4j-webspeechdemo-Application_0024_MarkerStyle.jcss-react4j-webspeechdemo-Application_0024_MarkerStyle--visible{display:block;transition:all 50ms ease;}
+.jcss-react4j-webspeechdemo-Application_0024_RangeStyle{display:inline-block;width:calc(80% - 3rem);margin:0;-moz-appearance:none;}.jcss-react4j-webspeechdemo-Application_0024_RangeStyle::-moz-range-thumb{background-color:#fff;height:1rem;width:.5rem;border-color:#fff;box-shadow:1px 1px 2px rgba(0,0,0,0.5);}.jcss-react4j-webspeechdemo-Application_0024_RangeStyle::-moz-range-track{background-color:#fff;}
+.jcss-react4j-webspeechdemo-Application_0024_ResetStyle{background-color:#fff;border:none;border-radius:2px;width:1.5rem;height:1.5rem;margin:0 0 0 1.5rem;display:inline-block;padding:0;}
+.jcss-react4j-webspeechdemo-Application_0024_SelectStyle{background-color:#fff;border:none;border-radius:2px;height:1.5rem;display:inline-block;width:calc(80% - 3rem);margin:0;appearance:none;}
+.jcss-react4j-webspeechdemo-Application_0024_TextStyle{position:absolute;display:block;border:none;resize:none;top:0;left:0;width:calc(100% - 1rem);height:calc(100% - 1rem);margin:.5rem;padding:0;white-space:pre-wrap;line-height:1.1rem;background-color:transparent;font-size:12px;font-family:monospace;}.jcss-react4j-webspeechdemo-Application_0024_TextStyle.jcss-react4j-webspeechdemo-Application_0024_TextStyle--spoken{color:#aaa;overflow:auto;}
+.jcss-react4j-webspeechdemo-Application_0024_TitleStyle{max-width:480px;margin:2rem auto;font-size:150%;}
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Author utility rules · React4j</title><meta name="description" content="An opinionated Java binding for React">
+<link rel="icon" href="/img/favicon/favicon.ico"><link rel="stylesheet" href="/css/site.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header><a class="brand" href="/"><img src="/img/logo.svg" alt="" width="40" height="40">React4j</a>
+<nav aria-label="Main navigation"><a href="/docs/overview.html">Docs</a><a href="/api/">API</a><a href="https://github.com/react4j/react4j/releases">Releases</a><a href="https://github.com/react4j/react4j">GitHub</a></nav></header>
+<div class="docs-layout"><aside><nav aria-label="Documentation navigation"><section><h2>About</h2><ul>
+<li><a href="/docs/overview.html">Introduction</a></li>
+<li><a href="/docs/project_setup.html">Project Setup</a></li>
+</ul></section>
+<section><h2>Reference</h2><ul>
+<li><a href="/docs/arez.html">Arez</a></li>
+<li><a href="/docs/input-semantics.html">Input Identity and Equality</a></li>
+<li><a href="/docs/input-step-enhancers.html">Input Step Enhancers</a></li>
+<li><a href="/docs/compared_to_react.html">Compared to React</a></li>
+</ul></section>
+<section><h2>CSS</h2><ul>
+<li><a href="/docs/native-utilities.html">Use native utilities</a></li>
+<li><a href="/docs/utility-rules.html" aria-current="page">Author utility rules</a></li>
+<li><a href="/docs/utility-recipes.html">Utility rule recipes</a></li>
+</ul></section>
+<section><h2>Examples</h2><ul>
+<li><a href="/docs/todomvc.html">TodoMVC</a></li>
+</ul></section>
+<section><h2>Project Documentation</h2><ul>
+<li><a href="/docs/faq.html">Frequently Asked Questions</a></li>
+<li><a href="/docs/related_projects.html">Related projects</a></li>
+<li><a href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li>
+</ul></section>
+</nav></aside>
+<main id="main"><h1>Author utility rules</h1><a class="edit" href="https://github.com/react4j/react4j/tree/master/docs/utility-rules.md">Edit this page</a>
+<article><p>This guide is for agents and developers defining a utility vocabulary. Start with <a href="native-utilities.html">using native utilities</a> if you want to consume an existing library. The metalanguage is CSS with declarations for tokens, scales, utility families and variants. Its compiler runs entirely on the JVM; application developers select utilities through Java style classes.</p>
+<p>Start a native input with <code>@utility-rules;</code>. Files without that marker retain the finite, flattened CSS behavior described in the <a href="https://github.com/react4j/react4j/blob/master/css/README.md">CSS guide</a>. Native syntax errors never trigger a finite-CSS fallback.</p>
+<h2 id="work-from-the-runnable-example">Work from the runnable example<a class="heading-link" href="#work-from-the-runnable-example" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>The <a href="/examples/native-utilities/">teaching application</a> has one explicit rule file and a Java provider. Its <a href="https://github.com/react4j/react4j/tree/master/examples/native-utilities/src/main/java/react4j/nativeutilities">source directory</a> contains both. From a repository checkout, build that provider and locate its checked descriptor:</p>
+<pre><code class="language-sh">bazel build //examples/native-utilities/src/main/java/react4j/nativeutilities
+rules=&quot;$PWD/examples/native-utilities/src/main/java/react4j/nativeutilities/utilities.css&quot;
+output=&quot;$(bazel info bazel-bin)&quot;
+provider=&quot;$output/examples/native-utilities/src/main/java/react4j/nativeutilities/nativeutilities.js/react4j/nativeutilities/Utilities.css.rules.json&quot;
+</code></pre>
+<p>A <strong>prepared</strong> sidecar checks rule structure. A <strong>checked</strong> descriptor also includes the provider's Java owner, permitted external hooks and imports. Obtain it by compiling the real provider; do not invent a JSON binding snapshot or use the prepared input sidecar for expansion.</p>
+<p>Inspect the example using the JVM authoring tool:</p>
+<pre><code class="language-sh">bazel run //css/processor/src/main/java/react4j/css/processor:utility_rules -- --text validate &quot;$rules&quot; &quot;$provider&quot;
+bazel run //css/processor/src/main/java/react4j/css/processor:utility_rules -- --text describe &quot;$rules&quot; &quot;$provider&quot;
+bazel run //css/processor/src/main/java/react4j/css/processor:utility_rules -- --text expand &quot;$provider&quot; p-137 hover:bg-accent
+</code></pre>
+<p>Validation reports <code>checked</code>. Description shows the spacing scale, colors, threshold token and declared families/variants. Expansion shows the requested CSS and trace; <code>p-137</code> is a new request, not a class that needed to exist in the provider's CSS.</p>
+<p>The final argument to <code>validate</code> and <code>describe</code> is an <strong>existing checked provider</strong>, not an output filename. Omitting it reports <code>prepared</code> with ownership checks pending. <code>expand</code> reads the rules embedded in its descriptor, so rebuild the provider after editing the rule source. Changes to permitted hooks or imports also require recompiling the provider declaration.</p>
+<p>For a failed request, first identify the named family and the argument form it admits:</p>
+<pre><code class="language-sh">bazel run //css/processor/src/main/java/react4j/css/processor:utility_rules -- --text expand &quot;$provider&quot; 'bg-[12px]' 'opacity-2' flxe
+</code></pre>
+<p>This intentionally exits with status 1: a background color cannot be a length, opacity is outside <code>[0,1]</code>, and <code>flxe</code> is undeclared. The batch reports all three errors. Replace them with <code>bg-accent</code>, <code>opacity-1</code> and <code>flex</code>, then expand again. Suggestions help you repair a request; they never silently change it.</p>
+<p>An agent's working loop is: inspect the selected provider, describe its vocabulary, make a small rule change, validate every definition, rebuild the checked provider, expand representative successful and failing requests, and run the relevant application/browser checks. Layout-dependent behavior still needs a real browser.</p>
+<h2 id="define-a-library-and-select-utilities">Define a library and select utilities<a class="heading-link" href="#define-a-library-and-select-utilities" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<pre><code class="language-java">@UtilityCssLibrary(
+    file = &quot;app.utilities.css&quot;,
+    externalProperties = {&quot;cs1&quot;, &quot;cs5&quot;},
+    externalClasses = {&quot;iconStack&quot;})
+final class AppUtilities {}
+
+@UtilityStyles(AppUtilities.class)
+abstract class PanelStyles {
+    static PanelStyles get() {
+        return Styled_PanelStyles.get();
+    }
+
+    @UtilityCss(&quot;flex p-3 hover:bg-link&quot;)
+    abstract String style();
+
+    @UtilityCss(&quot;[&amp;_th]:p-3 [&amp;_td_div:not(.iconStack)]:w-[10%]&quot;)
+    abstract String table();
+}
+</code></pre>
+<p>Declare the package-relative file as an explicit CSS input using the existing <code>css_sources</code> rule. A literal Java text block is also supported for the library source. Utility requests use ordinary evaluated Java annotation constants, including inherited declarations. The <a href="https://github.com/react4j/react4j/blob/master/docs/specs/css-bindings.md">binding contract</a> governs interfaces, accessors and local component styles.</p>
+<pre><code class="language-css">@utility-rules;
+@scale spacing .25rem;
+@tokens space &lt;length-percentage&gt; { panel:1.25rem; }
+@tokens color &lt;color&gt; { link:#3972aa; tint:rgba(var(--cs5),.05); }
+
+@utility flex { display:flex; }
+@utility &quot;p-{size}&quot; (size:scale(spacing)|tokens(space)|arbitrary(&lt;length-percentage&gt;)) {
+  padding:param(size);
+}
+@utility &quot;w-{size}&quot; (size:scale(spacing)|arbitrary(&lt;length-percentage&gt;)) {
+  width:param(size);
+}
+@utility &quot;-ml-{size}&quot; (size:scale(spacing)) { margin-left:calc(-1 * param(size)); }
+@utility &quot;bg-{tone}&quot; (tone:tokens(color)|arbitrary(&lt;color&gt;)) { background-color:param(tone); }
+@utility border-l { border-left-width:1px; border-left-style:solid; }
+@variant hover { @media (hover:hover) { &amp;:hover { @slot; } } }
+</code></pre>
+<p><code>p-3</code> gives <code>.75rem</code>, <code>p-1.5</code> gives <code>.375rem</code>, <code>p-panel</code> gives <code>1.25rem</code>, and <code>p-[10%]</code> gives <code>10%</code>. Scale multipliers are nonnegative decimals with a leading digit; negative behavior is explicit in <code>-ml-2</code>. A library can expose property, ID and animation accessors through the existing annotations. <code>@CssStable</code> on a provider preserves all owned names, including subsequently requested candidates; a stable resource accessor preserves its selected owned symbol. Consumer stability affects its local markers.</p>
+<p>Ordinary local CSS keeps precedence over utilities. No reset is implicit, and class-list order does not resolve conflicting utilities. Keep component-specific overrides in local CSS or distinct state getters.</p>
+<h2 id="grammar">Grammar<a class="heading-link" href="#grammar" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<pre><code class="language-ebnf">library        = &quot;@utility-rules&quot;, &quot;;&quot;, { definition } ;
+definition     = scale | tokens | utility | variant | support ;
+scale          = &quot;@scale&quot;, identifier, positive-scalar, &quot;;&quot; ;
+tokens         = &quot;@tokens&quot;, identifier, value-type, &quot;{&quot;, { token-key, &quot;:&quot;, css-value, &quot;;&quot; }, &quot;}&quot; ;
+utility        = &quot;@utility&quot;, head, &quot;{&quot;, utility-template, &quot;}&quot; ;
+variant        = &quot;@variant&quot;, head, &quot;{&quot;, variant-template, &quot;}&quot; ;
+head           = literal-name | quoted-literal
+               | quoted-pattern, &quot;(&quot;, identifier, &quot;:&quot;, sources, [ &quot;within&quot;, interval ], &quot;)&quot; ;
+sources        = source, { &quot;|&quot;, source } ;
+source         = &quot;tokens(&quot;, identifier, &quot;)&quot; | &quot;scale(&quot;, identifier, &quot;)&quot;
+               | &quot;bare(&quot;, value-type, &quot;)&quot; | &quot;arbitrary(&quot;, value-type, &quot;)&quot; ;
+interval       = &quot;[&quot;, bound, &quot;,&quot;, bound, &quot;]&quot; ;
+bound          = numeric-literal | &quot;*&quot; ;
+candidate      = { variant, &quot;:&quot; }, utility ;
+</code></pre>
+<p>A family has one named capture at the end, following <code>-</code> or <code>/</code>, with one matching parameter declaration. Argument forms have compatible types and disjoint spellings. Duplicate heads, overlapping sources, literal/family collisions and tokens hidden by a longer prefix fail even when unused. Matching chooses an exact literal or the longest family prefix; a bad argument never falls through to a shorter prefix.</p>
+<p>Names are case-sensitive. Scale, token-group and parameter identifiers start with an ASCII letter, followed by ASCII letters, digits, <code>_</code> or <code>-</code>. Token keys may also start with a digit. Unquoted rule heads match <code>-?[a-zA-Z_][a-zA-Z0-9_-]*</code>; quote other literals such as <code>&quot;bg-black/20&quot;</code>. Quotes are definition notation, not part of a requested candidate. Utility and variant names have separate namespaces.</p>
+<p>Scale multipliers require digits on both sides of a decimal point when present: <code>1</code>, <code>1.5</code> and <code>01.50</code> work; <code>.5</code>, <code>-1</code> and exponent notation do not. Bare number sources follow CSS number syntax instead, so <code>.5</code> can be valid there. Equivalent numeric spellings remain distinct candidate identities.</p>
+<p>A numeric token key <code>4</code> conflicts with a spacing scale when both accept <code>p-4</code>. Two arbitrary sources in one family also fail; the compiler does not guess a type from payload text. Bounds cannot resolve an overlap by excluding one interpretation.</p>
+<p>Candidate lists split on HTML whitespace. Colons inside balanced brackets, functions or strings stay inside their value. Within brackets every unescaped <code>_</code> becomes a space, including inside strings; <code>\_</code> stays an underscore. For example, <code>content-['Save_changes']</code> supplies <code>'Save changes'</code>. Empty or duplicate candidates and empty bracket arguments fail. Values cannot inject declarations or rules, and <code>!important</code>/important modifiers are rejected.</p>
+<p>In Java source, a literal candidate backslash needs Java's second escape layer:</p>
+<pre><code class="language-java">@UtilityCss(&quot;content-['Save_changes']&quot;) // CSS string: 'Save changes'
+abstract String spacedLabel();
+
+@UtilityCss(&quot;content-['Save\\_changes']&quot;) // CSS string: 'Save_changes'
+abstract String underscoredLabel();
+</code></pre>
+<p>These requests require a <code>content-*</code> family declared with <code>arbitrary(&lt;string&gt;)</code>. The same escape rule applies to underscores in bracketed custom-property names; outside brackets underscores stay literal.</p>
+<p>Supporting definitions are <code>@keyframes</code>, <code>@font-face</code>, <code>@property</code> and <code>:root</code> custom-property initialization. Ordinary element defaults belong in an explicitly selected global definition. Class hooks in selectors require <code>externalClasses</code> permission; asset URLs and imported symbols keep their <a href="https://github.com/react4j/react4j/blob/master/docs/specs/web-assets.md">checked ownership rules</a>.</p>
+<h2 id="values-and-bounds">Values and bounds<a class="heading-link" href="#values-and-bounds" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example argument</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;integer&gt;</code></td>
+<td><code>-2</code>, <code>[calc(10px/2px)]</code></td>
+<td>Bare literals use signed decimal digits.</td>
+</tr>
+<tr>
+<td><code>&lt;number&gt;</code></td>
+<td><code>.5</code>, <code>[clamp(0,var(--x),1)]</code></td>
+<td>Dimensional math must produce a number.</td>
+</tr>
+<tr>
+<td><code>&lt;percentage&gt;</code></td>
+<td><code>25%</code></td>
+<td>A percentage is distinct from a number.</td>
+</tr>
+<tr>
+<td><code>&lt;length&gt;</code></td>
+<td><code>2rem</code>, <code>[anchor-size(width)]</code></td>
+<td>Unitless zero is allowed outside math.</td>
+</tr>
+<tr>
+<td><code>&lt;length-percentage&gt;</code></td>
+<td><code>[calc(100%_-_2rem)]</code></td>
+<td>Compatible length/percentage arithmetic.</td>
+</tr>
+<tr>
+<td><code>&lt;angle&gt;</code></td>
+<td><code>45deg</code></td>
+<td>Degree, radian, grad and turn units.</td>
+</tr>
+<tr>
+<td><code>&lt;time&gt;</code></td>
+<td><code>150ms</code>, <code>-.1s</code></td>
+<td>Rules choose whether negative values are allowed.</td>
+</tr>
+<tr>
+<td><code>&lt;ratio&gt;</code></td>
+<td><code>16/9</code></td>
+<td>The slash belongs to one value.</td>
+</tr>
+<tr>
+<td><code>&lt;string&gt;</code></td>
+<td><code>['Save_changes']</code></td>
+<td>One quoted CSS string.</td>
+</tr>
+<tr>
+<td><code>&lt;color&gt;</code></td>
+<td><code>[#3972aa]</code>, <code>[rgba(var(--cs5),.05)]</code></td>
+<td>Named colors and supported CSS color functions.</td>
+</tr>
+<tr>
+<td><code>&lt;box-shadow&gt;</code></td>
+<td><code>[0_-1px_5px_1px_rgba(var(--cs1),.2)]</code></td>
+<td>Checked length/color/inset structure.</td>
+</tr>
+<tr>
+<td><code>&lt;image&gt;</code></td>
+<td><code>[linear-gradient(red,blue)]</code></td>
+<td>Checked URLs, gradients and image-set options.</td>
+</tr>
+<tr>
+<td><code>&lt;position&gt;</code></td>
+<td><code>[right_1rem_bottom_2rem]</code></td>
+<td>One to four supported position components.</td>
+</tr>
+<tr>
+<td><code>&lt;grid-tracks&gt;</code></td>
+<td><code>[200px_minmax(0,1fr)]</code></td>
+<td>Tracks, line names, repeat and subgrid.</td>
+</tr>
+<tr>
+<td><code>&lt;an+b&gt;</code></td>
+<td><code>[n+3]</code></td>
+<td>Static selector input only.</td>
+</tr>
+</tbody>
+</table>
+<p>Bare sources admit integer, number, percentage, length, angle, time and ratio values. Compound values require tokens or brackets. CSS-wide keywords are outside these input types; expose them through literal utilities when needed. An image type does not turn <code>bg-*</code> into an inferred image family: use a distinct head such as <code>bg-image-*</code>.</p>
+<p>Color functions include rgb/rgba, hsl/hsla, hwb, lab/lch, oklab/oklch and predefined color spaces through color(). Numeric math supports calc/min/max/clamp with dimensional sums, products and quotients. Gradient direction, shape, interpolation and stops are checked; image-set accepts checked image/string sources, resolution and type descriptors. Grid tracks include minmax, fit-content, line names and checked repeat structure. Unsupported functions fail explicitly.</p>
+<p>Declaration-value types retain unresolved <code>var()</code> substitution. A channel list such as <code>rgba(var(--cs5),.05)</code> stays a channel list. A browser-owned variable may still compute to an invalid value: type checks do not evaluate browser state or implement every CSS property's value grammar.</p>
+<pre><code class="language-css">@scale duration 1ms;
+@utility &quot;duration-{v}&quot; (v:scale(duration)|arbitrary(&lt;time&gt;) within [0ms,*]) {
+  transition-duration:param(v);
+}
+@utility &quot;opacity-{v}&quot; (v:bare(&lt;number&gt;)|arbitrary(&lt;number&gt;) within [0,1]) {
+  opacity:param(v);
+}
+@utility &quot;cols-{v}&quot; (v:arbitrary(&lt;grid-tracks&gt;)) { grid-template-columns:param(v); }
+@utility &quot;aspect-{v}&quot; (v:bare(&lt;ratio&gt;)) { aspect-ratio:param(v); }
+</code></pre>
+<p>Bounds are inclusive literal endpoints; <code>*</code> is unbounded and at least one endpoint must be bounded. They apply to integer, number, percentage, length, length-percentage, angle and time inputs. Literal/scale comparisons use exact decimal arithmetic and fixed-ratio unit conversions. Relative units, variables and unevaluated CSS math may leave a check <code>browser-dependent</code>; the expansion trace records that result. Bounds constrain the input, not expressions the template later constructs, and add no clamp or runtime evaluator.</p>
+<h2 id="selectors-and-variants">Selectors and variants<a class="heading-link" href="#selectors-and-variants" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<pre><code class="language-css">@variant th { &amp; th { @slot; } }
+@variant not-first { &amp;:not(:first-child) { @slot; } }
+@variant &quot;nth-{position}&quot; (position:arbitrary(&lt;an+b&gt;)) {
+  &amp;:nth-child(param(position)) { @slot; }
+}
+</code></pre>
+<p><code>th:hover:bg-link</code> styles a hovered <code>th</code>; <code>hover:th:bg-link</code> styles <code>th</code> descendants of the hovered target. The first written variant stays outermost. <code>[&amp;_th]:nth-[n+3]:border-l</code> is a guarded selector transformation on the element receiving the generated class.</p>
+<p>A variant has exactly one <code>@slot;</code>, surrounded only by checked selector, media, supports, container or starting-style wrappers. It contributes no declarations. Utilities can contain declarations and those wrappers, but no slot. Each nested selector has one positive <code>&amp;</code> outside functions in its first compound; rule-level lists and additional guards are rejected. Selector functions can contain lists. Holes are permitted only in complete typed declaration values, the nth-child argument for an+b, or the size thresholds below.</p>
+<p>Expanded candidates sort by variant count, written variant-rank sequence, utility definition order and full candidate spelling in Unicode code-point order. Arbitrary selectors rank after named variants and use decoded selector spelling as a secondary key. This ordering preserves browser specificity and authored declaration order; it does not merge conflicts. Declare broad spacing families such as <code>p-*</code> before axis/side families such as <code>px-*</code> when the latter should win. Reordering those definitions or named variants changes behavior and is not cosmetic. <code>p-2 p-4</code> and <code>p-4 p-2</code> have the same precedence; prefer a single intended value or a local override.</p>
+<h2 id="containers-and-starting-styles">Containers and starting styles<a class="heading-link" href="#containers-and-starting-styles" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<pre><code class="language-css">@tokens thresholds &lt;length&gt; { small:24rem; large:40rem; }
+@utility card-container { container:card / inline-size; --density:cozy; }
+@utility density-compact { --density:compact; }
+@utility scroll-container { container-type:scroll-state; }
+
+@variant &quot;card-min-{v}&quot; (v:tokens(thresholds)|arbitrary(&lt;length&gt;) within [0,*]) {
+  @container card (inline-size &gt;= param(v)) { @slot; }
+}
+@variant compact { @container card style(--density:compact) { @slot; } }
+@variant stuck-top { @container scroll-state(stuck:top) { @slot; } }
+@variant scrollable-down { @container scroll-state(scrollable:bottom) { @slot; } }
+@variant starting { @starting-style { @slot; } }
+@utility transition-opacity { transition:opacity 150ms; }
+@utility opacity-1 { opacity:1; }
+@utility opacity-0 { opacity:0; }
+</code></pre>
+<p><code>card-min-small:p-3</code> uses the eligible named ancestor; <code>compact:p-3</code> tests its custom property. Size, custom-property style and scroll-state conditions admit boolean combinations and nesting. Scroll-state features are stuck, snapped, scrollable and scrolled with their standard values. Threshold holes must fill a complete dimension length or aspect ratio value. Names, feature/property names, operators, whole conditions, style tests and scroll-state tests stay static. Percentages are not width thresholds. One container query is allowed per wrapper; nested queries remain separate.</p>
+<p>The compiler registers static container names from all templates, so a query remains valid without requesting its setup utility. It neither creates an ancestor nor retains that setup class. Apply containment, sticky positioning, overflow and custom properties explicitly. Browser-owned ancestors require <code>externalContainers</code>; style properties need owned/imported/external property permission. These follow <a href="https://www.w3.org/TR/css-conditional-5/#container-rule">container query semantics</a>, including nearest eligible ancestor selection.</p>
+<pre><code class="language-java">@UtilityCss(&quot;transition-opacity opacity-1 card-min-small:starting:opacity-0&quot;)
+abstract String entering();
+</code></pre>
+<p>Starting style takes no condition and adds no transition automatically. It remains inside the named query in this example. Browser entry/exit, display behavior and support remain application/browser concerns.</p>
+<h2 id="named-anchors-and-popovers">Named anchors and popovers<a class="heading-link" href="#named-anchors-and-popovers" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<pre><code class="language-css">@utility popover-scope { anchor-scope:--trigger; }
+@utility popover-trigger { anchor-name:--trigger; }
+@utility popover-panel {
+  position:fixed;
+  position-anchor:--trigger;
+  inset:auto;
+  margin:0;
+  padding:0;
+  border:0;
+  position-area:block-end span-inline-end;
+  position-try-fallbacks:flip-block,flip-inline,flip-block flip-inline;
+  min-inline-size:0;
+  max-inline-size:calc(100dvw - 2rem);
+  max-block-size:calc(100dvh - 2rem);
+  overflow:auto;
+}
+@utility popover-match-width { inline-size:anchor-size(width); }
+</code></pre>
+<p>Apply scope to a wrapper containing both trigger and panel, trigger to the control and panel/match-width to the popover. The panel can enter the native top layer while retaining that DOM scope. A panel rendered elsewhere through a portal needs a different association design. HTML IDs, opening/closing and focus management remain component responsibilities.</p>
+<p>Anchors have a separate naming namespace from custom properties. Static declarations from all templates establish owned identities; position-anchor, named anchor-scope lists, anchor() and anchor-size() references bind consistently, including nested math and fallbacks. External anchor hooks use full spelling: <code>externalAnchors={&quot;--host-trigger&quot;}</code>. <code>externalProperties={&quot;host-trigger&quot;}</code> has a different meaning. Declaring a hook neither creates a target nor proves it exists.</p>
+<p>Name/side/size substitutions are static: no name holes or var-supplied selectors, including visible custom-property carriers. Anchor sides may use literal percentages. Supported inset properties admit anchor(); sizing, inset and margin properties admit anchor-size(). The compiler checks literal and substituted contexts, including fallback expressions. Default-anchor inputs such as <code>left-[anchor(left)]</code> and <code>min-w-[anchor-size(width)]</code> remain possible when the library defines those typed families.</p>
+<p>The <a href="https://github.com/react4j/react4j/blob/master/css/examples/save-button/src/main/java/react4j/css/example/NativeExample.java">browser fixture</a> and <a href="https://github.com/react4j/react4j/blob/master/css/examples/save-button/src/test/java/react4j/css/example/CssBrowserTest.java">tests</a> exercise repeated scopes, default anchor sizing, a bottom-edge flip, explicit oversized-content limits and scrolling, in development and optimized output. Syntax and binding follow <a href="https://www.w3.org/TR/css-anchor-position-1/">CSS anchor positioning</a>; browser support remains separate. No fallback is guaranteed to fit every layout. Check all edges, scrolling ancestors, zoom, writing modes and focus behavior before adopting a recipe.</p>
+<h2 id="authoring-commands-and-diagnostics">Authoring commands and diagnostics<a class="heading-link" href="#authoring-commands-and-diagnostics" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>The shipped CSS processor jar exposes the JVM main class <code>react4j.css.processor.UtilityRules</code>:</p>
+<pre><code class="language-sh">java -cp css-processor.jar react4j.css.processor.UtilityRules validate app.utilities.css
+java -cp css-processor.jar react4j.css.processor.UtilityRules describe app.utilities.css provider.css.rules.json
+java -cp css-processor.jar react4j.css.processor.UtilityRules expand provider.css.rules.json p-3 'hover:bg-[red]'
+java -cp css-processor.jar react4j.css.processor.UtilityRules --text expand provider.css.rules.json flxe
+</code></pre>
+<p>The optional checked provider snapshot supplies ownership, imports, hooks and stability from Java compilation. Validation without one reports <code>prepared</code> and pending ownership checks; it does not claim a checked library. Checked validation includes a reusable descriptor under <code>library</code>. Description adds tokens, scales, families, wrappers, bounds and origins. Expansion returns CSS/maps, defining-owner identities, ordering keys, traces, deferred checks and every batch error while retaining successful peers. JSON is default; <code>--text</code> selects human output. Exit codes are 0 for success, 1 for rule/candidate failures and 2 for input/usage/descriptor failures.</p>
+<p>For repository development, use <code>bazel run //css/processor/src/main/java/react4j/css/processor:utility_rules -- ...</code> with absolute input paths, such as <code>&quot;$PWD/app.utilities.css&quot;</code>; Bazel launches from runfiles. No application scanner, watcher or extra executable is needed.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning/action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>U_UNKNOWN_UTILITY</code>, <code>U_UNKNOWN_VARIANT</code></td>
+<td>Check suggested declared names. Suggestions never change the result.</td>
+</tr>
+<tr>
+<td><code>U_ARGUMENT</code>, <code>U_VALUE_TYPE</code></td>
+<td>Inspect the family, accepted sources, named tokens and decoded payload span.</td>
+</tr>
+<tr>
+<td><code>U_VALUE_RANGE</code>, <code>U_RANGE_BOUND</code></td>
+<td>Correct the requested value or the provider's compatible inclusive bounds.</td>
+</tr>
+<tr>
+<td><code>U_VALUE_CONTEXT</code>, <code>U_ANCHOR_FUNCTION</code></td>
+<td>Use anchor functions in admitted declaration contexts with static selectors and valid fallbacks.</td>
+</tr>
+<tr>
+<td><code>U_CONTAINER_CONDITION</code>, <code>U_STARTING_STYLE</code></td>
+<td>Correct the condition grammar or remove a starting-style condition.</td>
+</tr>
+<tr>
+<td><code>U_CONTAINER_NAME</code>, <code>U_ANCHOR_NAME</code>, <code>U_DYNAMIC_NAME</code></td>
+<td>Declare a static owned/external name; setup remains explicit.</td>
+</tr>
+<tr>
+<td><code>U_EXTERNAL_PROPERTY</code>, <code>U_EXTERNAL_CLASS</code>, <code>U_ASSET_REFERENCE</code></td>
+<td>Supply the relevant explicit hook/import rather than bypassing ownership.</td>
+</tr>
+<tr>
+<td><code>U_AMBIGUOUS_RULE</code>, <code>U_SOURCE_TYPE</code>, <code>U_PARAMETER</code>, <code>U_SLOT</code></td>
+<td>Correct conflicting definitions, source types, parameter positions or slot shape.</td>
+</tr>
+<tr>
+<td><code>U_SELECTOR_GUARD</code>, <code>U_IMPORTANT</code></td>
+<td>Keep a positive first-compound guard and ordinary local precedence.</td>
+</tr>
+<tr>
+<td><code>U_SYNTAX</code>, <code>U_CANDIDATE_SYNTAX</code></td>
+<td>Correct provider or candidate delimiters/strings.</td>
+</tr>
+<tr>
+<td><code>U_INPUT</code>, <code>U_USAGE</code>, <code>U_DESCRIPTOR</code></td>
+<td>Check explicit files, command arguments and descriptor shape/version.</td>
+</tr>
+</tbody>
+</table>
+<p>Diagnostics include available primary and related token/definition origins. Literal Java requests recover payload spans; constants/concatenations report their expression and decoded offset. <a href="https://github.com/react4j/react4j/blob/master/docs/deferred/css-identifier-token-mapping.md">Exact identifier-token source mapping</a> remains outside the promise.</p>
+<h2 id="scope">Scope<a class="heading-link" href="#scope" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>There is no Tailwind compatibility promise, generic regex/multi-capture system, apply macro graph, generic slash modifier, arbitrary property/at-rule variant, executable plugin or synthesized group/peer vocabulary. Named position-try definitions/bindings and dynamic owned names are outside this grammar. A literal utility can still express ordinary CSS values and explicit browser behavior. See <a href="utility-recipes.html">portable recipes</a> for concrete alternatives.</p>
+</article><nav class="pagination" aria-label="Previous and next pages"><a class="previous" href="/docs/native-utilities.html"><span>Previous</span>Use native utilities</a><a class="next" href="/docs/utility-recipes.html"><span>Next</span>Utility rule recipes</a></nav></main></div>
+
+<footer><a href="/docs/overview.html">Overview</a> · <a href="/api/">API Reference</a> · <a href="https://github.com/react4j/react4j">GitHub</a><p>Copyright © the React4j Project.</p></footer>
+</body></html>

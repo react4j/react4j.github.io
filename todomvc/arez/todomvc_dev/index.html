@@ -3,28 +3,14 @@
 <head>
   <meta charset="utf-8">
   <title>React • TodoMVC</title>
-  <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<section id="app" class="todoapp"></section>
-<footer class="info">
-  <p>Double-click to edit a todo</p>
-  <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
-</footer>
+<div id="app"></div>
 
-<script type="text/javascript" language="javascript" src="dev/react.js"></script>
-<script type="text/javascript" language="javascript" src="dev/react-dom.js"></script>
-<script type="text/javascript" language="javascript">
-  var script = document.createElement('script');
-  script.setAttribute('type', 'text/javascript');
-  script.setAttribute('language', 'javascript');
-  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-    script.setAttribute('src', '/recompile-requester/todomvc_dev');
-  } else {
-    script.setAttribute('src', 'todomvc_dev.nocache.js');
-  }
-  document.body.append(script);
-</script>
+<script>CLOSURE_DEFINES={"goog.DEBUG":true,"arez.check_api_invariants":"true","arez.check_expensive_invariants":"false","arez.check_invariants":"false","arez.collections_properties_unmodifiable":"true","arez.enable_names":"true","arez.enable_native_components":"false","arez.enable_observer_error_handlers":"true","arez.enable_property_introspection":"false","arez.enable_references":"false","arez.enable_registries":"false","arez.enable_spies":"false","arez.enable_task_interceptor":"true","arez.enable_verify":"true","arez.enable_zones":"false","arez.enforce_transaction_type":"true","arez.environment":"development","arez.logger":"console","arez.purge_tasks_when_runaway_detected":"true","braincheck.check_api_invariants":"true","braincheck.check_invariants":"true","braincheck.environment":"development","braincheck.verbose_error_messages":"true","jre.checks.checkLevel":"NORMAL","jre.classMetadata":"SIMPLE","react4j.check_invariants":"true","react4j.enable_view_names":"true","react4j.environment":"development","react4j.minimize_input_keys":"false","react4j.store_debug_data_as_state":"true","react4j.validate_input_values":"true","zemeckis.enable_names":"true","zemeckis.enable_uncaught_error_handlers":"true","zemeckis.environment":"development","zemeckis.log_worker_interactions":"false","zemeckis.logger":"console","zemeckis.purge_tasks_when_runaway_detected":"true","zemeckis.use_message_channel_to_schedule_tasks":"true","zemeckis.use_test_scheduler":"false","zemeckis.use_worker_to_schedule_delayed_tasks":"true"};</script>
+<script src="react.js"></script>
+<script type="text/javascript" language="javascript" src="react-dom.js"></script>
+<script type="text/javascript" language="javascript" src="app.js"></script>
 </body>
 </html>

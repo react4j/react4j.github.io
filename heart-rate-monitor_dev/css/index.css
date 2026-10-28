@@ -1,0 +1,7 @@
+@layer shared,utilities,components;
+@layer components{
+.jcss-react4j-hrm-Application_0024_ContainerStyle{display:flex;justify-content:center;}
+@keyframes jcss-react4j-hrm-Application_0024_HeartStyle--keyframes-beat{from{transform:scale(1);}to{transform:scale(0.9);}}.jcss-react4j-hrm-Application_0024_HeartStyle{width:10em;}.jcss-react4j-hrm-Application_0024_HeartStyle.jcss-react4j-hrm-Application_0024_HeartStyle--beating{animation-name:jcss-react4j-hrm-Application_0024_HeartStyle--keyframes-beat;animation-direction:alternate;animation-iteration-count:infinite;animation-timing-function:ease-in-out;animation-duration:0.8s;}
+.jcss-react4j-hrm-Application_0024_PanelStyle{display:flex;flex-direction:column;align-items:center;justify-content:space-between;}
+}
+/*# sourceMappingURL=index.css.map */

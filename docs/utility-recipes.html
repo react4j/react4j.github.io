@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Utility rule recipes · React4j</title><meta name="description" content="An opinionated Java binding for React">
+<link rel="icon" href="/img/favicon/favicon.ico"><link rel="stylesheet" href="/css/site.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header><a class="brand" href="/"><img src="/img/logo.svg" alt="" width="40" height="40">React4j</a>
+<nav aria-label="Main navigation"><a href="/docs/overview.html">Docs</a><a href="/api/">API</a><a href="https://github.com/react4j/react4j/releases">Releases</a><a href="https://github.com/react4j/react4j">GitHub</a></nav></header>
+<div class="docs-layout"><aside><nav aria-label="Documentation navigation"><section><h2>About</h2><ul>
+<li><a href="/docs/overview.html">Introduction</a></li>
+<li><a href="/docs/project_setup.html">Project Setup</a></li>
+</ul></section>
+<section><h2>Reference</h2><ul>
+<li><a href="/docs/arez.html">Arez</a></li>
+<li><a href="/docs/input-semantics.html">Input Identity and Equality</a></li>
+<li><a href="/docs/input-step-enhancers.html">Input Step Enhancers</a></li>
+<li><a href="/docs/compared_to_react.html">Compared to React</a></li>
+</ul></section>
+<section><h2>CSS</h2><ul>
+<li><a href="/docs/native-utilities.html">Use native utilities</a></li>
+<li><a href="/docs/utility-rules.html">Author utility rules</a></li>
+<li><a href="/docs/utility-recipes.html" aria-current="page">Utility rule recipes</a></li>
+</ul></section>
+<section><h2>Examples</h2><ul>
+<li><a href="/docs/todomvc.html">TodoMVC</a></li>
+</ul></section>
+<section><h2>Project Documentation</h2><ul>
+<li><a href="/docs/faq.html">Frequently Asked Questions</a></li>
+<li><a href="/docs/related_projects.html">Related projects</a></li>
+<li><a href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li>
+</ul></section>
+</nav></aside>
+<main id="main"><h1>Utility rule recipes</h1><a class="edit" href="https://github.com/react4j/react4j/tree/master/docs/utility-recipes.md">Edit this page</a>
+<article><p>These portable examples cover common table, panel and popover styles. Start with <a href="native-utilities.html">using native utilities</a>, then use the <a href="utility-rules.html">language reference</a> when you need the exact argument and selector rules.</p>
+<h2 id="a-small-recipe-library">A small recipe library<a class="heading-link" href="#a-small-recipe-library" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>Save this complete source as <code>recipes.css</code> beside its Java provider. It defines every candidate used in the table and shadow examples below:</p>
+<pre><code class="language-css">@utility-rules;
+@scale spacing .25rem;
+@tokens color &lt;color&gt; {
+  table-tint:rgba(var(--cs5),.05);
+  overlay:rgb(0 0 0 / .2);
+}
+@tokens shadow &lt;box-shadow&gt; {
+  footer:0 -1px 5px 1px rgba(var(--cs1),.2);
+}
+@utility &quot;p-{size}&quot; (size:scale(spacing)|arbitrary(&lt;length-percentage&gt;)) {
+  padding:param(size);
+}
+@utility &quot;w-{size}&quot; (size:arbitrary(&lt;length-percentage&gt;)) { width:param(size); }
+@utility w-full { width:100%; }
+@utility &quot;bg-{tone}&quot; (tone:tokens(color)|arbitrary(&lt;color&gt;)) { background-color:param(tone); }
+@utility &quot;shadow-{value}&quot; (value:tokens(shadow)|arbitrary(&lt;box-shadow&gt;)) { box-shadow:param(value); }
+@utility &quot;-ml-{size}&quot; (size:scale(spacing)) { margin-left:calc(-1 * param(size)); }
+@utility border-l { border-left-width:1px; border-left-style:solid; }
+@utility sticky { position:sticky; }
+@utility bottom-0 { bottom:0; }
+@utility fill-panel {
+  display:flex;
+  flex-grow:1;
+  width:100%;
+  flex-direction:column;
+  min-height:0;
+  position:relative;
+}
+@variant th { &amp; th { @slot; } }
+@variant not-first { &amp;:not(:first-child) { @slot; } }
+@variant &quot;nth-{position}&quot; (position:arbitrary(&lt;an+b&gt;)) {
+  &amp;:nth-child(param(position)) { @slot; }
+}
+</code></pre>
+<p>The provider makes its external hooks explicit:</p>
+<pre><code class="language-java">@UtilityCssLibrary(
+    file = &quot;recipes.css&quot;,
+    externalProperties = {&quot;cs1&quot;, &quot;cs5&quot;},
+    externalClasses = {&quot;iconStack&quot;})
+final class RecipeUtilities {}
+</code></pre>
+<p>Declare the file with <code>css_sources</code> as in the <a href="native-utilities.html#add-your-own-source-to-a-build">setup walkthrough</a>. The surrounding application must supply <code>--cs1</code> and <code>--cs5</code> in a compatible theme scope. These examples expect RGB channel lists such as <code>30, 40, 50</code>, rather than a complete <code>rgb(...)</code> value. The compiler preserves the variable substitution; it cannot prove the browser's eventual theme value is valid.</p>
+<h2 id="style-table-descendants-from-the-table">Style table descendants from the table<a class="heading-link" href="#style-table-descendants-from-the-table" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>Apply a getter with these candidates to the table element:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[&amp;_th]:p-3</code></td>
+<td>Give each header <code>.75rem</code> padding.</td>
+</tr>
+<tr>
+<td><code>[&amp;_th]:bg-table-tint</code></td>
+<td>Use the named theme-backed header tint.</td>
+</tr>
+<tr>
+<td><code>[&amp;_th]:not-first:border-l</code></td>
+<td>Add a left border to headers after the first.</td>
+</tr>
+<tr>
+<td><code>[&amp;_th]:nth-[n+3]:border-l</code></td>
+<td>Add a left border from the third header onward.</td>
+</tr>
+<tr>
+<td><code>[&amp;_th:not(:first-child):not(:nth-child(2))]:p-3</code></td>
+<td>Pad headers other than the first two.</td>
+</tr>
+<tr>
+<td><code>[&amp;_td_div:not(.iconStack)]:w-full</code></td>
+<td>Make matching inner divs full-width, preserving the external <code>iconStack</code> hook.</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<pre><code class="language-java">@UtilityStyles(RecipeUtilities.class)
+abstract class TableStyles {
+    static TableStyles get() {
+        return Styled_TableStyles.get();
+    }
+
+    @UtilityCss(&quot;[&amp;_th]:p-3 [&amp;_th]:bg-table-tint [&amp;_th]:nth-[n+3]:border-l&quot;)
+    abstract String style();
+}
+</code></pre>
+<p><code>&amp;</code> means the element receiving the generated class. <code>_</code> becomes a space inside brackets, so <code>[&amp;_th]</code> means that element's <code>th</code> descendants. No extra class is required on every header. <code>.iconStack</code> stays a literal external hook; append it explicitly where your component needs it.</p>
+<p>Variant order has meaning. <code>th:not-first:border-l</code> selects header descendants other than the first child. Reversing the variants would first test the element carrying the utility class, then select its headers.</p>
+<h2 id="shadows-negative-values-and-reusable-panels">Shadows, negative values and reusable panels<a class="heading-link" href="#shadows-negative-values-and-reusable-panels" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>Both of these footer requests select the same intended shadow value:</p>
+<pre><code class="language-java">@UtilityCss(&quot;sticky bottom-0 shadow-footer&quot;)
+abstract String footer();
+
+@UtilityCss(&quot;sticky bottom-0 shadow-[0_-1px_5px_1px_rgba(var(--cs1),.2)]&quot;)
+abstract String explicitFooter();
+</code></pre>
+<p>They keep distinct candidate identities. Named tokens make repeated values easier to change and review; bracketed values are useful for one-off requests. <code>-ml-2</code> means a negative half-rem margin because the library defines that negative operation explicitly. It does not make every scale accept negative multipliers.</p>
+<p><code>bg-overlay</code> replaces the common intention behind <code>bg-black/20</code>. There is no generic slash-opacity modifier. A library could instead declare the exact quoted literal <code>&quot;bg-black/20&quot;</code>; that would define one name, rather than a modifier system.</p>
+<p><code>fill-panel</code> keeps the six explicit declarations together. This replaces a utility-to-utility <code>@apply</code> recipe without introducing another macro language. Page-wide element rules still belong in selected globals; component-specific state selectors belong with the component.</p>
+<h2 id="scoped-popovers">Scoped popovers<a class="heading-link" href="#scoped-popovers" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>The runnable example supplies the complete <a href="https://github.com/react4j/react4j/blob/master/examples/native-utilities/src/main/java/react4j/nativeutilities/utilities.css">CSS rules</a> and <a href="https://github.com/react4j/react4j/blob/master/examples/native-utilities/src/main/java/react4j/nativeutilities/Workspace.java">Java component</a>. Its roles map as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Utility selection</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Card containing its trigger and panel</td>
+<td><code>card</code></td>
+<td>Applies <code>anchor-scope:--details</code> for that instance.</td>
+</tr>
+<tr>
+<td>Details button</td>
+<td>Base button styles plus <code>trigger</code></td>
+<td>Applies <code>anchor-name:--details</code> and names the panel through <code>popovertarget</code>.</td>
+</tr>
+<tr>
+<td>Panel</td>
+<td><code>panel</code> plus color, spacing and motion utilities</td>
+<td>Uses <code>position-anchor:--details</code>, explicit placement/flips/size limits, and native <code>popover=&quot;auto&quot;</code>.</td>
+</tr>
+<tr>
+<td>Close button</td>
+<td>Base button styles</td>
+<td>Uses the same target ID with <code>popovertargetaction=&quot;hide&quot;</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>The example's getter for the panel is:</p>
+<pre><code class="language-java">@UtilityCss(&quot;panel flex-col gap-4 p-5 bg-white text-ink transition-opacity opacity-1 starting:opacity-0 reduce-motion:transition-none&quot;)
+abstract String panel();
+</code></pre>
+<p>The panel utility makes an open popover a flex container. The explicit opacity transition gives the starting style something to animate; reduced motion removes it. Closing is immediate in this recipe: animating a popover's exit needs additional authored display/overlay behavior.</p>
+<p>The two cards share one checked anchor identity. Each card's DOM scope makes the browser resolve its own trigger. Entering the native top layer does not move the panel out of that DOM subtree. A portal rendered elsewhere needs a different association design.</p>
+<p>HTML IDs, invoker attributes, labels and focus behavior remain component responsibilities. Native auto popovers supply light dismissal and Escape behavior in the example. They are non-modal: they do not trap keyboard focus or make the rest of the page inactive.</p>
+<p>Built-in flip tactics need no named position-try resource, and viewport size limits let oversized content scroll. No fallback guarantees that every layout can fit. Exercise repeated instances, viewport edges, scrolling ancestors, long content, zoom, writing modes and keyboard behavior in your supported browsers.</p>
+<h2 id="default-anchors-in-typed-values">Default anchors in typed values<a class="heading-link" href="#default-anchors-in-typed-values" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>A component that already supplies its anchor association can expose these families:</p>
+<pre><code class="language-css">@utility &quot;left-{value}&quot; (value:arbitrary(&lt;length-percentage&gt;)) { left:param(value); }
+@utility &quot;min-w-{value}&quot; (value:arbitrary(&lt;length&gt;)) { min-width:param(value); }
+</code></pre>
+<p><code>left-[anchor(left)]</code> and <code>min-w-[anchor-size(width)]</code> use that default anchor. They do not establish a target or repair an incorrect association. <code>anchor()</code> cannot supply padding, so a request such as <code>p-[anchor(left)]</code> fails even though the function returns a length in a supported inset context.</p>
+</article><nav class="pagination" aria-label="Previous and next pages"><a class="previous" href="/docs/utility-rules.html"><span>Previous</span>Author utility rules</a><a class="next" href="/docs/todomvc.html"><span>Next</span>TodoMVC</a></nav></main></div>
+
+<footer><a href="/docs/overview.html">Overview</a> · <a href="/api/">API Reference</a> · <a href="https://github.com/react4j/react4j">GitHub</a><p>Copyright © the React4j Project.</p></footer>
+</body></html>

@@ -1,38 +1,46 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>IntelliJ IDEA IDE Setup · React4j</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="IntelliJ IDEA IDE Setup · React4j"/><meta property="og:type" content="website"/><meta property="og:url" content="https://react4j.github.io/index.html"/><meta property="og:description" content="IntelliJ IDEA is the IDE that the authors of React4j use and recommend but any IDE should work fine. It"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">React4j</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="https://github.com/react4j/react4j/releases" target="_blank">Releases</a></li><li><a href="https://github.com/react4j/react4j" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Project Documentation</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>About</h3><ul><li class="navListItem"><a class="navItem" href="/docs/overview.html">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/project_setup.html">Project Setup</a></li></ul></div><div class="navGroup navGroupActive"><h3>Reference</h3><ul><li class="navListItem"><a class="navItem" href="/docs/arez.html">Arez</a></li><li class="navListItem"><a class="navItem" href="/docs/compared_to_react.html">Compared to React</a></li></ul></div><div class="navGroup navGroupActive"><h3>Examples</h3><ul><li class="navListItem"><a class="navItem" href="/docs/todomvc.html">TodoMVC</a></li></ul></div><div class="navGroup navGroupActive"><h3>Project Documentation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq.html">Frequently Asked Questions</a></li><li class="navListItem"><a class="navItem" href="/docs/related_projects.html">Related projects</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li></ul></div></div></section></div><script>
-          var toggler = document.getElementById('navToggler');
-          var nav = document.getElementById('docsNav');
-          toggler.onclick = function() {
-            nav.classList.toggle('docsSliderActive');
-          };
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/react4j/react4j/tree/master/docs/intellij.md" target="_blank">Edit</a><h1>IntelliJ IDEA IDE Setup</h1></header><article><div><span><p>IntelliJ IDEA is the IDE that the authors of React4j use and recommend but any IDE should work fine. It
-is however the only IDE that the authors have experience with when tuning the configuration.</p>
-<h2><a class="anchor" aria-hidden="true" name="configure-the-annotation-processors"></a><a href="#configure-the-annotation-processors" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure the Annotation Processors</h2>
-<p>IntelliJ IDEA 2017.2 does not correctly setup annotation processors when importing a <code>pom.xml</code> if the
-annotation processor jar is not also present on the compile path. So it is necessary to manually configure
-the annotation processors.</p>
-<p>This involves opening up the <code>Settings</code> or <code>Preferences</code> dialog which is accessed through the
-menu <code>IntelliJ IDEA -&gt; Preferences</code> under Mac OSX or <code>File -&gt; Settings</code> under Linux and Windows.
-Then go to <code>Build, Execution, Deployment -&gt; Compiler -&gt; Annotation Processors</code> and configure
-the <code>Processor Path</code> to include the path to the annotation processor jar.</p>
-<p><img src="/img/IntelliJ-AnnotationProcessor.png" alt="Configuring the AnnotationProcessor"></p>
-<h2><a class="anchor" aria-hidden="true" name="enable-auto-build"></a><a href="#enable-auto-build" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enable Auto Build</h2>
-<p>If your project is small enough or your processor is fast enough it is also useful to enable
-automatic annotation processing. As before you can open up the preferences dialog and go to
-<code>Build, Execution, Deployment -&gt; Compiler</code> and enable <code>&quot;Make project automatically&quot;</code>. And then
-open the Action window:</p>
-<ul>
-<li>Linux: <code>CTRL+SHIFT+A</code></li>
-<li>MacOS: <code>SHIFT+COMMAND+A</code></li>
-<li>Windows: <code>CTRL+ALT+SHIFT+/</code></li>
-</ul>
-<p>Enter <code>Registry...</code> and enable <code>compiler.automake.allow.when.app.running</code>.</p>
-<p><img src="/img/IntelliJ-EnableAutoBuild.png" alt="IntelliJ enable auto build when running"></p>
-<h2><a class="anchor" aria-hidden="true" name="add-generated-source-to-path"></a><a href="#add-generated-source-to-path" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add Generated Source to Path</h2>
-<p>The React4j annotation processors generate source code and it is useful to tell the IDE to add this source
-code to each module. After this is done the IDE will allow auto completion and enable intellisense
-for the generated code which can be a significant development aid. To do this go to
-<code>File -&gt; Project Structure -&gt; Module -&gt; [MyModule] -&gt; Sources</code> and add the generated directory as <code>Sources</code>.</p>
-<p><img src="/img/IntelliJ-AddSource.png" alt="IntelliJ add generated source"></p>
-<p>Note: You will receive a warning when the project compiles that this directory was excluded but
-do not worry as that is what we expect and want.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="related_projects.html">← Related projects</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="React4j" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/react4j/react4j" data-icon="octicon-star" data-count-href="/react4j/react4j/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2026 the React4j Project.</section></footer></div></body></html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IntelliJ IDEA IDE Setup · React4j</title><meta name="description" content="An opinionated Java binding for React">
+<link rel="icon" href="/img/favicon/favicon.ico"><link rel="stylesheet" href="/css/site.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header><a class="brand" href="/"><img src="/img/logo.svg" alt="" width="40" height="40">React4j</a>
+<nav aria-label="Main navigation"><a href="/docs/overview.html">Docs</a><a href="/api/">API</a><a href="https://github.com/react4j/react4j/releases">Releases</a><a href="https://github.com/react4j/react4j">GitHub</a></nav></header>
+<div class="docs-layout"><aside><nav aria-label="Documentation navigation"><section><h2>About</h2><ul>
+<li><a href="/docs/overview.html">Introduction</a></li>
+<li><a href="/docs/project_setup.html">Project Setup</a></li>
+</ul></section>
+<section><h2>Reference</h2><ul>
+<li><a href="/docs/arez.html">Arez</a></li>
+<li><a href="/docs/input-semantics.html">Input Identity and Equality</a></li>
+<li><a href="/docs/input-step-enhancers.html">Input Step Enhancers</a></li>
+<li><a href="/docs/compared_to_react.html">Compared to React</a></li>
+</ul></section>
+<section><h2>CSS</h2><ul>
+<li><a href="/docs/native-utilities.html">Use native utilities</a></li>
+<li><a href="/docs/utility-rules.html">Author utility rules</a></li>
+<li><a href="/docs/utility-recipes.html">Utility rule recipes</a></li>
+</ul></section>
+<section><h2>Examples</h2><ul>
+<li><a href="/docs/todomvc.html">TodoMVC</a></li>
+</ul></section>
+<section><h2>Project Documentation</h2><ul>
+<li><a href="/docs/faq.html">Frequently Asked Questions</a></li>
+<li><a href="/docs/related_projects.html">Related projects</a></li>
+<li><a href="/docs/intellij.html" aria-current="page">IntelliJ IDEA IDE Setup</a></li>
+</ul></section>
+</nav></aside>
+<main id="main"><h1>IntelliJ IDEA IDE Setup</h1><a class="edit" href="https://github.com/react4j/react4j/tree/master/docs/intellij.md">Edit this page</a>
+<article><p>Import the application's build configuration and use the same Java and processor settings as <a href="project_setup.html">Project Setup</a>. Use Java 21 or later for application sources, generated sources and published libraries. Match the application compiler settings to its J2CL build; the JVM running annotation processing must be Java 21 or later. Bazel remains the authoritative verification path for this repository.</p>
+<h2 id="configure-the-annotation-processors">Configure the Annotation Processors<a class="heading-link" href="#configure-the-annotation-processors" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>Enable annotation processing for the application module. If processor discovery is configured manually, use the assembled <code>react4j-processor</code> jar and compatible Arez/Sting processor jars when needed. Keep the processor path separate from the application runtime classpath. Add the formatter JVM exports or disable generated source formatting as described in Project Setup.</p>
+<p><img src="/img/IntelliJ-AnnotationProcessor.png" alt="Annotation processor configuration example" /></p>
+<h2 id="enable-auto-build">Enable Auto Build<a class="heading-link" href="#enable-auto-build" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>Automatic builds can refresh generated APIs while editing. Ensure the IDE's compiler settings match the command-line build, including JSpecify dependencies and <code>-XDaddTypeAnnotationsToSymbol=true</code>. UI labels vary between IDE versions; the screenshot illustrates the compiler settings rather than a required version-specific registry workaround.</p>
+<p><img src="/img/IntelliJ-EnableAutoBuild.png" alt="Automatic build configuration example" /></p>
+<h2 id="add-generated-source-to-path">Add Generated Source to Path<a class="heading-link" href="#add-generated-source-to-path" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
+<p>Mark the build's annotation processor output as generated sources so builders and enhanced views are available to navigation and completion. Let the build regenerate these files rather than editing them. Keep the processor's invalid diagnostic fixtures outside ordinary IDE source roots.</p>
+<p><img src="/img/IntelliJ-AddSource.png" alt="Generated source configuration example" /></p>
+</article><nav class="pagination" aria-label="Previous and next pages"><a class="previous" href="/docs/related_projects.html"><span>Previous</span>Related projects</a></nav></main></div>
+
+<footer><a href="/docs/overview.html">Overview</a> · <a href="/api/">API Reference</a> · <a href="https://github.com/react4j/react4j">GitHub</a><p>Copyright © the React4j Project.</p></footer>
+</body></html>

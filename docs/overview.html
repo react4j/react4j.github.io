@@ -1,42 +1,63 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Introduction · React4j</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Introduction · React4j"/><meta property="og:type" content="website"/><meta property="og:url" content="https://react4j.github.io/index.html"/><meta property="og:description" content="React4j is an opinionated abstraction on top of [ReactJS](https://reactjs.org) that allows you to use Java"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">React4j</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="https://github.com/react4j/react4j/releases" target="_blank">Releases</a></li><li><a href="https://github.com/react4j/react4j" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>About</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>About</h3><ul><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/overview.html">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/project_setup.html">Project Setup</a></li></ul></div><div class="navGroup navGroupActive"><h3>Reference</h3><ul><li class="navListItem"><a class="navItem" href="/docs/arez.html">Arez</a></li><li class="navListItem"><a class="navItem" href="/docs/compared_to_react.html">Compared to React</a></li></ul></div><div class="navGroup navGroupActive"><h3>Examples</h3><ul><li class="navListItem"><a class="navItem" href="/docs/todomvc.html">TodoMVC</a></li></ul></div><div class="navGroup navGroupActive"><h3>Project Documentation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq.html">Frequently Asked Questions</a></li><li class="navListItem"><a class="navItem" href="/docs/related_projects.html">Related projects</a></li><li class="navListItem"><a class="navItem" href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li></ul></div></div></section></div><script>
-          var toggler = document.getElementById('navToggler');
-          var nav = document.getElementById('docsNav');
-          toggler.onclick = function() {
-            nav.classList.toggle('docsSliderActive');
-          };
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/react4j/react4j/tree/master/docs/overview.md" target="_blank">Edit</a><h1>Introduction</h1></header><article><div><span><p>React4j is an opinionated abstraction on top of <a href="https://reactjs.org">ReactJS</a> that allows you to use Java
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introduction · React4j</title><meta name="description" content="An opinionated Java binding for React">
+<link rel="icon" href="/img/favicon/favicon.ico"><link rel="stylesheet" href="/css/site.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header><a class="brand" href="/"><img src="/img/logo.svg" alt="" width="40" height="40">React4j</a>
+<nav aria-label="Main navigation"><a href="/docs/overview.html">Docs</a><a href="/api/">API</a><a href="https://github.com/react4j/react4j/releases">Releases</a><a href="https://github.com/react4j/react4j">GitHub</a></nav></header>
+<div class="docs-layout"><aside><nav aria-label="Documentation navigation"><section><h2>About</h2><ul>
+<li><a href="/docs/overview.html" aria-current="page">Introduction</a></li>
+<li><a href="/docs/project_setup.html">Project Setup</a></li>
+</ul></section>
+<section><h2>Reference</h2><ul>
+<li><a href="/docs/arez.html">Arez</a></li>
+<li><a href="/docs/input-semantics.html">Input Identity and Equality</a></li>
+<li><a href="/docs/input-step-enhancers.html">Input Step Enhancers</a></li>
+<li><a href="/docs/compared_to_react.html">Compared to React</a></li>
+</ul></section>
+<section><h2>CSS</h2><ul>
+<li><a href="/docs/native-utilities.html">Use native utilities</a></li>
+<li><a href="/docs/utility-rules.html">Author utility rules</a></li>
+<li><a href="/docs/utility-recipes.html">Utility rule recipes</a></li>
+</ul></section>
+<section><h2>Examples</h2><ul>
+<li><a href="/docs/todomvc.html">TodoMVC</a></li>
+</ul></section>
+<section><h2>Project Documentation</h2><ul>
+<li><a href="/docs/faq.html">Frequently Asked Questions</a></li>
+<li><a href="/docs/related_projects.html">Related projects</a></li>
+<li><a href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li>
+</ul></section>
+</nav></aside>
+<main id="main"><h1>Introduction</h1><a class="edit" href="https://github.com/react4j/react4j/tree/master/docs/overview.md">Edit this page</a>
+<article><p>React4j is an opinionated abstraction on top of <a href="https://reactjs.org">ReactJS</a> that allows you to use Java
 to build a web application using the React component model. The <a href="https://reactjs.org/docs/react-component.html">React component model</a>
 defines components that are passed <code>props</code> by their container, manage their own <code>state</code> and can be composed
 to make complex UIs.</p>
-<p>React4j uses <a href="https://github.com/gwtproject/gwt">GWT</a> or <a href="https://github.com/google/j2cl">J2CL</a> to compile the Java code to Javascript.</p>
+<p>React4j uses <a href="https://github.com/google/j2cl">J2CL</a> to compile the Java code to Javascript.</p>
 <p>The &quot;Hello World&quot; of React4j that just returns a header is as simple as:</p>
-<p><pre><code class="hljs">ReactDOM.render( h1( <span class="hljs-string">"Hello World"</span> ), WindowGlobal.document().getElementById( <span class="hljs-string">"app"</span> ) );</code></pre></p>
-<p>Although there is significantly more ceremony in java. You also need an xml based build descriptor for GWT which
-serves a similar purpose as a webpack configuration.</p>
-<p><pre><code class="hljs"><span class="hljs-keyword">package</span> react4j.examples.hello_world;
+<pre><code class="language-java">ReactDOM.render(h1(&quot;Hello World&quot;), WindowGlobal.document().getElementById(&quot;app&quot;));</code></pre>
+<p>The Java entry point is exported with <code>@JsMethod</code> and invoked by a Closure entry module. Bazel builds the Java sources, annotation processor output and J2CL bundle together. See <a href="project_setup.html">Project Setup</a> for the build and nullness requirements.</p>
+<p>Components compose through <code>Renderable</code>: either a native <code>ReactNode</code> or a ready <code>Buildable</code>.
+See <a href="input-step-enhancers.html#composing-ready-builders">composing ready builders</a> to nest components
+without explicit <code>build()</code> calls.</p>
+<pre><code class="language-java">package react4j.examples.hello_world;
 
-<span class="hljs-keyword">import</span> com.google.gwt.core.client.EntryPoint;
-<span class="hljs-keyword">import</span> react4j.dom.ReactDOM;
-<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> react4j.dom.DOM.*;
+import static react4j.dom.DOM.*;
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorld</span>
-  <span class="hljs-keyword">implements</span> <span class="hljs-title">EntryPoint</span>
-</span>{
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onModuleLoad</span><span class="hljs-params">()</span>
-  </span>{
-    ReactDOM.render( h1( <span class="hljs-string">"Hello World"</span> ), WindowGlobal.document().getElementById( <span class="hljs-string">"app"</span> ) );
-  }
+import jsinterop.annotations.JsMethod;
+import react4j.dom.ReactDOM;
+
+public final class HelloWorld {
+    private HelloWorld() {}
+
+    @JsMethod
+    public static void bootstrap() {
+        ReactDOM.render(h1(&quot;Hello World&quot;), WindowGlobal.document().getElementById(&quot;app&quot;));
+    }
 }</code></pre>
-<pre><code class="hljs"><span class="hljs-tag">&lt;<span class="hljs-name">module</span> <span class="hljs-attr">rename-to</span>=<span class="hljs-string">'hello_world'</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"com.google.gwt.core.Core"</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">inherits</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"react4j.dom.Dom"</span>/&gt;</span>
+<iframe title="Hello World example" src="/examples/hello_world.html"></iframe>
+</article><nav class="pagination" aria-label="Previous and next pages"><a class="next" href="/docs/project_setup.html"><span>Next</span>Project Setup</a></nav></main></div>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">entry-point</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'react4j.examples.hello_world.HelloWorld'</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">path</span>=<span class="hljs-string">''</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">public</span> <span class="hljs-attr">path</span>=<span class="hljs-string">'public'</span>/&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">set-property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"jre.checks.checkLevel"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"MINIMAL"</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">collapse-all-properties</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span></code></pre></p>
-<iframe src="/examples/hello_world.html"></iframe>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="project_setup.html">Project Setup →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="React4j" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/react4j/react4j" data-icon="octicon-star" data-count-href="/react4j/react4j/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2026 the React4j Project.</section></footer></div></body></html>
+<footer><a href="/docs/overview.html">Overview</a> · <a href="/api/">API Reference</a> · <a href="https://github.com/react4j/react4j">GitHub</a><p>Copyright © the React4j Project.</p></footer>
+</body></html>

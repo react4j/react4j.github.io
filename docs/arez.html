@@ -1,10 +1,36 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><title>Arez · React4j</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Arez · React4j"/><meta property="og:type" content="website"/><meta property="og:url" content="https://react4j.github.io/index.html"/><meta property="og:description" content="The combination of [Arez](https://arez.github.io) and React4j creates a powerful toolkit. Arez manages"/><link rel="shortcut icon" href="/img/favicon/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg"/><h2 class="headerTitle">React4j</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/docs/overview.html" target="_self">Docs</a></li><li><a href="/api" target="_self">API</a></li><li><a href="https://github.com/react4j/react4j/releases" target="_blank">Releases</a></li><li><a href="https://github.com/react4j/react4j" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Reference</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>About</h3><ul><li class="navListItem"><a class="navItem" href="/docs/overview.html">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/project_setup.html">Project Setup</a></li></ul></div><div class="navGroup navGroupActive"><h3>Reference</h3><ul><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/arez.html">Arez</a></li><li class="navListItem"><a class="navItem" href="/docs/compared_to_react.html">Compared to React</a></li></ul></div><div class="navGroup navGroupActive"><h3>Examples</h3><ul><li class="navListItem"><a class="navItem" href="/docs/todomvc.html">TodoMVC</a></li></ul></div><div class="navGroup navGroupActive"><h3>Project Documentation</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq.html">Frequently Asked Questions</a></li><li class="navListItem"><a class="navItem" href="/docs/related_projects.html">Related projects</a></li><li class="navListItem"><a class="navItem" href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li></ul></div></div></section></div><script>
-          var toggler = document.getElementById('navToggler');
-          var nav = document.getElementById('docsNav');
-          toggler.onclick = function() {
-            nav.classList.toggle('docsSliderActive');
-          };
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/react4j/react4j/tree/master/docs/arez.md" target="_blank">Edit</a><h1>Arez</h1></header><article><div><span><p>The combination of <a href="https://arez.github.io">Arez</a> and React4j creates a powerful toolkit. Arez manages
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arez · React4j</title><meta name="description" content="An opinionated Java binding for React">
+<link rel="icon" href="/img/favicon/favicon.ico"><link rel="stylesheet" href="/css/site.css"></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header><a class="brand" href="/"><img src="/img/logo.svg" alt="" width="40" height="40">React4j</a>
+<nav aria-label="Main navigation"><a href="/docs/overview.html">Docs</a><a href="/api/">API</a><a href="https://github.com/react4j/react4j/releases">Releases</a><a href="https://github.com/react4j/react4j">GitHub</a></nav></header>
+<div class="docs-layout"><aside><nav aria-label="Documentation navigation"><section><h2>About</h2><ul>
+<li><a href="/docs/overview.html">Introduction</a></li>
+<li><a href="/docs/project_setup.html">Project Setup</a></li>
+</ul></section>
+<section><h2>Reference</h2><ul>
+<li><a href="/docs/arez.html" aria-current="page">Arez</a></li>
+<li><a href="/docs/input-semantics.html">Input Identity and Equality</a></li>
+<li><a href="/docs/input-step-enhancers.html">Input Step Enhancers</a></li>
+<li><a href="/docs/compared_to_react.html">Compared to React</a></li>
+</ul></section>
+<section><h2>CSS</h2><ul>
+<li><a href="/docs/native-utilities.html">Use native utilities</a></li>
+<li><a href="/docs/utility-rules.html">Author utility rules</a></li>
+<li><a href="/docs/utility-recipes.html">Utility rule recipes</a></li>
+</ul></section>
+<section><h2>Examples</h2><ul>
+<li><a href="/docs/todomvc.html">TodoMVC</a></li>
+</ul></section>
+<section><h2>Project Documentation</h2><ul>
+<li><a href="/docs/faq.html">Frequently Asked Questions</a></li>
+<li><a href="/docs/related_projects.html">Related projects</a></li>
+<li><a href="/docs/intellij.html">IntelliJ IDEA IDE Setup</a></li>
+</ul></section>
+</nav></aside>
+<main id="main"><h1>Arez</h1><a class="edit" href="https://github.com/react4j/react4j/tree/master/docs/arez.md">Edit this page</a>
+<article><p>The combination of <a href="https://arez.github.io">Arez</a> and React4j creates a powerful toolkit. Arez manages
 the application state and React4j transforms the application state into a view. React4j and Arez are based
 on functional principles and trade higher memory usage for faster execution speed.</p>
 <p>React reduces the number of expensive DOM updates through the use of a virtual DOM. The application builds a future
@@ -14,7 +40,7 @@ required. Data nodes are always up to date and perform the minimum amount of wor
 <p>The React4j library bridges the two systems, triggering view updates when the state updates. Changes to observable
 data that a <code>@View</code> component accesses during rendering will schedule the component for re-rendering. The
 developer controls the scope of the re-render by controlling the size of the component.</p>
-<h2><a class="anchor" aria-hidden="true" name="getting-started"></a><a href="#getting-started" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Started</h2>
+<h2 id="getting-started">Getting Started<a class="heading-link" href="#getting-started" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
 <p>To trigger re-renders of a react4j component when observable Arez state is modified then annotate the component
 with <code>@View</code>. This will result in the <code>@Render</code> annotated method being invoked
 within the scope of a read-only, tracking (Arez) transaction. Changes to the observable state accessed within the
@@ -22,45 +48,47 @@ scope of the <code>@Render</code> annotated method will schedule the component f
 <p>Below is a <code>Footer</code> component extracted from a <a href="https://todomvc.com/">TodoMVC</a> implementation. It accesses the
 observable state <code>AppData.model.totalCount()</code>, <code>AppData.viewService.getFilterMode()</code> and
 <code>AppData.model.completedCount()</code> and will re-render each time any of these values change.</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@View</span>
-<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
-</span>{
-  <span class="hljs-meta">@Render</span>
-  <span class="hljs-meta">@Nonnull</span>
-  <span class="hljs-function">ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> count = AppData.model.totalCount();
-    <span class="hljs-keyword">final</span> String activeTodoWord = <span class="hljs-string">"item"</span> + ( count == <span class="hljs-number">1</span> ? <span class="hljs-string">""</span> : <span class="hljs-string">"s"</span> );
-    <span class="hljs-keyword">final</span> FilterMode filterMode = AppData.viewService.getFilterMode();
-    <span class="hljs-keyword">return</span>
-      footer( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"footer"</span> ),
-              span( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"todo-count"</span> ),
-                    strong( Integer.toString( count ) ),
-                    text( <span class="hljs-string">" "</span> + activeTodoWord + <span class="hljs-string">" left"</span> )
-              ),
-              ul( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"filters"</span> ),
-                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
-                           .className( FilterMode.ALL == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
-                           .href( <span class="hljs-string">"#"</span> ), <span class="hljs-string">"All"</span> )
-                  ),
-                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
-                           .className( FilterMode.ACTIVE == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
-                           .href( <span class="hljs-string">"#active"</span> ), <span class="hljs-string">"Active"</span> )
-                  ),
-                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
-                           .className( FilterMode.COMPLETED == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
-                           .href( <span class="hljs-string">"#completed"</span> ), <span class="hljs-string">"Completed"</span> )
-                  )
-              ),
-              AppData.model.completedCount() &gt; <span class="hljs-number">0</span> ?
-              button( <span class="hljs-keyword">new</span> BtnProps().className( <span class="hljs-string">"clear-completed"</span> ).onClick( e -&gt; AppData.service.clearCompleted() ),
-                      <span class="hljs-string">"Clear Completed"</span> ) :
-              <span class="hljs-keyword">null</span>
-      );
-  }
-}</code></pre></p>
-<hr>
-<h2><a class="anchor" aria-hidden="true" name="optimizing-the-component"></a><a href="#optimizing-the-component" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optimizing the component</h2>
+<pre><code class="language-java">@View
+abstract class Footer {
+    @Render
+    ReactNode render() {
+        final var count = AppData.model.totalCount();
+        final var activeTodoWord = &quot;item&quot; + (count == 1 ? &quot;&quot; : &quot;s&quot;);
+        final var filterMode = AppData.viewService.getFilterMode();
+        return footer(
+                new HtmlProps().className(&quot;footer&quot;),
+                span(
+                        new HtmlProps().className(&quot;todo-count&quot;),
+                        strong(Integer.toString(count)),
+                        text(&quot; &quot; + activeTodoWord + &quot; left&quot;)),
+                ul(
+                        new HtmlProps().className(&quot;filters&quot;),
+                        li(a(
+                                new AnchorProps()
+                                        .className(FilterMode.ALL == filterMode ? &quot;selected&quot; : &quot;&quot;)
+                                        .href(&quot;#&quot;),
+                                &quot;All&quot;)),
+                        li(a(
+                                new AnchorProps()
+                                        .className(FilterMode.ACTIVE == filterMode ? &quot;selected&quot; : &quot;&quot;)
+                                        .href(&quot;#active&quot;),
+                                &quot;Active&quot;)),
+                        li(a(
+                                new AnchorProps()
+                                        .className(FilterMode.COMPLETED == filterMode ? &quot;selected&quot; : &quot;&quot;)
+                                        .href(&quot;#completed&quot;),
+                                &quot;Completed&quot;))),
+                AppData.model.completedCount() &gt; 0
+                        ? button(
+                                new BtnProps()
+                                        .className(&quot;clear-completed&quot;)
+                                        .onClick(e -&gt; AppData.service.clearCompleted()),
+                                &quot;Clear Completed&quot;)
+                        : null);
+    }
+}</code></pre>
+<hr />
+<h2 id="optimizing-the-component">Optimizing the component<a class="heading-link" href="#optimizing-the-component" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
 <p>However this is not the most efficient component. There are several scenarios where the component wil re-render
 but produce identical output. This is inefficient as React4j will take time to re-render the component to the
 virtual DOM and then additional time to reconcile the virtual DOM against the actual DOM.</p>
@@ -71,7 +99,7 @@ re-rendering the entire component is perfectly fine and will have no impact on t
 case with a <a href="https://todomvc.com/">TodoMVC</a> implementation.</p>
 <p>However let's assume that this component needs to be optimized and walk through the steps that would be required to
 optimize the component to reduce the scope and frequency of re-renders.</p>
-<h3><a class="anchor" aria-hidden="true" name="use-memoize"></a><a href="#use-memoize" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use @Memoize</h3>
+<h3 id="use-memoize">Use @Memoize<a class="heading-link" href="#use-memoize" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h3>
 <p>If you turn on &quot;Highlight Updates&quot; in React's DevTools you will notice that the whole component re-renders any time
 a Todo is toggled from &quot;complete&quot; to &quot;not complete&quot; or vice-versa. However the html output only changes if the
 number of completed Todos changes from 0 to not zero or from not zero to zero.</p>
@@ -79,90 +107,87 @@ number of completed Todos changes from 0 to not zero or from not zero to zero.</
 <code>AppData.model.completedCount() &gt; 0</code> into a separate <code>@Memoize</code> method. The <code>@Render</code> annotated method will only
 be scheduled to render if the value returned from the <code>@Memoize</code> method changes.</p>
 <p>This method will look like:</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@Memoize</span>
-<span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">hasCompletedItems</span><span class="hljs-params">()</span>
-</span>{
-  <span class="hljs-keyword">return</span> AppData.model.completedCount() &gt; <span class="hljs-number">0</span>;
-}</code></pre></p>
+<pre><code class="language-java">@Memoize
+boolean hasCompletedItems() {
+    return AppData.model.completedCount() &gt; 0;
+}</code></pre>
 <p>Using computed properties is one of the easiest and least intrusive mechanisms for optimizing components.</p>
-<h3><a class="anchor" aria-hidden="true" name="extract-components"></a><a href="#extract-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extract Components</h3>
+<h3 id="extract-components">Extract Components<a class="heading-link" href="#extract-components" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h3>
 <p>If we return to React's DevTools and turn &quot;Highlight Updates&quot; on again. The next thing you will notice is that the
 component is re-rendered any time a Todo is added or removed as the value for the expression
 <code>AppData.model.totalCount()</code> changes. Unfortunately <code>@Memoize</code> will not help us here as the html output changes
 every time a re-render occurs. However we can decide to limit the scope of the rendering by extracting a component
 that encapsulates the html that changes.</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@View</span>
-<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooterTodoCount</span>
-</span>{
-  <span class="hljs-meta">@Render</span>
-  <span class="hljs-meta">@Nonnull</span>
-  <span class="hljs-function">ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> count = AppData.model.totalCount();
-    <span class="hljs-keyword">final</span> String activeTodoWord = <span class="hljs-string">"item"</span> + ( count == <span class="hljs-number">1</span> ? <span class="hljs-string">""</span> : <span class="hljs-string">"s"</span> );
-    <span class="hljs-keyword">return</span>
-      span( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"todo-count"</span> ),
-            strong( Integer.toString( count ) ),
-            text( <span class="hljs-string">" "</span> + activeTodoWord + <span class="hljs-string">" left"</span> )
-      );
-  }
-}</code></pre></p>
+<pre><code class="language-java">@View
+abstract class FooterTodoCount {
+    @Render
+    ReactNode render() {
+        final var count = AppData.model.totalCount();
+        final var activeTodoWord = &quot;item&quot; + (count == 1 ? &quot;&quot; : &quot;s&quot;);
+        return span(
+                new HtmlProps().className(&quot;todo-count&quot;),
+                strong(Integer.toString(count)),
+                text(&quot; &quot; + activeTodoWord + &quot; left&quot;));
+    }
+}</code></pre>
 <p>This component can be rendered via an expression such as <code>FooterTodoCountBuilder.build()</code>.</p>
 <p>The <code>FooterTodoCount</code> component will still be re-rendered every time a Todo is added or removed but the scope
 of the re-render is much smaller and thus the amount of work that React4j has to do is much smaller.</p>
 <p>We could also extract another component to manage the links and only re-render this new component when the
 <code>filterMode</code> observable property changes but we have decided against this as it is a relatively infrequent event.
 The final <code>Footer</code> component looks something like:</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@View</span>
-<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Footer</span>
-</span>{
-  <span class="hljs-meta">@Nullable</span>
-  <span class="hljs-meta">@Render</span>
-  <span class="hljs-function">ReactNode <span class="hljs-title">render</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-keyword">final</span> FilterMode filterMode = AppData.viewService.getFilterMode();
-    <span class="hljs-keyword">return</span>
-      footer( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"footer"</span> ),
-              FooterTodoCountBuilder.build(),
-              ul( <span class="hljs-keyword">new</span> HtmlProps().className( <span class="hljs-string">"filters"</span> ),
-                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
-                           .className( FilterMode.ALL == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
-                           .href( <span class="hljs-string">"#"</span> ), <span class="hljs-string">"All"</span> )
-                  ),
-                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
-                           .className( FilterMode.ACTIVE == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
-                           .href( <span class="hljs-string">"#active"</span> ), <span class="hljs-string">"Active"</span> )
-                  ),
-                  li( a( <span class="hljs-keyword">new</span> AnchorProps()
-                           .className( FilterMode.COMPLETED == filterMode ? <span class="hljs-string">"selected"</span> : <span class="hljs-string">""</span> )
-                           .href( <span class="hljs-string">"#completed"</span> ), <span class="hljs-string">"Completed"</span> )
-                  )
-              ),
-              hasCompletedItems() ?
-              button( <span class="hljs-keyword">new</span> BtnProps().className( <span class="hljs-string">"clear-completed"</span> ).onClick( e -&gt; AppData.service.clearCompleted() ),
-                      <span class="hljs-string">"Clear Completed"</span> ) :
-              <span class="hljs-keyword">null</span>
-      );
-  }
+<pre><code class="language-java">@View
+abstract class Footer {
+    @Nullable
+    @Render
+    ReactNode render() {
+        final var filterMode = AppData.viewService.getFilterMode();
+        return footer(
+                new HtmlProps().className(&quot;footer&quot;),
+                FooterTodoCountBuilder.build(),
+                ul(
+                        new HtmlProps().className(&quot;filters&quot;),
+                        li(a(
+                                new AnchorProps()
+                                        .className(FilterMode.ALL == filterMode ? &quot;selected&quot; : &quot;&quot;)
+                                        .href(&quot;#&quot;),
+                                &quot;All&quot;)),
+                        li(a(
+                                new AnchorProps()
+                                        .className(FilterMode.ACTIVE == filterMode ? &quot;selected&quot; : &quot;&quot;)
+                                        .href(&quot;#active&quot;),
+                                &quot;Active&quot;)),
+                        li(a(
+                                new AnchorProps()
+                                        .className(FilterMode.COMPLETED == filterMode ? &quot;selected&quot; : &quot;&quot;)
+                                        .href(&quot;#completed&quot;),
+                                &quot;Completed&quot;))),
+                hasCompletedItems()
+                        ? button(
+                                new BtnProps()
+                                        .className(&quot;clear-completed&quot;)
+                                        .onClick(e -&gt; AppData.service.clearCompleted()),
+                                &quot;Clear Completed&quot;)
+                        : null);
+    }
 
-  <span class="hljs-meta">@Memoize</span>
-  <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">hasCompletedItems</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-keyword">return</span> AppData.model.completedCount() &gt; <span class="hljs-number">0</span>;
-  }
-}</code></pre></p>
-<h3><a class="anchor" aria-hidden="true" name="on-optimizing"></a><a href="#on-optimizing" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>On Optimizing</h3>
+    @Memoize
+    boolean hasCompletedItems() {
+        return AppData.model.completedCount() &gt; 0;
+    }
+}</code></pre>
+<h3 id="on-optimizing">On Optimizing<a class="heading-link" href="#on-optimizing" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h3>
 <p>Ultimately measuring performance and optimizing when needed to keep within your performance budget is the ideal
 goal. It is important to know which parts of your application need to be fast and which parts are
 less important to optimize. In some cases, the application is small enough to never need optimization while
 in others optimizing components by default may be a good option (i.e. if the cost of optimization is lower
 than the cost of determining which parts of the application to optimize).</p>
-<h2><a class="anchor" aria-hidden="true" name="best-practices"></a><a href="#best-practices" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Best Practices</h2>
+<h2 id="best-practices">Best Practices<a class="heading-link" href="#best-practices" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h2>
 <p>Arez and React4j is such a powerful combination that many of the best practices that you use when building a
 React4j application no longer make sense after you integrate Arez. However this section will try to give some
 helpful suggestions that simplify your development experience. You should also checkout the Arez
 <a href="faq.html#arez-integration">FAQ Section</a>.</p>
-<h3><a class="anchor" aria-hidden="true" name="ui-state-should-be-modelled-with-arez-observable-state"></a><a href="#ui-state-should-be-modelled-with-arez-observable-state" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UI state should be modelled with Arez Observable State</h3>
+<h3 id="ui-state-should-be-modelled-with-arez-observable-state">UI state should be modelled with Arez Observable State<a class="heading-link" href="#ui-state-should-be-modelled-with-arez-observable-state" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h3>
 <p>Often applications start by just modelling the application domain classes as observable state. So an application
 has observable entities to model <code>Employee</code>, <code>Sale</code>, <code>Customer</code> etc. However it is extremely useful to model user
 interface state such as which tab is visible, the current application place or route, whether a button is visible
@@ -173,13 +198,13 @@ observable state and the application should appear just as it was before the rel
 <p>The question often arises, when should you use React4j component level state. In most cases this state is no
 longer necessary however it sometimes makes sense to use component state if the state never needs to be shared
 with any other component.</p>
-<h3><a class="anchor" aria-hidden="true" name="avoid-writing-business-logic-in-your-react4j-components"></a><a href="#avoid-writing-business-logic-in-your-react4j-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Avoid writing &quot;business logic&quot; in your React4j components</h3>
+<h3 id="avoid-writing-business-logic-in-your-react4j-components">Avoid writing &quot;business logic&quot; in your React4j components<a class="heading-link" href="#avoid-writing-business-logic-in-your-react4j-components" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h3>
 <p>In an ideal world your Arez/React4j application, React4j should just be providing the view and Arez should
 provide the business logic. The business logic method in the Arez components are then called from React4j
 components. This makes it much easier to reuse, refactor and test the business logic. In most cases
 the business logic can be tested outside the browser in pure java. Another advantage is that it makes the
 application much easier to understand.</p>
-<h3><a class="anchor" aria-hidden="true" name="separate-network-interactions-from-react4j-components-and-other-arez-business-logic-components"></a><a href="#separate-network-interactions-from-react4j-components-and-other-arez-business-logic-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Separate network interactions from React4j components and other arez business logic components</h3>
+<h3 id="separate-network-interactions-from-react4j-components-and-other-arez-business-logic-components">Separate network interactions from React4j components and other arez business logic components<a class="heading-link" href="#separate-network-interactions-from-react4j-components-and-other-arez-business-logic-components" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h3>
 <p>Network interactions can be notoriously difficult to test. They are business logic and should not be put in
 your React4j components and instead should be triggered from arez components.</p>
 <p>One approach is to extract the service API calls behind an interface and pass the service interface into the
@@ -187,127 +212,119 @@ constructor of the arez component. This way the unit tests can pass in a mock AP
 <p>Consider the example where you have an action that wants to transition to a view listing employees and wants
 to load all the employee data for the view. A typical example using the &quot;extract a remote service interface&quot;
 strategy would be:</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeService</span>
-</span>{
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RemoteServiceAPI _remote;
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> _loading;
-  <span class="hljs-keyword">private</span> String _employeeData;
-  <span class="hljs-keyword">private</span> String _errorMessage;
+<pre><code class="language-java">@ArezComponent
+public abstract class EmployeeService {
+    private final RemoteServiceAPI _remote;
+    private boolean _loading;
+    private @Nullable String _employeeData;
+    private @Nullable String _errorMessage;
 
-  EmployeeService( <span class="hljs-keyword">final</span> RemoteServiceAPI remote )
-  {
-    _remote = remote;
-  }
+    EmployeeService(final RemoteServiceAPI remote) {
+        _remote = remote;
+    }
 
-  <span class="hljs-meta">@Action</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changeToEmployeeView</span><span class="hljs-params">()</span>
-  </span>{
-    setLoading( <span class="hljs-keyword">true</span> );
-    _remote.loadEmployeeData( data -&gt; {
-      setLoading( <span class="hljs-keyword">false</span> );
-      setEmployeeData( data );
-    }, errorMessage -&gt; {
-      setLoading( <span class="hljs-keyword">false</span> );
-      setErrorMessage( errorMessage );
-    } );
-  }
+    @Action
+    public void changeToEmployeeView() {
+        setLoading(true);
+        _remote.loadEmployeeData(
+                data -&gt; {
+                    setLoading(false);
+                    setEmployeeData(data);
+                },
+                errorMessage -&gt; {
+                    setLoading(false);
+                    setErrorMessage(errorMessage);
+                });
+    }
 
-  <span class="hljs-meta">@Observable</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isLoading</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-keyword">return</span> _loading;
-  }
+    @Observable
+    public boolean isLoading() {
+        return _loading;
+    }
 
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLoading</span><span class="hljs-params">( <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> loading )</span>
-  </span>{
-    _loading = loading;
-  }
+    public void setLoading(final boolean loading) {
+        _loading = loading;
+    }
 
-  <span class="hljs-meta">@Observable</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getEmployeeData</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-keyword">return</span> _employeeData;
-  }
+    @Observable
+    public @Nullable String getEmployeeData() {
+        return _employeeData;
+    }
 
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setEmployeeData</span><span class="hljs-params">( <span class="hljs-keyword">final</span> String employeeData )</span>
-  </span>{
-    _employeeData = employeeData;
-  }
+    public void setEmployeeData(final String employeeData) {
+        _employeeData = employeeData;
+    }
 
-  <span class="hljs-meta">@Observable</span>
-  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getErrorMessage</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-keyword">return</span> _errorMessage;
-  }
+    @Observable
+    public @Nullable String getErrorMessage() {
+        return _errorMessage;
+    }
 
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setErrorMessage</span><span class="hljs-params">( <span class="hljs-keyword">final</span> String errorMessage )</span>
-  </span>{
-    _errorMessage = errorMessage;
-  }
-}</code></pre></p>
+    public void setErrorMessage(final String errorMessage) {
+        _errorMessage = errorMessage;
+    }
+}</code></pre>
 <p>Another approach that is even easier to test and arguably easier to understand is to have the the <code>@Action</code>
 annotated method set state the defines the &quot;intent&quot; to perform a remote service and then have a separate arez
 component that uses an <code>@Observe</code> method that observes the &quot;intent&quot; and performs remote call when the intent
 indicates that it is required.</p>
 <p>So this results in some minor modifications to the employee service so that the action is implemented as follows:</p>
-<p><pre><code class="hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> _loadEmployeeData;
+<pre><code class="language-java">private boolean _loadEmployeeData;
 
-<span class="hljs-meta">@Observable</span>( name = <span class="hljs-string">"loadEmployeeData"</span> )
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">shouldLoadEmployeeData</span><span class="hljs-params">()</span>
-</span>{
-  <span class="hljs-keyword">return</span> _loadEmployeeData;
+@Observable(name = &quot;loadEmployeeData&quot;)
+public boolean shouldLoadEmployeeData() {
+    return _loadEmployeeData;
 }
 
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLoadEmployeeData</span><span class="hljs-params">( <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> loadEmployeeData )</span>
-</span>{
-  _loadEmployeeData = loadEmployeeData;
+public void setLoadEmployeeData(final boolean loadEmployeeData) {
+    _loadEmployeeData = loadEmployeeData;
 }
 
-<span class="hljs-meta">@Action</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changeToEmployeeView</span><span class="hljs-params">()</span>
-</span>{
-  setLoadEmployeeData( <span class="hljs-keyword">true</span> );
+@Action
+public void changeToEmployeeView() {
+    setLoadEmployeeData(true);
 }
-</code></pre></p>
+</code></pre>
 <p>Then there would be a separate arez component to observe the intent and perform the remote call:</p>
-<p><pre><code class="hljs"><span class="hljs-meta">@ArezComponent</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeDataLoader</span>
-</span>{
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RemoteServiceAPI _remote;
-  <span class="hljs-meta">@ComponentDependency</span>
-  <span class="hljs-keyword">final</span> EmployeeService _service;
+<pre><code class="language-java">@ArezComponent
+public abstract class EmployeeDataLoader {
+    private final RemoteServiceAPI _remote;
 
-  EmployeeDataLoader( <span class="hljs-keyword">final</span> RemoteServiceAPI remote, <span class="hljs-keyword">final</span> EmployeeService service )
-  {
-    _remote = remote;
-    _service = service;
-  }
+    @ComponentDependency
+    final EmployeeService _service;
 
-  <span class="hljs-meta">@Observe</span>
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loadEmployeeDataIfRequired</span><span class="hljs-params">()</span>
-  </span>{
-    <span class="hljs-keyword">if</span> ( _service.shouldLoadEmployeeData() )
-    {
-      _service.setLoading( <span class="hljs-keyword">true</span> );
-      _remote.loadEmployeeData( data -&gt; {
-        _service.setLoading( <span class="hljs-keyword">false</span> );
-        _service.setEmployeeData( data );
-        _service.setLoadEmployeeData( <span class="hljs-keyword">false</span> );
-      }, errorMessage -&gt; {
-        _service.setLoading( <span class="hljs-keyword">false</span> );
-        _service.setErrorMessage( errorMessage );
-        _service.setLoadEmployeeData( <span class="hljs-keyword">false</span> );
-      } );
+    EmployeeDataLoader(final RemoteServiceAPI remote, final EmployeeService service) {
+        _remote = remote;
+        _service = service;
     }
-  }
-}</code></pre></p>
+
+    @Observe
+    void loadEmployeeDataIfRequired() {
+        if (_service.shouldLoadEmployeeData()) {
+            _service.setLoading(true);
+            _remote.loadEmployeeData(
+                    data -&gt; {
+                        _service.setLoading(false);
+                        _service.setEmployeeData(data);
+                        _service.setLoadEmployeeData(false);
+                    },
+                    errorMessage -&gt; {
+                        _service.setLoading(false);
+                        _service.setErrorMessage(errorMessage);
+                        _service.setLoadEmployeeData(false);
+                    });
+        }
+    }
+}</code></pre>
 <p>This approach where you separate intent and have another component that performs the remote call means that
 your unit tests are much more focused and simpler to understand. It has the disadvantage that it requires more
 verbose code constructs and can result in more abstraction and indirection. In a small application with a single
 developer this can have a negative effect. Larger applications with larger teams may benefit from the higher
 level of abstraction.</p>
-<h3><a class="anchor" aria-hidden="true" name="avoid-arez-annotations-other-than-memoize-and-action-in-react4j-components"></a><a href="#avoid-arez-annotations-other-than-memoize-and-action-in-react4j-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Avoid arez annotations other than @Memoize and @Action in React4j components</h3>
+<h3 id="avoid-arez-annotations-other-than-memoize-and-action-in-react4j-components">Avoid arez annotations other than @Memoize and @Action in React4j components<a class="heading-link" href="#avoid-arez-annotations-other-than-memoize-and-action-in-react4j-components" aria-label="Link to this section"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 10l4-4M6 5l2-2a3 3 0 0 1 4 4l-2 2M10 11l-2 2a3 3 0 0 1-4-4l2-2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></h3>
 <p>Following the above best practices, you will find you rarely if ever need to annotate any methods in a
 <code>@View</code> annotated class with any Arez annotations other than <code>@Memoize</code> and <code>@Action</code>.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="project_setup.html">← Project Setup</a><a class="docs-next button" href="compared_to_react.html">Compared to React →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="React4j" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/api/index.html">API Reference</a></div><div><h5>More</h5><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/react4j/react4j" data-icon="octicon-star" data-count-href="/react4j/react4j/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2026 the React4j Project.</section></footer></div></body></html>
+</article><nav class="pagination" aria-label="Previous and next pages"><a class="previous" href="/docs/project_setup.html"><span>Previous</span>Project Setup</a><a class="next" href="/docs/input-semantics.html"><span>Next</span>Input Identity and Equality</a></nav></main></div>
+
+<footer><a href="/docs/overview.html">Overview</a> · <a href="/api/">API Reference</a> · <a href="https://github.com/react4j/react4j">GitHub</a><p>Copyright © the React4j Project.</p></footer>
+</body></html>
